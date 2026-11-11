@@ -50,7 +50,7 @@ jobs:
       # ------------------------------------------------------------------------
       # STEP 1: Disk Space Reclamation & Strict >= 150 GB Dual-Drive Gate
       # ------------------------------------------------------------------------
-      - name: Reclaim Disk Space Across Both Drives (C:/D: or / and /mnt) & Enforce 150GB Minimum
+      - name: Reclaim Disk Space Across Both Drives (C, D or / and /mnt) & Enforce 150GB Minimum
         shell: bash
         run: |
           set -euo pipefail
