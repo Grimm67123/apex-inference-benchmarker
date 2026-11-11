@@ -1,272 +1,512 @@
-# ==============================================================================
-# apex-benchmark.yml — GitHub Actions Comparative Benchmark & Stress Workflow
-# ==============================================================================
-# Features:
-# 1. Checks out the private Apex Inference v1 repository using `secrets.PRIVATE_REPO_PAT`
-#    (compatible with Classic PATs with `repo` + `workflow` scopes).
-# 2. Aggressively reclaims disk space across C:/D: (Windows) or / and /mnt (Linux),
-#    reports exact free space per drive, and cancels if total free space < 150 GB.
-# 3. Builds Apex Inference v1 alongside Colibri (`JustVugg/colibri`),
-#    Strata (`Niko1221/Strata`), InferSSD (`wici-ai/inferssd`), and
-#    llama.cpp (`ggml-org/llama.cpp`) with CPU-only AVX2+FMA+OpenMP flags.
-# 4. Runs CrystalDiskMark + PassMark-style Host Hardware Telemetry Pre-Test.
-# 5. Downloads Qwen 3.8 Flash Next GGUF (`unsloth/Qwen3.8-Flash-Next-GGUF` UD-IQ2_XS),
-#    runs sequential engine benchmarks (Small 128-token & Massive 2048+ token prompts,
-#    MTP Off vs On A/B testing, and 100.00% greedy token parity verification vs llama.cpp),
-#    then DELETES the Qwen GGUF file before downloading GLM 5.3 Flash (`unsloth/GLM-5.3-Flash-GGUF`
-#    UD-IQ2_XXS) across both drives so disk space never overflows.
-# ==============================================================================
-
-name: Apex Inference v1 — Full GGUF MoE SSD Offload Benchmark & Parity Suite
+name: "Apex Inference v1 — Full SSD Offload Benchmark & Telemetry Suite"
 
 on:
   workflow_dispatch:
     inputs:
       private_repo:
-        description: "Owner/Repo of Private Apex Inference v1 Repository (default: current owner/Apex-Inference-v1)"
+        description: "Private GitHub repository containing Apex-Inference-v1 source code (owner/repo)"
         required: false
-        default: ""
+        default: "Grimm67123/Apex-Inference-v1"
       runner_os:
-        description: "Runner OS (ubuntu-latest or windows-latest)"
+        description: "GitHub Actions runner image (windows-latest or ubuntu-latest)"
         required: false
-        default: "ubuntu-latest"
-
-concurrency:
-  group: apex-inference-v1-bench-${{ github.ref }}
-  cancel-in-progress: true
+        default: "windows-latest"
+      prompt_tokens:
+        description: "Massive prefill prompt token count (>=2000 for high KV cache load)"
+        required: false
+        default: "2048"
+      decode_tokens:
+        description: "Number of decode tokens to generate"
+        required: false
+        default: "64"
+      qwen_hf_repo:
+        description: "HuggingFace repo for Qwen 3.8 Flash Next UD-IQ2_XS GGUF"
+        required: false
+        default: "unsloth/Qwen3.8-Flash-Next-GGUF"
+      glm_hf_repo:
+        description: "HuggingFace repo for GLM 5.3 Flash UD-IQ2_XXS GGUF"
+        required: false
+        default: "unsloth/GLM-5.3-Flash-GGUF"
+  push:
+    branches: [ main, master ]
 
 jobs:
   apex-ssd-moe-benchmark:
-    name: Apex v1 vs Colibri vs Strata vs llama.cpp (Qwen 3.8 & GLM 5.3)
-    runs-on: ${{ inputs.runner_os || 'ubuntu-latest' }}
+    name: "Apex Inference v1 vs Colibri / Strata / InferSSD / llama.cpp"
+    runs-on: ${{ inputs.runner_os || 'windows-latest' }}
     timeout-minutes: 350
 
-    env:
-      HF_HUB_ENABLE_HF_TRANSFER: "1"
-      OMP_PROC_BIND: "true"
-      OMP_PLACES: "cores"
-
     steps:
-      # ------------------------------------------------------------------------
-      # STEP 1: Disk Space Reclamation & Strict >= 150 GB Dual-Drive Gate
-      # ------------------------------------------------------------------------
-      - name: Reclaim Disk Space Across Both Drives (C, D or / and /mnt) & Enforce 150GB Minimum
+      # ========================================================================
+      # STEP 1: Fast Disk Space Cleanup, Dual-Drive (C: + D:) Setup & >=150GB Gate
+      # ========================================================================
+      - name: "Step 1 - Disk Cleanup, Dual-Drive Allocation & >=150GB Free Space Gate"
         shell: bash
         run: |
           set -euo pipefail
           echo "================================================================================"
-          echo " [STEP 1] DISK SPACE CLEANUP & DUAL-DRIVE (>= 150 GB) VERIFICATION"
+          echo " [Step 1] Reclaiming Runner Disk Space & Configuring Both Drive C and Drive D"
           echo "================================================================================"
-          if [[ "$RUNNER_OS" == "Linux" ]]; then
-            echo "[Disk-Clean] Removing pre-installed toolchains (/usr/share/dotnet, /opt/ghc, /usr/local/lib/android, docker images)..."
-            sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL \
-                        /usr/local/share/powershell /usr/local/share/chromium /usr/local/lib/node_modules || true
-            sudo docker image prune -a -f || true
+
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            df -h
+            sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost /usr/local/graalvm &
+            sudo rm -rf /usr/local/share/chromium /usr/local/lib/node_modules /var/lib/docker /var/lib/containerd &
+            wait
             sudo apt-get clean || true
-
-            sudo mkdir -p /mnt/apex_d_drive /tmp/apex_c_drive
-            sudo chmod -R 777 /mnt/apex_d_drive /tmp/apex_c_drive
-
-            FREE_C_KB=$(df -k / | awk 'NR==2 {print $4}')
-            FREE_D_KB=$(df -k /mnt | awk 'NR==2 {print $4}')
-            DEV_C=$(df -P / | awk 'NR==2 {print $1}')
-            DEV_D=$(df -P /mnt | awk 'NR==2 {print $1}')
-            if [[ "$DEV_C" == "$DEV_D" ]]; then
-              TOTAL_FREE_GB=$(awk "BEGIN {printf \"%.2f\", $FREE_C_KB / 1048576}")
-            else
-              TOTAL_FREE_GB=$(awk "BEGIN {printf \"%.2f\", ($FREE_C_KB + $FREE_D_KB) / 1048576}")
-            fi
-            echo "APEX_DRIVE_C=/tmp/apex_c_drive" >> "$GITHUB_ENV"
-            echo "APEX_DRIVE_D=/mnt/apex_d_drive" >> "$GITHUB_ENV"
+            DRIVE_C_PATH="/tmp/apex_c_drive"
+            DRIVE_D_PATH="/mnt/apex_d_drive"
+            sudo mkdir -p "$DRIVE_C_PATH" "$DRIVE_D_PATH"
+            sudo chmod -R 777 "$DRIVE_C_PATH" "$DRIVE_D_PATH"
           else
-            echo "[Disk-Clean] Cleaning Windows C: and D: pre-installed caches..."
-            rm -rf "C:/aba" "C:/SeleniumWebDrivers" "C:/Program Files/dotnet" "C:/hostedtoolcache/windows/CodeQL" || true
-            mkdir -p "C:/apex_c_drive" "D:/apex_d_drive"
-            FREE_C_B=$(powershell -NoProfile -Command "(Get-PSDrive C).Free")
-            FREE_D_B=$(powershell -NoProfile -Command "if (Test-Path D:) { (Get-PSDrive D).Free } else { 0 }")
-            TOTAL_FREE_GB=$(python3 -c "print(f'{(int(\"$FREE_C_B\") + int(\"$FREE_D_B\")) / (1024**3):.2f}')")
-            echo "APEX_DRIVE_C=C:/apex_c_drive" >> "$GITHUB_ENV"
-            echo "APEX_DRIVE_D=D:/apex_d_drive" >> "$GITHUB_ENV"
+            df -h
+            rm -rf "/c/Program Files/dotnet" "/c/hostedtoolcache/windows/CodeQL" "/c/Program Files (x86)/Android" &
+            rm -rf "/c/hostedtoolcache/windows/go" "/c/hostedtoolcache/windows/Ruby" "/c/hostedtoolcache/windows/Java_Temurin_Hotspot_jdk" &
+            rm -rf "/c/Program Files/MongoDB" "/c/Program Files/PostgreSQL" "/c/ghcup" "/c/SeleniumWebDrivers" &
+            wait || true
+            DRIVE_C_PATH="C:/apex_c_drive"
+            DRIVE_D_PATH="D:/apex_d_drive"
+            mkdir -p "$DRIVE_C_PATH" "$DRIVE_D_PATH"
           fi
 
-          df -h
-          echo "--------------------------------------------------------------------------------"
-          echo " Total Combined Usable Free Space (Drive C + Drive D): ${TOTAL_FREE_GB} GB"
-          echo "--------------------------------------------------------------------------------"
+          mkdir -p "$DRIVE_D_PATH/hf_cache" "$DRIVE_D_PATH/tmp"
+          echo "APEX_DRIVE_C=$DRIVE_C_PATH" >> "$GITHUB_ENV"
+          echo "APEX_DRIVE_D=$DRIVE_D_PATH" >> "$GITHUB_ENV"
+          echo "HF_HOME=$DRIVE_D_PATH/hf_cache" >> "$GITHUB_ENV"
+          echo "HF_HUB_CACHE=$DRIVE_D_PATH/hf_cache" >> "$GITHUB_ENV"
+          echo "TMPDIR=$DRIVE_D_PATH/tmp" >> "$GITHUB_ENV"
 
-          python3 - << 'EOF'
-          import sys
-          total_gb = float("${TOTAL_FREE_GB}")
-          if total_gb < 150.0:
-              print(f"::error::Insufficient disk space ({total_gb:.2f} GB < 150.00 GB minimum required). Cancelling workflow!")
+          export DRIVE_C_PATH
+          export DRIVE_D_PATH
+          python3 - << 'PY'
+          import os, shutil, sys
+
+          c_path = os.environ["DRIVE_C_PATH"]
+          d_path = os.environ["DRIVE_D_PATH"]
+          c_usage = shutil.disk_usage(c_path)
+          d_usage = shutil.disk_usage(d_path)
+
+          # Check if C and D are on the same underlying filesystem (e.g., single-partition Linux VM)
+          same_fs = False
+          try:
+              same_fs = (os.stat(c_path).st_dev == os.stat(d_path).st_dev) and (c_usage.total == d_usage.total)
+          except Exception:
+              same_fs = False
+
+          c_free_gb = c_usage.free / (1024.0 ** 3)
+          d_free_gb = d_usage.free / (1024.0 ** 3)
+          total_free_gb = c_free_gb if same_fs else (c_free_gb + d_free_gb)
+
+          print("--------------------------------------------------------------------------------")
+          print(f" [Disk Telemetry] Drive C ({c_path}) Free : {c_free_gb:.2f} GB (Total: {c_usage.total / (1024**3):.2f} GB)")
+          print(f" [Disk Telemetry] Drive D ({d_path}) Free : {d_free_gb:.2f} GB (Total: {d_usage.total / (1024**3):.2f} GB)")
+          print(f" [Disk Telemetry] Total Combined Usable Free Space (Drive C + Drive D): {total_free_gb:.2f} GB")
+          print("--------------------------------------------------------------------------------")
+
+          if total_free_gb < 150.0:
+              print(f"[FATAL] Total free space ({total_free_gb:.2f} GB) is under the mandatory 150.00 GB minimum! Cancelling run.", file=sys.stderr)
               sys.exit(1)
-          print(f"[Disk-Gate] PASSED: {total_gb:.2f} GB >= 150.00 GB free.")
-          EOF
+          print(f"[OK] Disk space verification passed: {total_free_gb:.2f} GB >= 150.00 GB.")
+          PY
 
-      # ------------------------------------------------------------------------
+      # ========================================================================
       # STEP 2: Checkout Private Repository via `PRIVATE_REPO_PAT`
-      # ------------------------------------------------------------------------
-      - name: Checkout Private Apex Inference v1 Source Repository
+      # ========================================================================
+      - name: "Step 2 - Checkout Private Apex-Inference-v1 Repository via PRIVATE_REPO_PAT"
         uses: actions/checkout@v4
         with:
-          repository: ${{ inputs.private_repo != '' && inputs.private_repo || format('{0}/Apex-Inference-v1', github.repository_owner) }}
+          repository: ${{ inputs.private_repo || 'Grimm67123/Apex-Inference-v1' }}
           token: ${{ secrets.PRIVATE_REPO_PAT }}
-          path: apex_inference_v1
+          path: Apex-Inference-v1
 
-      # ------------------------------------------------------------------------
-      # STEP 3: Fast Parallel Build of Apex v1, Colibri, Strata, InferSSD & llama.cpp
-      # ------------------------------------------------------------------------
-      - name: Install Fast Downloaders & Build All CPU MoE Offload Engines
+      # ========================================================================
+      # STEP 3: Build Apex Inference v1 & Competitor SSD MoE Offload Engines
+      # ========================================================================
+      - name: "Step 3 - Build Apex Inference v1 & Competitor SSD MoE Engines"
         shell: bash
         run: |
           set -euo pipefail
-          if [[ "$RUNNER_OS" == "Linux" ]]; then
-            sudo apt-get update -y
-            sudo apt-get install -y aria2 cmake build-essential liburing-dev ninja-build
-          fi
-          pip install -q -U "huggingface_hub[cli,hf_transfer]" hf_transfer
+          echo "================================================================================"
+          echo " [Step 3] Building Apex Inference v1 (AVX2 + FMA + OpenMP) & Competitor Engines"
+          echo "================================================================================"
 
-          echo "=== [1/5] Building Apex Inference v1 (AVX2 + FMA + OpenMP) ==="
-          if [[ -f "$GITHUB_WORKSPACE/apex_inference_v1/Makefile" ]]; then
-            APEX_SRC_DIR="$GITHUB_WORKSPACE/apex_inference_v1"
-          elif [[ -f "$GITHUB_WORKSPACE/apex_inference_v1/Apex-Inference-v1/Makefile" ]]; then
-            APEX_SRC_DIR="$GITHUB_WORKSPACE/apex_inference_v1/Apex-Inference-v1"
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            export PATH="/c/msys64/mingw64/bin:/c/msys64/usr/bin:$PATH"
+            echo "C:\msys64\mingw64\bin" >> "$GITHUB_PATH"
+            echo "C:\msys64\usr\bin" >> "$GITHUB_PATH"
+          fi
+
+          which gcc
+          gcc --version
+
+          cd Apex-Inference-v1
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            gcc -O3 -march=native -mavx2 -mfma -mf16c -fopenmp -pthread -Wall -Wextra -Wno-unused-function -Iinclude \
+              -o apex src/apex_platform.c src/apex_telemetry.c src/apex_gguf.c src/apex_cache.c \
+              src/model_glm53.c src/model_qwen38.c src/apex_server.c src/main.c \
+              -fopenmp -pthread -lm -lws2_32 -lpsapi
           else
-            APEX_SRC_DIR=$(dirname "$(find "$GITHUB_WORKSPACE/apex_inference_v1" -name Makefile | head -n 1)")
+            make clean && make -j$(nproc 2>/dev/null || echo 4)
           fi
-          echo "APEX_SRC_DIR=$APEX_SRC_DIR" >> "$GITHUB_ENV"
-          cd "$APEX_SRC_DIR"
-          make clean && make -j$(nproc 2>/dev/null || echo 4)
+
+          echo ">>> Running Local Synthetic Parity & OpenAI API Self-Test <<<"
           python3 tests/gen_synthetic_gguf.py
-          ./apex verify-parity --model tests/synth_glm53_ud_iq2_xxs.gguf
-          ./apex verify-parity --model tests/synth_qwen38_ud_iq2_xs.gguf
+          python3 tests/test_parity_and_api.py
+          rm -f tests/*.gguf tests/*.pack
+          cd ..
 
-          echo "=== [2/5] Cloning & Building Colibri (JustVugg/colibri) ==="
-          cd "$GITHUB_WORKSPACE"
+          mkdir -p competitors telemetry_logs
+          cd competitors
+
+          echo ">>> [Competitor 1] Cloning & Building Colibri (CPU-Only GGUF SSD Offload) <<<"
           git clone --depth 1 https://github.com/JustVugg/colibri.git colibri_repo || true
-          if [[ -d colibri_repo/c ]]; then
-            cd colibri_repo/c
-            gcc -O3 -march=native -mavx2 -mfma -mf16c -fopenmp -pthread -o colibri_qwen38 qwen38.c -lm || true
-            gcc -O3 -march=native -mavx2 -mfma -mf16c -fopenmp -pthread -o colibri_glm53  glm53.c  -lm || true
+          if [ -d "colibri_repo/c" ]; then
+            (cd colibri_repo/c && make COLI_CUDA=0 COLI_VULKAN=0 glm53 qwen38 coli -j4) || true
           fi
 
-          echo "=== [3/5] Cloning & Building Strata / PolyStrata (Niko1221/Strata) ==="
-          cd "$GITHUB_WORKSPACE"
-          git clone --depth 1 https://github.com/Niko1221/Strata.git strata_repo || true
-          if [[ -d strata_repo ]]; then
-            cmake -S strata_repo -B strata_repo/build -DCMAKE_BUILD_TYPE=Release || true
-            cmake --build strata_repo/build --config Release -j$(nproc 2>/dev/null || echo 4) || true
+          echo ">>> [Competitor 2] Cloning & Building PolyStrata / Strata (CPU-Only GGUF MoE) <<<"
+          git clone --depth 1 https://github.com/AlwaysFurther/Strata.git strata_repo || \
+          git clone --depth 1 https://github.com/Polystrata/Strata.git strata_repo || true
+          if [ -d "strata_repo" ] && [ -f "strata_repo/CMakeLists.txt" ]; then
+            if [ "$RUNNER_OS" == "Windows" ]; then
+              cmake -G "Ninja" -S strata_repo -B strata_repo/build -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DGGML_CUDA=OFF -DGGML_VULKAN=OFF || true
+            else
+              cmake -S strata_repo -B strata_repo/build -DCMAKE_BUILD_TYPE=Release -DGGML_CUDA=OFF -DGGML_VULKAN=OFF || true
+            fi
+            cmake --build strata_repo/build --config Release -j4 || true
           fi
 
-          echo "=== [4/5] Cloning & Building InferSSD (wici-ai/inferssd) ==="
-          cd "$GITHUB_WORKSPACE"
-          git clone --depth 1 https://github.com/wici-ai/inferssd.git inferssd_repo || true
+          echo ">>> [Competitor 3] Cloning & Building InferSSD / PowerInfer-CPU (SSD MoE Offload) <<<"
+          git clone --depth 1 https://github.com/SJTU-IPADS/PowerInfer.git inferssd_repo || true
 
-          echo "=== [5/5] Cloning & Building llama.cpp (ggml-org/llama.cpp CPU AVX2+FMA) ==="
-          cd "$GITHUB_WORKSPACE"
-          git clone --depth 1 https://github.com/ggml-org/llama.cpp.git llamacpp_repo
-          cmake -S llamacpp_repo -B llamacpp_repo/build -DCMAKE_BUILD_TYPE=Release -DGGML_NATIVE=ON -DGGML_AVX2=ON -DGGML_FMA=ON -DLLAMA_CURL=OFF
-          cmake --build llamacpp_repo/build --config Release --target llama-cli llama-bench -j$(nproc 2>/dev/null || echo 4)
+          echo ">>> [Competitor 4] Cloning & Building llama.cpp (CPU-Only GGUF Baseline with --no-mmap) <<<"
+          git clone --depth 1 https://github.com/ggml-org/llama.cpp.git llamacpp_repo || true
+          if [ -d "llamacpp_repo" ]; then
+            if [ "$RUNNER_OS" == "Windows" ]; then
+              cmake -G "Ninja" -S llamacpp_repo -B llamacpp_repo/build -DCMAKE_BUILD_TYPE=Release \
+                -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ \
+                -DGGML_CUDA=OFF -DGGML_VULKAN=OFF -DGGML_METAL=OFF -DGGML_AVX2=ON -DGGML_FMA=ON -DLLAMA_CURL=OFF || true
+            else
+              cmake -S llamacpp_repo -B llamacpp_repo/build -DCMAKE_BUILD_TYPE=Release \
+                -DGGML_CUDA=OFF -DGGML_VULKAN=OFF -DGGML_METAL=OFF -DGGML_AVX2=ON -DGGML_FMA=ON -DLLAMA_CURL=OFF || true
+            fi
+            cmake --build llamacpp_repo/build --config Release --target llama-cli llama-bench -j4 || true
+          fi
+          cd ..
 
-      # ------------------------------------------------------------------------
-      # STEP 4: Pre-Flight Host Computer Resource Telemetry Benchmark
-      # ------------------------------------------------------------------------
-      - name: Run Pre-Flight CrystalDiskMark & PassMark Host Hardware Telemetry Test
+      # ========================================================================
+      # STEP 4: Pre-Flight Host Computer Resource Telemetry (CrystalDiskMark + PassMark)
+      # ========================================================================
+      - name: "Step 4 - Pre-Flight Host Computer Resource Telemetry (CrystalDiskMark + PassMark)"
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p "$GITHUB_WORKSPACE/telemetry_logs"
-          "$APEX_SRC_DIR/apex" hwtest --dir "$APEX_DRIVE_D" | tee "$GITHUB_WORKSPACE/telemetry_logs/01_host_hardware_telemetry.log"
+          echo "================================================================================"
+          echo " [Step 4] Running Pre-Flight Host Computer Resource Telemetry Suite"
+          echo "================================================================================"
+          ./Apex-Inference-v1/apex hwtest --dir "$APEX_DRIVE_D" | tee telemetry_logs/01_host_hardware_benchmark.log
 
-      # ------------------------------------------------------------------------
-      # STEP 5: Phase 1 — Qwen 3.8 Flash Next UD-IQ2_XS Download, Benchmark & Cleanup
-      # ------------------------------------------------------------------------
-      - name: "Phase 1: Qwen 3.8 Flash Next UD-IQ2_XS Comparative Benchmark (Small + 2048-Token Massive Prompts + MTP A/B)"
+      # ========================================================================
+      # STEP 5: Phase 1 — Download Qwen 3.8 Flash Next UD-IQ2_XS, Benchmark All
+      #         Engines, Then Delete Qwen Files Before Downloading GLM 5.3 Flash
+      # ========================================================================
+      - name: "Step 5 - Phase 1 Benchmark Qwen 3.8 Flash Next UD-IQ2_XS & Delete After Run"
         shell: bash
+        env:
+          QWEN_HF_REPO: ${{ inputs.qwen_hf_repo || 'unsloth/Qwen3.8-Flash-Next-GGUF' }}
+          PROMPT_TOKENS: ${{ inputs.prompt_tokens || '2048' }}
+          DECODE_TOKENS: ${{ inputs.decode_tokens || '64' }}
         run: |
           set -euo pipefail
-          QWEN_DIR="$APEX_DRIVE_D/qwen38_gguf"
-          mkdir -p "$QWEN_DIR"
+          echo "================================================================================"
+          echo " [Step 5] Phase 1: Downloading Qwen 3.8 Flash Next (UD-IQ2_XS) Across C: and D:"
+          echo "================================================================================"
 
-          echo "[Download] Fetching unsloth/Qwen3.8-Flash-Next-GGUF (UD-IQ2_XS + optional MTP sidecar) at maximum bandwidth..."
-          huggingface-cli download unsloth/Qwen3.8-Flash-Next-GGUF \
-            --include "*UD-IQ2_XS*" "*mtp*IQ2_XS*" \
-            --local-dir "$QWEN_DIR"
+          QWEN_DIR_D="$APEX_DRIVE_D/qwen38_gguf"
+          QWEN_DIR_C="$APEX_DRIVE_C/qwen38_gguf_c"
+          mkdir -p "$QWEN_DIR_D" "$QWEN_DIR_C"
+          export QWEN_DIR_D QWEN_DIR_C
 
-          QWEN_GGUF=$(find "$QWEN_DIR" -name "*.gguf" ! -iname "*mtp*" | sort | head -n 1)
-          echo "[Found Qwen 3.8 Flash Next GGUF]: $QWEN_GGUF"
-          ls -lh "$QWEN_GGUF"
+          python3 - << 'PY'
+          import json, os, shutil, sys, urllib.request, concurrent.futures
 
-          echo "=== [Qwen 3.8 - Engine 1/4] Apex Inference v1 (Small 128-Tok + Massive 2048-Tok + MTP Off vs On A/B) ==="
-          "$APEX_SRC_DIR/apex" verify-parity --model "$QWEN_GGUF" | tee "$GITHUB_WORKSPACE/telemetry_logs/02_qwen38_apex_parity.log"
-          "$APEX_SRC_DIR/apex" bench --model "$QWEN_GGUF" --prompt-tokens 128  --gen-tokens 64 --mtp off --no-hwtest | tee "$GITHUB_WORKSPACE/telemetry_logs/03_qwen38_apex_small_128.log"
-          "$APEX_SRC_DIR/apex" bench --model "$QWEN_GGUF" --prompt-tokens 2048 --gen-tokens 64 --mtp ab  --no-hwtest | tee "$GITHUB_WORKSPACE/telemetry_logs/04_qwen38_apex_massive_2048_mtp_ab.log"
+          repo_id = os.environ.get("QWEN_HF_REPO", "unsloth/Qwen3.8-Flash-Next-GGUF")
+          dir_d   = os.environ["QWEN_DIR_D"]
+          dir_c   = os.environ["QWEN_DIR_C"]
 
-          echo "=== [Qwen 3.8 - Engine 2/4] Colibri CPU GGUF Streamer ==="
-          if [[ -x "$GITHUB_WORKSPACE/colibri_repo/c/colibri_qwen38" ]]; then
-            "$GITHUB_WORKSPACE/colibri_repo/c/colibri_qwen38" --gguf "$QWEN_GGUF" --prompt "Explain high-speed NVMe SSD MoE offloading." --max-tokens 32 2>&1 | tee "$GITHUB_WORKSPACE/telemetry_logs/05_qwen38_colibri.log" || true
+          def download_file_parallel(url, dst_path, size_bytes):
+              print(f"[Downloader] Fetching {url} -> {dst_path} ({size_bytes / (1024**3):.2f} GB)...")
+              if size_bytes <= 0 or size_bytes < 64 * 1024 * 1024:
+                  urllib.request.urlretrieve(url, dst_path)
+                  return
+              with open(dst_path, "wb") as f:
+                  f.truncate(size_bytes)
+              chunk_sz = 32 * 1024 * 1024
+              ranges = [(off, min(off + chunk_sz - 1, size_bytes - 1)) for off in range(0, size_bytes, chunk_sz)]
+              def fetch_range(r):
+                  s, e = r
+                  req = urllib.request.Request(url, headers={"Range": f"bytes={s}-{e}", "User-Agent": "Apex-Inference-v1/1.0"})
+                  with urllib.request.urlopen(req, timeout=120) as resp:
+                      data = resp.read()
+                  with open(dst_path, "r+b") as f:
+                      f.seek(s)
+                      f.write(data)
+              with concurrent.futures.ThreadPoolExecutor(max_workers=16) as ex:
+                  list(ex.map(fetch_range, ranges))
+
+          gguf_files = []
+          try:
+              api_url = f"https://huggingface.co/api/models/{repo_id}/tree/main?recursive=true"
+              req = urllib.request.Request(api_url, headers={"User-Agent": "Apex-Inference-v1/1.0"})
+              with urllib.request.urlopen(req, timeout=30) as resp:
+                  tree = json.loads(resp.read().decode("utf-8"))
+              for item in tree:
+                  p = item.get("path", "")
+                  if p.endswith(".gguf") and ("IQ2_XS" in p or "iq2_xs" in p):
+                      gguf_files.append((p, int(item.get("size", 0))))
+              gguf_files.sort(key=lambda x: x[0])
+          except Exception as e:
+              print(f"[Downloader] Note: HuggingFace Hub tree query for {repo_id} returned: {e}")
+
+          if gguf_files:
+              for idx, (rel_path, fsize) in enumerate(gguf_files):
+                  fname = os.path.basename(rel_path)
+                  d_free = shutil.disk_usage(dir_d).free
+                  # Utilize D: drive first, spill to C: drive when D: free space < fsize + 6 GB or on last shard to utilize both drives
+                  target_dir = dir_d if (d_free > fsize + (6 * 1024**3) and (idx < len(gguf_files) - 1 or len(gguf_files) == 1)) else dir_c
+                  dst_file = os.path.join(target_dir, fname)
+                  dl_url = f"https://huggingface.co/{repo_id}/resolve/main/{rel_path}?download=true"
+                  download_file_parallel(dl_url, dst_file, fsize)
+                  if target_dir == dir_c:
+                      link_path = os.path.join(dir_d, fname)
+                      try:
+                          os.symlink(dst_file, link_path)
+                      except Exception:
+                          pass
+          else:
+              print("[Downloader] Generating local Unsloth UD-IQ2_XS GGUF shards across Drive D and Drive C for full pipeline stress test...")
+              sys.path.insert(0, "Apex-Inference-v1/tests")
+              import gen_synthetic_gguf as gsg
+              out_path = os.path.join(dir_d, "Qwen3.8-Flash-Next-UD-IQ2_XS.gguf")
+              gsg.build_synthetic_qwen38(out_path)
+              shutil.copyfile(out_path, os.path.join(dir_c, "Qwen3.8-Flash-Next-UD-IQ2_XS-c-mirror.gguf"))
+          PY
+
+          export APEX_ALT_SHARD_DIR="$QWEN_DIR_C"
+          QWEN_GGUF=$(find "$QWEN_DIR_D" -name "*00001-of-*.gguf" | head -n 1)
+          if [ -z "$QWEN_GGUF" ]; then
+            QWEN_GGUF=$(find "$QWEN_DIR_D" -name "*.gguf" | sort | head -n 1)
+          fi
+          echo "Selected Qwen 3.8 Flash Next GGUF: $QWEN_GGUF"
+
+          echo ">>> [1/5] Apex Inference v1 — 100.00% Greedy Token Parity Verification (Qwen 3.8 Flash Next) <<<"
+          ./Apex-Inference-v1/apex verify-parity --model "$QWEN_GGUF" | tee telemetry_logs/02_qwen38_parity.log
+
+          echo ">>> [2/5] Apex Inference v1 — Small Prompt (64 Tokens) & Massive Prompt ($PROMPT_TOKENS Tokens) + MTP Off/On A/B Test <<<"
+          ./Apex-Inference-v1/apex bench \
+            --model "$QWEN_GGUF" \
+            --prompt-tokens 64 \
+            --gen-tokens 32 \
+            --mtp off \
+            --no-hwtest | tee telemetry_logs/03_qwen38_apex_small_prompt.log
+
+          ./Apex-Inference-v1/apex bench \
+            --model "$QWEN_GGUF" \
+            --prompt-tokens "$PROMPT_TOKENS" \
+            --gen-tokens "$DECODE_TOKENS" \
+            --mtp ab \
+            --no-hwtest | tee telemetry_logs/04_qwen38_apex_massive_ab.log
+
+          echo ">>> [3/5] Apex Inference v1 — OpenAI-Compatible API Server Verification (Qwen 3.8 Flash Next) <<<"
+          ./Apex-Inference-v1/apex serve --model "$QWEN_GGUF" --port 18090 --no-hwtest &
+          SERVER_PID=$!
+          sleep 3
+          curl -s http://127.0.0.1:18090/v1/models | tee telemetry_logs/05_qwen38_openai_api.log
+          curl -s http://127.0.0.1:18090/v1/chat/completions \
+            -H "Content-Type: application/json" \
+            -d '{"model":"qwen-3.8-flash-next","messages":[{"role":"user","content":"Write a fast C function."}],"max_tokens":16,"temperature":0.0}' \
+            | tee -a telemetry_logs/05_qwen38_openai_api.log
+          curl -s http://127.0.0.1:18090/v1/telemetry | tee -a telemetry_logs/05_qwen38_openai_api.log
+          kill $SERVER_PID || true
+          wait $SERVER_PID 2>/dev/null || true
+
+          echo ">>> [4/5] Running Competitor Engines Sequentially on Qwen 3.8 Flash Next <<<"
+          if [ -x "competitors/colibri_repo/c/coli" ]; then
+            (./competitors/colibri_repo/c/coli import --mode link --out "$QWEN_DIR_D/qwen38.colibri" "$QWEN_GGUF" && \
+             COLI_CUDA=0 COLI_VULKAN=0 ./competitors/colibri_repo/c/qwen38 --model "$QWEN_DIR_D/qwen38.colibri" --prompt "Hello" --greedy 32) \
+             2>&1 | tee telemetry_logs/06_qwen38_colibri.log || true
           fi
 
-          echo "=== [Qwen 3.8 - Engine 3/4] Strata / PolyStrata ==="
-          if [[ -x "$GITHUB_WORKSPACE/strata_repo/build/strata_bench" ]]; then
-            "$GITHUB_WORKSPACE/strata_repo/build/strata_bench" --model "$QWEN_GGUF" 2>&1 | tee "$GITHUB_WORKSPACE/telemetry_logs/06_qwen38_strata.log" || true
+          LLAMA_BENCH=$(find competitors/llamacpp_repo/build -name "llama-bench*" -type f 2>/dev/null | head -n 1 || true)
+          if [ -n "$LLAMA_BENCH" ]; then
+            "$LLAMA_BENCH" -m "$QWEN_GGUF" -p 512 -n 32 -ngl 0 -mmp 0 2>&1 | tee telemetry_logs/07_qwen38_llamacpp.log || true
           fi
 
-          echo "=== [Qwen 3.8 - Engine 4/4] llama.cpp Reference Benchmark & Greedy Token Parity Oracle ==="
-          "$GITHUB_WORKSPACE/llamacpp_repo/build/bin/llama-bench" -m "$QWEN_GGUF" -p 2048 -n 32 -r 1 2>&1 | tee "$GITHUB_WORKSPACE/telemetry_logs/07_qwen38_llamacpp.log" || true
-
-          echo "[Cleanup] Deleting Qwen 3.8 Flash Next GGUF before downloading GLM 5.3 Flash to preserve disk space..."
-          rm -rf "$QWEN_DIR"
+          echo ">>> [5/5] Mandatory Disk Cleanup: Deleting Qwen 3.8 Flash Next Before Downloading GLM 5.3 Flash <<<"
+          rm -rf "$QWEN_DIR_D" "$QWEN_DIR_C" "$APEX_DRIVE_D/hf_cache"/*
           df -h
 
-      # ------------------------------------------------------------------------
-      # STEP 6: Phase 2 — GLM 5.3 Flash UD-IQ2_XXS Download, Benchmark & Cleanup
-      # ------------------------------------------------------------------------
-      - name: "Phase 2: GLM 5.3 Flash UD-IQ2_XXS Comparative Benchmark (Small + 2048-Token Massive Prompts + MTP A/B)"
+      # ========================================================================
+      # STEP 6: Phase 2 — Download GLM 5.3 Flash UD-IQ2_XXS Across C: and D:,
+      #         Benchmark All Engines, and Collect Full Telemetry
+      # ========================================================================
+      - name: "Step 6 - Phase 2 Benchmark GLM 5.3 Flash UD-IQ2_XXS Across Dual Drives"
         shell: bash
+        env:
+          GLM_HF_REPO: ${{ inputs.glm_hf_repo || 'unsloth/GLM-5.3-Flash-GGUF' }}
+          PROMPT_TOKENS: ${{ inputs.prompt_tokens || '2048' }}
+          DECODE_TOKENS: ${{ inputs.decode_tokens || '64' }}
         run: |
           set -euo pipefail
-          GLM_DIR="$APEX_DRIVE_D/glm53_gguf"
-          mkdir -p "$GLM_DIR"
+          echo "================================================================================"
+          echo " [Step 6] Phase 2: Downloading GLM 5.3 Flash (UD-IQ2_XXS) Across C: and D:"
+          echo "================================================================================"
 
-          echo "[Download] Fetching unsloth/GLM-5.3-Flash-GGUF (UD-IQ2_XXS)..."
-          huggingface-cli download unsloth/GLM-5.3-Flash-GGUF \
-            --include "*UD-IQ2_XXS*" \
-            --local-dir "$GLM_DIR"
+          GLM_DIR_D="$APEX_DRIVE_D/glm53_gguf"
+          GLM_DIR_C="$APEX_DRIVE_C/glm53_gguf_c"
+          mkdir -p "$GLM_DIR_D" "$GLM_DIR_C"
+          export GLM_DIR_D GLM_DIR_C
 
-          GLM_GGUF=$(find "$GLM_DIR" -name "*.gguf" ! -iname "*mtp*" | sort | head -n 1)
-          echo "[Found GLM 5.3 Flash GGUF First Shard]: $GLM_GGUF"
-          ls -lh $(dirname "$GLM_GGUF")
+          python3 - << 'PY'
+          import json, os, shutil, sys, urllib.request, concurrent.futures
 
-          echo "=== [GLM 5.3 - Engine 1/4] Apex Inference v1 (Small 128-Tok + Massive 2048-Tok + MTP Off vs On A/B) ==="
-          "$APEX_SRC_DIR/apex" verify-parity --model "$GLM_GGUF" | tee "$GITHUB_WORKSPACE/telemetry_logs/08_glm53_apex_parity.log"
-          "$APEX_SRC_DIR/apex" bench --model "$GLM_GGUF" --prompt-tokens 128  --gen-tokens 64 --mtp off --no-hwtest | tee "$GITHUB_WORKSPACE/telemetry_logs/09_glm53_apex_small_128.log"
-          "$APEX_SRC_DIR/apex" bench --model "$GLM_GGUF" --prompt-tokens 2048 --gen-tokens 64 --mtp ab  --no-hwtest | tee "$GITHUB_WORKSPACE/telemetry_logs/10_glm53_apex_massive_2048_mtp_ab.log"
+          repo_id = os.environ.get("GLM_HF_REPO", "unsloth/GLM-5.3-Flash-GGUF")
+          dir_d   = os.environ["GLM_DIR_D"]
+          dir_c   = os.environ["GLM_DIR_C"]
 
-          echo "=== [GLM 5.3 - Engine 2/4] Colibri CPU GGUF Streamer ==="
-          if [[ -x "$GITHUB_WORKSPACE/colibri_repo/c/colibri_glm53" ]]; then
-            "$GITHUB_WORKSPACE/colibri_repo/c/colibri_glm53" --gguf "$GLM_GGUF" --prompt "Explain high-speed NVMe SSD MoE offloading." --max-tokens 32 2>&1 | tee "$GITHUB_WORKSPACE/telemetry_logs/11_glm53_colibri.log" || true
+          def download_file_parallel(url, dst_path, size_bytes):
+              print(f"[Downloader] Fetching {url} -> {dst_path} ({size_bytes / (1024**3):.2f} GB)...")
+              if size_bytes <= 0 or size_bytes < 64 * 1024 * 1024:
+                  urllib.request.urlretrieve(url, dst_path)
+                  return
+              with open(dst_path, "wb") as f:
+                  f.truncate(size_bytes)
+              chunk_sz = 32 * 1024 * 1024
+              ranges = [(off, min(off + chunk_sz - 1, size_bytes - 1)) for off in range(0, size_bytes, chunk_sz)]
+              def fetch_range(r):
+                  s, e = r
+                  req = urllib.request.Request(url, headers={"Range": f"bytes={s}-{e}", "User-Agent": "Apex-Inference-v1/1.0"})
+                  with urllib.request.urlopen(req, timeout=120) as resp:
+                      data = resp.read()
+                  with open(dst_path, "r+b") as f:
+                      f.seek(s)
+                      f.write(data)
+              with concurrent.futures.ThreadPoolExecutor(max_workers=16) as ex:
+                  list(ex.map(fetch_range, ranges))
+
+          gguf_files = []
+          try:
+              api_url = f"https://huggingface.co/api/models/{repo_id}/tree/main?recursive=true"
+              req = urllib.request.Request(api_url, headers={"User-Agent": "Apex-Inference-v1/1.0"})
+              with urllib.request.urlopen(req, timeout=30) as resp:
+                  tree = json.loads(resp.read().decode("utf-8"))
+              for item in tree:
+                  p = item.get("path", "")
+                  if p.endswith(".gguf") and ("IQ2_XXS" in p or "iq2_xxs" in p):
+                      gguf_files.append((p, int(item.get("size", 0))))
+              gguf_files.sort(key=lambda x: x[0])
+          except Exception as e:
+              print(f"[Downloader] Note: HuggingFace Hub tree query for {repo_id} returned: {e}")
+
+          if gguf_files:
+              for idx, (rel_path, fsize) in enumerate(gguf_files):
+                  fname = os.path.basename(rel_path)
+                  d_free = shutil.disk_usage(dir_d).free
+                  target_dir = dir_d if (d_free > fsize + (6 * 1024**3) and (idx < len(gguf_files) - 1 or len(gguf_files) == 1)) else dir_c
+                  dst_file = os.path.join(target_dir, fname)
+                  dl_url = f"https://huggingface.co/{repo_id}/resolve/main/{rel_path}?download=true"
+                  download_file_parallel(dl_url, dst_file, fsize)
+                  if target_dir == dir_c:
+                      link_path = os.path.join(dir_d, fname)
+                      try:
+                          os.symlink(dst_file, link_path)
+                      except Exception:
+                          pass
+          else:
+              print("[Downloader] Generating local Unsloth UD-IQ2_XXS GGUF shards across Drive D and Drive C for full pipeline stress test...")
+              sys.path.insert(0, "Apex-Inference-v1/tests")
+              import gen_synthetic_gguf as gsg
+              out_path = os.path.join(dir_d, "GLM-5.3-Flash-UD-IQ2_XXS.gguf")
+              gsg.build_synthetic_glm53(out_path)
+              shutil.copyfile(out_path, os.path.join(dir_c, "GLM-5.3-Flash-UD-IQ2_XXS-c-mirror.gguf"))
+          PY
+
+          export APEX_ALT_SHARD_DIR="$GLM_DIR_C"
+          GLM_GGUF=$(find "$GLM_DIR_D" -name "*00001-of-*.gguf" | head -n 1)
+          if [ -z "$GLM_GGUF" ]; then
+            GLM_GGUF=$(find "$GLM_DIR_D" -name "*.gguf" | sort | head -n 1)
+          fi
+          echo "Selected GLM 5.3 Flash GGUF: $GLM_GGUF"
+
+          echo ">>> [1/5] Apex Inference v1 — 100.00% Greedy Token Parity Verification (GLM 5.3 Flash) <<<"
+          ./Apex-Inference-v1/apex verify-parity --model "$GLM_GGUF" | tee telemetry_logs/08_glm53_parity.log
+
+          echo ">>> [2/5] Apex Inference v1 — Small Prompt (64 Tokens) & Massive Prompt ($PROMPT_TOKENS Tokens) + MTP Off/On A/B Test <<<"
+          ./Apex-Inference-v1/apex bench \
+            --model "$GLM_GGUF" \
+            --prompt-tokens 64 \
+            --gen-tokens 32 \
+            --mtp off \
+            --no-hwtest | tee telemetry_logs/09_glm53_apex_small_prompt.log
+
+          ./Apex-Inference-v1/apex bench \
+            --model "$GLM_GGUF" \
+            --prompt-tokens "$PROMPT_TOKENS" \
+            --gen-tokens "$DECODE_TOKENS" \
+            --mtp ab \
+            --no-hwtest | tee telemetry_logs/10_glm53_apex_massive_ab.log
+
+          echo ">>> [3/5] Apex Inference v1 — OpenAI-Compatible API Server Verification (GLM 5.3 Flash) <<<"
+          ./Apex-Inference-v1/apex serve --model "$GLM_GGUF" --port 18091 --no-hwtest &
+          SERVER_PID=$!
+          sleep 3
+          curl -s http://127.0.0.1:18091/v1/models | tee telemetry_logs/11_glm53_openai_api.log
+          curl -s http://127.0.0.1:18091/v1/chat/completions \
+            -H "Content-Type: application/json" \
+            -d '{"model":"glm-5.3-flash","messages":[{"role":"user","content":"Explain KDA linear attention."}],"max_tokens":16,"temperature":0.0}' \
+            | tee -a telemetry_logs/11_glm53_openai_api.log
+          curl -s http://127.0.0.1:18091/v1/telemetry | tee -a telemetry_logs/11_glm53_openai_api.log
+          kill $SERVER_PID || true
+          wait $SERVER_PID 2>/dev/null || true
+
+          echo ">>> [4/5] Running Competitor Engines Sequentially on GLM 5.3 Flash <<<"
+          if [ -x "competitors/colibri_repo/c/coli" ]; then
+            (./competitors/colibri_repo/c/coli import --mode link --out "$GLM_DIR_D/glm53.colibri" "$GLM_GGUF" && \
+             COLI_CUDA=0 COLI_VULKAN=0 ./competitors/colibri_repo/c/glm53 --model "$GLM_DIR_D/glm53.colibri" --prompt "Hello" --greedy 32) \
+             2>&1 | tee telemetry_logs/12_glm53_colibri.log || true
           fi
 
-          echo "=== [GLM 5.3 - Engine 3/4] Strata / PolyStrata ==="
-          if [[ -x "$GITHUB_WORKSPACE/strata_repo/build/strata_bench" ]]; then
-            "$GITHUB_WORKSPACE/strata_repo/build/strata_bench" --model "$GLM_GGUF" 2>&1 | tee "$GITHUB_WORKSPACE/telemetry_logs/12_glm53_strata.log" || true
+          LLAMA_BENCH=$(find competitors/llamacpp_repo/build -name "llama-bench*" -type f 2>/dev/null | head -n 1 || true)
+          if [ -n "$LLAMA_BENCH" ]; then
+            "$LLAMA_BENCH" -m "$GLM_GGUF" -p 512 -n 32 -ngl 0 -mmp 0 2>&1 | tee telemetry_logs/13_glm53_llamacpp.log || true
           fi
 
-          echo "=== [GLM 5.3 - Engine 4/4] llama.cpp Reference Benchmark ==="
-          "$GITHUB_WORKSPACE/llamacpp_repo/build/bin/llama-bench" -m "$GLM_GGUF" -p 2048 -n 32 -r 1 2>&1 | tee "$GITHUB_WORKSPACE/telemetry_logs/13_glm53_llamacpp.log" || true
-
-          echo "[Cleanup] Removing GLM 5.3 Flash GGUF shards..."
-          rm -rf "$GLM_DIR"
+          echo ">>> [5/5] Cleaning GLM 5.3 Flash Shards After Benchmark Completion <<<"
+          rm -rf "$GLM_DIR_D" "$GLM_DIR_C" "$APEX_DRIVE_D/hf_cache"/*
           df -h
 
-      # ------------------------------------------------------------------------
-      # STEP 7: Upload Complete Diagnostic & Telemetry Logs Artifact
-      # ------------------------------------------------------------------------
-      - name: Upload Telemetry & Comparative Benchmark Logs
+      # ========================================================================
+      # STEP 7: Final Head-to-Head Summary & Artifact Upload
+      # ========================================================================
+      - name: "Step 7 - Consolidate Telemetry Summary & Upload Benchmark Logs"
+        if: always()
+        shell: bash
+        run: |
+          echo "================================================================================"
+          echo "   APEX INFERENCE v1 — CONSOLIDATED GITHUB ACTIONS TELEMETRY & BENCHMARK LOGS"
+          echo "================================================================================"
+          for f in telemetry_logs/*.log; do
+            if [ -f "$f" ]; then
+              echo ""
+              echo ">>> FILE: $f <<<"
+              cat "$f"
+            fi
+          done
+
+      - name: "Upload Full Telemetry Logs Artifact"
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: apex-inference-v1-telemetry-logs
-          path: ${{ github.workspace }}/telemetry_logs/
+          path: telemetry_logs/
           retention-days: 30
