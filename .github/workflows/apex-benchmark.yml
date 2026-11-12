@@ -301,13 +301,18 @@ jobs:
           target = sys.argv[1]
           HEADERS = {"User-Agent": "Apex-Inference-Benchmarker/1.0"}
 
+          import shutil
+          d_free_gb = shutil.disk_usage("D:/").free / (1024**3) if os.path.exists("D:/") else 0.0
+          s3_qwen_dir = "D:/apex_d_drive/models/qwen38" if d_free_gb >= 85.0 else "C:/apex_c_drive/models/qwen38"
+          s3_glm_dir  = "D:/apex_d_drive/models/glm53"  if d_free_gb >= 85.0 else "C:/apex_c_drive/models/glm53"
+
           if target == "qwen38":
               repo_id = "unsloth/Qwen3.8-Flash-Next-GGUF"
               rev = "f547710bbef973955bfaeaa89ad8e31ccae9e67c"
               shard_specs = [
                   ("UD-IQ2_XS/Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf", "D:/apex_d_drive/models/qwen38", True),
                   ("UD-IQ2_XS/Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf", "D:/apex_d_drive/models/qwen38", True),
-                  ("UD-IQ2_XS/Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf", "C:/apex_c_drive/models/qwen38", True),
+                  ("UD-IQ2_XS/Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf", s3_qwen_dir,                     True),
                   ("MTP/mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf",                "C:/apex_c_drive/models/qwen38", False),
               ]
               primary_dir = "D:/apex_d_drive/models/qwen38"
@@ -317,7 +322,7 @@ jobs:
               shard_specs = [
                   ("UD-IQ2_XXS/GLM-5.3-Flash-UD-IQ2_XXS-00001-of-00004.gguf", "D:/apex_d_drive/models/glm53", True),
                   ("UD-IQ2_XXS/GLM-5.3-Flash-UD-IQ2_XXS-00002-of-00004.gguf", "D:/apex_d_drive/models/glm53", True),
-                  ("UD-IQ2_XXS/GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf", "C:/apex_c_drive/models/glm53", True),
+                  ("UD-IQ2_XXS/GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf", s3_glm_dir,                     True),
                   ("UD-IQ2_XXS/GLM-5.3-Flash-UD-IQ2_XXS-00004-of-00004.gguf", "C:/apex_c_drive/models/glm53", True),
               ]
               primary_dir = "D:/apex_d_drive/models/glm53"
@@ -433,7 +438,8 @@ jobs:
               json.dump({"gguf": shard1_name}, gf)
           with open(os.path.join(primary_dir, "ref.json"), "w") as rf:
               prompt_toks = [1 + (i * 7) % 500 for i in range(64)]
-              json.dump({"prompt": prompt_toks, "full": prompt_toks + [10, 11, 12, 13, 14, 15, 16, 17]}, rf)
+              full_toks = prompt_toks + [10, 11, 12, 13, 14, 15, 16, 17]
+              json.dump({"prompt": prompt_toks, "prompt_ids": prompt_toks, "tokens": full_toks, "full": full_toks}, rf)
 
           with open(f"D:/apex_d_drive/manifest_{target}.json", "w") as mf:
               json.dump({
@@ -593,12 +599,12 @@ jobs:
             LLAMA_CLI=$(find baselines/llama_bin -iname "llama-cli.exe" | head -n 1 || true)
             LLAMA_BENCH=$(find baselines/llama_bin -iname "llama-bench.exe" | head -n 1 || true)
             if [ -n "$LLAMA_BENCH" ] && [ -f "$LLAMA_BENCH" ]; then
-              echo "Running llama-bench.exe (--no-mmap) sequentially on $SHARD1..."
-              "$LLAMA_BENCH" -m "$SHARD1" -p 64 -n 32 -t 4 -mmp 0 2>&1 | tee "$LOG_DIR/10_${TARGET}_llamacpp_bench.log" || true
+              echo "Running llama-bench.exe (-lm none) sequentially on $SHARD1..."
+              "$LLAMA_BENCH" -m "$SHARD1" -p 64 -n 32 -t 4 -lm none -r 1 2>&1 | tee "$LOG_DIR/10_${TARGET}_llamacpp_bench.log" || true
             fi
             if [ -n "$LLAMA_CLI" ] && [ -f "$LLAMA_CLI" ]; then
-              echo "Running llama-cli.exe (--no-mmap --temp 0) greedy parity reference on $SHARD1..."
-              "$LLAMA_CLI" -m "$SHARD1" -p "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:" -n 32 -t 4 --temp 0 --no-mmap --no-cnv 2>&1 | tee "$LOG_DIR/11_${TARGET}_llamacpp_greedy.log" || true
+              echo "Running llama-cli.exe (--temp 0) greedy parity reference on $SHARD1..."
+              "$LLAMA_CLI" -m "$SHARD1" -p "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:" -n 32 -t 4 --temp 0 --no-cnv 2>&1 | tee "$LOG_DIR/11_${TARGET}_llamacpp_greedy.log" || true
             fi
 
             python3 -u - "$TARGET" "$LOG_DIR" << 'EOF' 2>&1 | tee "$LOG_DIR/12_${TARGET}_competitor_comparison.log"
@@ -622,12 +628,12 @@ jobs:
               m = re.search(pat, txt)
               return m.group(1) if m else default
 
-          apex_s1_pref = grab(r"Prefill Throughput \(Avg\)\s*:\s*([0-9.]+)\s*tok/s", s1)
-          apex_s1_dec  = grab(r"Decode Throughput  \(Avg\)\s*:\s*([0-9.]+)\s*tok/s", s1)
-          apex_s1_hit  = grab(r"Effective RAM Hit Rate       :\s*([0-9.]+%)", s1)
-          apex_s2_pref = grab(r"Prefill Throughput \(Avg\)\s*:\s*([0-9.]+)\s*tok/s", s2)
-          apex_s2_dec  = grab(r"Decode Throughput  \(Avg\)\s*:\s*([0-9.]+)\s*tok/s", s2)
-          apex_s2_hit  = grab(r"Effective RAM Hit Rate       :\s*([0-9.]+%)", s2)
+          apex_s1_pref = grab(r"Prefill Throughput \(TPS\)\s*:\s*Avg\s*=\s*([0-9.]+)\s*tps", s1)
+          apex_s1_dec  = grab(r"Decode Throughput \(TPS\)\s*:\s*Avg\s*=\s*([0-9.]+)\s*tps", s1)
+          apex_s1_hit  = grab(r"EFFECTIVE CACHE HIT RATE\s*:\s*([0-9.]+%)", s1)
+          apex_s2_pref = grab(r"Prefill Throughput \(TPS\)\s*:\s*Avg\s*=\s*([0-9.]+)\s*tps", s2)
+          apex_s2_dec  = grab(r"Decode Throughput \(TPS\)\s*:\s*Avg\s*=\s*([0-9.]+)\s*tps", s2)
+          apex_s2_hit  = grab(r"EFFECTIVE CACHE HIT RATE\s*:\s*([0-9.]+%)", s2)
           apex_mtp_off = grab(r"MTP OFF Decode Throughput :\s*([0-9.]+)\s*tokens/sec", s4)
           apex_mtp_on  = grab(r"MTP ON  Decode Throughput :\s*([0-9.]+)\s*tokens/sec", s4)
           col_tps      = grab(r"([0-9.]+)\s*tok/s", col, "Requires Custom .bin")
@@ -704,7 +710,7 @@ jobs:
           run_id = os.environ.get("RUN_ID", "unknown")
           run_num = os.environ.get("RUN_NUMBER", "0")
           job_status = os.environ.get("JOB_STATUS", "unknown").upper()
-          now_utc = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+          now_utc = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
           readme_path = "README.md"
           old_readme = ""
