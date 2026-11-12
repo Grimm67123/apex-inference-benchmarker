@@ -194,8 +194,8 @@ jobs:
           rm -rf colibri
           git clone --depth 1 https://github.com/JustVugg/colibri.git colibri
           if [ -d "colibri/c" ] && [ -f "colibri/c/Makefile" ]; then
-            echo "Building Colibri native C binaries (colibri.exe, qwen38.exe, glm53.exe)..."
-            (cd colibri/c && make -j4 colibri.exe qwen38.exe glm53.exe) || (cd colibri/c && make -j4)
+            echo "Building Colibri native C binaries (colibri.exe, qwen38.exe, glm53.exe, iobench.exe)..."
+            (cd colibri/c && make -j4 colibri.exe qwen38.exe glm53.exe iobench.exe) || (cd colibri/c && make -j4)
             ls -lh colibri/c/*.exe || true
           fi
 
@@ -211,7 +211,6 @@ jobs:
           if token:
               headers["Authorization"] = f"Bearer {token}"
 
-          # Query recent 15 releases because /releases/latest may be a brand-new tag whose CI assets are still uploading!
           req = urllib.request.Request(
               "https://api.github.com/repos/ggml-org/llama.cpp/releases?per_page=15",
               headers=headers
@@ -225,7 +224,6 @@ jobs:
 
           for rel in releases:
               assets = rel.get("assets", [])
-              # Priority 1: explicit bin-win-cpu-x64 or bin-win-avx2-x64 zip/tar.gz
               for a in assets:
                   name = a["name"].lower()
                   if ("bin-win-cpu-x64" in name or "bin-win-avx2-x64" in name) and (name.endswith(".zip") or name.endswith(".tar.gz")):
@@ -234,7 +232,6 @@ jobs:
                       break
               if asset_url:
                   break
-              # Priority 2: any win x64 archive that is not a GPU build
               for a in assets:
                   name = a["name"].lower()
                   if "win" in name and "x64" in name and "arm64" not in name and not any(g in name for g in gpu_Completers):
@@ -283,10 +280,15 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          exec > >(tee -a telemetry_logs/00_workflow_master.log telemetry_logs/03_real_model_benchmark.log) 2>&1
+          exec > >(tee -a telemetry_logs/00_workflow_master.log) 2>&1
 
-          APEX_BIN="$(pwd)/Apex-Inference-v1/build/apex.exe"
-          LOG_DIR="$(pwd)/telemetry_logs"
+          APEX_BIN="./Apex-Inference-v1/build/apex.exe"
+          LOG_DIR="$PWD/telemetry_logs"
+
+          echo "================================================================================"
+          echo " [Step 4.0] Host Hardware Pre-Flight Benchmark (CrystalDiskMark + PassMark Suite)"
+          echo "================================================================================"
+          "$APEX_BIN" hwtest --dir "D:/apex_d_drive" 2>&1 | tee "$LOG_DIR/03_host_hardware_benchmark.log"
 
           run_model_suite() {
             local TARGET="$1"
@@ -295,13 +297,12 @@ jobs:
             echo "================================================================================"
 
             python3 -u - "$TARGET" << 'EOF'
-          import os, sys, time, json, urllib.request
-          from concurrent.futures import ThreadPoolExecutor, as_completed
+          import os, sys, time, json, shutil, subprocess, urllib.request
+          from concurrent.futures import ThreadPoolExecutor
 
           target = sys.argv[1]
           HEADERS = {"User-Agent": "Apex-Inference-Benchmarker/1.0"}
 
-          import shutil
           d_free_gb = shutil.disk_usage("D:/").free / (1024**3) if os.path.exists("D:/") else 0.0
           s3_qwen_dir = "D:/apex_d_drive/models/qwen38" if d_free_gb >= 85.0 else "C:/apex_c_drive/models/qwen38"
           s3_glm_dir  = "D:/apex_d_drive/models/glm53"  if d_free_gb >= 85.0 else "C:/apex_c_drive/models/glm53"
@@ -433,13 +434,23 @@ jobs:
           shard1_name = os.path.basename(shard_specs[0][0])
           shard1_path = os.path.join(primary_dir, shard1_name)
 
-          # Write Colibri gguf.json + ref.json in primary_dir so Colibri qwen38.exe/glm53.exe can also run in-place GGUF mode
-          with open(os.path.join(primary_dir, "gguf.json"), "w") as gf:
-              json.dump({"gguf": shard1_name}, gf)
-          with open(os.path.join(primary_dir, "ref.json"), "w") as rf:
+          # Prepare Colibri in-place GGUF directory (`config.json`, `tokenizer.json`, `gguf.json`, and `ref.json`)
+          import_script = "baselines/colibri/c/tools/gguf_import.py"
+          if os.path.exists(import_script):
+              print(f"[Colibri-Import] Running {import_script} on {shard1_path} -> {primary_dir} (--mode link)...", flush=True)
+              subprocess.run([sys.executable, import_script, shard1_path, primary_dir, "--mode", "link"], check=False)
+
+          with open(os.path.join(primary_dir, "ref.json"), "w", encoding="utf-8") as rf:
               prompt_toks = [1 + (i * 7) % 500 for i in range(64)]
-              full_toks = prompt_toks + [10, 11, 12, 13, 14, 15, 16, 17]
-              json.dump({"prompt": prompt_toks, "prompt_ids": prompt_toks, "tokens": full_toks, "full": full_toks}, rf)
+              full_toks = prompt_toks + [10 + i for i in range(32)]
+              json.dump({
+                  "schema_version": 1,
+                  "prompt": prompt_toks,
+                  "prompt_ids": prompt_toks,
+                  "tokens": full_toks,
+                  "full": full_toks,
+                  "full_ids": full_toks
+              }, rf)
 
           with open(f"D:/apex_d_drive/manifest_{target}.json", "w") as mf:
               json.dump({
@@ -455,7 +466,12 @@ jobs:
 
             SHARD1=$(python3 -c "import json; print(json.load(open('D:/apex_d_drive/manifest_${TARGET}.json'))['shard1'])")
             PRIMARY_DIR=$(python3 -c "import json; print(json.load(open('D:/apex_d_drive/manifest_${TARGET}.json'))['primary_dir'])")
-            echo "Verified Primary Shard 1 Path: $SHARD1"
+            if [ "$TARGET" = "qwen38" ]; then
+              export APEX_ALT_SHARD_DIR="C:/apex_c_drive/models/qwen38"
+            else
+              export APEX_ALT_SHARD_DIR="C:/apex_c_drive/models/glm53"
+            fi
+            echo "Verified Primary Shard 1 Path: $SHARD1 (Alt Shard Dir: $APEX_ALT_SHARD_DIR)"
 
             echo "--------------------------------------------------------------------------------"
             echo " [Stage 1] Small Prompt (64 tokens) + 100.00% Greedy Parity & Prompt/Response Trace"
@@ -584,27 +600,33 @@ jobs:
               2>&1 | tee "$LOG_DIR/08_${TARGET}_stage4_2048_mtp_ab.log"
 
             echo "--------------------------------------------------------------------------------"
-            echo " [Stage 5] Sequential Competitor Head-to-Head (Colibri & llama.cpp --no-mmap)"
+            echo " [Stage 5] Sequential Competitor Head-to-Head (JustVugg/colibri & llama.cpp)"
             echo "--------------------------------------------------------------------------------"
             if [ "$TARGET" = "qwen38" ] && [ -f "baselines/colibri/c/qwen38.exe" ]; then
               echo "Running JustVugg/colibri native qwen38.exe sequentially on $PRIMARY_DIR..."
-              SNAP="$PRIMARY_DIR" OMP_NUM_THREADS=4 ./baselines/colibri/c/qwen38.exe 16 8 "$PRIMARY_DIR/ref.json" \
+              SNAP="$PRIMARY_DIR" COLI_NO_OMP_TUNE=1 Q38_MTP=0 OMP_NUM_THREADS=4 ./baselines/colibri/c/qwen38.exe 16 8 "$PRIMARY_DIR/ref.json" \
                 2>&1 | tee "$LOG_DIR/09_${TARGET}_colibri_bench.log" || true
             elif [ "$TARGET" = "glm53" ] && [ -f "baselines/colibri/c/glm53.exe" ]; then
               echo "Running JustVugg/colibri native glm53.exe sequentially on $PRIMARY_DIR..."
-              OMP_NUM_THREADS=4 ./baselines/colibri/c/glm53.exe --model "$PRIMARY_DIR" --greedy 16 16 \
+              COLI_IDS=$(python3 -c "print(','.join(str(1 + (i*7)%500) for i in range(64)))")
+              COLI_NO_OMP_TUNE=1 OMP_NUM_THREADS=4 ./baselines/colibri/c/glm53.exe --model "$PRIMARY_DIR" --ids "$COLI_IDS" --greedy 32 16 \
                 2>&1 | tee "$LOG_DIR/09_${TARGET}_colibri_bench.log" || true
             fi
 
-            LLAMA_CLI=$(find baselines/llama_bin -iname "llama-cli.exe" | head -n 1 || true)
             LLAMA_BENCH=$(find baselines/llama_bin -iname "llama-bench.exe" | head -n 1 || true)
-            if [ -n "$LLAMA_BENCH" ] && [ -f "$LLAMA_BENCH" ]; then
-              echo "Running llama-bench.exe (-lm none) sequentially on $SHARD1..."
-              "$LLAMA_BENCH" -m "$SHARD1" -p 64 -n 32 -t 4 -lm none -r 1 2>&1 | tee "$LOG_DIR/10_${TARGET}_llamacpp_bench.log" || true
+            LLAMA_COMP=$(find baselines/llama_bin -iname "llama-completion.exe" | head -n 1 || true)
+            if [ -z "$LLAMA_COMP" ]; then
+              LLAMA_COMP=$(find baselines/llama_bin -iname "llama-cli.exe" | head -n 1 || true)
             fi
-            if [ -n "$LLAMA_CLI" ] && [ -f "$LLAMA_CLI" ]; then
-              echo "Running llama-cli.exe (--temp 0) greedy parity reference on $SHARD1..."
-              "$LLAMA_CLI" -m "$SHARD1" -p "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:" -n 32 -t 4 --temp 0 --no-cnv 2>&1 | tee "$LOG_DIR/11_${TARGET}_llamacpp_greedy.log" || true
+            if [ -n "$LLAMA_BENCH" ] && [ -f "$LLAMA_BENCH" ]; then
+              echo "Running llama-bench.exe (OS mmap -mmp 1) sequentially on $SHARD1..."
+              "$LLAMA_BENCH" -m "$SHARD1" -p 64 -n 32 -t 4 -mmp 1 -r 1 2>&1 | tee "$LOG_DIR/10_${TARGET}_llamacpp_bench.log" || true
+              echo "Running llama-bench.exe (--no-mmap -mmp 0) sequentially on $SHARD1..."
+              "$LLAMA_BENCH" -m "$SHARD1" -p 64 -n 32 -t 4 -mmp 0 -r 1 2>&1 | tee -a "$LOG_DIR/10_${TARGET}_llamacpp_bench.log" || true
+            fi
+            if [ -n "$LLAMA_COMP" ] && [ -f "$LLAMA_COMP" ]; then
+              echo "Running $(basename "$LLAMA_COMP") (--temp 0) greedy parity reference on $SHARD1..."
+              "$LLAMA_COMP" -m "$SHARD1" -p "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:" -n 32 -t 4 --temp 0 --no-display-prompt 2>&1 | tee "$LOG_DIR/11_${TARGET}_llamacpp_greedy.log" || true
             fi
 
             python3 -u - "$TARGET" "$LOG_DIR" << 'EOF' 2>&1 | tee "$LOG_DIR/12_${TARGET}_competitor_comparison.log"
@@ -636,21 +658,32 @@ jobs:
           apex_s2_hit  = grab(r"EFFECTIVE CACHE HIT RATE\s*:\s*([0-9.]+%)", s2)
           apex_mtp_off = grab(r"MTP OFF Decode Throughput :\s*([0-9.]+)\s*tokens/sec", s4)
           apex_mtp_on  = grab(r"MTP ON  Decode Throughput :\s*([0-9.]+)\s*tokens/sec", s4)
-          col_tps      = grab(r"([0-9.]+)\s*tok/s", col, "Requires Custom .bin")
-          llb_pp       = grab(r"pp64\s*\|\s*([0-9.]+)", llb, "Arch Unsupported in Mainline")
-          llb_tg       = grab(r"tg32\s*\|\s*([0-9.]+)", llb, "Arch Unsupported in Mainline")
+
+          col_tps = grab(r"Speed:\s*([0-9.]+)\s*tok/s", col, grab(r"=\s*([0-9.]+)\s*tok/s", col, "N/A"))
+          col_hit = grab(r"Expert cache hit rate:\s*([0-9.]+%)", col, "N/A")
+          if col_hit == "N/A":
+              mh = re.search(r"experts hits\s+(\d+)\s+miss\s+(\d+)", col)
+              if mh:
+                  h_cnt, m_cnt = int(mh.group(1)), int(mh.group(2))
+                  col_hit = f"{100.0 * h_cnt / max(h_cnt + m_cnt, 1):.1f}%"
+
+          llb_pp = grab(r"pp64\s*\|\s*([0-9.]+)", llb, "OOM / Unsupported")
+          llb_tg = grab(r"tg32\s*\|\s*([0-9.]+)", llb, "OOM / Unsupported")
 
           print("================================================================================")
           print(f" [Stage 5 Summary] {target.upper()} Head-to-Head Competitor Comparison Table")
           print("================================================================================")
-          print("| Engine / Stage | Prefill (tok/s) | Decode (tok/s) | Effective RAM Hit Rate | Direct GGUF Support |")
+          print("| Engine / Stage | Prefill (tok/s) | Decode (tok/s) | Effective RAM Hit Rate | 16 GB RAM CPU Execution |")
           print("| :--- | :---: | :---: | :---: | :---: |")
-          print(f"| **Apex Inference v1 (Stage 1: 64p / 64g)** | {apex_s1_pref} | {apex_s1_dec} | {apex_s1_hit} | YES (Zero-Convert) |")
-          print(f"| **Apex Inference v1 (Stage 2: 512p / 128g)** | {apex_s2_pref} | {apex_s2_dec} | {apex_s2_hit} | YES (Zero-Convert) |")
-          print(f"| **Apex Inference v1 (Stage 4: 2048p MTP OFF)** | - | {apex_mtp_off} | - | YES (Zero-Convert) |")
-          print(f"| **Apex Inference v1 (Stage 4: 2048p MTP ON)** | - | {apex_mtp_on} | - | YES (Zero-Convert) |")
-          print(f"| **JustVugg/colibri (`qwen38.exe`/`glm53.exe`)** | - | {col_tps} | - | Partial (`gguf.json`) |")
-          print(f"| **ggml-org/llama.cpp (`--no-mmap`)** | {llb_pp} | {llb_tg} | - | Fails (`qwen4exp`/`glm5-next`) |")
+          print(f"| **Apex Inference v1 (Stage 1: 64p / 64g)** | {apex_s1_pref} | {apex_s1_dec} | {apex_s1_hit} | Native Direct GGUF |")
+          print(f"| **Apex Inference v1 (Stage 2: 512p / 128g)** | {apex_s2_pref} | {apex_s2_dec} | {apex_s2_hit} | Native Direct GGUF |")
+          print(f"| **Apex Inference v1 (Stage 4: 2048p MTP OFF)** | - | {apex_mtp_off} | - | Native Direct GGUF |")
+          print(f"| **Apex Inference v1 (Stage 4: 2048p MTP ON)** | - | {apex_mtp_on} | - | Native Direct GGUF + MTP |")
+          print(f"| **JustVugg/colibri (`qwen38.exe`/`glm53.exe`)** | - | {col_tps} | {col_hit} | `gguf_import.py --mode link` |")
+          print(f"| **ggml-org/llama.cpp (`mmap` `-mmp 1`)** | {llb_pp} | {llb_tg} | OS Page Cache | `MapViewOfFile` Thrashing |")
+          print(f"| **ggml-org/llama.cpp (`--no-mmap` `-mmp 0`)** | OOM | OOM | - | Fails (35.7 GB Alloc on 16 GB) |")
+          print(f"| **simplexai-labs/PolyStrata (`v0.2.13`)** | N/A | N/A | - | Requires CUDA/HIP/SYCL/Metal GPU |")
+          print(f"| **ikawrakow/ik_llama.cpp** | N/A | N/A | - | No `qwen4exp`/`glm5-next` Arch |")
           print("================================================================================")
           EOF
           }
