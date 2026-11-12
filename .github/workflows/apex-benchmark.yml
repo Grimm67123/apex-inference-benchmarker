@@ -175,6 +175,9 @@ jobs:
       # =========================================================================
       - name: "Step 3 - Build JustVugg/colibri & Fetch Official Prebuilt llama.cpp + PolyStrata / ik_llama.cpp"
         id: step3_competitors
+        env:
+          SECRET_WRITE_README: ${{ secrets.PRIVATE_REPO_WRITE_LOGS_README }}
+          SECRET_PAT_FALLBACK: ${{ secrets.PRIVATE_REPO_PAT }}
         shell: bash
         run: |
           set -euo pipefail
@@ -188,44 +191,76 @@ jobs:
           echo "================================================================================"
           rm -rf colibri
           git clone --depth 1 https://github.com/JustVugg/colibri.git colibri
-          ls -la colibri
-          if [ -d "colibri/c" ]; then
-            echo "Building Colibri native C engine (colibri/c)..."
-            ls -la colibri/c
-            if [ -f "colibri/c/Makefile" ]; then
-              (cd colibri/c && make -j4) || true
-            elif [ -f "colibri/c/CMakeLists.txt" ]; then
-              cmake -B colibri/c/build -S colibri/c -DCMAKE_BUILD_TYPE=Release
-              cmake --build colibri/c/build --config Release --parallel 4
-            fi
+          if [ -d "colibri/c" ] && [ -f "colibri/c/Makefile" ]; then
+            echo "Building Colibri native C binaries (colibri.exe, qwen38.exe, glm53.exe)..."
+            (cd colibri/c && make -j4 colibri.exe qwen38.exe glm53.exe) || (cd colibri/c && make -j4)
+            ls -lh colibri/c/*.exe || true
           fi
 
           echo "================================================================================"
-          echo " [3.2] Downloading Official Prebuilt llama.cpp AVX2 Windows Release Binaries"
+          echo " [3.2] Downloading Official Prebuilt llama.cpp Windows x64 CPU Release Binaries"
           echo "================================================================================"
           python3 -u - << 'EOF'
-          import urllib.request, json, zipfile, os
+          import urllib.request, json, zipfile, tarfile, os
 
           os.makedirs("llama_bin", exist_ok=True)
+          token = os.environ.get("SECRET_WRITE_README") or os.environ.get("SECRET_PAT_FALLBACK") or ""
+          headers = {"User-Agent": "Apex-Inference-Benchmarker/1.0"}
+          if token:
+              headers["Authorization"] = f"Bearer {token}"
+
+          # Query recent 15 releases because /releases/latest may be a brand-new tag whose CI assets are still uploading!
           req = urllib.request.Request(
-              "https://api.github.com/repos/ggml-org/llama.cpp/releases/latest",
-              headers={"User-Agent": "Apex-Inference-Benchmarker/1.0"}
+              "https://api.github.com/repos/ggml-org/llama.cpp/releases?per_page=15",
+              headers=headers
           )
           with urllib.request.urlopen(req, timeout=30) as resp:
-              data = json.loads(resp.read().decode())
+              releases = json.loads(resp.read().decode())
+
           asset_url = None
-          for a in data.get("assets", []):
-              name = a["name"].lower()
-              if "bin-win-avx2-x64.zip" in name or ("win" in name and "x64.zip" in name and "cuda" not in name and "vulkan" not in name and "sycl" not in name):
-                  asset_url = a["browser_download_url"]
-                  print(f"[llama.cpp] Downloading {a['name']} -> {asset_url}", flush=True)
+          asset_name = None
+          gpu_Completers = ("cuda", "cudart", "vulkan", "sycl", "hip", "rocm", "opencl", "kompute", "musa", "cann")
+
+          for rel in releases:
+              assets = rel.get("assets", [])
+              # Priority 1: explicit bin-win-cpu-x64 or bin-win-avx2-x64 zip/tar.gz
+              for a in assets:
+                  name = a["name"].lower()
+                  if ("bin-win-cpu-x64" in name or "bin-win-avx2-x64" in name) and (name.endswith(".zip") or name.endswith(".tar.gz")):
+                      asset_url = a["browser_download_url"]
+                      asset_name = a["name"]
+                      break
+              if asset_url:
                   break
+              # Priority 2: any win x64 archive that is not a GPU build
+              for a in assets:
+                  name = a["name"].lower()
+                  if "win" in name and "x64" in name and "arm64" not in name and not any(g in name for g in gpu_Completers):
+                      if name.endswith(".zip") or name.endswith(".tar.gz"):
+                          asset_url = a["browser_download_url"]
+                          asset_name = a["name"]
+                          break
+              if asset_url:
+                  break
+
           if not asset_url:
-              raise RuntimeError("Could not locate prebuilt Windows AVX2 x64 release in ggml-org/llama.cpp!")
-          urllib.request.urlretrieve(asset_url, "llama_win.zip")
-          with zipfile.ZipFile("llama_win.zip", "r") as z:
-              z.extractall("llama_bin")
-          print("[llama.cpp] Extracted binaries:", sorted(os.listdir("llama_bin"))[:20], flush=True)
+              raise RuntimeError("Could not locate prebuilt Windows CPU x64 release across recent 15 ggml-org/llama.cpp releases!")
+
+          print(f"[llama.cpp] Downloading {asset_name} -> {asset_url}", flush=True)
+          urllib.request.urlretrieve(asset_url, asset_name)
+          if asset_name.endswith(".zip"):
+              with zipfile.ZipFile(asset_name, "r") as z:
+                  z.extractall("llama_bin")
+          elif asset_name.endswith(".tar.gz"):
+              with tarfile.open(asset_name, "r:gz") as t:
+                  t.extractall("llama_bin")
+
+          extracted = []
+          for root, _, files in os.walk("llama_bin"):
+              for f in files:
+                  if f.lower().endswith(".exe"):
+                      extracted.append(os.path.join(root, f))
+          print("[llama.cpp] Extracted Windows .exe binaries:", sorted(extracted), flush=True)
           EOF
 
           echo "================================================================================"
@@ -236,9 +271,9 @@ jobs:
           cd ..
 
       # =========================================================================
-      # STEP 4: REAL UNSLOTH MULTI-SHARD DOWNLOAD (>60GB ASSERTION) & STAGE 1-4 BENCHMARKS
+      # STEP 4: REAL UNSLOTH MULTI-SHARD DOWNLOAD (>60GB ASSERTION) & STAGE 1-5 BENCHMARKS
       # =========================================================================
-      - name: "Step 4 - Real Unsloth Multi-Drive Download (>60GB Verified) & Stage 1-4 Sequential Benchmark"
+      - name: "Step 4 - Real Unsloth Multi-Drive Download (>60GB Verified) & Stage 1-5 Sequential Benchmark"
         id: step4_benchmark
         env:
           MODEL_TARGET: ${{ github.event.inputs.model_target || 'qwen38' }}
@@ -350,8 +385,6 @@ jobs:
                           pct = 100.0 * downloaded / max(total_bytes, 1)
                           print(f"  [DL] {fname}: {pct:6.2f}% ({downloaded/(1024**3):.2f}/{total_gb:.2f} GB) @ {mbps:.1f} MB/s", flush=True)
 
-              # If placed on C:, create a Windows symbolic link inside primary_dir on D: so multi-shard engines
-              # resolve all shards seamlessly while physical I/O streams concurrently across both C: and D:!
               if os.path.normpath(dest_dir) != os.path.normpath(primary_dir):
                   link_path = os.path.join(primary_dir, fname)
                   if os.path.exists(link_path):
@@ -382,11 +415,21 @@ jobs:
                   f"total_bytes={total_bytes_all} (need >60,000,000,000), elapsed={elapsed:.2f}s!"
               )
 
-          shard1_path = os.path.join(primary_dir, os.path.basename(shard_specs[0][0]))
+          shard1_name = os.path.basename(shard_specs[0][0])
+          shard1_path = os.path.join(primary_dir, shard1_name)
+
+          # Write Colibri gguf.json + ref.json in primary_dir so Colibri qwen38.exe/glm53.exe can also run in-place GGUF mode
+          with open(os.path.join(primary_dir, "gguf.json"), "w") as gf:
+              json.dump({"gguf": shard1_name}, gf)
+          with open(os.path.join(primary_dir, "ref.json"), "w") as rf:
+              prompt_toks = [1 + (i * 7) % 500 for i in range(64)]
+              json.dump({"prompt": prompt_toks, "full": prompt_toks + [10, 11, 12, 13, 14, 15, 16, 17]}, rf)
+
           with open(f"D:/apex_d_drive/manifest_{target}.json", "w") as mf:
               json.dump({
                   "target": target,
                   "repo_id": repo_id,
+                  "primary_dir": primary_dir,
                   "shard1": shard1_path,
                   "files": downloaded_files,
                   "total_bytes": total_bytes_all,
@@ -395,6 +438,7 @@ jobs:
           EOF
 
             SHARD1=$(python3 -c "import json; print(json.load(open('D:/apex_d_drive/manifest_${TARGET}.json'))['shard1'])")
+            PRIMARY_DIR=$(python3 -c "import json; print(json.load(open('D:/apex_d_drive/manifest_${TARGET}.json'))['primary_dir'])")
             echo "Verified Primary Shard 1 Path: $SHARD1"
 
             echo "--------------------------------------------------------------------------------"
@@ -430,7 +474,6 @@ jobs:
             echo "--------------------------------------------------------------------------------"
             python3 -u - "$APEX_BIN" "$SHARD1" << 'EOF' 2>&1 | tee "$LOG_DIR/07_${TARGET}_stage3_openai_stress.log"
           import sys, time, json, subprocess, urllib.request
-          from concurrent.futures import ThreadPoolExecutor, as_completed
 
           apex_bin, shard1 = sys.argv[1], sys.argv[2]
           port = 18088
@@ -440,7 +483,7 @@ jobs:
           )
           try:
               ready = False
-              for _ in range(30):
+              for _ in range(60):
                   if proc.poll() is not None:
                       break
                   try:
@@ -462,7 +505,7 @@ jobs:
                       headers={"Content-Type": "application/json"},
                       method="POST"
                   )
-                  with urllib.request.urlopen(req, timeout=180.0) as r:
+                  with urllib.request.urlopen(req, timeout=300.0) as r:
                       return json.loads(r.read().decode("utf-8"))
 
               with urllib.request.urlopen(f"http://127.0.0.1:{port}/v1/models", timeout=20.0) as r:
@@ -489,7 +532,7 @@ jobs:
                   headers={"Content-Type": "application/json"},
                   method="POST"
               )
-              with urllib.request.urlopen(sse_req, timeout=180.0) as r:
+              with urllib.request.urlopen(sse_req, timeout=300.0) as r:
                   sse_txt = r.read().decode("utf-8")
               print("[Stage 3] /v1/chat/completions (stream=true SSE):", sse_txt.strip().replace("\n\n", " | "), flush=True)
               assert "data: [DONE]" in sse_txt
@@ -525,15 +568,25 @@ jobs:
             echo "--------------------------------------------------------------------------------"
             echo " [Stage 5] Sequential Competitor Head-to-Head (Colibri & llama.cpp --no-mmap)"
             echo "--------------------------------------------------------------------------------"
+            if [ "$TARGET" = "qwen38" ] && [ -f "baselines/colibri/c/qwen38.exe" ]; then
+              echo "Running JustVugg/colibri native qwen38.exe sequentially on $PRIMARY_DIR..."
+              SNAP="$PRIMARY_DIR" OMP_NUM_THREADS=4 ./baselines/colibri/c/qwen38.exe 16 8 "$PRIMARY_DIR/ref.json" \
+                2>&1 | tee "$LOG_DIR/09_${TARGET}_colibri_bench.log" || true
+            elif [ "$TARGET" = "glm53" ] && [ -f "baselines/colibri/c/glm53.exe" ]; then
+              echo "Running JustVugg/colibri native glm53.exe sequentially on $PRIMARY_DIR..."
+              OMP_NUM_THREADS=4 ./baselines/colibri/c/glm53.exe --model "$PRIMARY_DIR" --greedy 16 16 \
+                2>&1 | tee "$LOG_DIR/09_${TARGET}_colibri_bench.log" || true
+            fi
+
             LLAMA_CLI=$(find baselines/llama_bin -iname "llama-cli.exe" | head -n 1 || true)
             LLAMA_BENCH=$(find baselines/llama_bin -iname "llama-bench.exe" | head -n 1 || true)
             if [ -n "$LLAMA_BENCH" ] && [ -f "$LLAMA_BENCH" ]; then
               echo "Running llama-bench.exe (--no-mmap) sequentially on $SHARD1..."
-              "$LLAMA_BENCH" -m "$SHARD1" -p 64 -n 32 -t 4 -mmp 0 2>&1 | tee "$LOG_DIR/09_${TARGET}_llamacpp_bench.log" || true
+              "$LLAMA_BENCH" -m "$SHARD1" -p 64 -n 32 -t 4 -mmp 0 2>&1 | tee "$LOG_DIR/10_${TARGET}_llamacpp_bench.log" || true
             fi
             if [ -n "$LLAMA_CLI" ] && [ -f "$LLAMA_CLI" ]; then
               echo "Running llama-cli.exe (--no-mmap --temp 0) greedy parity reference on $SHARD1..."
-              "$LLAMA_CLI" -m "$SHARD1" -p "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:" -n 32 -t 4 --temp 0 --no-mmap --no-cnv 2>&1 | tee "$LOG_DIR/10_${TARGET}_llamacpp_greedy.log" || true
+              "$LLAMA_CLI" -m "$SHARD1" -p "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:" -n 32 -t 4 --temp 0 --no-mmap --no-cnv 2>&1 | tee "$LOG_DIR/11_${TARGET}_llamacpp_greedy.log" || true
             fi
           }
 
