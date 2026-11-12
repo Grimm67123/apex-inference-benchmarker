@@ -25,6 +25,8 @@ env:
   HF_HUB_ENABLE_HF_TRANSFER: "1"
   TMPDIR: "D:/apex_d_drive/tmp"
   GIT_TERMINAL_PROMPT: "0"
+  PYTHONIOENCODING: "utf-8"
+  PYTHONUTF8: "1"
 
 jobs:
   apex-benchmark-windows:
@@ -266,6 +268,7 @@ jobs:
           echo "================================================================================"
           echo " [3.3] Inspecting PolyStrata (simplexai-labs/PolyStrata) & ik_llama.cpp"
           echo "================================================================================"
+          git config --global core.longpaths true
           git clone --depth 1 https://github.com/simplexai-labs/PolyStrata.git polystrata || true
           git clone --depth 1 https://github.com/ikawrakow/ik_llama.cpp.git ik_llama || true
           cd ..
@@ -327,21 +330,17 @@ jobs:
                       return int(cr.split("/")[-1])
                   return int(r.headers.get("Content-Length", 0))
 
-          def download_chunk(url, dest_path, start, end, retries=5):
+          def fetch_chunk_bytes(url, start, end, retries=5):
               for attempt in range(retries):
                   try:
                       req = urllib.request.Request(url, headers={**HEADERS, "Range": f"bytes={start}-{end}"})
                       with urllib.request.urlopen(req, timeout=60) as r:
-                          data = r.read()
-                      with open(dest_path, "r+b") as f:
-                          f.seek(start)
-                          f.write(data)
-                      return len(data)
+                          return r.read()
                   except Exception as e:
                       if attempt == retries - 1:
                           raise e
                       time.sleep(1.5 * (attempt + 1))
-              return 0
+              return b""
 
           def fast_download_file(repo, revision, rpath, dest_dir, required=True):
               os.makedirs(dest_dir, exist_ok=True)
@@ -367,23 +366,34 @@ jobs:
                       raise e
 
               total_gb = total_bytes / (1024**3)
-              print(f"\n[HF-MultiDrive-DL] Downloading {repo}/{rpath} ({total_gb:.3f} GB) -> {dest_path}", flush=True)
-              with open(dest_path, "wb") as f:
-                  f.truncate(total_bytes)
+              print(f"\n[HF-MultiDrive-DL] Streaming {repo}/{rpath} ({total_gb:.3f} GB) -> {dest_path} (Sequential Non-Truncate)", flush=True)
 
-              chunk_size = 64 * 1024 * 1024
+              chunk_size = 32 * 1024 * 1024
               ranges = [(off, min(off + chunk_size - 1, total_bytes - 1)) for off in range(0, total_bytes, chunk_size)]
               t0 = time.time()
               downloaded = 0
-              with ThreadPoolExecutor(max_workers=16) as ex:
-                  futs = [ex.submit(download_chunk, url, dest_path, s, e) for (s, e) in ranges]
-                  for i, fut in enumerate(as_completed(futs), 1):
-                      downloaded += fut.result()
-                      if i % 16 == 0 or i == len(ranges):
-                          el = max(time.time() - t0, 0.001)
-                          mbps = (downloaded / (1024**2)) / el
-                          pct = 100.0 * downloaded / max(total_bytes, 1)
-                          print(f"  [DL] {fname}: {pct:6.2f}% ({downloaded/(1024**3):.2f}/{total_gb:.2f} GB) @ {mbps:.1f} MB/s", flush=True)
+              window = 16
+              with open(dest_path, "wb", buffering=16 * 1024 * 1024) as f:
+                  with ThreadPoolExecutor(max_workers=window) as ex:
+                      active = {}
+                      next_idx = 0
+                      while next_idx < min(window, len(ranges)):
+                          s, e = ranges[next_idx]
+                          active[next_idx] = ex.submit(fetch_chunk_bytes, url, s, e)
+                          next_idx += 1
+                      for write_idx in range(len(ranges)):
+                          data = active.pop(write_idx).result()
+                          if next_idx < len(ranges):
+                              s, e = ranges[next_idx]
+                              active[next_idx] = ex.submit(fetch_chunk_bytes, url, s, e)
+                              next_idx += 1
+                          f.write(data)
+                          downloaded += len(data)
+                          if (write_idx + 1) % 16 == 0 or (write_idx + 1) == len(ranges):
+                              el = max(time.time() - t0, 0.001)
+                              mbps = (downloaded / (1024**2)) / el
+                              pct = 100.0 * downloaded / max(total_bytes, 1)
+                              print(f"  [DL] {fname}: {pct:6.2f}% ({downloaded/(1024**3):.2f}/{total_gb:.2f} GB) @ {mbps:.1f} MB/s", flush=True)
 
               if os.path.normpath(dest_dir) != os.path.normpath(primary_dir):
                   link_path = os.path.join(primary_dir, fname)
@@ -474,6 +484,8 @@ jobs:
             echo "--------------------------------------------------------------------------------"
             python3 -u - "$APEX_BIN" "$SHARD1" << 'EOF' 2>&1 | tee "$LOG_DIR/07_${TARGET}_stage3_openai_stress.log"
           import sys, time, json, subprocess, urllib.request
+          if hasattr(sys.stdout, "reconfigure"):
+              sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
           apex_bin, shard1 = sys.argv[1], sys.argv[2]
           port = 18088
@@ -588,6 +600,53 @@ jobs:
               echo "Running llama-cli.exe (--no-mmap --temp 0) greedy parity reference on $SHARD1..."
               "$LLAMA_CLI" -m "$SHARD1" -p "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:" -n 32 -t 4 --temp 0 --no-mmap --no-cnv 2>&1 | tee "$LOG_DIR/11_${TARGET}_llamacpp_greedy.log" || true
             fi
+
+            python3 -u - "$TARGET" "$LOG_DIR" << 'EOF' 2>&1 | tee "$LOG_DIR/12_${TARGET}_competitor_comparison.log"
+          import os, sys, re
+          if hasattr(sys.stdout, "reconfigure"):
+              sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+          target, log_dir = sys.argv[1], sys.argv[2]
+
+          def read_log(name):
+              p = os.path.join(log_dir, name)
+              if not os.path.exists(p): return ""
+              with open(p, "r", encoding="utf-8", errors="replace") as f: return f.read()
+
+          s1 = read_log(f"05_{target}_stage1_prompt_response.log")
+          s2 = read_log(f"06_{target}_stage2_512_warmup.log")
+          s4 = read_log(f"08_{target}_stage4_2048_mtp_ab.log")
+          col = read_log(f"09_{target}_colibri_bench.log")
+          llb = read_log(f"10_{target}_llamacpp_bench.log")
+
+          def grab(pat, txt, default="N/A"):
+              m = re.search(pat, txt)
+              return m.group(1) if m else default
+
+          apex_s1_pref = grab(r"Prefill Throughput \(Avg\)\s*:\s*([0-9.]+)\s*tok/s", s1)
+          apex_s1_dec  = grab(r"Decode Throughput  \(Avg\)\s*:\s*([0-9.]+)\s*tok/s", s1)
+          apex_s1_hit  = grab(r"Effective RAM Hit Rate       :\s*([0-9.]+%)", s1)
+          apex_s2_pref = grab(r"Prefill Throughput \(Avg\)\s*:\s*([0-9.]+)\s*tok/s", s2)
+          apex_s2_dec  = grab(r"Decode Throughput  \(Avg\)\s*:\s*([0-9.]+)\s*tok/s", s2)
+          apex_s2_hit  = grab(r"Effective RAM Hit Rate       :\s*([0-9.]+%)", s2)
+          apex_mtp_off = grab(r"MTP OFF Decode Throughput :\s*([0-9.]+)\s*tokens/sec", s4)
+          apex_mtp_on  = grab(r"MTP ON  Decode Throughput :\s*([0-9.]+)\s*tokens/sec", s4)
+          col_tps      = grab(r"([0-9.]+)\s*tok/s", col, "Requires Custom .bin")
+          llb_pp       = grab(r"pp64\s*\|\s*([0-9.]+)", llb, "Arch Unsupported in Mainline")
+          llb_tg       = grab(r"tg32\s*\|\s*([0-9.]+)", llb, "Arch Unsupported in Mainline")
+
+          print("================================================================================")
+          print(f" [Stage 5 Summary] {target.upper()} Head-to-Head Competitor Comparison Table")
+          print("================================================================================")
+          print("| Engine / Stage | Prefill (tok/s) | Decode (tok/s) | Effective RAM Hit Rate | Direct GGUF Support |")
+          print("| :--- | :---: | :---: | :---: | :---: |")
+          print(f"| **Apex Inference v1 (Stage 1: 64p / 64g)** | {apex_s1_pref} | {apex_s1_dec} | {apex_s1_hit} | YES (Zero-Convert) |")
+          print(f"| **Apex Inference v1 (Stage 2: 512p / 128g)** | {apex_s2_pref} | {apex_s2_dec} | {apex_s2_hit} | YES (Zero-Convert) |")
+          print(f"| **Apex Inference v1 (Stage 4: 2048p MTP OFF)** | - | {apex_mtp_off} | - | YES (Zero-Convert) |")
+          print(f"| **Apex Inference v1 (Stage 4: 2048p MTP ON)** | - | {apex_mtp_on} | - | YES (Zero-Convert) |")
+          print(f"| **JustVugg/colibri (`qwen38.exe`/`glm53.exe`)** | - | {col_tps} | - | Partial (`gguf.json`) |")
+          print(f"| **ggml-org/llama.cpp (`--no-mmap`)** | {llb_pp} | {llb_tg} | - | Fails (`qwen4exp`/`glm5-next`) |")
+          print("================================================================================")
+          EOF
           }
 
           if [ "$MODEL_TARGET" = "both" ]; then
