@@ -1,7 +1,17 @@
-name: Apex Inference v1 — Fast Qwen-3.8-Flash-Next Comparative Benchmark & Telemetry Suite
+name: Apex Inference v1 — Real Unsloth Multi-Shard NVMe Benchmark & Parity Suite
 
 on:
   workflow_dispatch:
+    inputs:
+      model_target:
+        description: "Target model to benchmark (qwen38, glm53, or both)"
+        required: false
+        default: "qwen38"
+        type: choice
+        options:
+          - qwen38
+          - glm53
+          - both
   push:
     branches: [ main, master ]
     paths-ignore:
@@ -12,24 +22,25 @@ env:
   APEX_DRIVE_D: "D:/apex_d_drive"
   HF_HOME: "D:/apex_d_drive/hf_cache"
   HF_HUB_CACHE: "D:/apex_d_drive/hf_cache"
+  HF_HUB_ENABLE_HF_TRANSFER: "1"
   TMPDIR: "D:/apex_d_drive/tmp"
   GIT_TERMINAL_PROMPT: "0"
 
 jobs:
-  benchmark-qwen38-windows:
-    name: Apex Inference v1 vs Colibri & llama.cpp (Qwen 3.8 Flash Next UD-IQ2_XS)
+  apex-benchmark-windows:
+    name: Apex Inference v1 vs Colibri & llama.cpp (Real Unsloth GGUF Shards)
     runs-on: windows-latest
     timeout-minutes: 120
 
     steps:
       # =========================================================================
-      # STEP 1: FAST DISK CLEANUP, DEFENDER EXCLUSION & DUAL-DRIVE ALLOCATION
+      # STEP 1: PRE-FLIGHT DISK CLEANUP, DEFENDER EXCLUSION & >= 150 GB GATE
       # =========================================================================
-      - name: "Step 1 - Fast Disk Cleanup, Defender Exclusion, Dual-Drive Allocation & >=150GB Gate"
+      - name: "Step 1 - Pre-Flight Disk Cleanup, Defender Exclusion & >=150GB Free Space Gate"
         id: step1_disk
         shell: pwsh
         run: |
-          $ErrorActionPreference = "Continue"
+          $ErrorActionPreference = "Stop"
           New-Item -ItemType Directory -Force -Path "telemetry_logs" | Out-Null
           $LogFile = "$PWD/telemetry_logs/00_workflow_master.log"
 
@@ -41,15 +52,15 @@ jobs:
           }
 
           Log-Line "================================================================================"
-          Log-Line " [Step 1] Configuring Windows Defender Exclusions & Reclaiming Disk Space..."
+          Log-Line " [Step 1] Configuring Windows Defender Exclusions & Reclaiming Runner Storage"
           Log-Line "================================================================================"
 
           try {
               Add-MpPreference -ExclusionPath "C:\", "D:\" -ErrorAction SilentlyContinue
               Set-MpPreference -DisableRealtimeMonitoring $true -ErrorAction SilentlyContinue
-              Log-Line " [Step 1] Windows Defender exclusions active on C:\ and D:\ (zero MsMpEng I/O tax)."
+              Log-Line " [Step 1] Windows Defender exclusions active on C:\ and D:\."
           } catch {
-              Log-Line " [Step 1] Note: Defender preference cmdlet skipped."
+              Log-Line " [Step 1] Defender exclusion note: continuing."
           }
 
           $fastPurgePaths = @(
@@ -79,16 +90,16 @@ jobs:
 
           New-Item -ItemType Directory -Force -Path "C:\apex_c_drive\models\qwen38" | Out-Null
           New-Item -ItemType Directory -Force -Path "D:\apex_d_drive\models\qwen38" | Out-Null
+          New-Item -ItemType Directory -Force -Path "C:\apex_c_drive\models\glm53" | Out-Null
+          New-Item -ItemType Directory -Force -Path "D:\apex_d_drive\models\glm53" | Out-Null
           New-Item -ItemType Directory -Force -Path "D:\apex_d_drive\hf_cache" | Out-Null
           New-Item -ItemType Directory -Force -Path "D:\apex_d_drive\tmp" | Out-Null
 
           $driveC = Get-PSDrive C
           $driveD = if (Test-Path "D:\") { Get-PSDrive D } else { $null }
           $freeC_GB = [math]::Round($driveC.Free / 1GB, 2)
-          $usedC_GB = [math]::Round($driveC.Used / 1GB, 2)
           $totalC_GB = [math]::Round(($driveC.Free + $driveC.Used) / 1GB, 2)
           $freeD_GB = if ($driveD) { [math]::Round($driveD.Free / 1GB, 2) } else { 0.0 }
-          $usedD_GB = if ($driveD) { [math]::Round($driveD.Used / 1GB, 2) } else { 0.0 }
           $totalD_GB = if ($driveD) { [math]::Round(($driveD.Free + $driveD.Used) / 1GB, 2) } else { 0.0 }
           $combinedFree_GB = [math]::Round($freeC_GB + $freeD_GB, 2)
 
@@ -99,16 +110,16 @@ jobs:
           Log-Line "--------------------------------------------------------------------------------"
 
           if ($combinedFree_GB -lt 150.0) {
-              Log-Line " [ERROR] Combined free space ($combinedFree_GB GB) is below 150.0 GB!"
+              Log-Line " [FATAL] Combined free space ($combinedFree_GB GB) is below 150.0 GB!"
               exit 1
           }
           Log-Line " [OK] Disk space verification passed: $combinedFree_GB GB >= 150.00 GB."
 
       # =========================================================================
-      # STEP 2: CHECKOUT PRIVATE REPO (SUPPORTS BOTH SECRETS & AUTO-FLATTENS FOLDER)
+      # STEP 2: CHECKOUT PRIVATE REPO, COMPILE APEX v1 & RUN FAST SANITY SUITE
       # =========================================================================
-      - name: "Step 2 - Checkout Private Apex-Inference-v1 Repo & Auto-Flatten Nested Folder"
-        id: step2_checkout
+      - name: "Step 2 - Checkout Private Apex-Inference-v1 Repo, Compile AVX2 Engine & Run Sanity Tests"
+        id: step2_build
         env:
           SECRET_WRITE_README: ${{ secrets.PRIVATE_REPO_WRITE_LOGS_README }}
           SECRET_PAT_FALLBACK: ${{ secrets.PRIVATE_REPO_PAT }}
@@ -116,141 +127,162 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p telemetry_logs
-          exec > >(tee -a telemetry_logs/00_workflow_master.log telemetry_logs/01_checkout.log) 2>&1
+          exec > >(tee -a telemetry_logs/00_workflow_master.log telemetry_logs/01_checkout_and_build.log) 2>&1
 
           echo "================================================================================"
-          echo " [Step 2] Cloning Private Repository Grimm67123/apex-inference-v1..."
+          echo " [Step 2] Cloning Private Repository Grimm67123/apex-inference-v1"
           echo "================================================================================"
 
           TOKEN="${SECRET_WRITE_README:-$SECRET_PAT_FALLBACK}"
           if [ -z "$TOKEN" ]; then
-            echo "[FATAL ERROR] Neither PRIVATE_REPO_WRITE_LOGS_README nor PRIVATE_REPO_PAT secret is set in repository secrets!"
-            echo "Please verify Settings -> Secrets and variables -> Actions in Grimm67123/apex-inference-benchmarker."
+            echo "[FATAL] Neither PRIVATE_REPO_WRITE_LOGS_README nor PRIVATE_REPO_PAT secret is set!"
             exit 1
           fi
 
           rm -rf Apex-Inference-v1
           git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/Grimm67123/apex-inference-v1.git" Apex-Inference-v1
 
-          echo " [Step 2] Inspecting repository directory layout..."
-          ls -la Apex-Inference-v1
-
-          # Auto-detect if code was pushed inside a nested Apex-Inference-v1/Apex-Inference-v1 subfolder
           if [ ! -f "Apex-Inference-v1/CMakeLists.txt" ] && [ -f "Apex-Inference-v1/Apex-Inference-v1/CMakeLists.txt" ]; then
-            echo " [Step 2] Detected nested Apex-Inference-v1/Apex-Inference-v1/ subfolder! Flattening to repo root..."
+            echo " [Step 2] Auto-flattening nested Apex-Inference-v1/Apex-Inference-v1/ folder..."
             shopt -s dotglob
-            mv Apex-Inference-v1/Apex-Inference-v1/* Apex-Inference-v1/ 2>/dev/null || true
-            rmdir Apex-Inference-v1/Apex-Inference-v1 2>/dev/null || true
+            mv Apex-Inference-v1/Apex-Inference-v1/* Apex-Inference-v1/
+            rmdir Apex-Inference-v1/Apex-Inference-v1
             shopt -u dotglob
-            echo " [Step 2] Flattened repository layout:"
-            ls -la Apex-Inference-v1
           fi
 
-          if [ ! -f "Apex-Inference-v1/CMakeLists.txt" ]; then
-            echo "[FATAL ERROR] CMakeLists.txt not found in Apex-Inference-v1! Directory tree:"
-            find Apex-Inference-v1 -maxdepth 3
-            exit 1
-          fi
-          echo " [Step 2] Repository verified successfully."
+          cd Apex-Inference-v1
+          mkdir -p build
+          echo " [Step 2] Compiling Apex Inference v1 (C++17 AVX2+FMA+F16C+OpenMP)..."
+          g++ -O3 -std=c++17 -march=native -mavx2 -mfma -mf16c -fopenmp -fno-math-errno -pthread \
+            -Iinclude \
+            src/apex_platform.cpp src/apex_hw_bench.cpp src/apex_telemetry.cpp \
+            src/apex_gguf.cpp src/apex_cache.cpp \
+            src/model_glm53.cpp src/model_glm53_run.cpp \
+            src/model_qwen38.cpp src/model_qwen38_run.cpp \
+            src/apex_server.cpp src/main.cpp \
+            -o build/apex.exe -lws2_32 -lpsapi
+          cp build/apex.exe ./apex.exe
+          ls -lh build/apex.exe ./apex.exe
+
+          echo " [Step 2] Running Pre-Flight Unit, Greedy Parity & OpenAI API Stress Verification..."
+          python3 -u tests/gen_synthetic_gguf.py
+          python3 -u tests/test_parity_and_api.py
+          rm -f tests/*.gguf tests/*.pack
+          cd ..
 
       # =========================================================================
-      # STEP 3: COMPILE APEX INFERENCE v1 (AVX2+FMA+F16C+OPENMP) & BASELINES
+      # STEP 3: FETCH & BUILD REAL COMPETITOR ENGINES (JustVugg/colibri, llama.cpp, PolyStrata, ik_llama.cpp)
       # =========================================================================
-      - name: "Step 3 - Compile Apex Inference v1 & Build/Fetch Colibri + llama.cpp Baselines"
-        id: step3_build
+      - name: "Step 3 - Build JustVugg/colibri & Fetch Official Prebuilt llama.cpp + PolyStrata / ik_llama.cpp"
+        id: step3_competitors
         shell: bash
         run: |
           set -euo pipefail
-          exec > >(tee -a telemetry_logs/00_workflow_master.log telemetry_logs/02_build.log) 2>&1
+          exec > >(tee -a telemetry_logs/00_workflow_master.log telemetry_logs/02_competitors_setup.log) 2>&1
 
-          echo "================================================================================"
-          echo " [Step 3] Compiling Apex Inference v1 with Hardware AVX2 + FMA + F16C + OpenMP"
-          echo "================================================================================"
-          cd Apex-Inference-v1
-          mkdir -p build
-
-          if command -v g++ >/dev/null 2>&1; then
-            echo " [Compiler] Using MinGW-w64 g++ (-O3 -std=c++17 -march=native -mavx2 -mfma -mf16c -fopenmp -fno-math-errno)..."
-            g++ -O3 -std=c++17 -march=native -mavx2 -mfma -mf16c -fopenmp -fno-math-errno -pthread \
-              -Iinclude \
-              src/apex_platform.cpp src/apex_telemetry.cpp src/apex_gguf.cpp \
-              src/apex_cache.cpp src/model_glm53.cpp src/model_qwen38.cpp \
-              src/apex_server.cpp src/main.cpp \
-              -o build/apex.exe -lws2_32 -lpsapi
-            cp build/apex.exe ./apex.exe
-          else
-            cmake -B build -DCMAKE_BUILD_TYPE=Release
-            cmake --build build --config Release --parallel 4
-            if [ -f build/Release/apex.exe ]; then
-              cp build/Release/apex.exe build/apex.exe
-              cp build/Release/apex.exe ./apex.exe
-            fi
-          fi
-          ls -lh build/apex.exe ./apex.exe
-          cd ..
-
-          echo "================================================================================"
-          echo " [Step 3b] Fetching Colibri & Prebuilt llama.cpp AVX2 Windows Binaries"
-          echo "================================================================================"
           mkdir -p baselines
           cd baselines
 
-          git clone --depth 1 https://github.com/clevermahfuz/Colibri.git colibri 2>&1 || true
-          if [ -d colibri ] && [ -f colibri/CMakeLists.txt ]; then
-            cmake -B colibri/build -S colibri -DCMAKE_BUILD_TYPE=Release 2>&1 || true
-            cmake --build colibri/build --config Release --parallel 4 2>&1 || true
+          echo "================================================================================"
+          echo " [3.1] Cloning & Building Colibri (https://github.com/JustVugg/colibri.git)"
+          echo "================================================================================"
+          rm -rf colibri
+          git clone --depth 1 https://github.com/JustVugg/colibri.git colibri
+          ls -la colibri
+          if [ -d "colibri/c" ]; then
+            echo "Building Colibri native C engine (colibri/c)..."
+            ls -la colibri/c
+            if [ -f "colibri/c/Makefile" ]; then
+              (cd colibri/c && make -j4) || true
+            elif [ -f "colibri/c/CMakeLists.txt" ]; then
+              cmake -B colibri/c/build -S colibri/c -DCMAKE_BUILD_TYPE=Release
+              cmake --build colibri/c/build --config Release --parallel 4
+            fi
           fi
 
-          python3 - << 'EOF'
+          echo "================================================================================"
+          echo " [3.2] Downloading Official Prebuilt llama.cpp AVX2 Windows Release Binaries"
+          echo "================================================================================"
+          python3 -u - << 'EOF'
           import urllib.request, json, zipfile, os
 
           os.makedirs("llama_bin", exist_ok=True)
-          try:
-              req = urllib.request.Request(
-                  "https://api.github.com/repos/ggml-org/llama.cpp/releases/latest",
-                  headers={"User-Agent": "Apex-Benchmark-Agent"}
-              )
-              with urllib.request.urlopen(req, timeout=30) as resp:
-                  data = json.loads(resp.read().decode())
-              asset_url = None
-              for a in data.get("assets", []):
-                  name = a["name"].lower()
-                  if "bin-win-avx2-x64.zip" in name or ("win" in name and "x64.zip" in name and "cuda" not in name and "vulkan" not in name and "sycl" not in name):
-                      asset_url = a["browser_download_url"]
-                      print(f"Downloading prebuilt llama.cpp release: {a['name']} -> {asset_url}")
-                      break
-              if asset_url:
-                  urllib.request.urlretrieve(asset_url, "llama_win.zip")
-                  with zipfile.ZipFile("llama_win.zip", "r") as z:
-                      z.extractall("llama_bin")
-                  print("Extracted prebuilt llama.cpp binaries:", os.listdir("llama_bin")[:15])
-          except Exception as e:
-              print(f"Prebuilt llama.cpp fetch warning: {e}")
+          req = urllib.request.Request(
+              "https://api.github.com/repos/ggml-org/llama.cpp/releases/latest",
+              headers={"User-Agent": "Apex-Inference-Benchmarker/1.0"}
+          )
+          with urllib.request.urlopen(req, timeout=30) as resp:
+              data = json.loads(resp.read().decode())
+          asset_url = None
+          for a in data.get("assets", []):
+              name = a["name"].lower()
+              if "bin-win-avx2-x64.zip" in name or ("win" in name and "x64.zip" in name and "cuda" not in name and "vulkan" not in name and "sycl" not in name):
+                  asset_url = a["browser_download_url"]
+                  print(f"[llama.cpp] Downloading {a['name']} -> {asset_url}", flush=True)
+                  break
+          if not asset_url:
+              raise RuntimeError("Could not locate prebuilt Windows AVX2 x64 release in ggml-org/llama.cpp!")
+          urllib.request.urlretrieve(asset_url, "llama_win.zip")
+          with zipfile.ZipFile("llama_win.zip", "r") as z:
+              z.extractall("llama_bin")
+          print("[llama.cpp] Extracted binaries:", sorted(os.listdir("llama_bin"))[:20], flush=True)
           EOF
+
+          echo "================================================================================"
+          echo " [3.3] Inspecting PolyStrata (simplexai-labs/PolyStrata) & ik_llama.cpp"
+          echo "================================================================================"
+          git clone --depth 1 https://github.com/simplexai-labs/PolyStrata.git polystrata || true
+          git clone --depth 1 https://github.com/ikawrakow/ik_llama.cpp.git ik_llama || true
           cd ..
 
       # =========================================================================
-      # STEP 4: DOWNLOAD QWEN 3.8 FLASH NEXT UD-IQ2_XS (FAST 16-THREAD RANGE)
+      # STEP 4: REAL UNSLOTH MULTI-SHARD DOWNLOAD (>60GB ASSERTION) & STAGE 1-4 BENCHMARKS
       # =========================================================================
-      - name: "Step 4 - High-Speed 16-Thread Parallel Download of Qwen 3.8 Flash Next (UD-IQ2_XS)"
-        id: step4_download
+      - name: "Step 4 - Real Unsloth Multi-Drive Download (>60GB Verified) & Stage 1-4 Sequential Benchmark"
+        id: step4_benchmark
+        env:
+          MODEL_TARGET: ${{ github.event.inputs.model_target || 'qwen38' }}
         shell: bash
         run: |
           set -euo pipefail
-          exec > >(tee -a telemetry_logs/00_workflow_master.log telemetry_logs/03_download_qwen.log) 2>&1
+          exec > >(tee -a telemetry_logs/00_workflow_master.log telemetry_logs/03_real_model_benchmark.log) 2>&1
 
-          python3 - << 'EOF'
+          APEX_BIN="$(pwd)/Apex-Inference-v1/build/apex.exe"
+          LOG_DIR="$(pwd)/telemetry_logs"
+
+          run_model_suite() {
+            local TARGET="$1"
+            echo "================================================================================"
+            echo " >>> EXECUTING REAL MULTI-SHARD BENCHMARK SUITE FOR TARGET: ${TARGET} <<<"
+            echo "================================================================================"
+
+            python3 -u - "$TARGET" << 'EOF'
           import os, sys, time, json, urllib.request
           from concurrent.futures import ThreadPoolExecutor, as_completed
 
+          target = sys.argv[1]
           HEADERS = {"User-Agent": "Apex-Inference-Benchmarker/1.0"}
 
-          def hf_list_ggufs(repo_id):
-              url = f"https://huggingface.co/api/models/{repo_id}"
-              req = urllib.request.Request(url, headers=HEADERS)
-              with urllib.request.urlopen(req, timeout=30) as r:
-                  info = json.loads(r.read().decode())
-              return [s["rfilename"] for s in info.get("siblings", []) if s["rfilename"].endswith(".gguf")]
+          if target == "qwen38":
+              repo_id = "unsloth/Qwen3.8-Flash-Next-GGUF"
+              rev = "f547710bbef973955bfaeaa89ad8e31ccae9e67c"
+              shard_specs = [
+                  ("UD-IQ2_XS/Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf", "D:/apex_d_drive/models/qwen38", True),
+                  ("UD-IQ2_XS/Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf", "D:/apex_d_drive/models/qwen38", True),
+                  ("UD-IQ2_XS/Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf", "C:/apex_c_drive/models/qwen38", True),
+                  ("MTP/mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf",                "C:/apex_c_drive/models/qwen38", False),
+              ]
+              primary_dir = "D:/apex_d_drive/models/qwen38"
+          else:
+              repo_id = "unsloth/GLM-5.3-Flash-GGUF"
+              rev = "main"
+              shard_specs = [
+                  ("UD-IQ2_XXS/GLM-5.3-Flash-UD-IQ2_XXS-00001-of-00004.gguf", "D:/apex_d_drive/models/glm53", True),
+                  ("UD-IQ2_XXS/GLM-5.3-Flash-UD-IQ2_XXS-00002-of-00004.gguf", "D:/apex_d_drive/models/glm53", True),
+                  ("UD-IQ2_XXS/GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf", "C:/apex_c_drive/models/glm53", True),
+                  ("UD-IQ2_XXS/GLM-5.3-Flash-UD-IQ2_XXS-00004-of-00004.gguf", "C:/apex_c_drive/models/glm53", True),
+              ]
+              primary_dir = "D:/apex_d_drive/models/glm53"
 
           def get_remote_size(url):
               req = urllib.request.Request(url, headers={**HEADERS, "Range": "bytes=0-0"})
@@ -276,145 +308,248 @@ jobs:
                       time.sleep(1.5 * (attempt + 1))
               return 0
 
-          def fast_parallel_download(repo_id, filename, dest_dir, workers=16):
+          def fast_download_file(repo, revision, rpath, dest_dir, required=True):
               os.makedirs(dest_dir, exist_ok=True)
-              dest_path = os.path.join(dest_dir, os.path.basename(filename))
-              url = f"https://huggingface.co/{repo_id}/resolve/main/{filename}"
-              total_bytes = get_remote_size(url)
-              total_gb = total_bytes / (1024**3)
-              print(f"\n[HF-Fast-DL] Downloading {repo_id}/{filename} ({total_gb:.2f} GB) -> {dest_path}", flush=True)
+              fname = os.path.basename(rpath)
+              dest_path = os.path.join(dest_dir, fname)
+              url = f"https://huggingface.co/{repo}/resolve/{revision}/{rpath}"
+              try:
+                  total_bytes = get_remote_size(url)
+              except Exception as e:
+                  if revision != "main":
+                      url = f"https://huggingface.co/{repo}/resolve/main/{rpath}"
+                      try:
+                          total_bytes = get_remote_size(url)
+                      except Exception as e2:
+                          if not required:
+                              print(f"[HF-DL] Optional shard {rpath} not present ({e2}); skipping.", flush=True)
+                              return None, 0
+                          raise e2
+                  elif not required:
+                      print(f"[HF-DL] Optional shard {rpath} not present ({e}); skipping.", flush=True)
+                      return None, 0
+                  else:
+                      raise e
 
+              total_gb = total_bytes / (1024**3)
+              print(f"\n[HF-MultiDrive-DL] Downloading {repo}/{rpath} ({total_gb:.3f} GB) -> {dest_path}", flush=True)
               with open(dest_path, "wb") as f:
                   f.truncate(total_bytes)
 
-              chunk_size = 64 * 1024 * 1024 # 64 MB chunks
-              ranges = []
-              for offset in range(0, total_bytes, chunk_size):
-                  end = min(offset + chunk_size - 1, total_bytes - 1)
-                  ranges.append((offset, end))
-
+              chunk_size = 64 * 1024 * 1024
+              ranges = [(off, min(off + chunk_size - 1, total_bytes - 1)) for off in range(0, total_bytes, chunk_size)]
               t0 = time.time()
               downloaded = 0
-              with ThreadPoolExecutor(max_workers=workers) as ex:
+              with ThreadPoolExecutor(max_workers=16) as ex:
                   futs = [ex.submit(download_chunk, url, dest_path, s, e) for (s, e) in ranges]
                   for i, fut in enumerate(as_completed(futs), 1):
                       downloaded += fut.result()
-                      if i % 8 == 0 or i == len(ranges):
+                      if i % 16 == 0 or i == len(ranges):
                           el = max(time.time() - t0, 0.001)
                           mbps = (downloaded / (1024**2)) / el
-                          pct = 100.0 * downloaded / total_bytes
-                          print(f"  -> Progress: {pct:6.2f}% ({downloaded/(1024**3):.2f} / {total_gb:.2f} GB) | Speed: {mbps:.1f} MB/s", flush=True)
-              return dest_path, total_bytes
+                          pct = 100.0 * downloaded / max(total_bytes, 1)
+                          print(f"  [DL] {fname}: {pct:6.2f}% ({downloaded/(1024**3):.2f}/{total_gb:.2f} GB) @ {mbps:.1f} MB/s", flush=True)
 
-          qwen_candidates = [
-              ("unsloth/Qwen3.6-35B-A3B-GGUF", "UD-IQ2_XS"),
-              ("unsloth/Qwen3-30B-A3B-GGUF", "UD-IQ2_XS"),
-          ]
-          qwen_files = []
-          qwen_repo = None
-          for repo, quant in qwen_candidates:
-              try:
-                  all_f = hf_list_ggufs(repo)
-                  matched = [f for f in all_f if quant in f]
-                  if matched:
-                      qwen_repo, qwen_files = repo, sorted(matched)
-                      break
-              except Exception as e:
-                  print(f"Candidate {repo} lookup note: {e}")
+              # If placed on C:, create a Windows symbolic link inside primary_dir on D: so multi-shard engines
+              # resolve all shards seamlessly while physical I/O streams concurrently across both C: and D:!
+              if os.path.normpath(dest_dir) != os.path.normpath(primary_dir):
+                  link_path = os.path.join(primary_dir, fname)
+                  if os.path.exists(link_path):
+                      os.remove(link_path)
+                  try:
+                      os.symlink(dest_path, link_path)
+                      print(f"  [RAID0-Link] Linked {link_path} -> {dest_path} (Dual-Drive C: + D: active)", flush=True)
+                  except Exception as le:
+                      print(f"  [RAID0-Link] Symlink note: {le}", flush=True)
 
-          qwen_paths = []
-          for f in qwen_files:
-              p, sz = fast_parallel_download(qwen_repo, f, "D:/apex_d_drive/models/qwen38", workers=16)
-              qwen_paths.append(p)
+              return dest_path, downloaded
 
-          with open("D:/apex_d_drive/model_manifest.json", "w") as mf:
-              json.dump({"qwen_repo": qwen_repo, "qwen_paths": qwen_paths}, mf, indent=2)
-          print("\n[OK] Qwen 3.8 Flash Next download complete:", qwen_paths, flush=True)
+          t_start = time.time()
+          downloaded_files = []
+          total_bytes_all = 0
+          for rpath, ddir, req_flag in shard_specs:
+              p, sz = fast_download_file(repo_id, rev, rpath, ddir, required=req_flag)
+              if p and sz > 0:
+                  downloaded_files.append(p)
+                  total_bytes_all += sz
+
+          elapsed = time.time() - t_start
+          print(f"\n[Download Verification] Files={len(downloaded_files)} | Total Bytes={total_bytes_all:,} ({total_bytes_all/(1024**3):.2f} GB) | Elapsed={elapsed:.2f}s", flush=True)
+
+          if len(downloaded_files) < 3 or total_bytes_all <= 60_000_000_000 or elapsed <= 1.0:
+              raise RuntimeError(
+                  f"FATAL DOWNLOAD ASSERTION FAILED: len(files)={len(downloaded_files)} (need >=3), "
+                  f"total_bytes={total_bytes_all} (need >60,000,000,000), elapsed={elapsed:.2f}s!"
+              )
+
+          shard1_path = os.path.join(primary_dir, os.path.basename(shard_specs[0][0]))
+          with open(f"D:/apex_d_drive/manifest_{target}.json", "w") as mf:
+              json.dump({
+                  "target": target,
+                  "repo_id": repo_id,
+                  "shard1": shard1_path,
+                  "files": downloaded_files,
+                  "total_bytes": total_bytes_all,
+                  "download_sec": elapsed
+              }, mf, indent=2)
           EOF
 
-      # =========================================================================
-      # STEP 5: RUN UNIT TESTS, QWEN PROMPT/RESPONSE SHOWCASE, BENCHMARKS & LOGS
-      # =========================================================================
-      - name: "Step 5 - Run Unit Suite, Prompt/Response Showcase, 2048-Token Prefill & Baselines"
-        id: step5_run
-        shell: bash
-        run: |
-          set -euo pipefail
-          exec > >(tee -a telemetry_logs/00_workflow_master.log) 2>&1
+            SHARD1=$(python3 -c "import json; print(json.load(open('D:/apex_d_drive/manifest_${TARGET}.json'))['shard1'])")
+            echo "Verified Primary Shard 1 Path: $SHARD1"
 
-          APEX_BIN="./Apex-Inference-v1/build/apex.exe"
-          LOG_DIR="$(pwd)/telemetry_logs"
+            echo "--------------------------------------------------------------------------------"
+            echo " [Stage 1] Small Prompt (64 tokens) + 100.00% Greedy Parity & Prompt/Response Trace"
+            echo "--------------------------------------------------------------------------------"
+            "$APEX_BIN" verify-parity \
+              --model "$SHARD1" \
+              --threads 4 \
+              2>&1 | tee "$LOG_DIR/04_${TARGET}_stage1_parity.log"
 
-          echo "================================================================================"
-          echo " [5.1] Running Synthetic GGUF Generation & Full Unit/Parity Verification Suite"
-          echo "================================================================================"
-          (cd Apex-Inference-v1 && python3 tests/gen_synthetic_gguf.py && python3 tests/test_parity_and_api.py) \
-            2>&1 | tee "$LOG_DIR/04_unit_and_synthetic_suite.log"
+            "$APEX_BIN" run \
+              --model "$SHARD1" \
+              --prompt "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:" \
+              --gen-tokens 64 \
+              --threads 4 \
+              --mtp off \
+              2>&1 | tee "$LOG_DIR/05_${TARGET}_stage1_prompt_response.log"
 
-          QWEN_GGUF=$(python3 -c "import json; d=json.load(open('D:/apex_d_drive/model_manifest.json')); print(d['qwen_paths'][0])")
-          echo "Resolved Qwen 3.8 Flash Next GGUF: $QWEN_GGUF"
+            echo "--------------------------------------------------------------------------------"
+            echo " [Stage 2] Medium Prompt (512 tokens) + Domain Cache Warmup Trajectory (@16..@512)"
+            echo "--------------------------------------------------------------------------------"
+            "$APEX_BIN" bench \
+              --model "$SHARD1" \
+              --prompt-tokens 512 \
+              --gen-tokens 128 \
+              --threads 4 \
+              --mtp off \
+              --no-hwtest \
+              2>&1 | tee "$LOG_DIR/06_${TARGET}_stage2_512_warmup.log"
 
-          echo "================================================================================"
-          echo " [5.2] Qwen 3.8 Flash Next — Greedy Parity & Logit ULP Verification"
-          echo "================================================================================"
-          "$APEX_BIN" verify-parity \
-            --model "$QWEN_GGUF" \
-            --threads 4 \
-            2>&1 | tee "$LOG_DIR/05_qwen38_verify_parity.log"
+            echo "--------------------------------------------------------------------------------"
+            echo " [Stage 3] Live OpenAI HTTP/SSE/Tool-Calling/Concurrent Stress Test on Real Shards"
+            echo "--------------------------------------------------------------------------------"
+            python3 -u - "$APEX_BIN" "$SHARD1" << 'EOF' 2>&1 | tee "$LOG_DIR/07_${TARGET}_stage3_openai_stress.log"
+          import sys, time, json, subprocess, urllib.request
+          from concurrent.futures import ThreadPoolExecutor, as_completed
 
-          echo "================================================================================"
-          echo " [5.3] Qwen 3.8 Flash Next — Interactive Prompt & Model Response + Per-Token Trace"
-          echo "================================================================================"
-          "$APEX_BIN" run \
-            --model "$QWEN_GGUF" \
-            --prompt "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and direct NVMe QD32 IOCP achieves blazing-fast token generation on 16GB RAM:" \
-            --gen-tokens 64 \
-            --threads 4 \
-            --mtp on \
-            2>&1 | tee "$LOG_DIR/06_qwen38_prompt_and_response_trace.log"
+          apex_bin, shard1 = sys.argv[1], sys.argv[2]
+          port = 18088
+          proc = subprocess.Popen(
+              [apex_bin, "serve", "--model", shard1, "--port", str(port), "--threads", "4", "--no-hwtest"],
+              stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True
+          )
+          try:
+              ready = False
+              for _ in range(30):
+                  if proc.poll() is not None:
+                      break
+                  try:
+                      with urllib.request.urlopen(f"http://127.0.0.1:{port}/health", timeout=2.0) as r:
+                          if json.loads(r.read().decode()).get("ready") is True:
+                              ready = True
+                              break
+                  except Exception:
+                      time.sleep(1.0)
+              if not ready:
+                  proc.kill()
+                  out, _ = proc.communicate(timeout=5)
+                  raise RuntimeError(f"Real-shard server failed /health startup:\n{out}")
 
-          echo "================================================================================"
-          echo " [5.4] Qwen 3.8 Flash Next — Short Prompt Benchmark (64 Prefill / 128 Decode, MTP ON)"
-          echo "================================================================================"
-          "$APEX_BIN" bench \
-            --model "$QWEN_GGUF" \
-            --prompt-tokens 64 \
-            --gen-tokens 128 \
-            --threads 4 \
-            --mtp on \
-            --no-hwtest \
-            2>&1 | tee "$LOG_DIR/07_qwen38_short_mtp_on.log"
+              def post_json(path, payload):
+                  req = urllib.request.Request(
+                      f"http://127.0.0.1:{port}{path}",
+                      data=json.dumps(payload).encode("utf-8"),
+                      headers={"Content-Type": "application/json"},
+                      method="POST"
+                  )
+                  with urllib.request.urlopen(req, timeout=180.0) as r:
+                      return json.loads(r.read().decode("utf-8"))
 
-          echo "================================================================================"
-          echo " [5.5] Qwen 3.8 Flash Next — Massive 2048-Token Prefill & High KV Load (MTP OFF vs ON A/B)"
-          echo "================================================================================"
-          "$APEX_BIN" bench \
-            --model "$QWEN_GGUF" \
-            --prompt-tokens 2048 \
-            --gen-tokens 64 \
-            --threads 4 \
-            --mtp ab \
-            --no-hwtest \
-            2>&1 | tee "$LOG_DIR/08_qwen38_2048_mtp_ab.log"
+              with urllib.request.urlopen(f"http://127.0.0.1:{port}/v1/models", timeout=20.0) as r:
+                  models = json.loads(r.read().decode())
+              mid = models["data"][0]["id"]
+              print("[Stage 3] /v1/models:", json.dumps(models), flush=True)
 
-          echo "================================================================================"
-          echo " [5.6] Comparative Baseline Run — llama.cpp & Colibri on Qwen 3.8 Flash Next"
-          echo "================================================================================"
-          LLAMA_BENCH=$(find baselines/llama_bin -iname "llama-bench.exe" | head -n 1 || true)
-          LLAMA_CLI=$(find baselines/llama_bin -iname "llama-cli.exe" | head -n 1 || true)
-          if [ -n "$LLAMA_BENCH" ] && [ -f "$LLAMA_BENCH" ]; then
-            echo "Running llama-bench.exe (--no-mmap) on Qwen 3.8 Flash Next..."
-            "$LLAMA_BENCH" -m "$QWEN_GGUF" -p 64 -n 64 -t 4 -mmp 0 2>&1 | tee "$LOG_DIR/09_llamacpp_qwen38_bench.log" || true
+              r1 = post_json("/v1/chat/completions", {
+                  "model": mid,
+                  "messages": [{"role": "user", "content": "Summarize LBA-coalesced NVMe MoE offloading in one sentence."}],
+                  "max_tokens": 16,
+                  "stream": False
+              })
+              print("[Stage 3] /v1/chat/completions (stream=false):", json.dumps(r1), flush=True)
+
+              sse_req = urllib.request.Request(
+                  f"http://127.0.0.1:{port}/v1/chat/completions",
+                  data=json.dumps({
+                      "model": mid,
+                      "messages": [{"role": "user", "content": "Stream tokens via SSE"}],
+                      "max_tokens": 8,
+                      "stream": True
+                  }).encode("utf-8"),
+                  headers={"Content-Type": "application/json"},
+                  method="POST"
+              )
+              with urllib.request.urlopen(sse_req, timeout=180.0) as r:
+                  sse_txt = r.read().decode("utf-8")
+              print("[Stage 3] /v1/chat/completions (stream=true SSE):", sse_txt.strip().replace("\n\n", " | "), flush=True)
+              assert "data: [DONE]" in sse_txt
+
+              r_tool = post_json("/v1/chat/completions", {
+                  "model": mid,
+                  "messages": [{"role": "user", "content": "Query NVMe telemetry status"}],
+                  "tools": [{"type": "function", "function": {"name": "get_nvme_telemetry"}}],
+                  "max_tokens": 8
+              })
+              print("[Stage 3] Tool Call Response:", json.dumps(r_tool), flush=True)
+              assert r_tool["choices"][0]["finish_reason"] == "tool_calls"
+          finally:
+              proc.kill()
+              try:
+                  proc.wait(timeout=5)
+              except Exception:
+                  pass
+          EOF
+
+            echo "--------------------------------------------------------------------------------"
+            echo " [Stage 4] Massive 2,048-Token Prompt (High KV Load) + MTP OFF vs MTP ON A/B Test"
+            echo "--------------------------------------------------------------------------------"
+            "$APEX_BIN" bench \
+              --model "$SHARD1" \
+              --prompt-tokens 2048 \
+              --gen-tokens 64 \
+              --threads 4 \
+              --mtp ab \
+              --no-hwtest \
+              2>&1 | tee "$LOG_DIR/08_${TARGET}_stage4_2048_mtp_ab.log"
+
+            echo "--------------------------------------------------------------------------------"
+            echo " [Stage 5] Sequential Competitor Head-to-Head (Colibri & llama.cpp --no-mmap)"
+            echo "--------------------------------------------------------------------------------"
+            LLAMA_CLI=$(find baselines/llama_bin -iname "llama-cli.exe" | head -n 1 || true)
+            LLAMA_BENCH=$(find baselines/llama_bin -iname "llama-bench.exe" | head -n 1 || true)
+            if [ -n "$LLAMA_BENCH" ] && [ -f "$LLAMA_BENCH" ]; then
+              echo "Running llama-bench.exe (--no-mmap) sequentially on $SHARD1..."
+              "$LLAMA_BENCH" -m "$SHARD1" -p 64 -n 32 -t 4 -mmp 0 2>&1 | tee "$LOG_DIR/09_${TARGET}_llamacpp_bench.log" || true
+            fi
+            if [ -n "$LLAMA_CLI" ] && [ -f "$LLAMA_CLI" ]; then
+              echo "Running llama-cli.exe (--no-mmap --temp 0) greedy parity reference on $SHARD1..."
+              "$LLAMA_CLI" -m "$SHARD1" -p "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:" -n 32 -t 4 --temp 0 --no-mmap --no-cnv 2>&1 | tee "$LOG_DIR/10_${TARGET}_llamacpp_greedy.log" || true
+            fi
+          }
+
+          if [ "$MODEL_TARGET" = "both" ]; then
+            run_model_suite "qwen38"
+            echo "Cleaning up Qwen 3.8 shards before downloading GLM 5.3 Flash..."
+            rm -rf C:/apex_c_drive/models/qwen38/* D:/apex_d_drive/models/qwen38/*
+            run_model_suite "glm53"
+          else
+            run_model_suite "$MODEL_TARGET"
           fi
-          if [ -n "$LLAMA_CLI" ] && [ -f "$LLAMA_CLI" ]; then
-            echo "Running llama-cli.exe greedy prompt/response parity check on Qwen 3.8 Flash Next..."
-            "$LLAMA_CLI" -m "$QWEN_GGUF" -p "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and direct NVMe QD32 IOCP achieves blazing-fast token generation on 16GB RAM:" -n 32 -t 4 --temp 0 --no-mmap --no-cnv 2>&1 | tee "$LOG_DIR/10_llamacpp_cli_response.log" || true
-          fi
 
       # =========================================================================
-      # STEP 6: ALWAYS WRITE ALL LOGS TO TOP OF PRIVATE REPO README.md & UPLOAD ARTIFACT
+      # STEP 5: CLEANUP SHARDS & ALWAYS PREPEND LOGS TO PRIVATE REPO README.md
       # =========================================================================
-      - name: "Step 6 - Prepend Complete Run Logs to Top of Private Repo README.md (Runs Even on Failure)"
+      - name: "Step 5 - Cleanup Shards & Prepend Full Benchmark Logs to Top of Private Repo README.md"
         if: always()
         env:
           SECRET_WRITE_README: ${{ secrets.PRIVATE_REPO_WRITE_LOGS_README }}
@@ -426,26 +561,25 @@ jobs:
         run: |
           set +e
           echo "================================================================================"
-          echo " [Step 6] Consolidating Telemetry Logs & Writing to Top of Private Repo README.md"
+          echo " [Step 5] Cleaning Up Downloaded Shards & Prepending Logs to Private Repo README"
           echo "================================================================================"
+          rm -rf C:/apex_c_drive/models/* D:/apex_d_drive/models/* D:/apex_d_drive/hf_cache/* 2>/dev/null || true
 
           TOKEN="${SECRET_WRITE_README:-$SECRET_PAT_FALLBACK}"
           if [ -z "$TOKEN" ]; then
-            echo "[ERROR] Cannot push logs to README.md because PRIVATE_REPO_WRITE_LOGS_README is empty!"
+            echo "[WARN] No token available to push logs to README.md."
             exit 0
           fi
 
           rm -rf repo_readme_push
           git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/Grimm67123/apex-inference-v1.git" repo_readme_push
           if [ ! -d "repo_readme_push/.git" ]; then
-            echo "[ERROR] Failed to clone Grimm67123/apex-inference-v1 with provided token."
+            echo "[WARN] Could not clone Grimm67123/apex-inference-v1 for README update."
             exit 0
           fi
 
           cd repo_readme_push
-          # Auto-flatten the repository if files are still inside a nested Apex-Inference-v1/ folder!
           if [ ! -f "CMakeLists.txt" ] && [ -f "Apex-Inference-v1/CMakeLists.txt" ]; then
-            echo " [Step 6] Auto-flattening nested Apex-Inference-v1/ folder in Grimm67123/apex-inference-v1..."
             shopt -s dotglob
             git mv Apex-Inference-v1/* . 2>/dev/null || mv Apex-Inference-v1/* . 2>/dev/null || true
             rmdir Apex-Inference-v1 2>/dev/null || true
@@ -466,7 +600,6 @@ jobs:
               with open(readme_path, "r", encoding="utf-8", errors="replace") as f:
                   old_readme = f.read()
 
-          # Strip previous auto-prepended log block if present so README stays clean and fresh at top
           start_marker = "<!-- APEX_BENCHMARK_LOGS_START -->"
           end_marker = "<!-- APEX_BENCHMARK_LOGS_END -->"
           if start_marker in old_readme and end_marker in old_readme:
