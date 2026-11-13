@@ -216,18 +216,13 @@ jobs:
           LOG_DIR="$PWD/telemetry_logs"
 
           echo "================================================================================"
-          echo " [Step 4.0] Built-In Windows Host Hardware Benchmark (winsat disk & winsat mem)"
+          echo " [Step 4.0] Host Hardware Benchmark + 1GB Uncached Disk Throttle Probe (C: & D:)"
           echo "================================================================================"
           {
             powershell.exe -NoProfile -Command '$c = Get-CimInstance Win32_Processor | Select-Object -First 1; $m = Get-CimInstance Win32_ComputerSystem; Write-Host ("Host CPU: " + $c.Name.Trim() + " | Cores=" + $c.NumberOfCores + " Threads=" + $c.NumberOfLogicalProcessors + " | RAM=" + [math]::Round($m.TotalPhysicalMemory/1GB, 2) + " GB")' || true
-            echo "--- winsat disk -seq -read -drive c ---"
-            winsat.exe disk -seq -read -drive c || true
-            echo "--- winsat disk -seq -read -drive d ---"
-            winsat.exe disk -seq -read -drive d || true
-            echo "--- winsat disk -ran -read -drive d ---"
-            winsat.exe disk -ran -read -drive d || true
-            echo "--- winsat mem ---"
-            winsat.exe mem || true
+            "$APEX_BIN" hwtest --dir "D:/apex_d_drive"
+            "$APEX_BIN" diskprobe --dir "C:/apex_c_drive"
+            "$APEX_BIN" diskprobe --dir "D:/apex_d_drive"
           } 2>&1 | tee "$LOG_DIR/03_host_hardware_benchmark.log"
 
           run_model_suite() {
