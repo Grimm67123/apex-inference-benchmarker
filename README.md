@@ -1,29 +1,29 @@
 <!-- APEX_BENCHMARK_LOGS_START -->
 # 📊 Latest GitHub Actions Benchmark & Diagnostic Telemetry Logs
 
-- **Workflow Run**: [#20 (Run ID `43426193189`)](https://github.com/Grimm67123/apex-inference-benchmarker/actions/runs/43426193189)
-- **Status**: **CANCELLED**
-- **Timestamp**: `2026-11-13 14:16:33 UTC`
+- **Workflow Run**: [#21 (Run ID `43451696418`)](https://github.com/Grimm67123/apex-inference-benchmarker/actions/runs/43451696418)
+- **Status**: **SUCCESS**
+- **Timestamp**: `2026-11-13 15:52:11 UTC`
 
 ### 🖥️ Consolidated Master Workflow Log (`00_workflow_master.log`)
 ```text
-[2026-11-13T12:33:42.887Z] ================================================================================
-[2026-11-13T12:33:42.903Z]  [Step 1] Configuring Windows Defender Exclusions & Reclaiming Runner Storage
-[2026-11-13T12:33:42.905Z] ================================================================================
-[2026-11-13T12:33:47.759Z]  [Step 1] Windows Defender exclusions active on C:\ and D:\.
-[2026-11-13T12:33:47.949Z] --------------------------------------------------------------------------------
-[2026-11-13T12:33:47.950Z]  [Disk Telemetry] Drive C (C:/apex_c_drive) Free : 28.12 GB / 149.89 GB
-[2026-11-13T12:33:47.951Z]  [Disk Telemetry] Drive D (D:/apex_d_drive) Free : 219.87 GB / 219.98 GB
-[2026-11-13T12:33:47.952Z]  [Disk Telemetry] Total Combined Usable Free Space: 247.99 GB
-[2026-11-13T12:33:48.025Z] --------------------------------------------------------------------------------
-[2026-11-13T12:33:48.026Z]  [OK] Disk space verification passed: 247.99 GB >= 150.00 GB.
+[2026-11-13T15:20:56.370Z] ================================================================================
+[2026-11-13T15:20:56.386Z]  [Step 1] Configuring Windows Defender Exclusions & Reclaiming Runner Storage
+[2026-11-13T15:20:56.388Z] ================================================================================
+[2026-11-13T15:21:02.734Z]  [Step 1] Windows Defender exclusions active on C:\ and D:\.
+[2026-11-13T15:21:02.908Z] --------------------------------------------------------------------------------
+[2026-11-13T15:21:02.910Z]  [Disk Telemetry] Drive C (C:/apex_c_drive) Free : 28.12 GB / 149.89 GB
+[2026-11-13T15:21:02.911Z]  [Disk Telemetry] Drive D (D:/apex_d_drive) Free : 219.87 GB / 219.98 GB
+[2026-11-13T15:21:02.912Z]  [Disk Telemetry] Total Combined Usable Free Space: 247.99 GB
+[2026-11-13T15:21:02.924Z] --------------------------------------------------------------------------------
+[2026-11-13T15:21:02.925Z]  [OK] Disk space verification passed: 247.99 GB >= 150.00 GB.
 ================================================================================
  [Step 2] Cloning Private Repository Grimm67123/apex-inference-v1
 ================================================================================
 Cloning into 'Apex-Inference-v1'...
  [Step 2] Compiling Apex Inference v1 (C++17 AVX2+FMA+F16C+OpenMP)...
--rwxr-xr-x 1 runneradmin 197121 860K Nov 13 12:34 ./apex.exe
--rwxr-xr-x 1 runneradmin 197121 860K Nov 13 12:34 build/apex.exe
+-rwxr-xr-x 1 runneradmin 197121 865K Nov 13 15:21 ./apex.exe
+-rwxr-xr-x 1 runneradmin 197121 865K Nov 13 15:21 build/apex.exe
  [Step 2] Running Pre-Flight Unit, Greedy Parity & OpenAI API Stress Verification...
 [gen_synthetic_gguf] Wrote tests/synth_glm53_ud_iq2_xxs.gguf (6748.6 KB)
 [gen_synthetic_gguf] Wrote tests/synth_qwen38_ud_iq2_xs.gguf (9282.8 KB)
@@ -43,29 +43,31 @@ Cloning into 'Apex-Inference-v1'...
    Active Drive Space : 219.98 GB Total / 219.86 GB Free
 --------------------------------------------------------------------------------
  [CrystalDiskMark-Style NVMe SSD Storage Benchmark]
-   SEQ1M Direct Uncached NVMe Read    :    613.24 MB/s (Hardware Floor)
-   SEQ1M Q8T1  Read (OS-Cached Max)   :   2301.15 MB/s
-   SEQ1M Q1T1  Read (Single Queue)    :   9879.90 MB/s
-   SEQ128K Q32T1 Expert-Stripe Read   :  11388.96 MB/s
-   RND4K Q32T16 Read                  :    717.43 MB/s (  183663 IOPS)
-   RND4K Q1T1  Read                   :    850.38 MB/s (Latency: 4.59 us)
+   SEQ1M Direct Uncached NVMe Read    :    592.49 MB/s (Hardware Floor)
+   SEQ1M Q8T1  Read (OS-Cached Max)   :   2503.10 MB/s
+   SEQ1M Q1T1  Read (Single Queue)    :   9762.35 MB/s
+   SEQ128K Q32T1 Expert-Stripe Read   :  11205.76 MB/s
+   RND4K Q32T16 Read                  :    715.00 MB/s (  183041 IOPS)
+   RND4K Q1T1  Read                   :    862.37 MB/s (Latency: 4.53 us)
 --------------------------------------------------------------------------------
  [PassMark / STREAM System RAM Bandwidth & Latency Benchmark]
-   AVX2 256-bit Sequential Read BW    :     78.31 GB/s
-   AVX2 256-bit Sequential Write BW   :     68.67 GB/s
-   STREAM Triad (A = B + s*C) BW      :     37.38 GB/s
-   Random Pointer-Chase Latency       :     55.62 ns
+   AVX2 256-bit Sequential Read BW    :     64.10 GB/s
+   AVX2 256-bit Sequential Write BW   :     62.84 GB/s
+   STREAM Triad (A = B + s*C) BW      :     34.01 GB/s
+   Random Pointer-Chase Latency       :     97.87 ns
 --------------------------------------------------------------------------------
  [PassMark-Style CPU AVX2+FMA Compute & IQ2 Kernel Benchmark]
-   Single-Core AVX2+FMA Throughput    :     57.64 GFLOPS
-   Multi-Core  AVX2+FMA Throughput    :    226.36 GFLOPS
-   IQ2_XXS/XS Fused Dot Effective BW  :     27.26 GB/s (FP32 Equiv)
+   Single-Core AVX2+FMA Throughput    :     57.41 GFLOPS
+   Multi-Core  AVX2+FMA Throughput    :    225.82 GFLOPS
+   IQ2_XXS/XS Fused Dot Effective BW  :     27.27 GB/s (FP32 Equiv)
 ================================================================================
 
 
 
 === [TEST] GLM-5.3-Flash 100% Greedy Parity: ./apex.exe verify-parity --model tests/synth_glm53_ud_iq2_xxs.gguf ===
 [Apex-Parity] Verifying 100.00% Greedy Token & Batched-vs-Serial Bit Parity...
+[Apex-Parity] Serial  Tokens (16) : [55, 229, 199, 135, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55] -> "tok_55tok_229tok_199tok_135tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55"
+[Apex-Parity] Batched Tokens (16) : [55, 229, 199, 135, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55] -> "tok_55tok_229tok_199tok_135tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55"
 [Apex-Parity] Model Architecture : glm5-next (GLM-5.3-Flash)
 [Apex-Parity] Max Logit ULP Diff : 0.000000000e+00
 [Apex-Parity] Greedy Token Match : 16 / 16 (100.00% Parity)
@@ -73,6 +75,8 @@ Cloning into 'Apex-Inference-v1'...
 
 === [TEST] Qwen-3.8-Flash-Next 100% Greedy Parity: ./apex.exe verify-parity --model tests/synth_qwen38_ud_iq2_xs.gguf ===
 [Apex-Parity] Verifying 100.00% Greedy Token & Batched-vs-Serial Bit Parity...
+[Apex-Parity] Serial  Tokens (16) : [49, 193, 68, 63, 223, 193, 128, 49, 49, 66, 67, 19, 49, 18, 49, 18] -> "qtok_49qtok_193qtok_68qtok_63qtok_223qtok_193qtok_128qtok_49qtok_49qtok_66qtok_67qtok_19qtok_49qtok_18qtok_49qtok_18"
+[Apex-Parity] Batched Tokens (16) : [49, 193, 68, 63, 223, 193, 128, 49, 49, 66, 67, 19, 49, 18, 49, 18] -> "qtok_49qtok_193qtok_68qtok_63qtok_223qtok_193qtok_128qtok_49qtok_49qtok_66qtok_67qtok_19qtok_49qtok_18qtok_49qtok_18"
 [Apex-Parity] Model Architecture : qwen4exp (Qwen-3.8-Flash-Next)
 [Apex-Parity] Max Logit ULP Diff : 0.000000000e+00
 [Apex-Parity] Greedy Token Match : 16 / 16 (100.00% Parity)
@@ -81,18 +85,18 @@ Cloning into 'Apex-Inference-v1'...
 === [TEST] GLM-5.3-Flash 2048-Token Prefill & Decode + MTP Off/On A/B Benchmark: ./apex.exe bench --model tests/synth_glm53_ud_iq2_xxs.gguf --prompt-tokens 2048 --gen-tokens 32 --mtp on --no-hwtest ===
 [Apex-Init] Model Loaded: GLM-5.3-Flash-UD-IQ2_XXS-Synthetic | Layers=4 | Hidden=256 | Experts=16 (Top-4) | Pinned Trunk=3.48 MB | Expert Cache=1.93 MB (40 slots)
 [Apex-Prompt] Input (2048 tokens): "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/2048 tok | Chunk=1941.88 tps | Avg=1941.88 tps | Hit=99.5% | NVMe=2173.1 MB/s (6.19 MB, QD=64) | RSS=71.3 MB
-[LIVE-PREFILL] 512/2048 tok | Chunk=1674.64 tps | Avg=1798.39 tps | Hit=99.5% | NVMe=2117.8 MB/s (7.01 MB, QD=64) | RSS=71.6 MB
-[LIVE-PREFILL] 768/2048 tok | Chunk=1458.38 tps | Avg=1668.71 tps | Hit=99.5% | NVMe=2072.3 MB/s (7.78 MB, QD=64) | RSS=71.8 MB
-[LIVE-PREFILL] 1024/2048 tok | Chunk=1268.35 tps | Avg=1546.65 tps | Hit=99.5% | NVMe=2021.0 MB/s (8.61 MB, QD=64) | RSS=72.1 MB
-[LIVE-PREFILL] 1280/2048 tok | Chunk=1150.16 tps | Avg=1446.90 tps | Hit=99.5% | NVMe=1980.8 MB/s (9.33 MB, QD=64) | RSS=72.3 MB
-[LIVE-PREFILL] 1536/2048 tok | Chunk=1024.16 tps | Avg=1353.77 tps | Hit=99.5% | NVMe=1953.3 MB/s (10.06 MB, QD=64) | RSS=72.6 MB
-[LIVE-PREFILL] 1792/2048 tok | Chunk=963.79 tps | Avg=1279.79 tps | Hit=99.5% | NVMe=1929.0 MB/s (10.83 MB, QD=64) | RSS=72.9 MB
-[LIVE-PREFILL] 2048/2048 tok | Chunk=879.68 tps | Avg=1210.94 tps | Hit=99.5% | NVMe=1907.2 MB/s (11.60 MB, QD=64) | RSS=73.1 MB
-[LIVE-DECODE] 8/32 tok | Avg=276.71 tps | Hit=99.5% (LA:+0.0%) | NVMe=1850.4 MB/s (12.43 MB) | RSS=73.2 MB
-[LIVE-DECODE] 16/32 tok | Avg=277.99 tps | Hit=99.5% (LA:+0.1%) | NVMe=1826.6 MB/s (13.10 MB) | RSS=73.2 MB
-[LIVE-DECODE] 24/32 tok | Avg=278.26 tps | Hit=99.5% (LA:+0.1%) | NVMe=1794.0 MB/s (13.25 MB) | RSS=73.2 MB
-[LIVE-DECODE] 32/32 tok | Avg=278.37 tps | Hit=99.5% (LA:+0.1%) | NVMe=1783.8 MB/s (13.30 MB) | RSS=73.2 MB
+[LIVE-PREFILL] 256/2048 tok | Chunk=1803.18 tps | Avg=1803.18 tps | Hit=99.5% | NVMe=2801.9 MB/s (6.19 MB, QD=64) | RSS=71.2 MB
+[LIVE-PREFILL] 512/2048 tok | Chunk=1652.54 tps | Avg=1724.58 tps | Hit=99.5% | NVMe=2645.3 MB/s (7.01 MB, QD=64) | RSS=71.5 MB
+[LIVE-PREFILL] 768/2048 tok | Chunk=1442.08 tps | Avg=1618.87 tps | Hit=99.5% | NVMe=2548.5 MB/s (7.78 MB, QD=64) | RSS=71.7 MB
+[LIVE-PREFILL] 1024/2048 tok | Chunk=1258.09 tps | Avg=1510.57 tps | Hit=99.5% | NVMe=2314.0 MB/s (8.61 MB, QD=64) | RSS=72.0 MB
+[LIVE-PREFILL] 1280/2048 tok | Chunk=1145.36 tps | Avg=1420.02 tps | Hit=99.5% | NVMe=2282.9 MB/s (9.33 MB, QD=64) | RSS=72.2 MB
+[LIVE-PREFILL] 1536/2048 tok | Chunk=1022.81 tps | Avg=1333.69 tps | Hit=99.5% | NVMe=2248.6 MB/s (10.06 MB, QD=64) | RSS=72.5 MB
+[LIVE-PREFILL] 1792/2048 tok | Chunk=940.06 tps | Avg=1258.42 tps | Hit=99.5% | NVMe=2221.7 MB/s (10.83 MB, QD=64) | RSS=72.7 MB
+[LIVE-PREFILL] 2048/2048 tok | Chunk=866.10 tps | Avg=1190.98 tps | Hit=99.5% | NVMe=2164.7 MB/s (11.60 MB, QD=64) | RSS=73.0 MB
+[LIVE-DECODE] 8/32 tok | Avg=259.13 tps | Hit=99.5% (LA:+0.0%) | NVMe=2121.8 MB/s (12.43 MB) | RSS=73.1 MB
+[LIVE-DECODE] 16/32 tok | Avg=263.24 tps | Hit=99.5% (LA:+0.1%) | NVMe=2084.5 MB/s (13.10 MB) | RSS=73.1 MB
+[LIVE-DECODE] 24/32 tok | Avg=265.47 tps | Hit=99.5% (LA:+0.1%) | NVMe=2058.4 MB/s (13.25 MB) | RSS=73.1 MB
+[LIVE-DECODE] 32/32 tok | Avg=265.82 tps | Hit=99.5% (LA:+0.1%) | NVMe=2047.7 MB/s (13.30 MB) | RSS=73.1 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
@@ -106,7 +110,7 @@ Cloning into 'Apex-Inference-v1'...
    GGUF Total / SSD Pool        : 0.01 GB GGUF | 0.00 GB Routed Experts on NVMe
    Pinned Dense / KV+State RAM  : Dense=3.48 MB | KV/State=25.37 MB (14080 B/tok)
    LRFU Cache / Staging Ring    : 1.93 MB (40/64 exp = 62.50% pinned) | Staging=3.09 MB
-   Process RSS (Start/End/Peak) : Start=4.89 MB | End=73.17 MB | Peak=73.17 MB
+   Process RSS (Start/End/Peak) : Start=4.88 MB | End=73.07 MB | Peak=73.07 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (2048 tok)   : "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequen..."
@@ -117,31 +121,31 @@ Cloning into 'Apex-Inference-v1'...
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |      55 | tok_55         |  190.69 |  99.3% |     246 |  185.76 | 1691.24 |  0 |  0 |  0 |     0.0 |
-   |    2 |      55 | tok_55         |  179.98 | 100.0% |     246 |  150.29 |    3.69 |  7 |  5 |  0 |   321.8 |
-   |    3 |     175 | tok_175        |   77.47 |  67.6% |     179 |   76.74 |    3.69 |  0 |  0 |  0 |   321.8 |
-   |    4 |      55 | tok_55         |  178.88 | 100.0% |     119 |  162.42 |    3.66 | 12 |  0 |  0 |    49.5 |
-   |    5 |      39 | tok_39         |  158.03 | 100.0% |     246 |  148.54 |    3.66 |  0 |  0 |  0 |    49.5 |
-   |    6 |      55 | tok_55         |  191.28 |  98.6% |     119 |  187.05 |    3.57 | 12 |  0 |  0 |     0.0 |
-   |    7 |      36 | tok_36         |   70.07 | 100.0% |     145 |   61.63 |    3.57 |  0 |  0 |  0 |     0.0 |
-   |    8 |     246 | tok_246        |  205.36 | 100.0% |      86 |  185.83 |    3.54 | 11 |  1 |  0 |    49.5 |
-   |   26 |     246 | tok_246        |  195.41 | 100.0% |      54 |  174.46 |    3.63 | 12 |  0 |  0 |     0.0 |
-   |   27 |     229 | tok_229        |  171.70 | 100.0% |      70 |  154.45 |    3.63 |  0 |  0 |  0 |     0.0 |
-   |   22 |      86 | tok_86         |  191.40 |  93.7% |     246 |  188.70 |    3.60 | 12 |  0 |  0 |     0.0 |
-   |   23 |     236 | tok_236        |  139.26 |  98.6% |     246 |  135.00 |    3.60 |  0 |  0 |  0 |     0.0 |
-   |   30 |     246 | tok_246        |  176.20 | 100.0% |     124 |  160.53 |    3.57 | 12 |  0 |  0 |     0.0 |
-   |   31 |     229 | tok_229        |  171.33 | 100.0% |      70 |  153.29 |    3.57 |  0 |  0 |  0 |     0.0 |
-   |   32 |      21 | tok_21         |  222.52 |  97.9% |      86 |  218.66 |    3.56 |  8 |  4 |  0 |    24.8 |
-   |   33 |     246 | tok_246        |  115.62 | 100.0% |     232 |   96.08 |    3.56 |  0 |  0 |  0 |    24.8 |
+   |    1 |      55 | tok_55         |  190.69 |  99.3% |     246 |  185.76 | 1719.59 |  0 |  0 |  0 |     0.0 |
+   |    2 |      55 | tok_55         |  179.98 | 100.0% |     246 |  150.29 |    3.97 |  7 |  5 |  0 |   321.8 |
+   |    3 |     175 | tok_175        |   77.47 |  67.6% |     179 |   76.74 |    3.97 |  0 |  0 |  0 |   321.8 |
+   |    4 |      55 | tok_55         |  178.88 | 100.0% |     119 |  162.42 |    3.94 | 12 |  0 |  0 |    49.5 |
+   |    5 |      39 | tok_39         |  158.03 | 100.0% |     246 |  148.54 |    3.94 |  0 |  0 |  0 |    49.5 |
+   |    6 |      55 | tok_55         |  191.28 |  98.6% |     119 |  187.05 |    3.81 | 12 |  0 |  0 |     0.0 |
+   |    7 |      36 | tok_36         |   70.07 | 100.0% |     145 |   61.63 |    3.81 |  0 |  0 |  0 |     0.0 |
+   |    8 |     246 | tok_246        |  205.36 | 100.0% |      86 |  185.83 |    3.71 | 11 |  1 |  0 |    49.5 |
+   |   12 |      86 | tok_86         |  168.49 |  89.7% |     246 |  166.31 |    3.78 |  6 |  6 |  0 |   173.2 |
+   |   13 |      68 | tok_68         |  148.39 | 100.0% |     104 |  119.46 |    3.78 |  0 |  0 |  0 |   173.2 |
+   |   14 |     220 | tok_220        |  147.52 |  55.4% |      55 |  147.01 |    3.76 |  9 |  3 |  0 |   173.2 |
+   |   15 |     197 | tok_197        |   65.84 |  97.8% |     133 |   62.03 |    3.76 |  0 |  0 |  0 |   173.2 |
+   |   30 |     246 | tok_246        |  176.20 | 100.0% |     124 |  160.53 |    3.82 | 12 |  0 |  0 |     0.0 |
+   |   31 |     229 | tok_229        |  171.33 | 100.0% |      70 |  153.29 |    3.82 |  0 |  0 |  0 |     0.0 |
+   |   32 |      21 | tok_21         |  222.52 |  97.9% |      86 |  218.66 |    3.75 |  8 |  4 |  0 |    24.8 |
+   |   33 |     246 | tok_246        |  115.62 | 100.0% |     232 |   96.08 |    3.75 |  0 |  0 |  0 |    24.8 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (2048 tok, 1.691s, TTFT=1691.24ms): Avg=1210.94 | Min=879.68 | Max=1941.88 tps
-   Prefill Chunks (8): C1:256t/1941.9tps/99% | C2:256t/1674.6tps/99% | C3:256t/1458.4tps/99% | C4:256t/1268.3tps/99%
-                       C5:256t/1150.2tps/99% | C6:256t/1024.2tps/99% | C7:256t/963.8tps/99% | C8:256t/879.7tps/99%
-   Decode  (32 tok, 0.115s): Avg=278.37 | Min=271.27 | Max=282.71 tps
-   Latency (ms) : Min=3.54 | P10=3.56 | P25=3.57 | P50=3.59 | P75=3.60 | P90=3.66 | P95=3.69 | P99=3.69 | Max=3.69
-   Mean/SD/Jitt : Mean=3.59ms | StdDev=0.04ms | Jitter=0.01ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
+   Prefill (2048 tok, 1.720s, TTFT=1719.59ms): Avg=1190.98 | Min=866.10 | Max=1803.18 tps
+   Prefill Chunks (8): C1:256t/1803.2tps/99% | C2:256t/1652.5tps/99% | C3:256t/1442.1tps/99% | C4:256t/1258.1tps/99%
+                       C5:256t/1145.4tps/99% | C6:256t/1022.8tps/99% | C7:256t/940.1tps/99% | C8:256t/866.1tps/99%
+   Decode  (32 tok, 0.120s): Avg=265.82 | Min=251.60 | Max=271.96 tps
+   Latency (ms) : Min=3.68 | P10=3.70 | P25=3.71 | P50=3.72 | P75=3.81 | P90=3.94 | P95=3.97 | P99=3.97 | Max=3.97
+   Mean/SD/Jitt : Mean=3.76ms | StdDev=0.08ms | Jitter=0.02ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
    MTP Head     : 16/16 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
@@ -161,30 +165,32 @@ Cloning into 'Apex-Inference-v1'...
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
    Engine SSD Transfer Total    : 13.30 MB (Load=5.42 | Prefill=6.19 | Warmup=0.00 | Decode=1.69 MB)
    SSD Data/Token (Decode)      : Avg=0.053 MB/tok (Min=0.000 | P50=0.024 | P95=0.314 | Max=0.314 MB) | Prefill=0.003 MB/tok
-   NVMe Batches / Requests      : 41 Batches | 748 Reads | 438 LBA Merges (Avg 18.2 KB/req)
-   SSD Read Bandwidth           : Avg=1783.81 MB/s | Peak=6721.15 MB/s (Pre-flight hwtest skipped)
+   NVMe Batches / Requests      : 41 Batches | 748 Raw -> 310 Merged (438 LBA Merges, Avg 43.9 KB/io)
+   SSD I/O Size Histogram       : <64K=203 | 64K-512K=107 | 512K-2M=0 | >2M=0
+   SSD Read Bandwidth (Active)  : Min=442.67 | Avg=2047.70 | Peak=7022.47 MB/s | WallAmort=7.23 MB/s
    OS Kernel I/O Verification   : Read=13.31 MB | Write=0.00 MB | Syscalls=327
-   Sync Stall vs Async DMA      : SyncStall=4.78 ms | AsyncOverlapped=6.39 ms (57.2% Overlapped)
-   RAM Traffic & Effective BW   : 1.43 GB moved | Eff=0.79 GB/s (STREAM hwtest skipped)
-   CPU Time & Utilization       : User=2.344s + Sys=0.547s (Wall=1.824s) | SysUtil=39.6% | ThrUtil=39.6% | 36.66 GFLOPS
+   Sync Stall vs Async DMA      : SyncStall=4.57 ms | AsyncOverlapped=5.45 ms (54.4% Overlapped)
+   RAM Traffic & Active BW      : 1.43 GB moved | Active=0.82 GB/s | WallAmort=0.78 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=1.72s (93.5%, 6.19 MB SSD) | Decode=0.12s (6.5%, 1.69 MB SSD)
+   CPU Time & Utilization       : User=2.312s + Sys=0.469s (Wall=1.857s) | SysUtil=37.5% | ThrUtil=37.5% | 34.64 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :   1526.19 ms (  733.7 us/tok | 84.50%)
-   MoE AVX2 Q8 Expert Compute   :    179.28 ms (   86.2 us/tok |  9.93%)
-   Router + Lookahead Dispatch  :     47.29 ms (   22.7 us/tok |  2.62%)
-   LM Head Output Projection    :      4.09 ms (    2.0 us/tok |  0.23%)
-   Foreground NVMe Sync Stall   :      4.78 ms (    2.3 us/tok |  0.26%)
-   Unaccounted / OMP & Sampling :     44.58 ms (   21.4 us/tok |  2.47%) | Total Wall=1806.20 ms
+   Dense + Attention/Linear SSM :   1549.56 ms (  745.0 us/tok | 84.22%)
+   MoE AVX2 Q8 Expert Compute   :    187.03 ms (   89.9 us/tok | 10.16%)
+   Router + Lookahead Dispatch  :     47.83 ms (   23.0 us/tok |  2.60%)
+   LM Head Output Projection    :      4.43 ms (    2.1 us/tok |  0.24%)
+   Foreground NVMe Sync Stall   :      4.57 ms (    2.2 us/tok |  0.25%)
+   Unaccounted / OMP & Sampling :     46.55 ms (   22.4 us/tok |  2.53%) | Total Wall=1839.97 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    26.68%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     2.18%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     0.49%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    68.36%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.29%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    23.77%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     2.21%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     0.46%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    71.22%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.34%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -196,18 +202,18 @@ Cloning into 'Apex-Inference-v1'...
 === [TEST] Qwen-3.8-Flash-Next 2048-Token Prefill & Decode + MTP Off/On A/B Benchmark: ./apex.exe bench --model tests/synth_qwen38_ud_iq2_xs.gguf --prompt-tokens 2048 --gen-tokens 32 --mtp on --no-hwtest ===
 [Apex-Init] Model Loaded: Qwen3.8-Flash-Next-UD-IQ2_XS-Synthetic | Layers=4 | Hidden=256 | Experts=16 (Top-4) | Pinned Trunk=4.70 MB | Expert Cache=2.17 MB (40 slots)
 [Apex-Prompt] Input (2048 tokens): "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/2048 tok | Chunk=2658.47 tps | Avg=2658.47 tps | Hit=99.2% | NVMe=3065.4 MB/s (24.91 MB, QD=64) | RSS=89.2 MB
-[LIVE-PREFILL] 512/2048 tok | Chunk=2580.54 tps | Avg=2618.92 tps | Hit=99.2% | NVMe=4088.3 MB/s (42.92 MB, QD=64) | RSS=89.4 MB
-[LIVE-PREFILL] 768/2048 tok | Chunk=2128.96 tps | Avg=2432.33 tps | Hit=99.2% | NVMe=4654.4 MB/s (61.04 MB, QD=64) | RSS=89.8 MB
-[LIVE-PREFILL] 1024/2048 tok | Chunk=2233.65 tps | Avg=2379.42 tps | Hit=99.2% | NVMe=5061.7 MB/s (79.10 MB, QD=64) | RSS=90.1 MB
-[LIVE-PREFILL] 1280/2048 tok | Chunk=2084.84 tps | Avg=2314.03 tps | Hit=99.2% | NVMe=5379.5 MB/s (97.14 MB, QD=64) | RSS=90.6 MB
-[LIVE-PREFILL] 1536/2048 tok | Chunk=1936.23 tps | Avg=2241.14 tps | Hit=99.2% | NVMe=5635.8 MB/s (115.20 MB, QD=64) | RSS=91.0 MB
-[LIVE-PREFILL] 1792/2048 tok | Chunk=1754.41 tps | Avg=2155.70 tps | Hit=99.2% | NVMe=5832.9 MB/s (133.27 MB, QD=64) | RSS=91.5 MB
-[LIVE-PREFILL] 2048/2048 tok | Chunk=1669.88 tps | Avg=2080.06 tps | Hit=99.2% | NVMe=5973.8 MB/s (151.30 MB, QD=64) | RSS=91.8 MB
-[LIVE-DECODE] 8/32 tok | Avg=253.68 tps | Hit=99.2% (LA:+0.0%) | NVMe=5826.5 MB/s (152.70 MB) | RSS=91.8 MB
-[LIVE-DECODE] 16/32 tok | Avg=254.67 tps | Hit=99.2% (LA:+0.1%) | NVMe=5742.6 MB/s (153.44 MB) | RSS=91.8 MB
-[LIVE-DECODE] 24/32 tok | Avg=255.08 tps | Hit=99.2% (LA:+0.1%) | NVMe=5613.0 MB/s (154.78 MB) | RSS=91.8 MB
-[LIVE-DECODE] 32/32 tok | Avg=255.27 tps | Hit=99.2% (LA:+0.1%) | NVMe=5515.0 MB/s (155.58 MB) | RSS=91.8 MB
+[LIVE-PREFILL] 256/2048 tok | Chunk=2597.45 tps | Avg=2597.45 tps | Hit=99.2% | NVMe=3306.4 MB/s (24.91 MB, QD=64) | RSS=89.1 MB
+[LIVE-PREFILL] 512/2048 tok | Chunk=2541.26 tps | Avg=2569.05 tps | Hit=99.2% | NVMe=4338.9 MB/s (42.92 MB, QD=64) | RSS=89.3 MB
+[LIVE-PREFILL] 768/2048 tok | Chunk=2247.75 tps | Avg=2452.20 tps | Hit=99.2% | NVMe=4904.3 MB/s (61.04 MB, QD=64) | RSS=89.7 MB
+[LIVE-PREFILL] 1024/2048 tok | Chunk=2163.13 tps | Avg=2372.93 tps | Hit=99.2% | NVMe=5269.9 MB/s (79.10 MB, QD=64) | RSS=90.0 MB
+[LIVE-PREFILL] 1280/2048 tok | Chunk=2055.19 tps | Avg=2301.76 tps | Hit=99.2% | NVMe=5573.4 MB/s (97.14 MB, QD=64) | RSS=90.5 MB
+[LIVE-PREFILL] 1536/2048 tok | Chunk=1893.63 tps | Avg=2221.94 tps | Hit=99.2% | NVMe=5793.9 MB/s (115.20 MB, QD=64) | RSS=90.9 MB
+[LIVE-PREFILL] 1792/2048 tok | Chunk=1675.73 tps | Avg=2123.08 tps | Hit=99.2% | NVMe=5942.9 MB/s (133.27 MB, QD=64) | RSS=91.4 MB
+[LIVE-PREFILL] 2048/2048 tok | Chunk=1658.94 tps | Avg=2051.34 tps | Hit=99.2% | NVMe=6109.4 MB/s (151.30 MB, QD=64) | RSS=91.7 MB
+[LIVE-DECODE] 8/32 tok | Avg=242.37 tps | Hit=99.2% (LA:+0.0%) | NVMe=5991.6 MB/s (152.70 MB) | RSS=91.7 MB
+[LIVE-DECODE] 16/32 tok | Avg=245.26 tps | Hit=99.2% (LA:+0.1%) | NVMe=5930.0 MB/s (153.28 MB) | RSS=91.7 MB
+[LIVE-DECODE] 24/32 tok | Avg=245.72 tps | Hit=99.2% (LA:+0.1%) | NVMe=5830.0 MB/s (154.23 MB) | RSS=91.7 MB
+[LIVE-DECODE] 32/32 tok | Avg=245.91 tps | Hit=99.2% (LA:+0.1%) | NVMe=5750.4 MB/s (155.14 MB) | RSS=91.7 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
@@ -221,85 +227,87 @@ Cloning into 'Apex-Inference-v1'...
    GGUF Total / SSD Pool        : 0.01 GB GGUF | 0.00 GB Routed Experts on NVMe
    Pinned Dense / KV+State RAM  : Dense=4.70 MB | KV/State=22.85 MB (13824 B/tok)
    LRFU Cache / Staging Ring    : 2.17 MB (40/80 exp = 50.00% pinned) | Staging=3.47 MB
-   Process RSS (Start/End/Peak) : Start=4.90 MB | End=91.80 MB | Peak=91.80 MB
+   Process RSS (Start/End/Peak) : Start=4.87 MB | End=91.71 MB | Peak=91.71 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (2048 tok)   : "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequen..."
-   RESPONSE (32 tok) : "qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_129qtok_68qtok_209qtok_223qtok_113qtok_229qtok_24qtok_229qtok_148qtok_209qtok_193qtok_146qtok_148qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49"
+   RESPONSE (32 tok) : "qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_129qtok_68qtok_209qtok_223qtok_113qtok_229qtok_112qtok_193qtok_63qtok_128qtok_63qtok_128qtok_63qtok_194qtok_49qtok_49qtok_148qtok_254qtok_48qtok_254qtok_49"
 --------------------------------------------------------------------------------
  [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 33 Steps)]
-   Logit Summary: AvgTop1Prob=92.5% | AvgMargin=9.488 | MinMargin=0.056
+   Logit Summary: AvgTop1Prob=93.4% | AvgMargin=10.261 | MinMargin=0.202
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |      49 | qtok_49        |   64.27 |  98.4% |     254 |   60.04 |  984.59 |  0 |  0 |  0 |     0.0 |
-   |    2 |     254 | qtok_254       |   63.20 | 100.0% |       2 |   54.20 |    3.98 |  6 | 10 |  0 |   535.5 |
-   |    3 |      49 | qtok_49        |   94.59 | 100.0% |     177 |   84.92 |    3.98 |  0 |  0 |  0 |   535.5 |
-   |    4 |     254 | qtok_254       |   65.79 | 100.0% |       2 |   56.49 |    3.94 | 15 |  1 |  0 |    59.8 |
-   |    5 |      49 | qtok_49        |   85.06 |  99.7% |     177 |   78.63 |    3.94 |  0 |  0 |  0 |    59.8 |
-   |    6 |     254 | qtok_254       |   71.17 | 100.0% |       2 |   58.64 |    3.93 | 15 |  1 |  0 |    87.5 |
-   |    7 |      49 | qtok_49        |   82.87 |  99.7% |     129 |   77.18 |    3.93 |  0 |  0 |  0 |    87.5 |
-   |    8 |     254 | qtok_254       |   72.31 | 100.0% |      66 |   61.15 |    3.92 | 16 |  0 |  0 |    32.0 |
-   |   12 |      68 | qtok_68        |   61.65 |  99.4% |      36 |   56.59 |    3.95 | 12 |  4 |  0 |   143.0 |
-   |   13 |     209 | qtok_209       |   83.06 |  79.9% |     127 |   81.55 |    3.95 |  0 |  0 |  0 |   143.0 |
-   |   18 |     229 | qtok_229       |   80.70 | 100.0% |      33 |   70.24 |    3.92 | 10 |  6 |  0 |   170.8 |
-   |   19 |     148 | qtok_148       |   68.09 |  43.4% |      67 |   67.82 |    3.92 |  0 |  0 |  0 |   170.8 |
-   |   30 |     254 | qtok_254       |   71.22 |  99.9% |      66 |   64.31 |    3.91 | 14 |  2 |  0 |    87.5 |
-   |   31 |      49 | qtok_49        |  125.25 | 100.0% |     177 |   99.98 |    3.91 |  0 |  0 |  0 |    87.5 |
-   |   32 |     254 | qtok_254       |   71.45 |  98.0% |      66 |   67.49 |    3.94 | 14 |  2 |  0 |    87.5 |
-   |   33 |      49 | qtok_49        |  131.17 | 100.0% |     129 |  104.87 |    3.94 |  0 |  0 |  0 |    87.5 |
+   |    1 |      49 | qtok_49        |   64.27 |  98.4% |     254 |   60.04 |  998.37 |  0 |  0 |  0 |     0.0 |
+   |    2 |     254 | qtok_254       |   63.20 | 100.0% |       2 |   54.20 |    4.19 |  6 | 10 |  0 |   535.5 |
+   |    3 |      49 | qtok_49        |   93.73 | 100.0% |     177 |   84.12 |    4.19 |  0 |  0 |  0 |   535.5 |
+   |    4 |     254 | qtok_254       |   65.79 | 100.0% |       2 |   56.49 |    4.14 | 15 |  1 |  0 |    59.8 |
+   |    5 |      49 | qtok_49        |   84.71 |  99.7% |     177 |   78.29 |    4.14 |  0 |  0 |  0 |    59.8 |
+   |    6 |     254 | qtok_254       |   71.17 | 100.0% |       2 |   58.64 |    4.11 | 15 |  1 |  0 |    87.5 |
+   |    7 |      49 | qtok_49        |   83.85 |  99.9% |     129 |   77.09 |    4.11 |  0 |  0 |  0 |    87.5 |
+   |    8 |     254 | qtok_254       |   72.31 | 100.0% |      66 |   61.15 |    4.06 | 16 |  0 |  0 |    32.0 |
+   |   26 |     194 | qtok_194       |   71.13 | 100.0% |       2 |   54.96 |    4.07 | 12 |  4 |  0 |   147.0 |
+   |   27 |      49 | qtok_49        |   67.58 |  99.9% |     209 |   61.01 |    4.07 |  0 |  0 |  0 |   147.0 |
+   |   20 |     193 | qtok_193       |   68.69 | 100.0% |      17 |   59.53 |    4.07 | 14 |  2 |  0 |    87.5 |
+   |   21 |      63 | qtok_63        |   75.06 |  99.9% |     193 |   67.57 |    4.07 |  0 |  0 |  0 |    87.5 |
+   |   30 |     254 | qtok_254       |   58.92 |  92.7% |      49 |   56.39 |    4.06 | 14 |  2 |  0 |   115.2 |
+   |   31 |      48 | qtok_48        |  139.73 | 100.0% |      49 |  108.61 |    4.06 |  0 |  0 |  0 |   115.2 |
+   |   32 |     254 | qtok_254       |   53.75 |  64.8% |     229 |   52.56 |    4.04 | 14 |  2 |  0 |    87.5 |
+   |   33 |      49 | qtok_49        |  132.17 | 100.0% |      48 |  102.59 |    4.04 |  0 |  0 |  0 |    87.5 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (2048 tok, 0.985s, TTFT=984.59ms): Avg=2080.06 | Min=1669.88 | Max=2658.47 tps
-   Prefill Chunks (8): C1:256t/2658.5tps/99% | C2:256t/2580.5tps/99% | C3:256t/2129.0tps/99% | C4:256t/2233.6tps/99%
-                       C5:256t/2084.8tps/99% | C6:256t/1936.2tps/99% | C7:256t/1754.4tps/99% | C8:256t/1669.9tps/99%
-   Decode  (32 tok, 0.125s): Avg=255.27 | Min=251.11 | Max=257.77 tps
-   Latency (ms) : Min=3.88 | P10=3.89 | P25=3.91 | P50=3.91 | P75=3.94 | P90=3.95 | P95=3.98 | P99=3.98 | Max=3.98
-   Mean/SD/Jitt : Mean=3.92ms | StdDev=0.03ms | Jitter=0.01ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
+   Prefill (2048 tok, 0.998s, TTFT=998.37ms): Avg=2051.34 | Min=1658.94 | Max=2597.45 tps
+   Prefill Chunks (8): C1:256t/2597.5tps/99% | C2:256t/2541.3tps/99% | C3:256t/2247.7tps/99% | C4:256t/2163.1tps/99%
+                       C5:256t/2055.2tps/99% | C6:256t/1893.6tps/99% | C7:256t/1675.7tps/99% | C8:256t/1658.9tps/99%
+   Decode  (32 tok, 0.130s): Avg=245.91 | Min=238.62 | Max=249.45 tps
+   Latency (ms) : Min=4.01 | P10=4.02 | P25=4.04 | P50=4.06 | P75=4.07 | P90=4.14 | P95=4.19 | P99=4.19 | Max=4.19
+   Mean/SD/Jitt : Mean=4.07ms | StdDev=0.04ms | Jitter=0.01ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
    MTP Head     : 16/16 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (33024): RawRAM=32720 (99.08%) | Lookahead=48 (+0.15%) | ColdMiss=256 (0.78%) | EFF HIT=99.22%
-   Lookahead    : 60 prefetched -> 54 consumed (90.0% util) | Warmup >=75%:1t, >=85%:1t
+   Activations (33024): RawRAM=32726 (99.10%) | Lookahead=42 (+0.13%) | ColdMiss=256 (0.78%) | EFF HIT=99.22%
+   Lookahead    : 52 prefetched -> 46 consumed (88.5% util) | Warmup >=75%:1t, >=85%:1t
    Trajectory   : @16= 99.2% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L00 | 8256 | 8190 |   2 |  64 | 99.2%|   3.58 | | L02 | 8256 | 8170 |  22 |  64 | 99.2%|   4.72 |
-   | L01 | 8256 | 8184 |   8 |  64 | 99.2%|   4.12 | | L03 | 8256 | 8176 |  16 |  64 | 99.2%|   4.39 |
+   | L00 | 8256 | 8190 |   2 |  64 | 99.2%|   3.58 | | L02 | 8256 | 8171 |  21 |  64 | 99.2%|   4.82 |
+   | L01 | 8256 | 8179 |  13 |  64 | 99.2%|   4.23 | | L03 | 8256 | 8186 |   6 |  64 | 99.2%|   3.85 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 155.58 MB (Load=6.87 | Prefill=144.44 | Warmup=0.00 | Decode=4.28 MB)
-   SSD Data/Token (Decode)      : Avg=0.134 MB/tok (Min=0.031 | P50=0.113 | P95=0.523 | Max=0.523 MB) | Prefill=0.071 MB/tok
-   NVMe Batches / Requests      : 95 Batches | 34221 Reads | 33838 LBA Merges (Avg 4.7 KB/req)
-   SSD Read Bandwidth           : Avg=5515.01 MB/s | Peak=10670.60 MB/s (Pre-flight hwtest skipped)
-   OS Kernel I/O Verification   : Read=24.69 MB | Write=0.00 MB | Syscalls=400
-   Sync Stall vs Async DMA      : SyncStall=6.43 ms | AsyncOverlapped=27.04 ms (80.8% Overlapped)
-   RAM Traffic & Effective BW   : 2.10 GB moved | Eff=1.89 GB/s (STREAM hwtest skipped)
-   CPU Time & Utilization       : User=1.844s + Sys=0.266s (Wall=1.137s) | SysUtil=46.4% | ThrUtil=46.4% | 42.89 GFLOPS
+   Engine SSD Transfer Total    : 155.14 MB (Load=6.87 | Prefill=144.44 | Warmup=0.00 | Decode=3.83 MB)
+   SSD Data/Token (Decode)      : Avg=0.120 MB/tok (Min=0.031 | P50=0.113 | P95=0.523 | Max=0.523 MB) | Prefill=0.071 MB/tok
+   NVMe Batches / Requests      : 92 Batches | 34197 Raw -> 371 Merged (33826 LBA Merges, Avg 428.2 KB/io)
+   SSD I/O Size Histogram       : <64K=217 | 64K-512K=154 | 512K-2M=0 | >2M=0
+   SSD Read Bandwidth (Active)  : Min=446.08 | Avg=5750.41 | Peak=10546.52 MB/s | WallAmort=137.47 MB/s
+   OS Kernel I/O Verification   : Read=24.31 MB | Write=0.00 MB | Syscalls=388
+   Sync Stall vs Async DMA      : SyncStall=6.43 ms | AsyncOverlapped=25.74 ms (80.0% Overlapped)
+   RAM Traffic & Active BW      : 2.10 GB moved | Active=2.15 GB/s | WallAmort=1.86 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=1.00s (88.5%, 144.44 MB SSD) | Decode=0.13s (11.5%, 3.83 MB SSD)
+   CPU Time & Utilization       : User=2.078s + Sys=0.312s (Wall=1.157s) | SysUtil=51.7% | ThrUtil=51.7% | 47.79 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :    677.09 ms (  325.5 us/tok | 61.00%)
-   MoE AVX2 Q8 Expert Compute   :    281.49 ms (  135.3 us/tok | 25.36%)
-   Router + Lookahead Dispatch  :     64.11 ms (   30.8 us/tok |  5.78%)
-   LM Head Output Projection    :      4.01 ms (    1.9 us/tok |  0.36%)
-   Foreground NVMe Sync Stall   :      6.43 ms (    3.1 us/tok |  0.58%)
-   Unaccounted / OMP & Sampling :     76.82 ms (   36.9 us/tok |  6.92%) | Total Wall=1109.94 ms
+   Dense + Attention/Linear SSM :    688.39 ms (  331.0 us/tok | 61.00%)
+   MoE AVX2 Q8 Expert Compute   :    286.33 ms (  137.7 us/tok | 25.37%)
+   Router + Lookahead Dispatch  :     63.27 ms (   30.4 us/tok |  5.61%)
+   LM Head Output Projection    :      4.20 ms (    2.0 us/tok |  0.37%)
+   Foreground NVMe Sync Stall   :      6.43 ms (    3.1 us/tok |  0.57%)
+   Unaccounted / OMP & Sampling :     79.88 ms (   38.4 us/tok |  7.08%) | Total Wall=1128.50 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    21.51%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     6.18%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     2.31%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    64.38%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     5.62%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    20.63%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     6.02%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     2.24%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    65.48%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     5.63%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -329,21 +337,21 @@ Cloning into 'Apex-Inference-v1'...
   "ssd_offloaded_expert_bytes": 2433024,
   "prefill": {
     "tokens": 164,
-    "ttft_ms": 166.24,
-    "avg_tps": 986.53,
-    "min_tps": 801.3,
-    "max_tps": 1117.97
+    "ttft_ms": 172.54,
+    "avg_tps": 950.51,
+    "min_tps": 785.51,
+    "max_tps": 1073.85
   },
   "decode": {
     "tokens": 39,
-    "avg_tps": 209.78,
-    "min_tps": 195.19,
-    "max_tps": 215.21,
-    "p50_ms": 4.74,
-    "p90_ms": 4.86,
-    "p99_ms": 5.12,
-    "mean_ms": 4.77,
-    "jitter_ms": 0.07
+    "avg_tps": 202.26,
+    "min_tps": 181.68,
+    "max_tps": 208.94,
+    "p50_ms": 4.91,
+    "p90_ms": 5.17,
+    "p99_ms": 5.5,
+    "mean_ms": 4.94,
+    "jitter_ms": 0.12
   },
   "cache": {
     "raw_hit_rate_pct": 96.47,
@@ -356,10 +364,10 @@ Cloning into 'Apex-Inference-v1'...
     "warmup_bytes": 0,
     "decode_bytes": 1419264,
     "bytes_per_token": 42181.04,
-    "avg_mbs": 1664.44,
-    "peak_mbs": 6793.48,
-    "sync_wait_ms": 1.83,
-    "async_overlap_ms": 4.03
+    "avg_mbs": 2177.27,
+    "peak_mbs": 6578.95,
+    "sync_wait_ms": 1.6,
+    "async_overlap_ms": 2.83
   },
   "os_verification": {
     "io_read_bytes": 0,
@@ -370,18 +378,18 @@ Cloning into 'Apex-Inference-v1'...
     "ram_bytes_moved": 272146688
   },
   "kernel_attribution_ms": {
-    "dense_attention": 262.25,
-    "moe_compute": 72.84,
-    "router_lookahead": 5.67,
-    "lm_head": 6.0,
-    "unaccounted": 3.56
+    "dense_attention": 272.65,
+    "moe_compute": 75.33,
+    "router_lookahead": 5.8,
+    "lm_head": 6.02,
+    "unaccounted": 3.96
   },
   "resource_contribution_pct": {
-    "cpu_avx2_fma": 77.89,
-    "ram_bandwidth_pinning": 2.49,
-    "expert_cache_lrfu": 15.59,
-    "lookahead_parallel_overlap": 2.5,
-    "ssd_nvme_throughput": 1.53,
+    "cpu_avx2_fma": 81.92,
+    "ram_bandwidth_pinning": 2.52,
+    "expert_cache_lrfu": 12.07,
+    "lookahead_parallel_overlap": 2.25,
+    "ssd_nvme_throughput": 1.24,
     "total": 100.0
   }
 }
@@ -407,21 +415,21 @@ Cloning into 'Apex-Inference-v1'...
   "ssd_offloaded_expert_bytes": 3653632,
   "prefill": {
     "tokens": 164,
-    "ttft_ms": 212.15,
-    "avg_tps": 773.04,
-    "min_tps": 557.48,
-    "max_tps": 890.74
+    "ttft_ms": 218.91,
+    "avg_tps": 749.17,
+    "min_tps": 533.79,
+    "max_tps": 852.19
   },
   "decode": {
     "tokens": 39,
-    "avg_tps": 185.84,
-    "min_tps": 167.82,
-    "max_tps": 194.42,
-    "p50_ms": 5.32,
-    "p90_ms": 5.81,
-    "p99_ms": 5.96,
-    "mean_ms": 5.38,
-    "jitter_ms": 0.12
+    "avg_tps": 178.58,
+    "min_tps": 172.02,
+    "max_tps": 182.76,
+    "p50_ms": 5.59,
+    "p90_ms": 5.73,
+    "p99_ms": 5.81,
+    "mean_ms": 5.6,
+    "jitter_ms": 0.06
   },
   "cache": {
     "raw_hit_rate_pct": 85.56,
@@ -434,10 +442,10 @@ Cloning into 'Apex-Inference-v1'...
     "warmup_bytes": 0,
     "decode_bytes": 12193280,
     "bytes_per_token": 187425.26,
-    "avg_mbs": 2113.33,
-    "peak_mbs": 8728.09,
-    "sync_wait_ms": 5.13,
-    "async_overlap_ms": 16.27
+    "avg_mbs": 2926.17,
+    "peak_mbs": 7508.48,
+    "sync_wait_ms": 4.16,
+    "async_overlap_ms": 11.41
   },
   "os_verification": {
     "io_read_bytes": 0,
@@ -448,18 +456,18 @@ Cloning into 'Apex-Inference-v1'...
     "ram_bytes_moved": 366830592
   },
   "kernel_attribution_ms": {
-    "dense_attention": 236.6,
-    "moe_compute": 137.27,
-    "router_lookahead": 6.77,
-    "lm_head": 6.1,
-    "unaccounted": 30.14
+    "dense_attention": 246.73,
+    "moe_compute": 142.31,
+    "router_lookahead": 7.08,
+    "lm_head": 6.02,
+    "unaccounted": 31.01
   },
   "resource_contribution_pct": {
-    "cpu_avx2_fma": 72.97,
-    "ram_bandwidth_pinning": 2.82,
-    "expert_cache_lrfu": 13.69,
-    "lookahead_parallel_overlap": 6.24,
-    "ssd_nvme_throughput": 4.28,
+    "cpu_avx2_fma": 78.4,
+    "ram_bandwidth_pinning": 2.91,
+    "expert_cache_lrfu": 10.21,
+    "lookahead_parallel_overlap": 5.19,
+    "ssd_nvme_throughput": 3.29,
     "total": 100.0
   }
 }
@@ -472,255 +480,194 @@ Cloning into 'colibri'...
 gcc -D_FILE_OFFSET_BITS=64 -O3 -march=x86-64-v3 -fopenmp -Wall -Wextra -Wno-unused-parameter -Wno-misleading-indentation -Wno-unused-function -MMD -MP qwen38.c    -o qwen38.exe -lm -fopenmp -static -lpsapi
 gcc -D_FILE_OFFSET_BITS=64 -O3 -march=x86-64-v3 -fopenmp -Wall -Wextra -Wno-unused-parameter -Wno-misleading-indentation -Wno-unused-function  -MMD -MP glm53.c    -o glm53.exe -lm -fopenmp -static -lpsapi 
 ================================================================================
- [3.2] Downloading Official Prebuilt llama.cpp AVX2 Windows Binaries
+ [Step 4.0] Built-In Windows Host Hardware Benchmark (winsat disk & winsat mem)
 ================================================================================
+Host CPU: AMD EPYC 9V74 80-Core Processor | Cores=2 Threads=4 | RAM=15.99 GB
+--- winsat disk -seq -read -drive c ---
+Windows System Assessment Tool
+Error: Unable to run inside of a Virtual Machine.  Please try again running directly on the native hardware.
+--- winsat disk -seq -read -drive d ---
+Windows System Assessment Tool
+Error: Unable to run inside of a Virtual Machine.  Please try again running directly on the native hardware.
+--- winsat disk -ran -read -drive d ---
+Windows System Assessment Tool
+Error: Unable to run inside of a Virtual Machine.  Please try again running directly on the native hardware.
+--- winsat mem ---
+Windows System Assessment Tool
+Error: Unable to run inside of a Virtual Machine.  Please try again running directly on the native hardware.
 ================================================================================
- [3.3] Cloning & Building ik_llama.cpp (CPU AVX2 Release)
+ >>> EXECUTING REAL MULTI-SHARD BENCHMARK SUITE FOR TARGET: qwen38 <<<
 ================================================================================
-Cloning into 'ik_llama'...
-error: unable to create file examples/server/webui_llamacpp/src/lib/components/app/chat/ChatAttachments/ChatAttachmentsPreview/ChatAttachmentsPreviewCurrentItem/ChatAttachmentsPreviewCurrentItemUnavailable.svelte: Filename too long
-fatal: unable to checkout working tree
-warning: Clone succeeded, but checkout failed.
-You can inspect what was checked out with 'git status'
-and retry with 'git restore --source=HEAD :/'
 
--- Building for: Visual Studio 18 2026
--- The C compiler identification is MSVC 19.51.36260.0
--- The CXX compiler identification is MSVC 19.51.36260.0
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/18/Enterprise/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/18/Enterprise/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Found Git: C:/Program Files/Git/ucrt64/bin/git.exe (found version "2.56.0.windows.4")
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
--- Looking for pthread_create in pthreads
--- Looking for pthread_create in pthreads - not found
--- Looking for pthread_create in pthread
--- Looking for pthread_create in pthread - not found
--- Found Threads: TRUE
--- Found OpenMP_C: -openmp (found version "2.0")
--- Found OpenMP_CXX: -openmp (found version "2.0")
--- Found OpenMP: TRUE (found version "2.0")
--- OpenMP found
--- Using optimized iqk matrix multiplications
--- Enabling IQK Flash Attention kernels
--- Including all IQK FA kernels
--- ccache found, compilation results will be cached. Disable with GGML_CCACHE=OFF.
--- CMAKE_SYSTEM_PROCESSOR: AMD64
--- CMAKE_GENERATOR_PLATFORM: 
--- x86 detected
-CMake Warning at common/CMakeLists.txt:26 (message):
-  Git index not found in git repository.
+[HF-MultiDrive-DL] Streaming unsloth/Qwen3.8-Flash-Next-GGUF/UD-IQ2_XS/Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf (0.010 GB) -> D:/apex_d_drive/models/qwen38\Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf (Sequential Non-Truncate)
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf: 100.00% (0.01/0.01 GB) @ 67.4 MB/s
 
+[HF-MultiDrive-DL] Streaming unsloth/Qwen3.8-Flash-Next-GGUF/UD-IQ2_XS/Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf (43.792 GB) -> D:/apex_d_drive/models/qwen38\Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf (Sequential Non-Truncate)
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  11.42% (5.00/43.79 GB) @ 310.6 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  22.84% (10.00/43.79 GB) @ 266.9 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  34.25% (15.00/43.79 GB) @ 252.3 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  45.67% (20.00/43.79 GB) @ 257.7 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  57.09% (25.00/43.79 GB) @ 259.4 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  68.51% (30.00/43.79 GB) @ 252.3 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  79.92% (35.00/43.79 GB) @ 252.5 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  91.34% (40.00/43.79 GB) @ 222.1 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf: 100.00% (43.79/43.79 GB) @ 227.4 MB/s
 
--- ARCH_FLAGS = 
-TARGET_SRCS contains: D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/examples/server/public/index.html.gz
-TARGET_SRCS contains: D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/examples/server/public_llamacpp/index_llamacpp.html.gz
-TARGET_SRCS contains: D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/examples/server/public_llamacpp/loading.html
--- Configuring done (19.0s)
--- Generating done (0.7s)
-CMake Warning (unused-cli):
-  Manually-specified variables were not used by the project:
+[HF-MultiDrive-DL] Streaming unsloth/Qwen3.8-Flash-Next-GGUF/UD-IQ2_XS/Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf (26.822 GB) -> D:/apex_d_drive/models/qwen38\Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf (Sequential Non-Truncate)
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf:  18.64% (5.00/26.82 GB) @ 232.7 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf:  37.28% (10.00/26.82 GB) @ 227.5 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf:  55.92% (15.00/26.82 GB) @ 236.5 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf:  74.57% (20.00/26.82 GB) @ 235.8 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf:  93.21% (25.00/26.82 GB) @ 235.3 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf: 100.00% (26.82/26.82 GB) @ 243.8 MB/s
 
-    GGML_F16C
+[HF-MultiDrive-DL] Streaming unsloth/Qwen3.8-Flash-Next-GGUF/MTP/mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf (2.595 GB) -> C:/apex_c_drive/models/qwen38\mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf (Sequential Non-Truncate)
+  [DL] mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf: 100.00% (2.60/2.60 GB) @ 30.0 MB/s
+  [RAID0-Link] Linked D:/apex_d_drive/models/qwen38\mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf -> C:/apex_c_drive/models/qwen38\mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf (Dual-Drive C: + D: active)
 
+[Download Verification] Files=4 | Total Bytes=78,618,661,594 (73.22 GB) | Elapsed=399.59s
+[Colibri-Import] Running baselines/colibri/c/tools/gguf_import.py on D:/apex_d_drive/models/qwen38\Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf -> D:/apex_d_drive/models/qwen38 (--mode link)...
+colibri model directory ready: D:\apex_d_drive\models\qwen38  (qwen4exp, 48 layers, mode link)
+  MTP head: C:\apex_c_drive\models\qwen38\mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf
+Verified Primary Shard 1 Path: D:/apex_d_drive/models/qwen38\Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf (Alt Shard Dir: C:/apex_c_drive/models/qwen38)
+--------------------------------------------------------------------------------
+ [Stage 1] Small Prompt (64 tokens) + 100.00% Greedy Parity & Prompt/Response Trace
+--------------------------------------------------------------------------------
+[Apex-Parity] Verifying 100.00% Greedy Token & Batched-vs-Serial Bit Parity...
+[Apex-Parity] Serial  Tokens (4) : [17, 21, 25, 17] -> "26:2"
+[Apex-Parity] Batched Tokens (4) : [17, 21, 25, 17] -> "26:2"
+[Apex-Parity] Model Architecture : qwen4exp (Qwen-3.8-Flash-Next)
+[Apex-Parity] Max Logit ULP Diff : 0.000000000e+00
+[Apex-Parity] Greedy Token Match : 4 / 4 (100.00% Parity)
+[Apex-Init] Model Loaded: Qwen3.8 Flash Next | Layers=48 | Hidden=2560 | Experts=512 (Top-10) | Pinned Trunk=4614.77 MB | Expert Cache=7196.78 MB (3468 slots)
+[Apex-Prompt] Input (64 tokens): "[64-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
+[LIVE-PREFILL] 64/64 tok | Chunk=1.70 tps | Avg=1.70 tps | Hit=79.7% | NVMe=527.1 MB/s (14858.61 MB, QD=64) | RSS=13120.5 MB
+[LIVE-DECODE] 8/32 tok | Avg=1.95 tps | Hit=80.3% (LA:+1.8%) | NVMe=541.0 MB/s (17036.89 MB) | RSS=13127.1 MB
+[LIVE-DECODE] 16/32 tok | Avg=2.32 tps | Hit=81.2% (LA:+2.9%) | NVMe=561.6 MB/s (18641.19 MB) | RSS=13091.0 MB
+[LIVE-DECODE] 24/32 tok | Avg=2.48 tps | Hit=82.1% (LA:+3.4%) | NVMe=576.1 MB/s (19955.60 MB) | RSS=13085.1 MB
+[LIVE-DECODE] 32/32 tok | Avg=2.64 tps | Hit=82.9% (LA:+3.7%) | NVMe=590.7 MB/s (21096.85 MB) | RSS=13073.6 MB
 
--- Build files have been written to: D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/build
-MSBuild version 18.11.1-1.26513.3+940033be3 for .NET Framework
-
-  1>Checking Build System
-  Generating build details from Git
-  -- Found Git: C:/Program Files/Git/ucrt64/bin/git.exe (found version "2.56.0.windows.4")
-  Building Custom Rule D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/common/CMakeLists.txt
-  build-info.cpp
-  build_info.vcxproj -> D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\build_info.dir\Release\build_info.lib
-  Building Custom Rule D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/ggml/src/CMakeLists.txt
-  ggml.c
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(4020,13): warning C4068: unknown pragma 'GCC' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(4038,13): warning C4068: unknown pragma 'GCC' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(6819,25): warning C4477: 'fprintf' : format string '%ld' requires an argument of type 'long', but variadic argument 2 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(6819,25):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(6819,25):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(6819,25):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 2 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 3 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 4 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 5 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 6 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 7 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 8 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 9 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-  ggml-alloc.c
-  ggml-quants.c
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\assert.h(21,9): warning C4005: 'static_assert': macro redefinition [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  (compiling source file '../../../ggml/src/ggml-quants.c')
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml-common.h(69,9):
-      see previous definition of 'static_assert'
-  
-  ggml-aarch64.c
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\assert.h(21,9): warning C4005: 'static_assert': macro redefinition [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  (compiling source file '../../../ggml/src/ggml-aarch64.c')
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml-common.h(69,9):
-      see previous definition of 'static_assert'
-  
-  Generating Code...
-  ggml-backend.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml-backend.cpp(2124,30): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  ggml-moe-prefetch.cpp
-  iqk_mul_mat.cpp
-  iqk_kda.cpp
-  iqk_flash_attn.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(141,94): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(141,82): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(179,13): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(187,25): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(188,61): warning C4244: '=': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(196,38): warning C4244: '=': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(273,112): warning C4244: 'argument': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(281,119): warning C4244: 'argument': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(298,22): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(346,80): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(346,68): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(394,80): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(394,68): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(481,24): warning C4244: '=': conversion from 'uint64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  iqk_fa_576_512.cpp
-  iqk_fa_512_512.cpp
-  iqk_fa_320_256.cpp
-  iqk_fa_192_128.cpp
-  iqk_fa_192_192.cpp
-  iqk_fa_256_256.cpp
-  iqk_fa_128_128.cpp
-  iqk_fa_96_96.cpp
-  iqk_fa_64_64.cpp
-  iqk_gemm_floats.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_floats.cpp(637,9): warning C4065: switch statement contains 'default' but no 'case' labels [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  iqk_gemm_kquants.cpp
-  iqk_gemm_ktquants.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_ktquants.cpp(174,23): warning C4141: 'inline': used more than once [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_ktquants.cpp(174,23):
-      the template instantiation context (the oldest one first) is
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_ktquants.cpp(103,8):
-          while compiling class template '`anonymous-namespace'::Trellis3'
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_ktquants.cpp(216,23): warning C4141: 'inline': used more than once [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_ktquants.cpp(266,23): warning C4141: 'inline': used more than once [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  iqk_gemm_iquants.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_iquants.cpp(316,30): warning C4141: 'inline': used more than once [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_iquants.cpp(332,23): warning C4141: 'inline': used more than once [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_iquants.cpp(365,23): warning C4141: 'inline': used more than once [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  iqk_gemm_iqk_quants.cpp
-  iqk_gemm_1bit.cpp
-  Generating Code...
-  Compiling...
-  iqk_gemm_legacy_quants.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_legacy_quants.cpp(2623,29): warning C4068: unknown pragma 'GCC' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  iqk_quantize.cpp
-  iqk_cpu_ops.cpp
-  Generating Code...
-  Auto build dll exports
-     Creating library D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/build/ggml/src/Release/ggml.lib and object D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/build/ggml/src/Release/ggml.exp
-  ggml.vcxproj -> D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\bin\Release\ggml.dll
-  Building Custom Rule D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/src/CMakeLists.txt
-  llama.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(683,52): warning C4805: '!=': unsafe mix of type 'const int' and type 'const bool' in operation [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(714,52): warning C4805: '!=': unsafe mix of type 'int' and type 'bool' in operation [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\a
-
-... [TRUNCATED] ...
-
-us/tok | 48.44%)
-   Unaccounted / OMP & Sampling :  36657.06 ms (381844.4 us/tok | 19.99%) | Total Wall=183346.09 ms
+================================================================================
+   APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
+================================================================================
+ [1. Model, Shards, Quantization & Execution Topology]
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+--------------------------------------------------------------------------------
+ [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 7196.78 MB (3468/25088 exp = 13.82% pinned) | Staging=132.81 MB
+   Process RSS (Start/End/Peak) : Start=4.89 MB | End=13073.65 MB | Peak=13550.32 MB
+--------------------------------------------------------------------------------
+ [3. Input Prompt & Model Response Transcript]
+   PROMPT (64 tok)   : "[64-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency..."
+   RESPONSE (32 tok) : " 2!@!$!m! !! !! !! !! !! !! !! !! !!!! !! !!"
+--------------------------------------------------------------------------------
+ [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 33 Steps)]
+   Logit Summary: AvgTop1Prob=56.5% | AvgMargin=0.439 | MinMargin=0.031
+   +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
+   | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
+   +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
+   |    1 |     220 |                |   15.43 |   8.4% |    2446 |   14.41 | 37718.98 |  0 |  0 |  0 |     0.0 |
+   |    2 |      17 | 2              |   18.13 |  24.4% |      16 |   18.10 |  548.40 |241 |186 | 53 | 297232.0 |
+   |    3 |       0 | !              |     nan | 100.0% |       1 |     nan |  548.40 |  0 |  0 |  0 | 297232.0 |
+   |    4 |      31 | @              |   12.60 |   7.7% |      76 |   12.56 |  604.22 |235 |178 | 67 | 325719.5 |
+   |    5 |       0 | !              |     nan | 100.0% |       1 |     nan |  604.22 |  0 |  0 |  0 | 325719.5 |
+   |    6 |       3 | $              |   12.91 |  13.1% |      12 |   12.65 |  532.83 |262 |158 | 60 | 302784.0 |
+   |    7 |       0 | !              |     nan | 100.0% |       1 |     nan |  532.83 |  0 |  0 |  0 | 302784.0 |
+   |    8 |      76 | m              |   11.77 |   3.8% |   35716 |   11.70 |  370.87 |382 | 79 | 19 | 189544.5 |
+   |   24 |     729 |  !             |   12.39 |  23.4% |       3 |   10.35 |  421.38 |424 | 56 |  0 | 151844.5 |
+   |   25 |       0 | !              |     nan | 100.0% |       1 |     nan |  421.38 |  0 |  0 |  0 | 151844.5 |
+   |   10 |     729 |  !             |   11.71 |   9.5% |    1088 |   10.91 |  377.22 |342 |122 | 16 | 220394.5 |
+   |   11 |       0 | !              |     nan | 100.0% |       1 |     nan |  377.22 |  0 |  0 |  0 | 220394.5 |
+   |   30 |     729 |  !             |   11.42 |   8.7% |     198 |   11.23 |  291.97 |435 | 45 |  0 | 134494.5 |
+   |   31 |       0 | !              |     nan | 100.0% |       1 |     nan |  291.97 |  0 |  0 |  0 | 134494.5 |
+   |   32 |     729 |  !             |   12.57 |  23.3% |   13682 |   10.85 |  293.12 |446 | 34 |  0 | 122669.5 |
+   |   33 |       0 | !              |     nan | 100.0% |       1 |     nan |  293.12 |  0 |  0 |  0 | 122669.5 |
+   +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
+--------------------------------------------------------------------------------
+ [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
+   Prefill (64 tok, 37.719s, TTFT=37718.98ms): Avg=1.70 | Min=1.70 | Max=1.70 tps
+   Prefill Chunks (1): C1:64t/1.7tps/80%
+   Decode  (32 tok, 12.103s): Avg=2.64 | Min=1.66 | Max=3.56 tps
+   Latency (ms) : Min=281.01 | P10=291.97 | P25=320.76 | P50=350.58 | P75=421.38 | P90=548.40 | P95=604.22 | P99=604.22 | Max=604.22
+   Mean/SD/Jitt : Mean=378.21ms | StdDev=95.82ms | Jitter=26.93ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/32
+   MTP Head     : 16/16 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
+--------------------------------------------------------------------------------
+ [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
+   Activations (38400): RawRAM=30419 (79.22%) | Lookahead=1429 (+3.72%) | ColdMiss=6552 (17.06%) | EFF HIT=82.94%
+   Lookahead    : 3172 prefetched -> 1589 consumed (50.1% util) | Warmup >=75%:1t, >=85%:-1t
+   Trajectory   : @16= 81.2% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
+--------------------------------------------------------------------------------
+ [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
+   +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
+   | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
+   +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
+   | L00 |  800 |  537 |  26 | 237 | 70.4%| 443.04 | | L24 |  800 |  639 |  35 | 126 | 84.2%| 364.70 |
+   | L01 |  800 |  605 |  23 | 172 | 78.5%| 398.44 | | L25 |  800 |  649 |  33 | 118 | 85.2%| 325.22 |
+   | L02 |  800 |  599 |  16 | 185 | 76.9%| 534.01 | | L26 |  800 |  624 |  40 | 136 | 83.0%| 355.30 |
+   | L03 |  800 |  698 |   8 |  94 | 88.2%| 332.74 | | L27 |  800 |  650 |  24 | 126 | 84.2%| 300.78 |
+   | L04 |  800 |  654 |  11 | 135 | 83.1%| 415.04 | | L28 |  800 |  611 |  30 | 159 | 80.1%| 404.17 |
+   | L05 |  800 |  622 |  17 | 161 | 79.9%| 407.93 | | L29 |  800 |  620 |  41 | 139 | 82.6%| 315.45 |
+   | L06 |  800 |  611 |  23 | 166 | 79.2%| 415.45 | | L30 |  800 |  636 |  36 | 128 | 84.0%| 279.44 |
+   | L07 |  800 |  599 |  25 | 176 | 78.0%| 394.19 | | L31 |  800 |  660 |  28 | 112 | 86.0%| 266.48 |
+   | L08 |  800 |  645 |  31 | 124 | 84.5%| 216.65 | | L32 |  800 |  672 |  33 |  95 | 88.1%| 265.06 |
+   | L09 |  800 |  658 |  27 | 115 | 85.6%| 192.99 | | L33 |  800 |  609 |  46 | 145 | 81.9%| 306.81 |
+   | L10 |  800 |  633 |  30 | 137 | 82.9%| 229.10 | | L34 |  800 |  611 |  39 | 150 | 81.2%| 316.89 |
+   | L11 |  800 |  638 |  34 | 128 | 84.0%| 236.57 | | L35 |  800 |  657 |  32 | 111 | 86.1%| 247.75 |
+   | L12 |  800 |  608 |  31 | 161 | 79.9%| 389.14 | | L36 |  800 |  619 |  38 | 143 | 82.1%| 306.81 |
+   | L13 |  800 |  598 |  56 | 146 | 81.8%| 325.54 | | L37 |  800 |  630 |  26 | 144 | 82.0%| 368.46 |
+   | L14 |  800 |  616 |  51 | 133 | 83.4%| 308.25 | | L38 |  800 |  595 |  33 | 172 | 78.5%| 449.29 |
+   | L15 |  800 |  667 |  19 | 114 | 85.8%| 345.90 | | L39 |  800 |  694 |  14 |  92 | 88.5%| 297.02 |
+   | L16 |  800 |  670 |  32 |  98 | 87.8%| 265.06 | | L40 |  800 |  685 |  19 |  96 | 88.0%| 263.18 |
+   | L17 |  800 |  645 |  35 | 120 | 85.0%| 319.58 | | L41 |  800 |  656 |  20 | 124 | 84.5%| 223.27 |
+   | L18 |  800 |  603 |  39 | 158 | 80.2%| 428.61 | | L42 |  800 |  624 |  27 | 149 | 81.4%| 301.05 |
+   | L19 |  800 |  655 |  41 | 104 | 87.0%| 253.52 | | L43 |  800 |  680 |  23 |  97 | 87.9%| 210.30 |
+   | L20 |  800 |  615 |  38 | 147 | 81.6%| 303.93 | | L44 |  800 |  639 |  29 | 132 | 83.5%| 278.00 |
+   | L21 |  800 |  608 |  40 | 152 | 81.0%| 432.37 | | L45 |  800 |  646 |  26 | 128 | 84.0%| 273.68 |
+   | L22 |  800 |  575 |  39 | 186 | 76.8%| 490.65 | | L46 |  800 |  638 |  22 | 140 | 82.5%| 275.12 |
+   | L23 |  800 |  678 |  23 |  99 | 87.6%| 221.83 | | L47 |  800 |  638 |  20 | 142 | 82.2%| 385.38 |
+   +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
+--------------------------------------------------------------------------------
+ [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
+   I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
+   Engine SSD Transfer Total    : 21096.85 MB (Load=4614.69 | Prefill=10243.92 | Warmup=0.00 | Decode=6238.24 MB)
+   SSD Data/Token (Decode)      : Avg=194.945 MB/tok (Min=119.794 | P50=185.102 | P95=318.085 | Max=318.085 MB) | Prefill=160.061 MB/tok
+   NVMe Batches / Requests      : 1297 Batches | 31560 Raw -> 30257 Merged (1303 LBA Merges, Avg 714.0 KB/io)
+   SSD I/O Size Histogram       : <64K=1595 | 64K-512K=7504 | 512K-2M=20714 | >2M=444
+   SSD Read Bandwidth (Active)  : Min=10.89 | Avg=590.72 | Peak=9804.07 MB/s | WallAmort=423.45 MB/s
+   OS Kernel I/O Verification   : Read=21116.82 MB | Write=0.00 MB | Syscalls=39759
+   Sync Stall vs Async DMA      : SyncStall=20462.86 ms | AsyncOverlapped=26994.42 ms (56.9% Overlapped)
+   RAM Traffic & Active BW      : 360.23 GB moved | Active=14.61 GB/s | WallAmort=7.23 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=37.72s (75.7%, 10243.92 MB SSD) | Decode=12.10s (24.3%, 6238.24 MB SSD)
+   CPU Time & Utilization       : User=77.953s + Sys=5.859s (Wall=62.473s) | SysUtil=33.5% | ThrUtil=33.5% | 31.02 GFLOPS
+--------------------------------------------------------------------------------
+ [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
+   Dense + Attention/Linear SSM :  11621.26 ms (121054.7 us/tok | 23.33%)
+   MoE AVX2 Q8 Expert Compute   :  11739.16 ms (122282.9 us/tok | 23.56%)
+   Router + Lookahead Dispatch  :    509.43 ms ( 5306.5 us/tok |  1.02%)
+   LM Head Output Projection    :   1301.15 ms (13553.6 us/tok |  2.61%)
+   Foreground NVMe Sync Stall   :  20462.86 ms (213154.8 us/tok | 41.07%)
+   Unaccounted / OMP & Sampling :   4187.70 ms (43621.9 us/tok |  8.41%) | Total Wall=49821.55 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    38.15%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |    22.03%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    30.11%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     7.24%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.47%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    66.84%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     8.33%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    14.64%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     6.43%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     3.76%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
    Basis: Avoided SSD stall ns (Cache/LA) + NVMe DMA ns + Kernel Compute ns + RAM BW ns.
 ================================================================================
 
-[Apex-Fair-Baseline] 64p/32g completed in 201s
+[Apex-Fair-Baseline] 64p/32g completed in 65s
 
 ================================================================================
    APEX INFERENCE v1 — PRE-FLIGHT HOST HARDWARE TELEMETRY & BENCHMARK REPORT
@@ -731,27 +678,27 @@ us/tok | 48.44%)
    CPU Model          : AMD EPYC 9V74 80-Core Processor                
    Cores / Threads    : 2 Physical / 4 Logical
    SIMD ISA Support   : AVX2=YES | FMA=YES | F16C=YES | AVX-VNNI=NO | AVX512-VNNI=YES
-   System Memory (RAM): 15.99 GB Total / 13.39 GB Available
-   Active Drive Space : 219.98 GB Total / 126.94 GB Free
+   System Memory (RAM): 15.99 GB Total / 14.69 GB Available
+   Active Drive Space : 219.98 GB Total / 149.17 GB Free
 --------------------------------------------------------------------------------
  [CrystalDiskMark-Style NVMe SSD Storage Benchmark]
-   SEQ1M Direct Uncached NVMe Read    :    592.87 MB/s (Hardware Floor)
-   SEQ1M Q8T1  Read (OS-Cached Max)   :   2364.96 MB/s
-   SEQ1M Q1T1  Read (Single Queue)    :   9209.03 MB/s
-   SEQ128K Q32T1 Expert-Stripe Read   :  10962.85 MB/s
-   RND4K Q32T16 Read                  :    692.74 MB/s (  177342 IOPS)
-   RND4K Q1T1  Read                   :    786.60 MB/s (Latency: 4.97 us)
+   SEQ1M Direct Uncached NVMe Read    :    571.91 MB/s (Hardware Floor)
+   SEQ1M Q8T1  Read (OS-Cached Max)   :   2260.23 MB/s
+   SEQ1M Q1T1  Read (Single Queue)    :   9365.56 MB/s
+   SEQ128K Q32T1 Expert-Stripe Read   :  10504.16 MB/s
+   RND4K Q32T16 Read                  :    624.41 MB/s (  159850 IOPS)
+   RND4K Q1T1  Read                   :    742.91 MB/s (Latency: 5.26 us)
 --------------------------------------------------------------------------------
  [PassMark / STREAM System RAM Bandwidth & Latency Benchmark]
-   AVX2 256-bit Sequential Read BW    :     69.55 GB/s
-   AVX2 256-bit Sequential Write BW   :     62.61 GB/s
-   STREAM Triad (A = B + s*C) BW      :     46.16 GB/s
-   Random Pointer-Chase Latency       :     90.45 ns
+   AVX2 256-bit Sequential Read BW    :     66.81 GB/s
+   AVX2 256-bit Sequential Write BW   :     59.56 GB/s
+   STREAM Triad (A = B + s*C) BW      :     42.05 GB/s
+   Random Pointer-Chase Latency       :    102.93 ns
 --------------------------------------------------------------------------------
  [PassMark-Style CPU AVX2+FMA Compute & IQ2 Kernel Benchmark]
-   Single-Core AVX2+FMA Throughput    :     58.38 GFLOPS
-   Multi-Core  AVX2+FMA Throughput    :    226.53 GFLOPS
-   IQ2_XXS/XS Fused Dot Effective BW  :     26.29 GB/s (FP32 Equiv)
+   Single-Core AVX2+FMA Throughput    :     58.40 GFLOPS
+   Multi-Core  AVX2+FMA Throughput    :    223.39 GFLOPS
+   IQ2_XXS/XS Fused Dot Effective BW  :     26.21 GB/s (FP32 Equiv)
 ================================================================================
 
 
@@ -759,131 +706,136 @@ us/tok | 48.44%)
  [Apex-Run] Interactive Prompt & Streaming Model Generation
 ================================================================================
  >>> User Prompt   : "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:"
- >>> Chat Template : 70 tokenized input IDs
-[LIVE-PREFILL] 70/70 tok | Chunk=0.53 tps | Avg=0.53 tps | Hit=73.6% | NVMe=531.2 MB/s (51661.71 MB, QD=64) | RSS=13970.4 MB
+ >>> Chat Template : 91 tokenized input IDs
+[LIVE-PREFILL] 91/91 tok | Chunk=1.78 tps | Avg=1.78 tps | Hit=79.2% | NVMe=534.1 MB/s (19602.76 MB, QD=64) | RSS=13615.7 MB
 
  >>> [Apex-Model-Response] <think>
-<think>
-<th>
-<thinking>
-<thinking<th>
-Let me user this question is a question about the user asks about "Explain why the why hybrid Gate why Gate DeltaNet Gate Net attention Net with Net MoE and E LB co-eco and sequential KB-1 sequential MB NV sequential NV
+!
+!
+!<|im_end|>!<|im_end|>!
+!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ================================================================================
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5559.38 MB (593/12384 exp = 4.79% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.71 MB | End=13454.79 MB | Peak=14037.62 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 7676.15 MB (3699/25088 exp = 14.74% pinned) | Staging=132.81 MB
+   Process RSS (Start/End/Peak) : Start=4.70 MB | End=13502.75 MB | Peak=14018.57 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
-   PROMPT (70 tok)   : "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:"
+   PROMPT (91 tok)   : "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:"
    RESPONSE (64 tok) : "<think>
-<think>
-<th>
-<thinking>
-<thinking<th>
-Let me user this question is a question about the user asks about "Explain why the why hybrid Gate why Gate DeltaNet Gate Net attention Net with Net MoE and E LB co-eco and sequential KB-1 sequential MB NV sequential NV DMA"
+!
+!
+!<|im_end|>!<|im_end|>!
+!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 --------------------------------------------------------------------------------
  [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 65 Steps)]
-   Logit Summary: AvgTop1Prob=42.9% | AvgMargin=1.279 | MinMargin=0.023
+   Logit Summary: AvgTop1Prob=73.5% | AvgMargin=1.204 | MinMargin=0.120
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |   13699 | <th            |   17.30 |  47.4% |   32169 |   16.35 | 131114.48 |  0 |  0 |  0 |     0.0 |
-   |    2 |     766 | ink            |   18.90 |  53.4% |   15724 |   18.74 | 2808.42 | 20 |232 | 84 | 1511936.0 |
-   |    3 |     397 | >\n            |   12.80 |   6.2% |     318 |   12.73 | 2808.42 |  0 |  0 |  0 | 1511936.0 |
-   |    4 |   13699 | <th            |   14.70 |  18.4% |     334 |   14.61 | 1898.60 |148 |128 | 60 | 1004448.0 |
-   |    5 |     766 | ink            |   22.04 |  99.6% |     307 |   14.17 | 1898.60 |  0 |  0 |  0 | 1004448.0 |
-   |    6 |     397 | >\n            |   12.54 |  13.7% |      29 |   12.50 | 2379.76 |137 |142 | 57 | 1019392.0 |
-   |    7 |   13699 | <th            |   16.29 |  41.2% |     522 |   16.02 | 2379.76 |  0 |  0 |  0 | 1019392.0 |
-   |    8 |     397 | >\n            |   17.08 |  39.3% |    1339 |   16.33 | 1392.31 |195 | 99 | 42 | 729984.0 |
-   |   36 |   29136 |  Gate          |   15.35 |  36.3% |     479 |   14.86 | 2364.16 | 84 |165 | 87 | 1307712.0 |
-   |   37 |    3170 |  why           |   16.44 |  65.8% |   34464 |   13.18 | 2364.16 |  0 |  0 |  0 | 1307712.0 |
-   |   20 |    3405 |  question      |   16.21 |  30.6% |     374 |   15.58 | 2074.98 |108 |170 | 58 | 1149312.0 |
-   |   21 |     374 |  is            |   15.85 |  19.4% |   15504 |   14.87 | 2074.98 |  0 |  0 |  0 | 1149312.0 |
-   |   62 |   24384 |  NV            |   15.58 |  36.6% |   50665 |   15.35 | 1712.67 |147 |132 | 57 | 974848.0 |
-   |   63 |   50665 |  sequential    |   14.36 |  20.5% |   25372 |   14.09 | 1712.67 |  0 |  0 |  0 | 974848.0 |
-   |   64 |   24384 |  NV            |   17.08 |  41.8% |   25372 |   17.00 | 1698.18 |165 |116 | 55 | 920864.0 |
-   |   65 |   25372 |  DMA           |   17.65 |  62.3% |   81911 |   16.44 | 1698.18 |  0 |  0 |  0 | 920864.0 |
+   |    1 |  248068 | <think>        |   32.95 | 100.0% |  248045 |   12.90 | 51210.59 |  0 |  0 |  0 |     0.0 |
+   |    2 |     198 | \n             |   21.79 |  63.4% |     271 |   21.24 |  318.78 |392 | 84 |  4 | 122932.0 |
+   |    3 |       0 | !              |     nan | 100.0% |       1 |     nan |  318.78 |  0 |  0 |  0 | 122932.0 |
+   |    4 |     198 | \n             |   12.40 |  23.4% |     271 |   12.06 |  478.98 |378 | 87 | 15 | 156682.0 |
+   |    5 |       0 | !              |     nan | 100.0% |       1 |     nan |  478.98 |  0 |  0 |  0 | 156682.0 |
+   |    6 |     198 | \n             |   12.62 |  21.8% |  248046 |   12.50 |  363.30 |409 | 64 |  7 | 128584.0 |
+   |    7 |       0 | !              |     nan | 100.0% |       1 |     nan |  363.30 |  0 |  0 |  0 | 128584.0 |
+   |    8 |  248046 | <|im_end|>     |   13.00 |  28.4% |     198 |   12.13 |  506.17 |437 | 42 |  1 | 107957.0 |
+   |   26 |       0 | !              |   13.54 |  54.3% |     198 |   10.71 |  536.46 |318 |103 | 59 | 269957.0 |
+   |   27 |       0 | !              |     nan | 100.0% |       1 |     nan |  536.46 |  0 |  0 |  0 | 269957.0 |
+   |   18 |       0 | !              |   13.85 |  46.9% |     198 |   12.04 |  530.02 |296 |115 | 69 | 276882.0 |
+   |   19 |       0 | !              |     nan | 100.0% |       1 |     nan |  530.02 |  0 |  0 |  0 | 276882.0 |
+   |   62 |       0 | !              |   15.17 |  81.0% |     198 |   11.37 |  335.24 |420 | 52 |  8 | 175869.5 |
+   |   63 |       0 | !              |     nan | 100.0% |       1 |     nan |  335.24 |  0 |  0 |  0 | 175869.5 |
+   |   64 |       0 | !              |   13.02 |  35.5% |     198 |   11.60 |  353.97 |396 | 62 | 22 | 179119.5 |
+   |   65 |       0 | !              |     nan | 100.0% |       1 |     nan |  353.97 |  0 |  0 |  0 | 179119.5 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (70 tok, 131.114s, TTFT=131114.48ms): Avg=0.53 | Min=0.53 | Max=0.53 tps
-   Prefill Chunks (1): C1:70t/0.5tps/74%
-   Decode  (64 tok, 122.639s): Avg=0.52 | Min=0.36 | Max=0.73 tps
-   Latency (ms) : Min=1365.02 | P10=1453.93 | P25=1875.12 | P50=1947.85 | P75=1991.61 | P90=2074.98 | P95=2379.76 | P99=2808.42 | Max=2808.42
-   Mean/SD/Jitt : Mean=1916.24ms | StdDev=280.15ms | Jitter=103.85ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/64
+   Prefill (91 tok, 51.211s, TTFT=51210.59ms): Avg=1.78 | Min=1.78 | Max=1.78 tps
+   Prefill Chunks (1): C1:91t/1.8tps/79%
+   Decode  (64 tok, 23.376s): Avg=2.74 | Min=1.86 | Max=3.81 tps
+   Latency (ms) : Min=262.16 | P10=293.92 | P25=324.25 | P50=353.97 | P75=396.20 | P90=478.98 | P95=530.02 | P99=536.46 | Max=536.46
+   Mean/SD/Jitt : Mean=365.24ms | StdDev=72.39ms | Jitter=43.40ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/64
    MTP Head     : 32/32 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (34272): RawRAM=21703 (63.33%) | Lookahead=4452 (+12.99%) | ColdMiss=8117 (23.68%) | EFF HIT=76.32%
-   Lookahead    : 6853 prefetched -> 4452 consumed (65.0% util) | Warmup >=75%:23t, >=85%:-1t
-   Trajectory   : @16= 74.6% | @64= 76.3% | @128=  N/A | @256=  N/A | @512=  N/A
+   Activations (59040): RawRAM=47708 (80.81%) | Lookahead=1809 (+3.06%) | ColdMiss=9523 (16.13%) | EFF HIT=83.87%
+   Lookahead    : 4779 prefetched -> 2129 consumed (44.5% util) | Warmup >=75%:1t, >=85%:-1t
+   Trajectory   : @16= 80.8% | @64= 83.9% | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 |  816 |  391 | 215 | 210 | 74.3%|3054.69 | | L24 |  816 |  582 |  81 | 153 | 81.2%|2084.38 |
-   | L04 |  816 |  370 | 121 | 325 | 60.2%|3981.88 | | L25 |  816 |  576 |  80 | 160 | 80.4%|2249.69 |
-   | L05 |  816 |  382 | 144 | 290 | 64.5%|3687.19 | | L26 |  816 |  560 |  95 | 161 | 80.3%|2041.25 |
-   | L06 |  816 |  398 | 162 | 256 | 68.6%|3435.62 | | L27 |  816 |  546 |  84 | 186 | 77.2%|2501.25 |
-   | L07 |  816 |  469 | 135 | 212 | 74.0%|2918.12 | | L28 |  816 |  507 | 105 | 204 | 75.0%|2680.94 |
-   | L08 |  816 |  446 | 126 | 244 | 70.1%|3320.62 | | L29 |  816 |  543 |  98 | 175 | 78.6%|2314.38 |
-   | L09 |  816 |  443 | 118 | 255 | 68.8%|3234.38 | | L30 |  816 |  516 | 103 | 197 | 75.9%|2494.06 |
-   | L10 |  816 |  424 | 152 | 240 | 70.6%|3234.38 | | L31 |  816 |  519 |  97 | 200 | 75.5%|2609.06 |
-   | L11 |  816 |  492 | 110 | 214 | 73.8%|3571.88 | | L32 |  816 |  514 | 102 | 200 | 75.5%|2688.12 |
-   | L12 |  816 |  503 | 114 | 199 | 75.6%|3123.88 | | L33 |  816 |  547 |  99 | 170 | 79.2%|2443.75 |
-   | L13 |  816 |  532 |  83 | 201 | 75.4%|2458.12 | | L34 |  816 |  526 | 116 | 174 | 78.7%|2400.62 |
-   | L14 |  816 |  505 | 101 | 210 | 74.3%|2839.06 | | L35 |  816 |  524 | 124 | 168 | 79.4%|2343.12 |
-   | L15 |  816 |  528 |  91 | 197 | 75.9%|2515.62 | | L36 |  816 |  515 | 129 | 172 | 78.9%|2379.06 |
-   | L16 |  816 |  512 |  99 | 205 | 74.9%|2637.81 | | L37 |  816 |  531 | 107 | 178 | 78.2%|2357.50 |
-   | L17 |  816 |  531 |  87 | 198 | 75.7%|2666.56 | | L38 |  816 |  557 | 104 | 155 | 81.0%|2141.88 |
-   | L18 |  816 |  599 |  60 | 157 | 80.8%|1926.25 | | L39 |  816 |  531 | 114 | 171 | 79.0%|2278.44 |
-   | L19 |  816 |  570 |  79 | 167 | 79.5%|2070.00 | | L40 |  816 |  511 | 121 | 184 | 77.5%|2515.62 |
-   | L20 |  816 |  612 |  56 | 148 | 81.9%|1883.12 | | L41 |  816 |  517 | 117 | 182 | 77.7%|2515.62 |
-   | L21 |  816 |  589 |  66 | 161 | 80.3%|2105.94 | | L42 |  816 |  546 |  98 | 172 | 78.9%|2256.88 |
-   | L22 |  816 |  600 |  70 | 146 | 82.1%|1962.19 | | L43 |  816 |  558 |  91 | 167 | 79.5%|2113.12 |
-   | L23 |  816 |  578 |  78 | 160 | 80.4%|2055.62 | | L44 |  816 |  503 | 120 | 193 | 76.3%|3241.12 |
+   | L00 | 1230 |  888 |  28 | 314 | 74.5%| 576.12 | | L24 | 1230 |  999 |  52 | 179 | 85.4%| 539.53 |
+   | L01 | 1230 |  966 |  10 | 254 | 79.3%| 636.25 | | L25 | 1230 |  955 |  71 | 204 | 83.4%| 571.48 |
+   | L02 | 1230 |  973 |  14 | 243 | 80.2%| 651.93 | | L26 | 1230 |  942 |  83 | 205 | 83.3%| 637.28 |
+   | L03 | 1230 | 1068 |  10 | 152 | 87.6%| 590.28 | | L27 | 1230 |  966 |  80 | 184 | 85.0%| 582.76 |
+   | L04 | 1230 | 1010 |  11 | 209 | 83.0%| 742.92 | | L28 | 1230 |  928 |  69 | 233 | 81.1%| 667.36 |
+   | L05 | 1230 |  993 |  13 | 224 | 81.8%| 462.45 | | L29 | 1230 |  946 |  92 | 192 | 84.4%| 468.14 |
+   | L06 | 1230 |  963 |  10 | 257 | 79.1%| 528.25 | | L30 | 1230 |  924 |  84 | 222 | 82.0%| 517.11 |
+   | L07 | 1230 |  979 |  18 | 233 | 81.1%| 426.20 | | L31 | 1230 | 1031 |  36 | 163 | 86.7%| 420.61 |
+   | L08 | 1230 | 1055 |  11 | 164 | 86.7%| 226.61 | | L32 | 1230 | 1006 |  45 | 179 | 85.4%| 498.17 |
+   | L09 | 1230 | 1037 |  17 | 176 | 85.7%| 247.78 | | L33 | 1230 |  931 |  93 | 206 | 83.3%| 486.87 |
+   | L10 | 1230 | 1030 |  16 | 184 | 85.0%| 260.23 | | L34 | 1230 |  979 |  52 | 199 | 83.8%| 515.67 |
+   | L11 | 1230 | 1049 |  18 | 163 | 86.7%| 254.00 | | L35 | 1230 |  994 |  63 | 173 | 85.9%| 394.68 |
+   | L12 | 1230 |  992 |  23 | 215 | 82.5%| 516.97 | | L36 | 1230 |  999 |  42 | 189 | 84.6%| 435.01 |
+   | L13 | 1230 | 1039 |  28 | 163 | 86.7%| 308.25 | | L37 | 1230 | 1032 |  19 | 179 | 85.4%| 449.29 |
+   | L14 | 1230 |  973 |  61 | 196 | 84.1%| 505.59 | | L38 | 1230 |  944 |  27 | 259 | 78.9%| 627.88 |
+   | L15 | 1230 | 1071 |  26 | 133 | 89.2%| 426.73 | | L39 | 1230 | 1038 |  36 | 156 | 87.3%| 498.17 |
+   | L16 | 1230 | 1005 |  59 | 166 | 86.5%| 468.09 | | L40 | 1230 |  999 |  50 | 181 | 85.3%| 473.73 |
+   | L17 | 1230 |  969 |  64 | 197 | 84.0%| 586.52 | | L41 | 1230 | 1008 |  31 | 191 | 84.5%| 361.55 |
+   | L18 | 1230 |  980 |  28 | 222 | 82.0%| 663.60 | | L42 | 1230 |  987 |  24 | 219 | 82.2%| 417.72 |
+   | L19 | 1230 |  990 |  72 | 168 | 86.3%| 432.13 | | L43 | 1230 | 1034 |  31 | 165 | 86.6%| 306.81 |
+   | L20 | 1230 |  983 |  48 | 199 | 83.8%| 420.61 | | L44 | 1230 | 1026 |  12 | 192 | 84.4%| 364.43 |
+   | L21 | 1230 |  983 |  29 | 218 | 82.3%| 673.00 | | L45 | 1230 | 1036 |   7 | 187 | 84.8%| 299.61 |
+   | L22 | 1230 |  945 |  20 | 265 | 78.5%| 727.51 | | L46 | 1230 | 1018 |  19 | 193 | 84.3%| 388.92 |
+   | L23 | 1230 | 1026 |  43 | 161 | 86.9%| 377.39 | | L47 | 1230 | 1019 |  14 | 197 | 84.0%| 438.01 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 116789.27 MB (Load=6361.84 | Prefill=45299.88 | Warmup=0.00 | Decode=65127.56 MB)
-   SSD Data/Token (Decode)      : Avg=1017.618 MB/tok (Min=712.875 | P50=1043.438 | P95=1277.062 | Max=1476.500 MB) | Prefill=647.141 MB/tok
-   NVMe Batches / Requests      : 2551 Batches | 46571 Reads | 0 LBA Merges (Avg 2568.0 KB/req)
-   SSD Read Bandwidth           : Avg=549.86 MB/s | Peak=4484.30 MB/s (100.0% of 592.9 MB/s Direct NVMe)
-   OS Kernel I/O Verification   : Read=117776.31 MB | Write=128.00 MB | Syscalls=58145
-   Sync Stall vs Async DMA      : SyncStall=109713.77 ms | AsyncOverlapped=200149.76 ms (64.6% Overlapped)
-   RAM Traffic & Effective BW   : 777.28 GB moved | Eff=3.06 GB/s (STREAM Triad Max=46.16 GB/s)
-   CPU Time & Utilization       : User=256.984s + Sys=9.469s (Wall=270.816s) | SysUtil=24.6% | ThrUtil=24.6% | 55.72 GFLOPS
+   Engine SSD Transfer Total    : 29286.48 MB (Load=4614.69 | Prefill=14988.07 | Warmup=0.00 | Decode=9683.72 MB)
+   SSD Data/Token (Decode)      : Avg=151.308 MB/tok (Min=86.066 | P50=146.662 | P95=263.630 | Max=270.393 MB) | Prefill=164.704 MB/tok
+   NVMe Batches / Requests      : 1988 Batches | 45982 Raw -> 43841 Merged (2141 LBA Merges, Avg 684.0 KB/io)
+   SSD I/O Size Histogram       : <64K=2178 | 64K-512K=9872 | 512K-2M=31313 | >2M=478
+   SSD Read Bandwidth (Active)  : Min=14.35 | Avg=594.51 | Peak=8881.01 MB/s | WallAmort=392.65 MB/s (100.0% of 571.9 MB/s Direct NVMe)
+   OS Kernel I/O Verification   : Read=30284.07 MB | Write=128.00 MB | Syscalls=60893
+   Sync Stall vs Async DMA      : SyncStall=29274.29 ms | AsyncOverlapped=40658.90 ms (58.1% Overlapped)
+   RAM Traffic & Active BW      : 622.87 GB moved | Active=16.26 GB/s (38.7% STREAM) | WallAmort=8.35 GB/s (Max=42.05 GB/s)
+   Stage Breakdown (Pref/Dec)   : Prefill=51.21s (68.7%, 14988.07 MB SSD) | Decode=23.38s (31.3%, 9683.72 MB SSD)
+   CPU Time & Utilization       : User=121.672s + Sys=8.953s (Wall=88.195s) | SysUtil=37.0% | ThrUtil=37.0% | 82.71 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :  32420.49 ms (241943.9 us/tok | 12.78%)
-   MoE AVX2 Q8 Expert Compute   :  43439.00 ms (324171.6 us/tok | 17.12%)
-   Router + Lookahead Dispatch  :    632.21 ms ( 4718.0 us/tok |  0.25%)
-   LM Head Output Projection    :   1243.00 ms ( 9276.1 us/tok |  0.49%)
-   Foreground NVMe Sync Stall   : 109713.77 ms (818759.5 us/tok | 43.24%)
-   Unaccounted / OMP & Sampling :  66305.48 ms (494817.0 us/tok | 26.13%) | Total Wall=253753.95 ms
+   Dense + Attention/Linear SSM :  17755.03 ms (114548.6 us/tok | 23.80%)
+   MoE AVX2 Q8 Expert Compute   :  17955.10 ms (115839.3 us/tok | 24.07%)
+   Router + Lookahead Dispatch  :    800.38 ms ( 5163.7 us/tok |  1.07%)
+   LM Head Output Projection    :   2591.20 ms (16717.4 us/tok |  3.47%)
+   Foreground NVMe Sync Stall   :  29274.29 ms (188866.4 us/tok | 39.25%)
+   Unaccounted / OMP & Sampling :   6210.21 ms (40065.9 us/tok |  8.33%) | Total Wall=74586.21 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    35.34%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |    24.92%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    30.77%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     7.36%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     1.61%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    69.11%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     8.13%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    13.58%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     6.62%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.56%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -893,184 +845,242 @@ Let me user this question is a question about the user asks about "Explain why t
 --------------------------------------------------------------------------------
  [Stage 2] Medium Prompt (512 tokens) + Domain Cache Warmup Trajectory (@16..@512)
 --------------------------------------------------------------------------------
-[Apex-Init] Model Loaded: GLM 5.3 Flash | Layers=45 | Hidden=4096 | Experts=288 (Top-8) | Pinned Trunk=6460.98 MB | Expert Cache=5653.12 MB (603 slots)
+[Apex-Init] Model Loaded: Qwen3.8 Flash Next | Layers=48 | Hidden=2560 | Experts=512 (Top-10) | Pinned Trunk=4614.77 MB | Expert Cache=7632.57 MB (3678 slots)
 [Apex-Prompt] Input (512 tokens): "[512-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/512 tok | Chunk=0.90 tps | Avg=0.90 tps | Hit=89.2% | NVMe=531.0 MB/s (74277.59 MB, QD=64) | RSS=14114.8 MB
-[LIVE-PREFILL] 512/512 tok | Chunk=0.88 tps | Avg=0.89 tps | Hit=88.9% | NVMe=531.1 MB/s (145202.09 MB, QD=64) | RSS=14115.5 MB
-[LIVE-DECODE] 2/128 tok | Avg=0.28 tps | Hit=88.9% (LA:+0.1%) | NVMe=531.4 MB/s (148490.09 MB) | RSS=13950.1 MB
-[LIVE-DECODE] 4/128 tok | Avg=0.32 tps | Hit=88.9% (LA:+0.2%) | NVMe=531.7 MB/s (151125.27 MB) | RSS=13805.9 MB
-[LIVE-DECODE] 6/128 tok | Avg=0.36 tps | Hit=88.8% (LA:+0.3%) | NVMe=532.1 MB/s (153469.40 MB) | RSS=13639.9 MB
-[LIVE-DECODE] 8/128 tok | Avg=0.38 tps | Hit=88.8% (LA:+0.4%) | NVMe=532.6 MB/s (155649.65 MB) | RSS=13562.4 MB
-[LIVE-DECODE] 10/128 tok | Avg=0.41 tps | Hit=88.8% (LA:+0.4%) | NVMe=533.1 MB/s (157599.27 MB) | RSS=13543.0 MB
-[LIVE-DECODE] 12/128 tok | Avg=0.43 tps | Hit=88.8% (LA:+0.5%) | NVMe=533.6 MB/s (159647.71 MB) | RSS=13520.4 MB
-[LIVE-DECODE] 14/128 tok | Avg=0.44 tps | Hit=88.8% (LA:+0.6%) | NVMe=534.1 MB/s (161641.52 MB) | RSS=13529.7 MB
-[LIVE-DECODE] 16/128 tok | Avg=0.45 tps | Hit=88.7% (LA:+0.6%) | NVMe=534.7 MB/s (163743.21 MB) | RSS=13529.7 MB
-[LIVE-DECODE] 18/128 tok | Avg=0.45 tps | Hit=88.7% (LA:+0.7%) | NVMe=534.3 MB/s (165782.65 MB) | RSS=13529.3 MB
-[LIVE-DECODE] 20/128 tok | Avg=0.46 tps | Hit=88.7% (LA:+0.8%) | NVMe=534.8 MB/s (167775.09 MB) | RSS=13529.3 MB
-[LIVE-DECODE] 22/128 tok | Avg=0.46 tps | Hit=88.7% (LA:+0.8%) | NVMe=535.2 MB/s (169944.15 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 24/128 tok | Avg=0.46 tps | Hit=88.7% (LA:+0.9%) | NVMe=535.5 MB/s (172122.77 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 26/128 tok | Avg=0.47 tps | Hit=88.7% (LA:+1.0%) | NVMe=535.8 MB/s (174170.09 MB) | RSS=13536.2 MB
-[LIVE-DECODE] 28/128 tok | Avg=0.47 tps | Hit=88.6% (LA:+1.0%) | NVMe=535.8 MB/s (176170.84 MB) | RSS=13529.3 MB
-[LIVE-DECODE] 30/128 tok | Avg=0.48 tps | Hit=88.6% (LA:+1.1%) | NVMe=536.2 MB/s (177989.09 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 32/128 tok | Avg=0.48 tps | Hit=88.6% (LA:+1.1%) | NVMe=536.7 MB/s (179686.46 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 34/128 tok | Avg=0.49 tps | Hit=88.6% (LA:+1.2%) | NVMe=537.1 MB/s (181678.34 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 36/128 tok | Avg=0.49 tps | Hit=88.6% (LA:+1.3%) | NVMe=537.4 MB/s (183836.27 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 38/128 tok | Avg=0.49 tps | Hit=88.6% (LA:+1.3%) | NVMe=537.7 MB/s (185962.71 MB) | RSS=13539.9 MB
-[LIVE-DECODE] 40/128 tok | Avg=0.49 tps | Hit=88.6% (LA:+1.4%) | NVMe=538.0 MB/s (187879.15 MB) | RSS=13540.1 MB
-[LIVE-DECODE] 42/128 tok | Avg=0.49 tps | Hit=88.5% (LA:+1.5%) | NVMe=538.3 MB/s (189974.46 MB) | RSS=13540.2 MB
-[LIVE-DECODE] 44/128 tok | Avg=0.49 tps | Hit=88.5% (LA:+1.5%) | NVMe=538.7 MB/s (192302.02 MB) | RSS=13548.4 MB
-[LIVE-DECODE] 46/128 tok | Avg=0.49 tps | Hit=88.5% (LA:+1.6%) | NVMe=538.8 MB/s (194566.59 MB) | RSS=13548.4 MB
-[LIVE-DECODE] 48/128 tok | Avg=0.49 tps | Hit=88.5% (LA:+1.7%) | NVMe=539.1 MB/s (196637.02 MB) | RSS=13548.4 MB
-[LIVE-DECODE] 50/128 tok | Avg=0.49 tps | Hit=88.5% (LA:+1.7%) | NVMe=539.5 MB/s (198808.40 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 52/128 tok | Avg=0.50 tps | Hit=88.5% (LA:+1.8%) | NVMe=539.8 MB/s (200715.27 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 54/128 tok | Avg=0.50 tps | Hit=88.4% (LA:+1.9%) | NVMe=540.1 MB/s (202490.02 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 56/128 tok | Avg=0.50 tps | Hit=88.4% (LA:+2.0%) | NVMe=540.3 MB/s (204853.96 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 58/128 tok | Avg=0.50 tps | Hit=88.4% (LA:+2.0%) | NVMe=540.6 MB/s (207062.65 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 60/128 tok | Avg=0.50 tps | Hit=88.4% (LA:+2.1%) | NVMe=540.8 MB/s (208901.27 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 62/128 tok | Avg=0.50 tps | Hit=88.4% (LA:+2.1%) | NVMe=541.2 MB/s (210775.34 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 64/128 tok | Avg=0.50 tps | Hit=88.4% (LA:+2.2%) | NVMe=541.5 MB/s (212614.96 MB) | RSS=13529.3 MB
-[LIVE-DECODE] 66/128 tok | Avg=0.50 tps | Hit=88.4% (LA:+2.3%) | NVMe=541.8 MB/s (214711.09 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 68/128 tok | Avg=0.51 tps | Hit=88.4% (LA:+2.3%) | NVMe=541.8 MB/s (216703.52 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 70/128 tok | Avg=0.51 tps | Hit=88.4% (LA:+2.4%) | NVMe=542.0 MB/s (218583.77 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 72/128 tok | Avg=0.51 tps | Hit=88.3% (LA:+2.5%) | NVMe=542.2 MB/s (220449.15 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 74/128 tok | Avg=0.51 tps | Hit=88.3% (LA:+2.5%) | NVMe=542.5 MB/s (222329.52 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 76/128 tok | Avg=0.51 tps | Hit=88.3% (LA:+2.6%) | NVMe=542.8 MB/s (224333.96 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 78/128 tok | Avg=0.51 tps | Hit=88.3% (LA:+2.6%) | NVMe=543.0 MB/s (226278.59 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 80/128 tok | Avg=0.51 tps | Hit=88.3% (LA:+2.7%) | NVMe=543.2 MB/s (228052.27 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 82/128 tok | Avg=0.52 tps | Hit=88.3% (LA:+2.7%) | NVMe=543.4 MB/s (229578.77 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 84/128 tok | Avg=0.52 tps | Hit=88.3% (LA:+2.7%) | NVMe=543.5 MB/s (231160.34 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 86/128 tok | Avg=0.52 tps | Hit=88.3% (LA:+2.8%) | NVMe=543.6 MB/s (232828.46 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 88/128 tok | Avg=0.52 tps | Hit=88.3% (LA:+2.8%) | NVMe=543.8 MB/s (234557.09 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 90/128 tok | Avg=0.53 tps | Hit=88.3% (LA:+2.9%) | NVMe=544.0 MB/s (236348.09 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 92/128 tok | Avg=0.53 tps | Hit=88.2% (LA:+2.9%) | NVMe=544.3 MB/s (238193.84 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 94/128 tok | Avg=0.53 tps | Hit=88.2% (LA:+3.0%) | NVMe=544.5 MB/s (240147.96 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 96/128 tok | Avg=0.53 tps | Hit=88.2% (LA:+3.0%) | NVMe=544.8 MB/s (241871.71 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 98/128 tok | Avg=0.53 tps | Hit=88.2% (LA:+3.1%) | NVMe=544.9 MB/s (243673.84 MB) | RSS=13547.8 MB
-[LIVE-DECODE] 100/128 tok | Avg=0.53 tps | Hit=88.2% (LA:+3.1%) | NVMe=545.2 MB/s (245370.52 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 102/128 tok | Avg=0.53 tps | Hit=88.2% (LA:+3.2%) | NVMe=545.3 MB/s (247108.46 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 104/128 tok | Avg=0.54 tps | Hit=88.2% (LA:+3.2%) | NVMe=545.4 MB/s (248928.02 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 106/128 tok | Avg=0.54 tps | Hit=88.2% (LA:+3.2%) | NVMe=545.6 MB/s (250821.21 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 108/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.3%) | NVMe=545.8 MB/s (252777.59 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 110/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.3%) | NVMe=546.0 MB/s (254556.02 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 112/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.4%) | NVMe=546.2 MB/s (256344.46 MB) | RSS=13540.1 MB
-[LIVE-DECODE] 114/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.4%) | NVMe=546.3 MB/s (258227.52 MB) | RSS=13529.3 MB
-[LIVE-DECODE] 116/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.5%) | NVMe=546.5 MB/s (259907.09 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 118/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.5%) | NVMe=546.6 MB/s (261633.65 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 120/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.6%) | NVMe=546.8 MB/s (263484.84 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 122/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.6%) | NVMe=546.9 MB/s (265425.65 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 124/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.7%) | NVMe=547.1 MB/s (267128.34 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 126/128 tok | Avg=0.55 tps | Hit=88.1% (LA:+3.7%) | NVMe=547.2 MB/s (268742.52 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 128/128 tok | Avg=0.55 tps | Hit=88.1% (LA:+3.7%) | NVMe=547.4 MB/s (270496.09 MB) | RSS=13540.9 MB
+[LIVE-PREFILL] 256/512 tok | Chunk=2.61 tps | Avg=2.61 tps | Hit=90.7% | NVMe=534.0 MB/s (23425.94 MB, QD=64) | RSS=13596.1 MB
+[LIVE-PREFILL] 512/512 tok | Chunk=2.65 tps | Avg=2.63 tps | Hit=90.9% | NVMe=523.7 MB/s (41144.77 MB, QD=64) | RSS=13597.3 MB
+[LIVE-DECODE] 4/128 tok | Avg=1.64 tps | Hit=90.9% (LA:+0.1%) | NVMe=525.9 MB/s (42388.03 MB) | RSS=13596.9 MB
+[LIVE-DECODE] 8/128 tok | Avg=1.99 tps | Hit=90.9% (LA:+0.3%) | NVMe=532.4 MB/s (43469.80 MB) | RSS=13500.9 MB
+[LIVE-DECODE] 16/128 tok | Avg=2.33 tps | Hit=91.0% (LA:+0.5%) | NVMe=547.0 MB/s (45507.89 MB) | RSS=13463.2 MB
+[LIVE-DECODE] 24/128 tok | Avg=2.39 tps | Hit=91.0% (LA:+0.7%) | NVMe=555.6 MB/s (47308.14 MB) | RSS=13458.2 MB
+[LIVE-DECODE] 32/128 tok | Avg=2.49 tps | Hit=91.1% (LA:+0.9%) | NVMe=565.2 MB/s (48909.64 MB) | RSS=13458.2 MB
+[LIVE-DECODE] 40/128 tok | Avg=2.59 tps | Hit=91.1% (LA:+1.0%) | NVMe=575.7 MB/s (50515.94 MB) | RSS=13458.2 MB
+[LIVE-DECODE] 48/128 tok | Avg=2.62 tps | Hit=91.1% (LA:+1.2%) | NVMe=585.2 MB/s (52385.33 MB) | RSS=13458.2 MB
+[LIVE-DECODE] 56/128 tok | Avg=2.67 tps | Hit=91.2% (LA:+1.3%) | NVMe=592.5 MB/s (53864.49 MB) | RSS=13458.2 MB
+[LIVE-DECODE] 64/128 tok | Avg=2.67 tps | Hit=91.2% (LA:+1.4%) | NVMe=599.4 MB/s (55579.97 MB) | RSS=13452.0 MB
+[LIVE-DECODE] 72/128 tok | Avg=2.70 tps | Hit=91.2% (LA:+1.5%) | NVMe=605.8 MB/s (56990.57 MB) | RSS=13452.0 MB
+[LIVE-DECODE] 80/128 tok | Avg=2.76 tps | Hit=91.3% (LA:+1.6%) | NVMe=613.2 MB/s (58281.21 MB) | RSS=13458.2 MB
+[LIVE-DECODE] 88/128 tok | Avg=2.73 tps | Hit=91.3% (LA:+1.7%) | NVMe=616.8 MB/s (59904.48 MB) | RSS=13458.1 MB
+[LIVE-DECODE] 96/128 tok | Avg=2.76 tps | Hit=91.4% (LA:+1.7%) | NVMe=623.2 MB/s (61224.82 MB) | RSS=13458.1 MB
+[LIVE-DECODE] 104/128 tok | Avg=2.76 tps | Hit=91.4% (LA:+1.8%) | NVMe=628.6 MB/s (62735.81 MB) | RSS=13458.1 MB
+[LIVE-DECODE] 112/128 tok | Avg=2.78 tps | Hit=91.5% (LA:+1.9%) | NVMe=634.5 MB/s (64165.56 MB) | RSS=13458.1 MB
+[LIVE-DECODE] 120/128 tok | Avg=2.80 tps | Hit=91.5% (LA:+2.0%) | NVMe=639.0 MB/s (65422.71 MB) | RSS=13458.1 MB
+[LIVE-DECODE] 128/128 tok | Avg=2.79 tps | Hit=91.5% (LA:+2.1%) | NVMe=643.3 MB/s (67011.64 MB) | RSS=13458.1 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5653.12 MB (603/12384 exp = 4.87% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.68 MB | End=13540.92 MB | Peak=14179.12 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 7632.57 MB (3678/25088 exp = 14.66% pinned) | Staging=132.81 MB
+   Process RSS (Start/End/Peak) : Start=4.74 MB | End=13458.15 MB | Peak=14025.31 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (512 tok)   : "[512-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequenc..."
-   RESPONSE (128 tok) : " single coal LBA-sorting coalesced QED LBA-sorted QD32 NVMe read and pass and register-blocked-blocked-blocked multi-blocked multi-row Q8_K GE pass. Explain why elimination PCIe amplification derive asymptotic throughput decode throughput.</think>In high-throughput Mixt-of- (Mo) model inference with NVMe offloading achieving token generation requires overlapping Gen PCIe Gen DMA transfers AVX compute pinned attention state recurrent state trunk cache pinned RAM expert cache locked RAM horizon router co prefetching over activations directly decode prefill long context tokens inverted expert gro..."
+   RESPONSE (128 tok) : " layer-wise!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!!!
+
+!
+
+!
+
+!!!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!!!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!!!
+
+!
+
+!!!
+
+!
+
+!!!
+
+!
+
+!!!
+
+!
+
+!!!
+
+!!!!!
+
+!!!
+
+!!!!!
+
+!
+
+!"
 --------------------------------------------------------------------------------
  [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 129 Steps)]
-   Logit Summary: AvgTop1Prob=48.0% | AvgMargin=1.558 | MinMargin=0.009
+   Logit Summary: AvgTop1Prob=83.4% | AvgMargin=1.017 | MinMargin=0.011
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |    3175 |  single        |   26.48 | 100.0% |   15326 |   16.87 | 573036.52 |  0 |  0 |  0 |     0.0 |
-   |    2 |   11492 |  coal          |   24.96 | 100.0% |    1062 |   16.43 | 3574.50 | 37 |166 |133 | 1683456.0 |
-   |    3 |   39929 |  LB            |   17.75 |  78.0% |   33903 |   16.24 | 3574.50 |  0 |  0 |  0 | 1683456.0 |
-   |    4 |      32 | A              |   14.08 |  30.6% |    1911 |   13.59 | 2615.53 | 81 |171 | 84 | 1349216.0 |
-   |    5 |   46254 | -sort          |   18.02 |  42.5% |    1331 |   17.61 | 2615.53 |  0 |  0 |  0 | 1349216.0 |
-   |    6 |     287 | ing            |   14.36 |  38.6% |   11492 |   11.93 | 2226.16 |114 |152 | 70 | 1200192.0 |
-   |    7 |   11492 |  coal          |   16.09 |  54.1% |    1207 |   14.51 | 2226.16 |  0 |  0 |  0 | 1200192.0 |
-   |    8 |    3300 | esc            |   18.05 |  93.7% |     642 |   13.98 | 1998.70 |127 |136 | 73 | 1116288.0 |
-   |   56 |  154842 | </think>       |   14.32 |  56.1% |     641 |   13.02 | 2222.20 | 92 |172 | 72 | 1210336.0 |
-   |   57 |     641 | In             |   15.30 |  41.7% |     565 |   13.90 | 2222.20 |  0 |  0 |  0 | 1210336.0 |
-   |   44 |    3170 |  why           |   17.45 |  85.5% |     419 |   13.32 | 2157.38 |119 |141 | 76 | 1191712.0 |
-   |   45 |   42687 |  elimination   |   15.17 |  16.8% |   21673 |   14.81 | 2157.38 |  0 |  0 |  0 | 1191712.0 |
-   |  126 |     291 | ed             |   14.96 |  32.3% |    1207 |   14.08 | 1518.13 |191 | 88 | 57 | 826464.0 |
-   |  127 |    9421 | -block         |   17.23 |  54.2% |    7299 |   15.51 | 1518.13 |  0 |  0 |  0 | 826464.0 |
-   |  128 |    9421 | -block         |   14.61 |  29.9% |    1207 |   13.52 | 1595.50 |190 | 93 | 53 | 897824.0 |
-   |  129 |     291 | ed             |   20.50 |  98.5% |   29819 |   14.11 | 1595.50 |  0 |  0 |  0 | 897824.0 |
+   |    1 |    6000 |  layer         |   23.21 | 100.0% |   22028 |   13.32 | 194712.04 |  0 |  0 |  0 |     0.0 |
+   |    2 |   42962 | -wise          |   20.97 |  99.8% |     271 |   13.36 |  441.03 |352 | 97 | 31 | 227232.0 |
+   |    3 |       0 | !              |     nan | 100.0% |       1 |     nan |  441.03 |  0 |  0 |  0 | 227232.0 |
+   |    4 |     271 | \n\n           |   14.91 |  64.2% |    1249 |   12.28 |  775.39 |126 |255 | 99 | 409321.5 |
+   |    5 |       0 | !              |     nan | 100.0% |       1 |     nan |  775.39 |  0 |  0 |  0 | 409321.5 |
+   |    6 |     271 | \n\n           |   14.60 |  51.0% |      12 |   12.47 |  479.64 |252 |172 | 56 | 307019.5 |
+   |    7 |       0 | !              |     nan | 100.0% |       1 |     nan |  479.64 |  0 |  0 |  0 | 307019.5 |
+   |    8 |     271 | \n\n           |   15.03 |  62.2% |      12 |   12.04 |  310.15 |313 |161 |  6 | 246844.5 |
+   |   24 |     271 | \n\n           |   14.22 |  63.2% |     729 |   11.22 |  556.54 |335 |135 | 10 | 221519.5 |
+   |   25 |       0 | !              |     nan | 100.0% |       1 |     nan |  556.54 |  0 |  0 |  0 | 221519.5 |
+   |   82 |     271 | \n\n           |   14.28 |  58.8% |       0 |   13.23 |  548.21 |325 |120 | 35 | 255469.5 |
+   |   83 |       0 | !              |     nan | 100.0% |       1 |     nan |  548.21 |  0 |  0 |  0 | 255469.5 |
+   |  126 |     271 | \n\n           |   15.13 |  67.9% |       0 |   13.61 |  354.40 |393 | 61 | 26 | 197857.0 |
+   |  127 |       0 | !              |     nan | 100.0% |       1 |     nan |  354.40 |  0 |  0 |  0 | 197857.0 |
+   |  128 |     271 | \n\n           |   15.21 |  63.7% |       0 |   13.85 |  279.79 |441 | 38 |  1 | 129844.5 |
+   |  129 |       0 | !              |     nan | 100.0% |       1 |     nan |  279.79 |  0 |  0 |  0 | 129844.5 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (512 tok, 573.037s, TTFT=573036.52ms): Avg=0.89 | Min=0.88 | Max=0.90 tps
-   Prefill Chunks (2): C1:256t/0.9tps/89% | C2:256t/0.9tps/89%
-   Decode  (128 tok, 234.100s): Avg=0.55 | Min=0.28 | Max=0.70 tps
-   Latency (ms) : Min=1423.28 | P10=1565.39 | P25=1651.36 | P50=1761.35 | P75=1944.75 | P90=2120.47 | P95=2222.20 | P99=3574.50 | Max=3574.50
-   Mean/SD/Jitt : Mean=1828.91ms | StdDev=305.95ms | Jitter=75.26ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/128
+   Prefill (512 tok, 194.712s, TTFT=194712.04ms): Avg=2.63 | Min=2.61 | Max=2.65 tps
+   Prefill Chunks (2): C1:256t/2.6tps/91% | C2:256t/2.7tps/91%
+   Decode  (128 tok, 45.886s): Avg=2.79 | Min=1.29 | Max=3.77 tps
+   Latency (ms) : Min=265.33 | P10=281.82 | P25=298.65 | P50=334.58 | P75=403.00 | P90=479.64 | P95=507.82 | P99=775.39 | Max=775.39
+   Mean/SD/Jitt : Mean=358.48ms | StdDev=88.59ms | Jitter=39.43ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/128
    MTP Head     : 64/64 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (193536): RawRAM=163160 (84.30%) | Lookahead=7250 (+3.75%) | ColdMiss=23126 (11.95%) | EFF HIT=88.05%
-   Lookahead    : 12666 prefetched -> 7250 consumed (57.2% util) | Warmup >=75%:1t, >=85%:1t
-   Trajectory   : @16= 88.7% | @64= 88.4% | @128= 88.1% | @256=  N/A | @512=  N/A
+   Activations (276480): RawRAM=247376 (89.47%) | Lookahead=5688 (+2.06%) | ColdMiss=23416 (8.47%) | EFF HIT=91.53%
+   Lookahead    : 13376 prefetched -> 6328 consumed (47.3% util) | Warmup >=75%:1t, >=85%:1t
+   Trajectory   : @16= 91.0% | @64= 91.2% | @128= 91.5% | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 | 4608 | 3600 | 451 | 557 | 87.9%|7245.00 | | L24 | 4608 | 3993 | 117 | 498 | 89.2%|5225.31 |
-   | L04 | 4608 | 3632 | 205 | 771 | 83.3%|8754.38 | | L25 | 4608 | 3952 | 129 | 527 | 88.6%|6037.50 |
-   | L05 | 4608 | 3614 | 289 | 705 | 84.7%|8215.31 | | L26 | 4608 | 3977 | 140 | 491 | 89.3%|5311.56 |
-   | L06 | 4608 | 3661 | 301 | 646 | 86.0%|7712.19 | | L27 | 4608 | 3873 | 134 | 601 | 87.0%|7029.38 |
-   | L07 | 4608 | 3813 | 251 | 544 | 88.2%|6360.94 | | L28 | 4608 | 3891 | 157 | 560 | 87.8%|6087.81 |
-   | L08 | 4608 | 3868 | 152 | 588 | 87.2%|6770.62 | | L29 | 4608 | 3914 | 158 | 536 | 88.4%|5987.19 |
-   | L09 | 4608 | 3792 | 176 | 640 | 86.1%|7000.62 | | L30 | 4608 | 3900 | 170 | 538 | 88.3%|5721.25 |
-   | L10 | 4608 | 3719 | 231 | 658 | 85.7%|7374.38 | | L31 | 4608 | 3821 | 139 | 648 | 85.9%|7144.38 |
-   | L11 | 4608 | 3842 | 181 | 585 | 87.3%|8484.38 | | L32 | 4608 | 3824 | 166 | 618 | 86.6%|6720.31 |
-   | L12 | 4608 | 3890 | 169 | 549 | 88.1%|6968.00 | | L33 | 4608 | 3889 | 167 | 552 | 88.0%|6555.00 |
-   | L13 | 4608 | 3952 | 126 | 530 | 88.5%|5527.19 | | L34 | 4608 | 3900 | 209 | 499 | 89.2%|5699.69 |
-   | L14 | 4608 | 3898 | 156 | 554 | 88.0%|6138.12 | | L35 | 4608 | 3863 | 211 | 534 | 88.4%|6008.75 |
-   | L15 | 4608 | 3907 | 155 | 546 | 88.2%|5865.00 | | L36 | 4608 | 3841 | 245 | 522 | 88.7%|6095.00 |
-   | L16 | 4608 | 3914 | 163 | 531 | 88.5%|5951.25 | | L37 | 4608 | 3902 | 180 | 526 | 88.6%|5714.06 |
-   | L17 | 4608 | 3972 | 107 | 529 | 88.5%|5548.75 | | L38 | 4608 | 3897 | 181 | 530 | 88.5%|5886.56 |
-   | L18 | 4608 | 4034 |  85 | 489 | 89.4%|5390.62 | | L39 | 4608 | 3906 | 161 | 541 | 88.3%|5721.25 |
-   | L19 | 4608 | 4061 | 103 | 444 | 90.4%|4513.75 | | L40 | 4608 | 3923 | 171 | 514 | 88.8%|5591.88 |
-   | L20 | 4608 | 3996 | 127 | 485 | 89.5%|5290.00 | | L41 | 4608 | 3885 | 197 | 526 | 88.6%|5994.38 |
-   | L21 | 4608 | 3985 | 130 | 493 | 89.3%|5297.19 | | L42 | 4608 | 3960 | 137 | 511 | 88.9%|5361.88 |
-   | L22 | 4608 | 4027 | 103 | 478 | 89.6%|5038.44 | | L43 | 4608 | 3974 | 155 | 479 | 89.6%|5261.25 |
-   | L23 | 4608 | 4003 | 116 | 489 | 89.4%|5088.75 | | L44 | 4608 | 3895 | 149 | 564 | 87.8%|7612.88 |
+   | L00 | 5760 | 5054 |  65 | 641 | 88.9%|1189.31 | | L24 | 5760 | 5152 | 133 | 475 | 91.8%|1661.82 |
+   | L01 | 5760 | 5151 |  65 | 544 | 90.6%|1286.21 | | L25 | 5760 | 5164 | 142 | 454 | 92.1%|1283.96 |
+   | L02 | 5760 | 5183 |  33 | 544 | 90.6%|1731.74 | | L26 | 5760 | 5039 | 191 | 530 | 90.8%|1641.14 |
+   | L03 | 5760 | 5343 |  33 | 384 | 93.3%|1317.80 | | L27 | 5760 | 5126 | 171 | 463 | 92.0%|1385.47 |
+   | L04 | 5760 | 5287 |  25 | 448 | 92.2%|1413.21 | | L28 | 5760 | 5068 | 168 | 524 | 90.9%|1518.95 |
+   | L05 | 5760 | 5204 |  49 | 507 | 91.2%|1252.00 | | L29 | 5760 | 5004 | 212 | 544 | 90.6%|1296.39 |
+   | L06 | 5760 | 5131 |  47 | 582 | 89.9%|1300.88 | | L30 | 5760 | 5033 | 205 | 522 | 90.9%|1250.29 |
+   | L07 | 5760 | 5131 |  84 | 545 | 90.5%|1224.68 | | L31 | 5760 | 5186 | 143 | 431 | 92.5%|1198.44 |
+   | L08 | 5760 | 5220 |  78 | 462 | 92.0%| 820.53 | | L32 | 5760 | 5188 | 127 | 445 | 92.3%|1327.20 |
+   | L09 | 5760 | 5224 |  80 | 456 | 92.1%| 765.75 | | L33 | 5760 | 4995 | 223 | 542 | 90.6%|1261.82 |
+   | L10 | 5760 | 5179 |  96 | 485 | 91.6%| 819.29 | | L34 | 5760 | 5046 | 172 | 542 | 90.6%|1351.12 |
+   | L11 | 5760 | 5160 | 127 | 473 | 91.8%| 839.21 | | L35 | 5760 | 5161 | 137 | 462 | 92.0%| 993.90 |
+   | L12 | 5760 | 5155 | 109 | 496 | 91.4%|1314.04 | | L36 | 5760 | 5149 | 124 | 487 | 91.5%|1042.87 |
+   | L13 | 5760 | 5041 | 198 | 521 | 91.0%|1178.27 | | L37 | 5760 | 5176 |  93 | 491 | 91.5%|1374.19 |
+   | L14 | 5760 | 5099 | 182 | 479 | 91.7%|1096.17 | | L38 | 5760 | 5084 | 113 | 563 | 90.2%|1513.31 |
+   | L15 | 5760 | 5333 | 117 | 310 | 94.6%|1079.05 | | L39 | 5760 | 5237 |  89 | 434 | 92.5%|1263.28 |
+   | L16 | 5760 | 5223 | 178 | 359 | 93.8%|1259.52 | | L40 | 5760 | 5254 |  85 | 421 | 92.7%|1075.29 |
+   | L17 | 5760 | 5050 | 215 | 495 | 91.4%|1537.74 | | L41 | 5760 | 5161 |  92 | 507 | 91.2%| 993.90 |
+   | L18 | 5760 | 5128 | 112 | 520 | 91.0%|1627.98 | | L42 | 5760 | 5154 | 104 | 502 | 91.3%|1165.31 |
+   | L19 | 5760 | 5107 | 201 | 452 | 92.2%|1107.69 | | L43 | 5760 | 5256 |  84 | 420 | 92.7%| 898.83 |
+   | L20 | 5760 | 5066 | 201 | 493 | 91.4%|1218.60 | | L44 | 5760 | 5190 |  64 | 506 | 91.2%|1114.89 |
+   | L21 | 5760 | 5083 | 128 | 549 | 90.5%|1518.95 | | L45 | 5760 | 5219 |  68 | 473 | 91.8%| 980.93 |
+   | L22 | 5760 | 5084 | 112 | 564 | 90.2%|1635.50 | | L46 | 5760 | 5271 |  56 | 433 | 92.5%| 978.05 |
+   | L23 | 5760 | 5233 | 120 | 407 | 92.9%| 969.41 | | L47 | 5760 | 5194 |  37 | 529 | 90.8%|1097.85 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 270496.09 MB (Load=6361.84 | Prefill=138840.25 | Warmup=0.00 | Decode=125294.00 MB)
-   SSD Data/Token (Decode)      : Avg=978.859 MB/tok (Min=763.250 | P50=958.219 | P95=1172.062 | Max=1644.000 MB) | Prefill=271.172 MB/tok
-   NVMe Batches / Requests      : 5244 Batches | 109637 Reads | 0 LBA Merges (Avg 2526.4 KB/req)
-   SSD Read Bandwidth           : Avg=547.40 MB/s | Peak=4580.36 MB/s (Pre-flight hwtest skipped)
-   OS Kernel I/O Verification   : Read=270505.12 MB | Write=0.01 MB | Syscalls=113722
-   Sync Stall vs Async DMA      : SyncStall=315759.20 ms | AsyncOverlapped=481881.65 ms (60.4% Overlapped)
-   RAM Traffic & Effective BW   : 2783.29 GB moved | Eff=3.45 GB/s (STREAM hwtest skipped)
-   CPU Time & Utilization       : User=1308.297s + Sys=21.047s (Wall=823.902s) | SysUtil=40.3% | ThrUtil=40.3% | 37.31 GFLOPS
+   Engine SSD Transfer Total    : 67011.64 MB (Load=4614.69 | Prefill=36530.07 | Warmup=0.00 | Decode=25866.87 MB)
+   SSD Data/Token (Decode)      : Avg=202.085 MB/tok (Min=124.848 | P50=198.579 | P95=269.733 | Max=399.728 MB) | Prefill=71.348 MB/tok
+   NVMe Batches / Requests      : 5153 Batches | 120700 Raw -> 115580 Merged (5120 LBA Merges, Avg 593.7 KB/io)
+   SSD I/O Size Histogram       : <64K=9473 | 64K-512K=26750 | 512K-2M=78754 | >2M=603
+   SSD Read Bandwidth (Active)  : Min=7.98 | Avg=643.31 | Peak=10614.81 MB/s | WallAmort=278.52 MB/s
+   OS Kernel I/O Verification   : Read=67031.77 MB | Write=0.00 MB | Syscalls=125096
+   Sync Stall vs Async DMA      : SyncStall=71219.04 ms | AsyncOverlapped=95667.92 ms (57.3% Overlapped)
+   RAM Traffic & Active BW      : 2072.99 GB moved | Active=13.66 GB/s | WallAmort=8.62 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=194.71s (80.9%, 36530.07 MB SSD) | Decode=45.89s (19.1%, 25866.87 MB SSD)
+   CPU Time & Utilization       : User=521.156s + Sys=19.344s (Wall=253.478s) | SysUtil=53.3% | ThrUtil=53.3% | 49.31 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM : 172232.33 ms (269113.0 us/tok | 21.34%)
-   MoE AVX2 Q8 Expert Compute   : 197827.86 ms (309106.0 us/tok | 24.51%)
-   Router + Lookahead Dispatch  :   3117.31 ms ( 4870.8 us/tok |  0.39%)
-   LM Head Output Projection    :   2489.33 ms ( 3889.6 us/tok |  0.31%)
-   Foreground NVMe Sync Stall   : 315759.20 ms (493373.7 us/tok | 39.12%)
-   Unaccounted / OMP & Sampling : 115710.49 ms (180797.6 us/tok | 14.34%) | Total Wall=807136.53 ms
+   Dense + Attention/Linear SSM :  69601.34 ms (108752.1 us/tok | 28.93%)
+   MoE AVX2 Q8 Expert Compute   :  77063.52 ms (120411.7 us/tok | 32.03%)
+   Router + Lookahead Dispatch  :   3480.69 ms ( 5438.6 us/tok |  1.45%)
+   LM Head Output Projection    :   5087.50 ms ( 7949.2 us/tok |  2.11%)
+   Foreground NVMe Sync Stall   :  71219.04 ms (111279.8 us/tok | 29.60%)
+   Unaccounted / OMP & Sampling :  14146.01 ms (22103.1 us/tok |  5.88%) | Total Wall=240598.10 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    59.81%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |    12.50%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    17.34%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     7.97%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.38%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    78.44%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     4.77%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     7.17%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     6.22%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     3.40%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -1080,167 +1090,205 @@ Let me user this question is a question about the user asks about "Explain why t
 --------------------------------------------------------------------------------
  [Stage 3] Live OpenAI HTTP/SSE/Tool-Calling/Concurrent Stress Test on Real Shards
 --------------------------------------------------------------------------------
-[Stage 3] /v1/models: {"object": "list", "data": [{"id": "glm-5.3-flash-ud-iq2_xxs", "object": "model", "created": 1770000000, "owned_by": "apex-inference-v1", "architecture": "glm5-next (GLM-5.3-Flash)"}]}
-[Stage 3] /v1/chat/completions (stream=false) 111101.9ms | usage={'prompt_tokens': 19, 'completion_tokens': 16, 'total_tokens': 35} | text='\nSummarize LBACoalesce in one sentence.\nSummarize LB'
-[Stage 3] /v1/chat/completions (stream=true SSE) 44673.2ms | chunks=3 | DONE=True
+[Stage 3] /v1/models: {"object": "list", "data": [{"id": "qwen-3.8-flash-next-ud-iq2_xs", "object": "model", "created": 1770000000, "owned_by": "apex-inference-v1", "architecture": "qwen4exp (Qwen-3.8-Flash-Next)"}]}
+[Stage 3] /v1/chat/completions (stream=false) 28099.6ms | usage={'prompt_tokens': 18, 'completion_tokens': 16, 'total_tokens': 34} | text='\n\n<think>\nThe user is asking me to summarize "LBA-coalesced'
+[Stage 3] /v1/chat/completions (stream=true SSE) 9278.7ms | chunks=3 | DONE=True
 [Stage 3] Tool Call Response: finish_reason=tool_calls | fn=get_nvme_telemetry
 [Stage 3] Full OpenAI + llama.cpp API parity (/responses, /completions, /tokenize, /detokenize, /props) PASSED!
 --------------------------------------------------------------------------------
  [Stage 4] Massive 2,048-Token Prompt (High KV Load) + MTP Always ON
 --------------------------------------------------------------------------------
-[Apex-Init] Model Loaded: GLM 5.3 Flash | Layers=45 | Hidden=4096 | Experts=288 (Top-8) | Pinned Trunk=6460.98 MB | Expert Cache=5409.38 MB (577 slots)
+[Apex-Init] Model Loaded: Qwen3.8 Flash Next | Layers=48 | Hidden=2560 | Experts=512 (Top-10) | Pinned Trunk=4614.77 MB | Expert Cache=5978.64 MB (2881 slots)
 [Apex-Prompt] Input (2048 tokens): "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/2048 tok | Chunk=0.91 tps | Avg=0.91 tps | Hit=89.2% | NVMe=533.2 MB/s (74277.59 MB, QD=64) | RSS=13871.2 MB
-[LIVE-PREFILL] 512/2048 tok | Chunk=0.84 tps | Avg=0.87 tps | Hit=88.9% | NVMe=532.7 MB/s (145295.52 MB, QD=64) | RSS=13871.5 MB
-[LIVE-PREFILL] 768/2048 tok | Chunk=0.89 tps | Avg=0.88 tps | Hit=88.9% | NVMe=532.3 MB/s (214799.34 MB, QD=64) | RSS=13871.2 MB
-[LIVE-PREFILL] 1024/2048 tok | Chunk=0.89 tps | Avg=0.88 tps | Hit=88.9% | NVMe=532.3 MB/s (283922.65 MB, QD=64) | RSS=13871.3 MB
-[LIVE-PREFILL] 1280/2048 tok | Chunk=0.88 tps | Avg=0.88 tps | Hit=89.0% | NVMe=532.2 MB/s (352711.65 MB, QD=64) | RSS=13871.1 MB
-[LIVE-PREFILL] 1536/2048 tok | Chunk=0.89 tps | Avg=0.88 tps | Hit=89.0% | NVMe=532.2 MB/s (420869.27 MB, QD=64) | RSS=13871.1 MB
-[LIVE-PREFILL] 1792/2048 tok | Chunk=0.89 tps | Avg=0.88 tps | Hit=89.0% | NVMe=531.8 MB/s (488245.34 MB, QD=64) | RSS=13871.1 MB
-[LIVE-PREFILL] 2048/2048 tok | Chunk=0.89 tps | Avg=0.88 tps | Hit=89.1% | NVMe=531.7 MB/s (554073.90 MB, QD=64) | RSS=13871.9 MB
-[LIVE-DECODE] 2/64 tok | Avg=0.40 tps | Hit=89.1% (LA:+0.0%) | NVMe=531.8 MB/s (556479.90 MB) | RSS=13876.5 MB
-[LIVE-DECODE] 4/64 tok | Avg=0.36 tps | Hit=89.1% (LA:+0.0%) | NVMe=531.8 MB/s (559379.21 MB) | RSS=13621.3 MB
-[LIVE-DECODE] 6/64 tok | Avg=0.39 tps | Hit=89.1% (LA:+0.1%) | NVMe=531.9 MB/s (561775.40 MB) | RSS=13529.8 MB
-[LIVE-DECODE] 8/64 tok | Avg=0.41 tps | Hit=89.1% (LA:+0.1%) | NVMe=532.1 MB/s (564116.40 MB) | RSS=13419.4 MB
-[LIVE-DECODE] 10/64 tok | Avg=0.42 tps | Hit=89.1% (LA:+0.1%) | NVMe=532.2 MB/s (566273.09 MB) | RSS=13363.4 MB
-[LIVE-DECODE] 12/64 tok | Avg=0.43 tps | Hit=89.1% (LA:+0.1%) | NVMe=532.4 MB/s (568477.52 MB) | RSS=13323.9 MB
-[LIVE-DECODE] 14/64 tok | Avg=0.44 tps | Hit=89.0% (LA:+0.1%) | NVMe=532.5 MB/s (570583.40 MB) | RSS=13310.9 MB
-[LIVE-DECODE] 16/64 tok | Avg=0.45 tps | Hit=89.0% (LA:+0.2%) | NVMe=532.7 MB/s (572697.09 MB) | RSS=13295.2 MB
-[LIVE-DECODE] 18/64 tok | Avg=0.45 tps | Hit=89.0% (LA:+0.2%) | NVMe=532.9 MB/s (574993.90 MB) | RSS=13295.2 MB
-[LIVE-DECODE] 20/64 tok | Avg=0.46 tps | Hit=89.0% (LA:+0.2%) | NVMe=533.0 MB/s (577239.46 MB) | RSS=13295.2 MB
-[LIVE-DECODE] 22/64 tok | Avg=0.46 tps | Hit=89.0% (LA:+0.2%) | NVMe=533.2 MB/s (579315.46 MB) | RSS=13295.2 MB
-[LIVE-DECODE] 24/64 tok | Avg=0.47 tps | Hit=89.0% (LA:+0.2%) | NVMe=533.3 MB/s (581565.90 MB) | RSS=13295.2 MB
-[LIVE-DECODE] 26/64 tok | Avg=0.47 tps | Hit=89.0% (LA:+0.3%) | NVMe=533.5 MB/s (583846.09 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 28/64 tok | Avg=0.47 tps | Hit=89.0% (LA:+0.3%) | NVMe=533.6 MB/s (586124.40 MB) | RSS=13304.6 MB
-[LIVE-DECODE] 30/64 tok | Avg=0.47 tps | Hit=89.0% (LA:+0.3%) | NVMe=533.8 MB/s (588219.21 MB) | RSS=13304.6 MB
-[LIVE-DECODE] 32/64 tok | Avg=0.47 tps | Hit=89.0% (LA:+0.3%) | NVMe=533.9 MB/s (590308.34 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 34/64 tok | Avg=0.48 tps | Hit=89.0% (LA:+0.3%) | NVMe=534.0 MB/s (592218.65 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 36/64 tok | Avg=0.48 tps | Hit=89.0% (LA:+0.4%) | NVMe=534.1 MB/s (594383.96 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 38/64 tok | Avg=0.48 tps | Hit=89.0% (LA:+0.4%) | NVMe=534.2 MB/s (596320.09 MB) | RSS=13295.2 MB
-[LIVE-DECODE] 40/64 tok | Avg=0.49 tps | Hit=89.0% (LA:+0.4%) | NVMe=534.3 MB/s (598268.96 MB) | RSS=13295.2 MB
-[LIVE-DECODE] 42/64 tok | Avg=0.49 tps | Hit=89.0% (LA:+0.4%) | NVMe=534.5 MB/s (600236.02 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 44/64 tok | Avg=0.49 tps | Hit=89.0% (LA:+0.4%) | NVMe=534.6 MB/s (602103.02 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 46/64 tok | Avg=0.49 tps | Hit=89.0% (LA:+0.4%) | NVMe=534.6 MB/s (603994.84 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 48/64 tok | Avg=0.49 tps | Hit=89.0% (LA:+0.4%) | NVMe=534.8 MB/s (606210.34 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 50/64 tok | Avg=0.50 tps | Hit=89.0% (LA:+0.5%) | NVMe=534.9 MB/s (608237.40 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 52/64 tok | Avg=0.49 tps | Hit=89.0% (LA:+0.5%) | NVMe=535.0 MB/s (610643.96 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 54/64 tok | Avg=0.50 tps | Hit=89.0% (LA:+0.5%) | NVMe=535.1 MB/s (612746.71 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 56/64 tok | Avg=0.50 tps | Hit=89.0% (LA:+0.5%) | NVMe=535.3 MB/s (614623.27 MB) | RSS=13304.6 MB
-[LIVE-DECODE] 58/64 tok | Avg=0.50 tps | Hit=89.0% (LA:+0.5%) | NVMe=535.5 MB/s (616607.90 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 60/64 tok | Avg=0.50 tps | Hit=89.0% (LA:+0.6%) | NVMe=535.6 MB/s (618617.27 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 62/64 tok | Avg=0.50 tps | Hit=88.9% (LA:+0.6%) | NVMe=535.7 MB/s (620700.65 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 64/64 tok | Avg=0.50 tps | Hit=88.9% (LA:+0.6%) | NVMe=535.8 MB/s (622629.59 MB) | RSS=13304.5 MB
+[LIVE-PREFILL] 256/2048 tok | Chunk=2.70 tps | Avg=2.70 tps | Hit=90.7% | NVMe=542.5 MB/s (23425.94 MB, QD=64) | RSS=11948.6 MB
+[LIVE-PREFILL] 512/2048 tok | Chunk=2.71 tps | Avg=2.71 tps | Hit=90.6% | NVMe=548.8 MB/s (42324.09 MB, QD=64) | RSS=11969.4 MB
+[LIVE-PREFILL] 768/2048 tok | Chunk=2.70 tps | Avg=2.71 tps | Hit=90.6% | NVMe=554.9 MB/s (61641.39 MB, QD=64) | RSS=11973.0 MB
+[LIVE-PREFILL] 1024/2048 tok | Chunk=2.70 tps | Avg=2.70 tps | Hit=90.5% | NVMe=558.8 MB/s (80842.50 MB, QD=64) | RSS=11973.6 MB
+[LIVE-PREFILL] 1280/2048 tok | Chunk=2.73 tps | Avg=2.71 tps | Hit=90.6% | NVMe=560.9 MB/s (99081.85 MB, QD=64) | RSS=11973.3 MB
+[LIVE-PREFILL] 1536/2048 tok | Chunk=2.76 tps | Avg=2.72 tps | Hit=90.7% | NVMe=563.0 MB/s (116639.63 MB, QD=64) | RSS=11973.1 MB
+[LIVE-PREFILL] 1792/2048 tok | Chunk=2.74 tps | Avg=2.72 tps | Hit=90.8% | NVMe=564.5 MB/s (134582.25 MB, QD=64) | RSS=11973.4 MB
+[LIVE-PREFILL] 2048/2048 tok | Chunk=2.72 tps | Avg=2.72 tps | Hit=90.8% | NVMe=565.8 MB/s (152636.55 MB, QD=64) | RSS=11974.2 MB
+[LIVE-DECODE] 4/64 tok | Avg=1.38 tps | Hit=90.8% (LA:+0.0%) | NVMe=566.3 MB/s (154194.41 MB) | RSS=11976.8 MB
+[LIVE-DECODE] 8/64 tok | Avg=1.77 tps | Hit=90.8% (LA:+0.1%) | NVMe=568.4 MB/s (155393.27 MB) | RSS=11972.6 MB
+[LIVE-DECODE] 16/64 tok | Avg=2.23 tps | Hit=90.8% (LA:+0.2%) | NVMe=574.7 MB/s (157754.41 MB) | RSS=11972.4 MB
+[LIVE-DECODE] 24/64 tok | Avg=2.47 tps | Hit=90.9% (LA:+0.2%) | NVMe=581.2 MB/s (160104.02 MB) | RSS=11972.1 MB
+[LIVE-DECODE] 32/64 tok | Avg=2.58 tps | Hit=90.9% (LA:+0.3%) | NVMe=587.1 MB/s (162401.76 MB) | RSS=11969.9 MB
+[LIVE-DECODE] 40/64 tok | Avg=2.67 tps | Hit=90.9% (LA:+0.4%) | NVMe=592.7 MB/s (164527.47 MB) | RSS=11960.4 MB
+[LIVE-DECODE] 48/64 tok | Avg=2.75 tps | Hit=90.9% (LA:+0.5%) | NVMe=598.5 MB/s (166627.80 MB) | RSS=11955.8 MB
+[LIVE-DECODE] 56/64 tok | Avg=2.83 tps | Hit=90.9% (LA:+0.5%) | NVMe=603.9 MB/s (168477.02 MB) | RSS=11955.8 MB
+[LIVE-DECODE] 64/64 tok | Avg=2.89 tps | Hit=90.9% (LA:+0.6%) | NVMe=608.8 MB/s (170230.57 MB) | RSS=11955.8 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5409.38 MB (577/12384 exp = 4.66% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.67 MB | End=13304.49 MB | Peak=13972.89 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 5978.64 MB (2881/25088 exp = 11.48% pinned) | Staging=132.81 MB
+   Process RSS (Start/End/Peak) : Start=4.74 MB | End=11955.75 MB | Peak=12372.99 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (2048 tok)   : "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequen..."
-   RESPONSE (64 tok) : " high-throughput Mixtures of Mixtures-of-Expert (MoE) language inference with NVMe offloading achieving low-lat token generation requires overlapping Genie DMAand compute DMA transfers AVX compute attention dense recurrent attention recurrent state trunking Window cachehoriz dual lookahead coactivation preching% of activations direct RAM without CPU execution"
+   RESPONSE (64 tok) : " layer-wise!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!!!
+
+!
+
+!
+
+!!!
+
+!
+
+!
+
+!!!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!"
 --------------------------------------------------------------------------------
  [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 65 Steps)]
-   Logit Summary: AvgTop1Prob=43.9% | AvgMargin=1.572 | MinMargin=0.007
+   Logit Summary: AvgTop1Prob=82.7% | AvgMargin=0.866 | MinMargin=0.129
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |    1550 |  high          |   25.48 | 100.0% |     279 |   13.45 | 2317204.97 |  0 |  0 |  0 |     0.0 |
-   |    2 |   42503 | -through       |   27.04 | 100.0% |   63308 |   16.24 | 2505.53 |130 |105 |101 | 1231872.0 |
-   |    3 |     628 | put            |   23.73 |  99.6% |   19183 |   17.58 | 2505.53 |  0 |  0 |  0 | 1231872.0 |
-   |    4 |   19183 |  Mix           |   17.39 |  84.5% |   19705 |   14.33 | 2992.51 | 39 |215 | 82 | 1484448.0 |
-   |    5 |   18482 | tures          |   16.37 |  54.3% |      68 |   15.04 | 2992.51 |  0 |  0 |  0 | 1484448.0 |
-   |    6 |     315 |  of            |   13.92 |  18.4% |    8667 |   13.83 | 2215.47 |107 |152 | 77 | 1226848.0 |
-   |    7 |   19183 |  Mix           |   18.45 |  89.7% |   57687 |   15.44 | 2215.47 |  0 |  0 |  0 | 1226848.0 |
-   |    8 |   18482 | tures          |   16.65 |  62.5% |    4974 |   14.96 | 2134.19 |119 |142 | 75 | 1198592.0 |
-   |   52 |   18547 |  dual          |   14.99 |  20.4% |   86025 |   14.43 | 2263.02 |107 |149 | 80 | 1232160.0 |
-   |   53 |   86025 |  lookahead     |   13.07 |   7.8% |    9270 |   12.69 | 2263.02 |  0 |  0 |  0 | 1232160.0 |
-   |    9 |    8667 | -of            |   17.27 |  47.5% |     315 |   17.04 | 2134.19 |  0 |  0 |  0 | 1198592.0 |
-   |   18 |     448 |  with          |   16.53 |  65.9% |    4128 |   13.64 | 2089.10 |129 |132 | 75 | 1175968.0 |
-   |   62 |   21984 |  RAM           |   16.11 |  41.3% |   33742 |   15.25 | 1922.08 |142 |124 | 70 | 1066688.0 |
-   |   63 |    2041 |  without       |   15.58 |  48.8% |   28891 |   13.67 | 1922.08 |  0 |  0 |  0 | 1066688.0 |
-   |   64 |   13931 |  CPU           |   16.17 |  32.7% |   11315 |   14.94 | 1812.69 |140 |147 | 49 | 987616.0 |
-   |   65 |   11315 |  execution     |   14.77 |  16.3% |   15289 |   14.61 | 1812.69 |  0 |  0 |  0 | 987616.0 |
+   |    1 |    6000 |  layer         |   21.89 |  99.5% |     271 |   16.32 | 753264.10 |  0 |  0 |  0 |     0.0 |
+   |    2 |   42962 | -wise          |   22.34 |  99.5% |     271 |   16.47 |  518.81 |341 | 86 | 53 | 277694.5 |
+   |    3 |       0 | !              |     nan | 100.0% |       1 |     nan |  518.81 |  0 |  0 |  0 | 277694.5 |
+   |    4 |     271 | \n\n           |   16.51 |  89.2% |      12 |   11.88 |  928.76 | 27 |322 |131 | 519934.0 |
+   |    5 |       0 | !              |     nan | 100.0% |       1 |     nan |  928.76 |  0 |  0 |  0 | 519934.0 |
+   |    6 |     271 | \n\n           |   15.91 |  81.7% |  248046 |   12.04 |  482.67 |240 |192 | 48 | 329444.5 |
+   |    7 |       0 | !              |     nan | 100.0% |       1 |     nan |  482.67 |  0 |  0 |  0 | 329444.5 |
+   |    8 |     271 | \n\n           |   15.66 |  75.8% |       0 |   13.24 |  331.25 |301 |174 |  5 | 284369.5 |
+   |   26 |       0 | !              |   15.65 |  63.7% |     271 |   14.82 |  401.20 |251 |212 | 17 | 324182.0 |
+   |   27 |       0 | !              |     nan | 100.0% |       1 |     nan |  401.20 |  0 |  0 |  0 | 324182.0 |
+   |   34 |       0 | !              |   16.39 |  64.6% |     271 |   15.58 |  377.50 |284 |190 |  6 | 290744.5 |
+   |   35 |       0 | !              |     nan | 100.0% |       1 |     nan |  377.50 |  0 |  0 |  0 | 290744.5 |
+   |   62 |     271 | \n\n           |   14.68 |  48.3% |       0 |   14.40 |  288.20 |363 |117 |  0 | 228707.0 |
+   |   63 |       0 | !              |     nan | 100.0% |       1 |     nan |  288.20 |  0 |  0 |  0 | 228707.0 |
+   |   64 |     271 | \n\n           |   14.92 |  60.9% |       0 |   13.88 |  290.14 |361 |119 |  0 | 217182.0 |
+   |   65 |       0 | !              |     nan | 100.0% |       1 |     nan |  290.14 |  0 |  0 |  0 | 217182.0 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (2048 tok, 2317.205s, TTFT=2317204.97ms): Avg=0.88 | Min=0.84 | Max=0.91 tps
-   Prefill Chunks (8): C1:256t/0.9tps/89% | C2:256t/0.8tps/89% | C3:256t/0.9tps/89% | C4:256t/0.9tps/89%
-                       C5:256t/0.9tps/89% | C6:256t/0.9tps/89% | C7:256t/0.9tps/89% | C8:256t/0.9tps/89%
-   Decode  (64 tok, 127.177s): Avg=0.50 | Min=0.33 | Max=0.59 tps
-   Latency (ms) : Min=1681.23 | P10=1772.89 | P25=1821.36 | P50=1930.95 | P75=2067.43 | P90=2215.47 | P95=2505.53 | P99=2992.51 | Max=2992.51
-   Mean/SD/Jitt : Mean=1987.14ms | StdDev=250.24ms | Jitter=81.67ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/64
+   Prefill (2048 tok, 753.264s, TTFT=753264.10ms): Avg=2.72 | Min=2.70 | Max=2.76 tps
+   Prefill Chunks (8): C1:256t/2.7tps/91% | C2:256t/2.7tps/91% | C3:256t/2.7tps/91% | C4:256t/2.7tps/91%
+                       C5:256t/2.7tps/91% | C6:256t/2.8tps/91% | C7:256t/2.7tps/91% | C8:256t/2.7tps/91%
+   Decode  (64 tok, 22.112s): Avg=2.89 | Min=1.08 | Max=3.52 tps
+   Latency (ms) : Min=284.30 | P10=288.20 | P25=298.14 | P50=312.81 | P75=334.86 | P90=401.20 | P95=518.81 | P99=928.76 | Max=928.76
+   Mean/SD/Jitt : Mean=345.50ms | StdDev=117.18ms | Jitter=27.07ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/64
    MTP Head     : 32/32 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (698880): RawRAM=617457 (88.35%) | Lookahead=4156 (+0.59%) | ColdMiss=77267 (11.06%) | EFF HIT=88.94%
-   Lookahead    : 6991 prefetched -> 4156 consumed (59.4% util) | Warmup >=75%:1t, >=85%:1t
-   Trajectory   : @16= 89.0% | @64= 88.9% | @128=  N/A | @256=  N/A | @512=  N/A
+   Activations (998400): RawRAM=902365 (90.38%) | Lookahead=5552 (+0.56%) | ColdMiss=90483 (9.06%) | EFF HIT=90.94%
+   Lookahead    : 9730 prefetched -> 5872 consumed (60.3% util) | Warmup >=75%:1t, >=85%:1t
+   Trajectory   : @16= 90.8% | @64= 90.9% | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 |16640 |14180 | 235 |2225 | 86.6%|17681.25 | | L24 |16640 |14844 |  58 |1738 | 89.6%|13390.31 |
-   | L04 |16640 |14248 | 115 |2277 | 86.3%|18033.44 | | L25 |16640 |14824 |  75 |1741 | 89.5%|13749.69 |
-   | L05 |16640 |14217 | 164 |2259 | 86.4%|17882.50 | | L26 |16640 |14811 |  74 |1755 | 89.5%|13577.19 |
-   | L06 |16640 |14237 | 182 |2221 | 86.7%|17710.00 | | L27 |16640 |14701 |  93 |1846 | 88.9%|14633.75 |
-   | L07 |16640 |14509 | 155 |1976 | 88.1%|15740.62 | | L28 |16640 |14703 |  92 |1845 | 88.9%|14439.69 |
-   | L08 |16640 |14500 | 101 |2039 | 87.7%|16100.00 | | L29 |16640 |14798 |  96 |1746 | 89.5%|13685.00 |
-   | L09 |16640 |14513 |  99 |2028 | 87.8%|16121.56 | | L30 |16640 |14702 | 105 |1833 | 89.0%|14224.06 |
-   | L10 |16640 |14364 | 136 |2140 | 87.1%|16905.00 | | L31 |16640 |14729 |  61 |1850 | 88.9%|14583.44 |
-   | L11 |16640 |14688 | 135 |1817 | 89.1%|19031.25 | | L32 |16640 |14675 |  99 |1866 | 88.8%|14727.19 |
-   | L12 |16640 |14742 | 103 |1795 | 89.2%|16565.75 | | L33 |16640 |14852 |  87 |1701 | 89.8%|13591.56 |
-   | L13 |16640 |14916 |  84 |1640 | 90.1%|12800.94 | | L34 |16640 |14768 | 109 |1763 | 89.4%|13720.94 |
-   | L14 |16640 |15019 |  80 |1541 | 90.7%|12276.25 | | L35 |16640 |14701 | 120 |1819 | 89.1%|14245.62 |
-   | L15 |16640 |15110 |  88 |1442 | 91.3%|11485.62 | | L36 |16640 |14669 | 119 |1852 | 88.9%|14461.25 |
-   | L16 |16640 |14940 |  86 |1614 | 90.3%|12700.31 | | L37 |16640 |14703 |  89 |1848 | 88.9%|14195.31 |
-   | L17 |16640 |14795 |  62 |1783 | 89.3%|13792.81 | | L38 |16640 |14689 |  98 |1853 | 88.9%|14310.31 |
-   | L18 |16640 |14917 |  53 |1670 | 90.0%|13002.19 | | L39 |16640 |14602 | 118 |1920 | 88.5%|14892.50 |
-   | L19 |16640 |14875 |  60 |1705 | 89.8%|13052.50 | | L40 |16640 |14678 |  89 |1873 | 88.7%|14389.38 |
-   | L20 |16640 |14829 |  64 |1747 | 89.5%|13512.50 | | L41 |16640 |14645 | 110 |1885 | 88.7%|14763.12 |
-   | L21 |16640 |14927 |  57 |1656 | 90.0%|12865.62 | | L42 |16640 |14752 |  86 |1802 | 89.2%|13879.06 |
-   | L22 |16640 |14886 |  71 |1683 | 89.9%|13102.81 | | L43 |16640 |14767 |  99 |1774 | 89.3%|13828.75 |
-   | L23 |16640 |14804 |  69 |1767 | 89.4%|13656.25 | | L44 |16640 |14628 |  80 |1932 | 88.4%|17579.12 |
+   | L00 |20800 |18000 | 221 |2579 | 87.6%|4716.80 | | L24 |20800 |18904 |  96 |1800 | 91.3%|3836.84 |
+   | L01 |20800 |18386 | 153 |2261 | 89.1%|3242.29 | | L25 |20800 |18654 |  99 |2047 | 90.2%|4105.66 |
+   | L02 |20800 |18270 | 139 |2391 | 88.5%|4642.68 | | L26 |20800 |18790 | 114 |1896 | 90.9%|3908.28 |
+   | L03 |20800 |18782 | 139 |1879 | 91.0%|4116.94 | | L27 |20800 |18757 | 135 |1908 | 90.8%|3966.55 |
+   | L04 |20800 |19086 |  69 |1645 | 92.1%|3691.77 | | L28 |20800 |18939 | 121 |1740 | 91.6%|3641.33 |
+   | L05 |20800 |18626 | 117 |2057 | 90.1%|4254.17 | | L29 |20800 |18831 | 118 |1851 | 91.1%|2926.95 |
+   | L06 |20800 |18489 |  70 |2241 | 89.2%|4466.60 | | L30 |20800 |18530 |  99 |2171 | 89.6%|3361.96 |
+   | L07 |20800 |18481 | 171 |2148 | 89.7%|4002.54 | | L31 |20800 |18954 | 105 |1741 | 91.6%|2818.92 |
+   | L08 |20800 |18879 | 151 |1770 | 91.5%|2482.76 | | L32 |20800 |18885 |  76 |1839 | 91.2%|3701.49 |
+   | L09 |20800 |18947 | 141 |1712 | 91.8%|2355.76 | | L33 |20800 |18671 |  93 |2036 | 90.2%|3141.58 |
+   | L10 |20800 |19009 | 127 |1664 | 92.0%|2287.28 | | L34 |20800 |18845 |  97 |1858 | 91.1%|2944.24 |
+   | L11 |20800 |18986 | 152 |1662 | 92.0%|2315.92 | | L35 |20800 |18905 |  75 |1820 | 91.2%|2787.23 |
+   | L12 |20800 |18960 | 196 |1644 | 92.1%|3577.42 | | L36 |20800 |18939 | 122 |1739 | 91.6%|2788.67 |
+   | L13 |20800 |19103 | 148 |1549 | 92.6%|2517.87 | | L37 |20800 |18843 | 111 |1846 | 91.1%|3789.84 |
+   | L14 |20800 |18857 | 146 |1797 | 91.4%|2908.23 | | L38 |20800 |18699 |  84 |2017 | 90.3%|4032.35 |
+   | L15 |20800 |18994 | 147 |1659 | 92.0%|3556.74 | | L39 |20800 |19000 | 100 |1700 | 91.8%|3628.17 |
+   | L16 |20800 |18877 | 158 |1765 | 91.5%|3780.44 | | L40 |20800 |18876 |  57 |1867 | 91.0%|3720.29 |
+   | L17 |20800 |18855 | 138 |1807 | 91.3%|3780.44 | | L41 |20800 |18550 |  56 |2194 | 89.5%|3325.95 |
+   | L18 |20800 |18877 | 138 |1785 | 91.4%|3772.92 | | L42 |20800 |18738 |  55 |2007 | 90.4%|3128.61 |
+   | L19 |20800 |18796 | 148 |1856 | 91.1%|3009.06 | | L43 |20800 |18919 |  67 |1814 | 91.3%|2839.09 |
+   | L20 |20800 |18625 | 156 |2019 | 90.3%|3271.22 | | L44 |20800 |18846 |  54 |1900 | 90.9%|2952.88 |
+   | L21 |20800 |18992 | 154 |1654 | 92.0%|3541.70 | | L45 |20800 |18810 |  62 |1928 | 90.7%|2974.49 |
+   | L22 |20800 |18965 | 127 |1708 | 91.8%|3645.09 | | L46 |20800 |19243 |  31 |1526 | 92.7%|2388.23 |
+   | L23 |20800 |18753 | 144 |1903 | 90.9%|3112.77 | | L47 |20800 |18642 |  75 |2083 | 90.0%|4130.10 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 622629.59 MB (Load=6361.84 | Prefill=547712.06 | Warmup=0.00 | Decode=68555.69 MB)
-   SSD Data/Token (Decode)      : Avg=1071.183 MB/tok (Min=933.500 | P50=1052.938 | P95=1203.281 | Max=1449.656 MB) | Prefill=267.438 MB/tok
-   NVMe Batches / Requests      : 3857 Batches | 254534 Reads | 0 LBA Merges (Avg 2504.9 KB/req)
-   SSD Read Bandwidth           : Avg=535.77 MB/s | Peak=4610.77 MB/s (Pre-flight hwtest skipped)
-   OS Kernel I/O Verification   : Read=622638.62 MB | Write=0.01 MB | Syscalls=258593
-   Sync Stall vs Async DMA      : SyncStall=1058811.32 ms | AsyncOverlapped=1150274.23 ms (52.1% Overlapped)
-   RAM Traffic & Effective BW   : 7358.13 GB moved | Eff=3.01 GB/s (STREAM hwtest skipped)
-   CPU Time & Utilization       : User=4654.391s + Sys=47.688s (Wall=2460.010s) | SysUtil=47.8% | ThrUtil=47.8% | 44.20 GFLOPS
+   Engine SSD Transfer Total    : 170230.57 MB (Load=4614.69 | Prefill=148021.85 | Warmup=0.00 | Decode=17594.02 MB)
+   SSD Data/Token (Decode)      : Avg=274.907 MB/tok (Min=212.092 | P50=276.752 | P95=321.723 | Max=507.748 MB) | Prefill=72.276 MB/tok
+   NVMe Batches / Requests      : 4555 Batches | 335027 Raw -> 315323 Merged (19704 LBA Merges, Avg 552.8 KB/io)
+   SSD I/O Size Histogram       : <64K=33329 | 64K-512K=70618 | 512K-2M=210244 | >2M=1132
+   SSD Read Bandwidth (Active)  : Min=10.87 | Avg=608.84 | Peak=11712.67 MB/s | WallAmort=219.55 MB/s
+   OS Kernel I/O Verification   : Read=170251.11 MB | Write=0.00 MB | Syscalls=324837
+   Sync Stall vs Async DMA      : SyncStall=261664.34 ms | AsyncOverlapped=271199.69 ms (50.9% Overlapped)
+   RAM Traffic & Active BW      : 5562.56 GB moved | Active=11.25 GB/s | WallAmort=7.17 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=753.26s (97.1%, 148021.85 MB SSD) | Decode=22.11s (2.9%, 17594.02 MB SSD)
+   CPU Time & Utilization       : User=1814.734s + Sys=40.984s (Wall=787.420s) | SysUtil=58.9% | ThrUtil=58.9% | 54.50 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM : 629680.50 ms (298144.2 us/tok | 25.76%)
-   MoE AVX2 Q8 Expert Compute   : 674518.08 ms (319374.1 us/tok | 27.59%)
-   Router + Lookahead Dispatch  :  10408.78 ms ( 4928.4 us/tok |  0.43%)
-   LM Head Output Projection    :   1251.54 ms (  592.6 us/tok |  0.05%)
-   Foreground NVMe Sync Stall   : 1058811.32 ms (501331.1 us/tok | 43.32%)
-   Unaccounted / OMP & Sampling :  69711.71 ms (33007.4 us/tok |  2.85%) | Total Wall=2444381.93 ms
+   Dense + Attention/Linear SSM : 224192.95 ms (106152.0 us/tok | 28.91%)
+   MoE AVX2 Q8 Expert Compute   : 267919.48 ms (126855.8 us/tok | 34.55%)
+   Router + Lookahead Dispatch  :  11828.13 ms ( 5600.4 us/tok |  1.53%)
+   LM Head Output Projection    :   2484.71 ms ( 1176.5 us/tok |  0.32%)
+   Foreground NVMe Sync Stall   : 261664.34 ms (123894.1 us/tok | 33.75%)
+   Unaccounted / OMP & Sampling :   7286.27 ms ( 3449.9 us/tok |  0.94%) | Total Wall=775375.87 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    68.20%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     7.69%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    14.01%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     8.24%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     1.86%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    82.58%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     3.35%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     6.05%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     5.53%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.49%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -1250,77 +1298,55 @@ Let me user this question is a question about the user asks about "Explain why t
 --------------------------------------------------------------------------------
  [Stage 5] Fair Head-to-Head Competitor Suite (Exact 64p / 32g / 4-Thread Parity)
 --------------------------------------------------------------------------------
-[Fair-Runner] Apex 64p/32g wall=201.0s | Competitor drastic-underperform cutoff=1005.0s (5x Apex)
-=== [Colibri-GLM53] CMD: ./baselines/colibri/c/glm53.exe --model D:/apex_d_drive/models/glm53 --ids 1,8,15,22,29,36,43,50,57,64,71,78,85,92,99,106,113,120,127,134,141,148,155,162,169,176,183,190,197,204,211,218,225,232,239,246,253,260,267,274,281,288,295,302,309,316,323,330,337,344,351,358,365,372,379,386,393,400,407,414,421,428,435,442 --greedy 64 32 (5x cutoff=1005.0s) ===
-  [Colibri-GLM53] [gguf] D:\apex_d_drive\models\glm53\GLM-5.3-Flash-UD-IQ2_XXS-00001-of-00004.gguf: glm5-next, 4 part(s), 38435 tensors under the checkpoint's names (1283 renamed, 129 fused expert tensors split per expert, 0 kept as named), read in place
-  [Colibri-GLM53] glm53: GGUF experts interleaved by 16 rows on 3 of 42 layers (G53_ILV16=0: the file's rows)
-  [COMP-LIVE] Colibri-GLM53: elapsed=15.0s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=30.1s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=45.1s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=60.1s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=75.2s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=95.7s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=110.8s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=125.8s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=141.2s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=156.2s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=171.2s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=186.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=201.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=216.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=231.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=246.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=261.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=276.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=291.4s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=306.5s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=321.6s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=337.1s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=352.1s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=367.4s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=382.8s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=397.9s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=412.9s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=428.4s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=443.5s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=458.7s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=473.8s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=488.9s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=504.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=519.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=534.5s / cutoff=1005.0s
-  [Colibri-GLM53] [STATS] 43008 selections across 6945 distinct experts -> D:/apex_d_drive/models/glm53/.coli_usage
-  [Colibri-GLM53] teacher_forcing 5556 335 11 15 15 22 22 22 22 36 57 22 36 64 9 154850 154850 154850 123 121 127967 127501 243 104 253 237 154842 1986 197 220 220 0 220 154827 154827 154827 154827 220 83 220 274 220 220 274 295 83 279 8 220 1 1 2776 72 83 84 365 13 220 220 220 320 83 220 220
-  [Colibri-GLM53] greedy 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330
-  [Colibri-GLM53] decode 64 token in 420.8s = 0.152 tok/s (6.6 s/token)
-  [Colibri-GLM53] experts hits 15425 miss 11249 bytes 111319384064
-=== [Colibri-GLM53] Finished rc=0 elapsed=539.10s cancelled=False ===
-=== [ik_llama.cpp] CMD: baselines/ik_llama/build\bin\Release\llama-bench.exe -m D:/apex_d_drive/models/glm53\GLM-5.3-Flash-UD-IQ2_XXS-00001-of-00004.gguf -p 64 -n 32 -t 4 -r 1 (5x cutoff=1005.0s) ===
-  [COMP-LIVE] ik_llama.cpp: elapsed=15.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=30.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=45.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=60.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=75.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=90.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=105.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=120.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=135.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=150.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=165.2s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=180.2s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=195.2s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=210.2s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=225.2s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=240.2s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=255.3s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=270.3s / cutoff=1005.0s
-  [ik_llama.cpp] | model                          |       size |     params | backend    | threads |          test |              t/s |
-  [ik_llama.cpp] | ------------------------------ | ---------: | ---------: | ---------- | ------: | ------------: | ---------------: |
-  [ik_llama.cpp] | glm5next 312B.A17B IQ2_XXS - 2.0625 bpw |  92.43 GiB |   313.51 B | CPU        |       4 |          pp64 |      0.76 ± 0.00 |
-  [COMP-LIVE] ik_llama.cpp: elapsed=285.3s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=300.3s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=315.3s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=330.5s / cutoff=1005.0s
+[Fair-Runner] Apex 64p/32g wall=65.0s | Competitor drastic-underperform cutoff=325.0s (5x Apex)
+=== [Colibri-Qwen38] CMD: ./baselines/colibri/c/qwen38.exe 72 2 D:/apex_d_drive/models/qwen38\ref.json (5x cutoff=325.0s) ===
+  [Colibri-Qwen38] [gguf] MTP head C:\apex_c_drive\models\qwen38\mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf: 32 tensors
+  [Colibri-Qwen38] [gguf] D:\apex_d_drive\models\qwen38\Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf: 3 file(s), 1224 tensors, read in place (native ggml types, no conversion)
+  [Colibri-Qwen38] == Qwen3.8-Flash-Next native text engine | cache=72/layer | CPU ==
+  [Colibri-Qwen38] [tok] loaded 248320 base pieces + 33 added tokens (max id 248319) from D:/apex_d_drive/models/qwen38/tokenizer.json
+  [Colibri-Qwen38] [qwen38] native text weights: prefix=model, 48 layers, PLE=1, cache=72/layer, FP8=native, BF16=native (resident matrices 4.40 GiB)
+  [Colibri-Qwen38] [qwen38] MTP head mtp.*: wiring b (a norm per stream, fc_hidden per stream), RoPE base 1e+07, 96.86 MiB resident; routed experts Q8_0 from the snapshot (its own GGUF), cache 72 (Q38_MTP_CAP) x 4.98 MiB = 0.35 GiB full
+  [Colibri-Qwen38] [qwen38] MTP norm weights, mean: embedding -0.7642, hidden -0.3284, mixer 3.7881 (q38_rms0 scales by 1+w; a plain norm's weights would sit near 1)
+  [Colibri-Qwen38] [qwen38] trunk: 62 matrices int8 on the CPU (0.08 GiB, 0.28 GiB of BF16 released) in 0.3s; Q38_TRUNK_CPU_INT8=0 keeps BF16
+  [Colibri-Qwen38] [qwen38 MTP] draft vocabulary: the lm_head has no int8 rows on the host, so the head scores the whole vocabulary (Q38_MTP_VOCAB=0 silences this)
+  [Colibri-Qwen38] [qwen38] routed experts: GGUF IQ2_XXS/IQ2_XXS/IQ4_NL (layer 0), 1.68 MiB per expert; cache 72/layer
+  [Colibri-Qwen38] [qwen38] trunk: 62 int8 matrices interleaved by 16 for the CPU in 0.02s (Q38_ILV16=0 keeps the rows)
+  [Colibri-Qwen38] resident weights loaded in 9.6s | RSS after load: 4.60 GB
+  [Colibri-Qwen38] [qwen38] decode rows' routed experts grouped by expert, one parallel region a layer (Q38_MOE_GROUPED=0: one expert at a time)
+  [COMP-LIVE] Colibri-Qwen38: elapsed=15.0s / cutoff=325.0s
+  [COMP-LIVE] Colibri-Qwen38: elapsed=30.0s / cutoff=325.0s
+  [COMP-LIVE] Colibri-Qwen38: elapsed=45.1s / cutoff=325.0s
+  [COMP-LIVE] Colibri-Qwen38: elapsed=60.1s / cutoff=325.0s
+  [Colibri-Qwen38] TTFT: 25.68 s (time to first token)
+  [Colibri-Qwen38] [qwen38 MTP] run: 2.58 tokens/forward (12 forwards per 31 tokens) | acceptance 82.6% (19/23 drafts) | wiring b | fixed depth, by position: 1 91.7% (11/12) 2 72.7% (8/11) 3 0.0% (0/0)
+  [Colibri-Qwen38] [qwen38 spec gate] run: T(1) 0.0 ms, rows 2:1.50 3:2.00, rho 0.50, acceptance by position 0.50 0.50 0.50 0.50 0.50
+  [Colibri-Qwen38] [qwen38 lookup] run: 2.58 tokens/forward (12 forwards per 31 tokens) | acceptance 0.0% (0/0 drafts in 0 verifies) | gate on, 0 declined, 0 probes
+  [Colibri-Qwen38] 
+  [Colibri-Qwen38] PEAK RSS: 10.73 GB
+  [Colibri-Qwen38] Expert cache hit rate: 62.0% (hit=15849 miss=9733)
+  [Colibri-Qwen38] Speed: 0.66 tok/s (48.8s for 32 tokens)
+  [Colibri-Qwen38] [STATS] 48560 selections across 8462 distinct experts -> D:/apex_d_drive/models/qwen38/.coli_usage
+  [Colibri-Qwen38] 
+  [Colibri-Qwen38] Reference: 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 
+  [Colibri-Qwen38] C engine : 220 248046 198 248045 74455 198 248068 198 760 1156 682 3106 1092 7701 310 381 264 7132 36412 2805 269 82987 886 314 5587 13 6558 728 22903 411 25 271 Text      :  <|im_end|>
+  [Colibri-Qwen38] <|im_start|>assistant
+  [Colibri-Qwen38] <think>
+  [Colibri-Qwen38] The user has sent what appears to be a garbled/corrupted string of characters. Let me analyze this:
+  [Colibri-Qwen38] 
+  [Colibri-Qwen38] 
+  [Colibri-Qwen38] 
+  [Colibri-Qwen38] Matching tokens: 0/32
+=== [Colibri-Qwen38] Finished rc=1 elapsed=61.15s cancelled=False ===
+================================================================================
+ [Stage 5 Summary] QWEN38 Fair Head-to-Head Comparison vs Colibri (4T)
+================================================================================
+| Engine / Stage | Prefill (tps) | Decode (tps) | P50 (ms) | Eff Hit% | SSD Avg (MB/s) | Peak RSS | Notes |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **Apex v1 (Fair 64p/32g)** | 1.70 | 2.64 | 350.58 | 82.94% | 590.72 | 13550.32 MB | Native GGUF + MTP ON |
+| **Apex v1 (512p/128g)** | 2.63 | 2.79 | 334.58 | 91.53% | 643.31 | 14025.31 MB | Native GGUF + MTP ON |
+| **Apex v1 (2048p/64g)** | 2.72 | 2.89 | 312.81 | 90.94% | 608.84 | 12372.99 MB | Native GGUF + MTP ON |
+| **JustVugg/colibri (64p/32g)** | - | 0.66 | - | 62.0% | - | - | `Q38_MTP=1` / Native |
+================================================================================
 ```
 
 ### 📄 `01_checkout_and_build.log`
@@ -1330,8 +1356,8 @@ Let me user this question is a question about the user asks about "Explain why t
 ================================================================================
 Cloning into 'Apex-Inference-v1'...
  [Step 2] Compiling Apex Inference v1 (C++17 AVX2+FMA+F16C+OpenMP)...
--rwxr-xr-x 1 runneradmin 197121 860K Nov 13 12:34 ./apex.exe
--rwxr-xr-x 1 runneradmin 197121 860K Nov 13 12:34 build/apex.exe
+-rwxr-xr-x 1 runneradmin 197121 865K Nov 13 15:21 ./apex.exe
+-rwxr-xr-x 1 runneradmin 197121 865K Nov 13 15:21 build/apex.exe
  [Step 2] Running Pre-Flight Unit, Greedy Parity & OpenAI API Stress Verification...
 [gen_synthetic_gguf] Wrote tests/synth_glm53_ud_iq2_xxs.gguf (6748.6 KB)
 [gen_synthetic_gguf] Wrote tests/synth_qwen38_ud_iq2_xs.gguf (9282.8 KB)
@@ -1351,29 +1377,31 @@ Cloning into 'Apex-Inference-v1'...
    Active Drive Space : 219.98 GB Total / 219.86 GB Free
 --------------------------------------------------------------------------------
  [CrystalDiskMark-Style NVMe SSD Storage Benchmark]
-   SEQ1M Direct Uncached NVMe Read    :    613.24 MB/s (Hardware Floor)
-   SEQ1M Q8T1  Read (OS-Cached Max)   :   2301.15 MB/s
-   SEQ1M Q1T1  Read (Single Queue)    :   9879.90 MB/s
-   SEQ128K Q32T1 Expert-Stripe Read   :  11388.96 MB/s
-   RND4K Q32T16 Read                  :    717.43 MB/s (  183663 IOPS)
-   RND4K Q1T1  Read                   :    850.38 MB/s (Latency: 4.59 us)
+   SEQ1M Direct Uncached NVMe Read    :    592.49 MB/s (Hardware Floor)
+   SEQ1M Q8T1  Read (OS-Cached Max)   :   2503.10 MB/s
+   SEQ1M Q1T1  Read (Single Queue)    :   9762.35 MB/s
+   SEQ128K Q32T1 Expert-Stripe Read   :  11205.76 MB/s
+   RND4K Q32T16 Read                  :    715.00 MB/s (  183041 IOPS)
+   RND4K Q1T1  Read                   :    862.37 MB/s (Latency: 4.53 us)
 --------------------------------------------------------------------------------
  [PassMark / STREAM System RAM Bandwidth & Latency Benchmark]
-   AVX2 256-bit Sequential Read BW    :     78.31 GB/s
-   AVX2 256-bit Sequential Write BW   :     68.67 GB/s
-   STREAM Triad (A = B + s*C) BW      :     37.38 GB/s
-   Random Pointer-Chase Latency       :     55.62 ns
+   AVX2 256-bit Sequential Read BW    :     64.10 GB/s
+   AVX2 256-bit Sequential Write BW   :     62.84 GB/s
+   STREAM Triad (A = B + s*C) BW      :     34.01 GB/s
+   Random Pointer-Chase Latency       :     97.87 ns
 --------------------------------------------------------------------------------
  [PassMark-Style CPU AVX2+FMA Compute & IQ2 Kernel Benchmark]
-   Single-Core AVX2+FMA Throughput    :     57.64 GFLOPS
-   Multi-Core  AVX2+FMA Throughput    :    226.36 GFLOPS
-   IQ2_XXS/XS Fused Dot Effective BW  :     27.26 GB/s (FP32 Equiv)
+   Single-Core AVX2+FMA Throughput    :     57.41 GFLOPS
+   Multi-Core  AVX2+FMA Throughput    :    225.82 GFLOPS
+   IQ2_XXS/XS Fused Dot Effective BW  :     27.27 GB/s (FP32 Equiv)
 ================================================================================
 
 
 
 === [TEST] GLM-5.3-Flash 100% Greedy Parity: ./apex.exe verify-parity --model tests/synth_glm53_ud_iq2_xxs.gguf ===
 [Apex-Parity] Verifying 100.00% Greedy Token & Batched-vs-Serial Bit Parity...
+[Apex-Parity] Serial  Tokens (16) : [55, 229, 199, 135, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55] -> "tok_55tok_229tok_199tok_135tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55"
+[Apex-Parity] Batched Tokens (16) : [55, 229, 199, 135, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55] -> "tok_55tok_229tok_199tok_135tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55tok_55"
 [Apex-Parity] Model Architecture : glm5-next (GLM-5.3-Flash)
 [Apex-Parity] Max Logit ULP Diff : 0.000000000e+00
 [Apex-Parity] Greedy Token Match : 16 / 16 (100.00% Parity)
@@ -1381,6 +1409,8 @@ Cloning into 'Apex-Inference-v1'...
 
 === [TEST] Qwen-3.8-Flash-Next 100% Greedy Parity: ./apex.exe verify-parity --model tests/synth_qwen38_ud_iq2_xs.gguf ===
 [Apex-Parity] Verifying 100.00% Greedy Token & Batched-vs-Serial Bit Parity...
+[Apex-Parity] Serial  Tokens (16) : [49, 193, 68, 63, 223, 193, 128, 49, 49, 66, 67, 19, 49, 18, 49, 18] -> "qtok_49qtok_193qtok_68qtok_63qtok_223qtok_193qtok_128qtok_49qtok_49qtok_66qtok_67qtok_19qtok_49qtok_18qtok_49qtok_18"
+[Apex-Parity] Batched Tokens (16) : [49, 193, 68, 63, 223, 193, 128, 49, 49, 66, 67, 19, 49, 18, 49, 18] -> "qtok_49qtok_193qtok_68qtok_63qtok_223qtok_193qtok_128qtok_49qtok_49qtok_66qtok_67qtok_19qtok_49qtok_18qtok_49qtok_18"
 [Apex-Parity] Model Architecture : qwen4exp (Qwen-3.8-Flash-Next)
 [Apex-Parity] Max Logit ULP Diff : 0.000000000e+00
 [Apex-Parity] Greedy Token Match : 16 / 16 (100.00% Parity)
@@ -1389,18 +1419,18 @@ Cloning into 'Apex-Inference-v1'...
 === [TEST] GLM-5.3-Flash 2048-Token Prefill & Decode + MTP Off/On A/B Benchmark: ./apex.exe bench --model tests/synth_glm53_ud_iq2_xxs.gguf --prompt-tokens 2048 --gen-tokens 32 --mtp on --no-hwtest ===
 [Apex-Init] Model Loaded: GLM-5.3-Flash-UD-IQ2_XXS-Synthetic | Layers=4 | Hidden=256 | Experts=16 (Top-4) | Pinned Trunk=3.48 MB | Expert Cache=1.93 MB (40 slots)
 [Apex-Prompt] Input (2048 tokens): "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/2048 tok | Chunk=1941.88 tps | Avg=1941.88 tps | Hit=99.5% | NVMe=2173.1 MB/s (6.19 MB, QD=64) | RSS=71.3 MB
-[LIVE-PREFILL] 512/2048 tok | Chunk=1674.64 tps | Avg=1798.39 tps | Hit=99.5% | NVMe=2117.8 MB/s (7.01 MB, QD=64) | RSS=71.6 MB
-[LIVE-PREFILL] 768/2048 tok | Chunk=1458.38 tps | Avg=1668.71 tps | Hit=99.5% | NVMe=2072.3 MB/s (7.78 MB, QD=64) | RSS=71.8 MB
-[LIVE-PREFILL] 1024/2048 tok | Chunk=1268.35 tps | Avg=1546.65 tps | Hit=99.5% | NVMe=2021.0 MB/s (8.61 MB, QD=64) | RSS=72.1 MB
-[LIVE-PREFILL] 1280/2048 tok | Chunk=1150.16 tps | Avg=1446.90 tps | Hit=99.5% | NVMe=1980.8 MB/s (9.33 MB, QD=64) | RSS=72.3 MB
-[LIVE-PREFILL] 1536/2048 tok | Chunk=1024.16 tps | Avg=1353.77 tps | Hit=99.5% | NVMe=1953.3 MB/s (10.06 MB, QD=64) | RSS=72.6 MB
-[LIVE-PREFILL] 1792/2048 tok | Chunk=963.79 tps | Avg=1279.79 tps | Hit=99.5% | NVMe=1929.0 MB/s (10.83 MB, QD=64) | RSS=72.9 MB
-[LIVE-PREFILL] 2048/2048 tok | Chunk=879.68 tps | Avg=1210.94 tps | Hit=99.5% | NVMe=1907.2 MB/s (11.60 MB, QD=64) | RSS=73.1 MB
-[LIVE-DECODE] 8/32 tok | Avg=276.71 tps | Hit=99.5% (LA:+0.0%) | NVMe=1850.4 MB/s (12.43 MB) | RSS=73.2 MB
-[LIVE-DECODE] 16/32 tok | Avg=277.99 tps | Hit=99.5% (LA:+0.1%) | NVMe=1826.6 MB/s (13.10 MB) | RSS=73.2 MB
-[LIVE-DECODE] 24/32 tok | Avg=278.26 tps | Hit=99.5% (LA:+0.1%) | NVMe=1794.0 MB/s (13.25 MB) | RSS=73.2 MB
-[LIVE-DECODE] 32/32 tok | Avg=278.37 tps | Hit=99.5% (LA:+0.1%) | NVMe=1783.8 MB/s (13.30 MB) | RSS=73.2 MB
+[LIVE-PREFILL] 256/2048 tok | Chunk=1803.18 tps | Avg=1803.18 tps | Hit=99.5% | NVMe=2801.9 MB/s (6.19 MB, QD=64) | RSS=71.2 MB
+[LIVE-PREFILL] 512/2048 tok | Chunk=1652.54 tps | Avg=1724.58 tps | Hit=99.5% | NVMe=2645.3 MB/s (7.01 MB, QD=64) | RSS=71.5 MB
+[LIVE-PREFILL] 768/2048 tok | Chunk=1442.08 tps | Avg=1618.87 tps | Hit=99.5% | NVMe=2548.5 MB/s (7.78 MB, QD=64) | RSS=71.7 MB
+[LIVE-PREFILL] 1024/2048 tok | Chunk=1258.09 tps | Avg=1510.57 tps | Hit=99.5% | NVMe=2314.0 MB/s (8.61 MB, QD=64) | RSS=72.0 MB
+[LIVE-PREFILL] 1280/2048 tok | Chunk=1145.36 tps | Avg=1420.02 tps | Hit=99.5% | NVMe=2282.9 MB/s (9.33 MB, QD=64) | RSS=72.2 MB
+[LIVE-PREFILL] 1536/2048 tok | Chunk=1022.81 tps | Avg=1333.69 tps | Hit=99.5% | NVMe=2248.6 MB/s (10.06 MB, QD=64) | RSS=72.5 MB
+[LIVE-PREFILL] 1792/2048 tok | Chunk=940.06 tps | Avg=1258.42 tps | Hit=99.5% | NVMe=2221.7 MB/s (10.83 MB, QD=64) | RSS=72.7 MB
+[LIVE-PREFILL] 2048/2048 tok | Chunk=866.10 tps | Avg=1190.98 tps | Hit=99.5% | NVMe=2164.7 MB/s (11.60 MB, QD=64) | RSS=73.0 MB
+[LIVE-DECODE] 8/32 tok | Avg=259.13 tps | Hit=99.5% (LA:+0.0%) | NVMe=2121.8 MB/s (12.43 MB) | RSS=73.1 MB
+[LIVE-DECODE] 16/32 tok | Avg=263.24 tps | Hit=99.5% (LA:+0.1%) | NVMe=2084.5 MB/s (13.10 MB) | RSS=73.1 MB
+[LIVE-DECODE] 24/32 tok | Avg=265.47 tps | Hit=99.5% (LA:+0.1%) | NVMe=2058.4 MB/s (13.25 MB) | RSS=73.1 MB
+[LIVE-DECODE] 32/32 tok | Avg=265.82 tps | Hit=99.5% (LA:+0.1%) | NVMe=2047.7 MB/s (13.30 MB) | RSS=73.1 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
@@ -1414,7 +1444,7 @@ Cloning into 'Apex-Inference-v1'...
    GGUF Total / SSD Pool        : 0.01 GB GGUF | 0.00 GB Routed Experts on NVMe
    Pinned Dense / KV+State RAM  : Dense=3.48 MB | KV/State=25.37 MB (14080 B/tok)
    LRFU Cache / Staging Ring    : 1.93 MB (40/64 exp = 62.50% pinned) | Staging=3.09 MB
-   Process RSS (Start/End/Peak) : Start=4.89 MB | End=73.17 MB | Peak=73.17 MB
+   Process RSS (Start/End/Peak) : Start=4.88 MB | End=73.07 MB | Peak=73.07 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (2048 tok)   : "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequen..."
@@ -1425,31 +1455,31 @@ Cloning into 'Apex-Inference-v1'...
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |      55 | tok_55         |  190.69 |  99.3% |     246 |  185.76 | 1691.24 |  0 |  0 |  0 |     0.0 |
-   |    2 |      55 | tok_55         |  179.98 | 100.0% |     246 |  150.29 |    3.69 |  7 |  5 |  0 |   321.8 |
-   |    3 |     175 | tok_175        |   77.47 |  67.6% |     179 |   76.74 |    3.69 |  0 |  0 |  0 |   321.8 |
-   |    4 |      55 | tok_55         |  178.88 | 100.0% |     119 |  162.42 |    3.66 | 12 |  0 |  0 |    49.5 |
-   |    5 |      39 | tok_39         |  158.03 | 100.0% |     246 |  148.54 |    3.66 |  0 |  0 |  0 |    49.5 |
-   |    6 |      55 | tok_55         |  191.28 |  98.6% |     119 |  187.05 |    3.57 | 12 |  0 |  0 |     0.0 |
-   |    7 |      36 | tok_36         |   70.07 | 100.0% |     145 |   61.63 |    3.57 |  0 |  0 |  0 |     0.0 |
-   |    8 |     246 | tok_246        |  205.36 | 100.0% |      86 |  185.83 |    3.54 | 11 |  1 |  0 |    49.5 |
-   |   26 |     246 | tok_246        |  195.41 | 100.0% |      54 |  174.46 |    3.63 | 12 |  0 |  0 |     0.0 |
-   |   27 |     229 | tok_229        |  171.70 | 100.0% |      70 |  154.45 |    3.63 |  0 |  0 |  0 |     0.0 |
-   |   22 |      86 | tok_86         |  191.40 |  93.7% |     246 |  188.70 |    3.60 | 12 |  0 |  0 |     0.0 |
-   |   23 |     236 | tok_236        |  139.26 |  98.6% |     246 |  135.00 |    3.60 |  0 |  0 |  0 |     0.0 |
-   |   30 |     246 | tok_246        |  176.20 | 100.0% |     124 |  160.53 |    3.57 | 12 |  0 |  0 |     0.0 |
-   |   31 |     229 | tok_229        |  171.33 | 100.0% |      70 |  153.29 |    3.57 |  0 |  0 |  0 |     0.0 |
-   |   32 |      21 | tok_21         |  222.52 |  97.9% |      86 |  218.66 |    3.56 |  8 |  4 |  0 |    24.8 |
-   |   33 |     246 | tok_246        |  115.62 | 100.0% |     232 |   96.08 |    3.56 |  0 |  0 |  0 |    24.8 |
+   |    1 |      55 | tok_55         |  190.69 |  99.3% |     246 |  185.76 | 1719.59 |  0 |  0 |  0 |     0.0 |
+   |    2 |      55 | tok_55         |  179.98 | 100.0% |     246 |  150.29 |    3.97 |  7 |  5 |  0 |   321.8 |
+   |    3 |     175 | tok_175        |   77.47 |  67.6% |     179 |   76.74 |    3.97 |  0 |  0 |  0 |   321.8 |
+   |    4 |      55 | tok_55         |  178.88 | 100.0% |     119 |  162.42 |    3.94 | 12 |  0 |  0 |    49.5 |
+   |    5 |      39 | tok_39         |  158.03 | 100.0% |     246 |  148.54 |    3.94 |  0 |  0 |  0 |    49.5 |
+   |    6 |      55 | tok_55         |  191.28 |  98.6% |     119 |  187.05 |    3.81 | 12 |  0 |  0 |     0.0 |
+   |    7 |      36 | tok_36         |   70.07 | 100.0% |     145 |   61.63 |    3.81 |  0 |  0 |  0 |     0.0 |
+   |    8 |     246 | tok_246        |  205.36 | 100.0% |      86 |  185.83 |    3.71 | 11 |  1 |  0 |    49.5 |
+   |   12 |      86 | tok_86         |  168.49 |  89.7% |     246 |  166.31 |    3.78 |  6 |  6 |  0 |   173.2 |
+   |   13 |      68 | tok_68         |  148.39 | 100.0% |     104 |  119.46 |    3.78 |  0 |  0 |  0 |   173.2 |
+   |   14 |     220 | tok_220        |  147.52 |  55.4% |      55 |  147.01 |    3.76 |  9 |  3 |  0 |   173.2 |
+   |   15 |     197 | tok_197        |   65.84 |  97.8% |     133 |   62.03 |    3.76 |  0 |  0 |  0 |   173.2 |
+   |   30 |     246 | tok_246        |  176.20 | 100.0% |     124 |  160.53 |    3.82 | 12 |  0 |  0 |     0.0 |
+   |   31 |     229 | tok_229        |  171.33 | 100.0% |      70 |  153.29 |    3.82 |  0 |  0 |  0 |     0.0 |
+   |   32 |      21 | tok_21         |  222.52 |  97.9% |      86 |  218.66 |    3.75 |  8 |  4 |  0 |    24.8 |
+   |   33 |     246 | tok_246        |  115.62 | 100.0% |     232 |   96.08 |    3.75 |  0 |  0 |  0 |    24.8 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (2048 tok, 1.691s, TTFT=1691.24ms): Avg=1210.94 | Min=879.68 | Max=1941.88 tps
-   Prefill Chunks (8): C1:256t/1941.9tps/99% | C2:256t/1674.6tps/99% | C3:256t/1458.4tps/99% | C4:256t/1268.3tps/99%
-                       C5:256t/1150.2tps/99% | C6:256t/1024.2tps/99% | C7:256t/963.8tps/99% | C8:256t/879.7tps/99%
-   Decode  (32 tok, 0.115s): Avg=278.37 | Min=271.27 | Max=282.71 tps
-   Latency (ms) : Min=3.54 | P10=3.56 | P25=3.57 | P50=3.59 | P75=3.60 | P90=3.66 | P95=3.69 | P99=3.69 | Max=3.69
-   Mean/SD/Jitt : Mean=3.59ms | StdDev=0.04ms | Jitter=0.01ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
+   Prefill (2048 tok, 1.720s, TTFT=1719.59ms): Avg=1190.98 | Min=866.10 | Max=1803.18 tps
+   Prefill Chunks (8): C1:256t/1803.2tps/99% | C2:256t/1652.5tps/99% | C3:256t/1442.1tps/99% | C4:256t/1258.1tps/99%
+                       C5:256t/1145.4tps/99% | C6:256t/1022.8tps/99% | C7:256t/940.1tps/99% | C8:256t/866.1tps/99%
+   Decode  (32 tok, 0.120s): Avg=265.82 | Min=251.60 | Max=271.96 tps
+   Latency (ms) : Min=3.68 | P10=3.70 | P25=3.71 | P50=3.72 | P75=3.81 | P90=3.94 | P95=3.97 | P99=3.97 | Max=3.97
+   Mean/SD/Jitt : Mean=3.76ms | StdDev=0.08ms | Jitter=0.02ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
    MTP Head     : 16/16 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
@@ -1469,30 +1499,32 @@ Cloning into 'Apex-Inference-v1'...
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
    Engine SSD Transfer Total    : 13.30 MB (Load=5.42 | Prefill=6.19 | Warmup=0.00 | Decode=1.69 MB)
    SSD Data/Token (Decode)      : Avg=0.053 MB/tok (Min=0.000 | P50=0.024 | P95=0.314 | Max=0.314 MB) | Prefill=0.003 MB/tok
-   NVMe Batches / Requests      : 41 Batches | 748 Reads | 438 LBA Merges (Avg 18.2 KB/req)
-   SSD Read Bandwidth           : Avg=1783.81 MB/s | Peak=6721.15 MB/s (Pre-flight hwtest skipped)
+   NVMe Batches / Requests      : 41 Batches | 748 Raw -> 310 Merged (438 LBA Merges, Avg 43.9 KB/io)
+   SSD I/O Size Histogram       : <64K=203 | 64K-512K=107 | 512K-2M=0 | >2M=0
+   SSD Read Bandwidth (Active)  : Min=442.67 | Avg=2047.70 | Peak=7022.47 MB/s | WallAmort=7.23 MB/s
    OS Kernel I/O Verification   : Read=13.31 MB | Write=0.00 MB | Syscalls=327
-   Sync Stall vs Async DMA      : SyncStall=4.78 ms | AsyncOverlapped=6.39 ms (57.2% Overlapped)
-   RAM Traffic & Effective BW   : 1.43 GB moved | Eff=0.79 GB/s (STREAM hwtest skipped)
-   CPU Time & Utilization       : User=2.344s + Sys=0.547s (Wall=1.824s) | SysUtil=39.6% | ThrUtil=39.6% | 36.66 GFLOPS
+   Sync Stall vs Async DMA      : SyncStall=4.57 ms | AsyncOverlapped=5.45 ms (54.4% Overlapped)
+   RAM Traffic & Active BW      : 1.43 GB moved | Active=0.82 GB/s | WallAmort=0.78 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=1.72s (93.5%, 6.19 MB SSD) | Decode=0.12s (6.5%, 1.69 MB SSD)
+   CPU Time & Utilization       : User=2.312s + Sys=0.469s (Wall=1.857s) | SysUtil=37.5% | ThrUtil=37.5% | 34.64 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :   1526.19 ms (  733.7 us/tok | 84.50%)
-   MoE AVX2 Q8 Expert Compute   :    179.28 ms (   86.2 us/tok |  9.93%)
-   Router + Lookahead Dispatch  :     47.29 ms (   22.7 us/tok |  2.62%)
-   LM Head Output Projection    :      4.09 ms (    2.0 us/tok |  0.23%)
-   Foreground NVMe Sync Stall   :      4.78 ms (    2.3 us/tok |  0.26%)
-   Unaccounted / OMP & Sampling :     44.58 ms (   21.4 us/tok |  2.47%) | Total Wall=1806.20 ms
+   Dense + Attention/Linear SSM :   1549.56 ms (  745.0 us/tok | 84.22%)
+   MoE AVX2 Q8 Expert Compute   :    187.03 ms (   89.9 us/tok | 10.16%)
+   Router + Lookahead Dispatch  :     47.83 ms (   23.0 us/tok |  2.60%)
+   LM Head Output Projection    :      4.43 ms (    2.1 us/tok |  0.24%)
+   Foreground NVMe Sync Stall   :      4.57 ms (    2.2 us/tok |  0.25%)
+   Unaccounted / OMP & Sampling :     46.55 ms (   22.4 us/tok |  2.53%) | Total Wall=1839.97 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    26.68%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     2.18%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     0.49%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    68.36%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.29%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    23.77%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     2.21%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     0.46%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    71.22%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.34%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -1504,18 +1536,18 @@ Cloning into 'Apex-Inference-v1'...
 === [TEST] Qwen-3.8-Flash-Next 2048-Token Prefill & Decode + MTP Off/On A/B Benchmark: ./apex.exe bench --model tests/synth_qwen38_ud_iq2_xs.gguf --prompt-tokens 2048 --gen-tokens 32 --mtp on --no-hwtest ===
 [Apex-Init] Model Loaded: Qwen3.8-Flash-Next-UD-IQ2_XS-Synthetic | Layers=4 | Hidden=256 | Experts=16 (Top-4) | Pinned Trunk=4.70 MB | Expert Cache=2.17 MB (40 slots)
 [Apex-Prompt] Input (2048 tokens): "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/2048 tok | Chunk=2658.47 tps | Avg=2658.47 tps | Hit=99.2% | NVMe=3065.4 MB/s (24.91 MB, QD=64) | RSS=89.2 MB
-[LIVE-PREFILL] 512/2048 tok | Chunk=2580.54 tps | Avg=2618.92 tps | Hit=99.2% | NVMe=4088.3 MB/s (42.92 MB, QD=64) | RSS=89.4 MB
-[LIVE-PREFILL] 768/2048 tok | Chunk=2128.96 tps | Avg=2432.33 tps | Hit=99.2% | NVMe=4654.4 MB/s (61.04 MB, QD=64) | RSS=89.8 MB
-[LIVE-PREFILL] 1024/2048 tok | Chunk=2233.65 tps | Avg=2379.42 tps | Hit=99.2% | NVMe=5061.7 MB/s (79.10 MB, QD=64) | RSS=90.1 MB
-[LIVE-PREFILL] 1280/2048 tok | Chunk=2084.84 tps | Avg=2314.03 tps | Hit=99.2% | NVMe=5379.5 MB/s (97.14 MB, QD=64) | RSS=90.6 MB
-[LIVE-PREFILL] 1536/2048 tok | Chunk=1936.23 tps | Avg=2241.14 tps | Hit=99.2% | NVMe=5635.8 MB/s (115.20 MB, QD=64) | RSS=91.0 MB
-[LIVE-PREFILL] 1792/2048 tok | Chunk=1754.41 tps | Avg=2155.70 tps | Hit=99.2% | NVMe=5832.9 MB/s (133.27 MB, QD=64) | RSS=91.5 MB
-[LIVE-PREFILL] 2048/2048 tok | Chunk=1669.88 tps | Avg=2080.06 tps | Hit=99.2% | NVMe=5973.8 MB/s (151.30 MB, QD=64) | RSS=91.8 MB
-[LIVE-DECODE] 8/32 tok | Avg=253.68 tps | Hit=99.2% (LA:+0.0%) | NVMe=5826.5 MB/s (152.70 MB) | RSS=91.8 MB
-[LIVE-DECODE] 16/32 tok | Avg=254.67 tps | Hit=99.2% (LA:+0.1%) | NVMe=5742.6 MB/s (153.44 MB) | RSS=91.8 MB
-[LIVE-DECODE] 24/32 tok | Avg=255.08 tps | Hit=99.2% (LA:+0.1%) | NVMe=5613.0 MB/s (154.78 MB) | RSS=91.8 MB
-[LIVE-DECODE] 32/32 tok | Avg=255.27 tps | Hit=99.2% (LA:+0.1%) | NVMe=5515.0 MB/s (155.58 MB) | RSS=91.8 MB
+[LIVE-PREFILL] 256/2048 tok | Chunk=2597.45 tps | Avg=2597.45 tps | Hit=99.2% | NVMe=3306.4 MB/s (24.91 MB, QD=64) | RSS=89.1 MB
+[LIVE-PREFILL] 512/2048 tok | Chunk=2541.26 tps | Avg=2569.05 tps | Hit=99.2% | NVMe=4338.9 MB/s (42.92 MB, QD=64) | RSS=89.3 MB
+[LIVE-PREFILL] 768/2048 tok | Chunk=2247.75 tps | Avg=2452.20 tps | Hit=99.2% | NVMe=4904.3 MB/s (61.04 MB, QD=64) | RSS=89.7 MB
+[LIVE-PREFILL] 1024/2048 tok | Chunk=2163.13 tps | Avg=2372.93 tps | Hit=99.2% | NVMe=5269.9 MB/s (79.10 MB, QD=64) | RSS=90.0 MB
+[LIVE-PREFILL] 1280/2048 tok | Chunk=2055.19 tps | Avg=2301.76 tps | Hit=99.2% | NVMe=5573.4 MB/s (97.14 MB, QD=64) | RSS=90.5 MB
+[LIVE-PREFILL] 1536/2048 tok | Chunk=1893.63 tps | Avg=2221.94 tps | Hit=99.2% | NVMe=5793.9 MB/s (115.20 MB, QD=64) | RSS=90.9 MB
+[LIVE-PREFILL] 1792/2048 tok | Chunk=1675.73 tps | Avg=2123.08 tps | Hit=99.2% | NVMe=5942.9 MB/s (133.27 MB, QD=64) | RSS=91.4 MB
+[LIVE-PREFILL] 2048/2048 tok | Chunk=1658.94 tps | Avg=2051.34 tps | Hit=99.2% | NVMe=6109.4 MB/s (151.30 MB, QD=64) | RSS=91.7 MB
+[LIVE-DECODE] 8/32 tok | Avg=242.37 tps | Hit=99.2% (LA:+0.0%) | NVMe=5991.6 MB/s (152.70 MB) | RSS=91.7 MB
+[LIVE-DECODE] 16/32 tok | Avg=245.26 tps | Hit=99.2% (LA:+0.1%) | NVMe=5930.0 MB/s (153.28 MB) | RSS=91.7 MB
+[LIVE-DECODE] 24/32 tok | Avg=245.72 tps | Hit=99.2% (LA:+0.1%) | NVMe=5830.0 MB/s (154.23 MB) | RSS=91.7 MB
+[LIVE-DECODE] 32/32 tok | Avg=245.91 tps | Hit=99.2% (LA:+0.1%) | NVMe=5750.4 MB/s (155.14 MB) | RSS=91.7 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
@@ -1529,85 +1561,87 @@ Cloning into 'Apex-Inference-v1'...
    GGUF Total / SSD Pool        : 0.01 GB GGUF | 0.00 GB Routed Experts on NVMe
    Pinned Dense / KV+State RAM  : Dense=4.70 MB | KV/State=22.85 MB (13824 B/tok)
    LRFU Cache / Staging Ring    : 2.17 MB (40/80 exp = 50.00% pinned) | Staging=3.47 MB
-   Process RSS (Start/End/Peak) : Start=4.90 MB | End=91.80 MB | Peak=91.80 MB
+   Process RSS (Start/End/Peak) : Start=4.87 MB | End=91.71 MB | Peak=91.71 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (2048 tok)   : "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequen..."
-   RESPONSE (32 tok) : "qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_129qtok_68qtok_209qtok_223qtok_113qtok_229qtok_24qtok_229qtok_148qtok_209qtok_193qtok_146qtok_148qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49"
+   RESPONSE (32 tok) : "qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_49qtok_254qtok_129qtok_68qtok_209qtok_223qtok_113qtok_229qtok_112qtok_193qtok_63qtok_128qtok_63qtok_128qtok_63qtok_194qtok_49qtok_49qtok_148qtok_254qtok_48qtok_254qtok_49"
 --------------------------------------------------------------------------------
  [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 33 Steps)]
-   Logit Summary: AvgTop1Prob=92.5% | AvgMargin=9.488 | MinMargin=0.056
+   Logit Summary: AvgTop1Prob=93.4% | AvgMargin=10.261 | MinMargin=0.202
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |      49 | qtok_49        |   64.27 |  98.4% |     254 |   60.04 |  984.59 |  0 |  0 |  0 |     0.0 |
-   |    2 |     254 | qtok_254       |   63.20 | 100.0% |       2 |   54.20 |    3.98 |  6 | 10 |  0 |   535.5 |
-   |    3 |      49 | qtok_49        |   94.59 | 100.0% |     177 |   84.92 |    3.98 |  0 |  0 |  0 |   535.5 |
-   |    4 |     254 | qtok_254       |   65.79 | 100.0% |       2 |   56.49 |    3.94 | 15 |  1 |  0 |    59.8 |
-   |    5 |      49 | qtok_49        |   85.06 |  99.7% |     177 |   78.63 |    3.94 |  0 |  0 |  0 |    59.8 |
-   |    6 |     254 | qtok_254       |   71.17 | 100.0% |       2 |   58.64 |    3.93 | 15 |  1 |  0 |    87.5 |
-   |    7 |      49 | qtok_49        |   82.87 |  99.7% |     129 |   77.18 |    3.93 |  0 |  0 |  0 |    87.5 |
-   |    8 |     254 | qtok_254       |   72.31 | 100.0% |      66 |   61.15 |    3.92 | 16 |  0 |  0 |    32.0 |
-   |   12 |      68 | qtok_68        |   61.65 |  99.4% |      36 |   56.59 |    3.95 | 12 |  4 |  0 |   143.0 |
-   |   13 |     209 | qtok_209       |   83.06 |  79.9% |     127 |   81.55 |    3.95 |  0 |  0 |  0 |   143.0 |
-   |   18 |     229 | qtok_229       |   80.70 | 100.0% |      33 |   70.24 |    3.92 | 10 |  6 |  0 |   170.8 |
-   |   19 |     148 | qtok_148       |   68.09 |  43.4% |      67 |   67.82 |    3.92 |  0 |  0 |  0 |   170.8 |
-   |   30 |     254 | qtok_254       |   71.22 |  99.9% |      66 |   64.31 |    3.91 | 14 |  2 |  0 |    87.5 |
-   |   31 |      49 | qtok_49        |  125.25 | 100.0% |     177 |   99.98 |    3.91 |  0 |  0 |  0 |    87.5 |
-   |   32 |     254 | qtok_254       |   71.45 |  98.0% |      66 |   67.49 |    3.94 | 14 |  2 |  0 |    87.5 |
-   |   33 |      49 | qtok_49        |  131.17 | 100.0% |     129 |  104.87 |    3.94 |  0 |  0 |  0 |    87.5 |
+   |    1 |      49 | qtok_49        |   64.27 |  98.4% |     254 |   60.04 |  998.37 |  0 |  0 |  0 |     0.0 |
+   |    2 |     254 | qtok_254       |   63.20 | 100.0% |       2 |   54.20 |    4.19 |  6 | 10 |  0 |   535.5 |
+   |    3 |      49 | qtok_49        |   93.73 | 100.0% |     177 |   84.12 |    4.19 |  0 |  0 |  0 |   535.5 |
+   |    4 |     254 | qtok_254       |   65.79 | 100.0% |       2 |   56.49 |    4.14 | 15 |  1 |  0 |    59.8 |
+   |    5 |      49 | qtok_49        |   84.71 |  99.7% |     177 |   78.29 |    4.14 |  0 |  0 |  0 |    59.8 |
+   |    6 |     254 | qtok_254       |   71.17 | 100.0% |       2 |   58.64 |    4.11 | 15 |  1 |  0 |    87.5 |
+   |    7 |      49 | qtok_49        |   83.85 |  99.9% |     129 |   77.09 |    4.11 |  0 |  0 |  0 |    87.5 |
+   |    8 |     254 | qtok_254       |   72.31 | 100.0% |      66 |   61.15 |    4.06 | 16 |  0 |  0 |    32.0 |
+   |   26 |     194 | qtok_194       |   71.13 | 100.0% |       2 |   54.96 |    4.07 | 12 |  4 |  0 |   147.0 |
+   |   27 |      49 | qtok_49        |   67.58 |  99.9% |     209 |   61.01 |    4.07 |  0 |  0 |  0 |   147.0 |
+   |   20 |     193 | qtok_193       |   68.69 | 100.0% |      17 |   59.53 |    4.07 | 14 |  2 |  0 |    87.5 |
+   |   21 |      63 | qtok_63        |   75.06 |  99.9% |     193 |   67.57 |    4.07 |  0 |  0 |  0 |    87.5 |
+   |   30 |     254 | qtok_254       |   58.92 |  92.7% |      49 |   56.39 |    4.06 | 14 |  2 |  0 |   115.2 |
+   |   31 |      48 | qtok_48        |  139.73 | 100.0% |      49 |  108.61 |    4.06 |  0 |  0 |  0 |   115.2 |
+   |   32 |     254 | qtok_254       |   53.75 |  64.8% |     229 |   52.56 |    4.04 | 14 |  2 |  0 |    87.5 |
+   |   33 |      49 | qtok_49        |  132.17 | 100.0% |      48 |  102.59 |    4.04 |  0 |  0 |  0 |    87.5 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (2048 tok, 0.985s, TTFT=984.59ms): Avg=2080.06 | Min=1669.88 | Max=2658.47 tps
-   Prefill Chunks (8): C1:256t/2658.5tps/99% | C2:256t/2580.5tps/99% | C3:256t/2129.0tps/99% | C4:256t/2233.6tps/99%
-                       C5:256t/2084.8tps/99% | C6:256t/1936.2tps/99% | C7:256t/1754.4tps/99% | C8:256t/1669.9tps/99%
-   Decode  (32 tok, 0.125s): Avg=255.27 | Min=251.11 | Max=257.77 tps
-   Latency (ms) : Min=3.88 | P10=3.89 | P25=3.91 | P50=3.91 | P75=3.94 | P90=3.95 | P95=3.98 | P99=3.98 | Max=3.98
-   Mean/SD/Jitt : Mean=3.92ms | StdDev=0.03ms | Jitter=0.01ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
+   Prefill (2048 tok, 0.998s, TTFT=998.37ms): Avg=2051.34 | Min=1658.94 | Max=2597.45 tps
+   Prefill Chunks (8): C1:256t/2597.5tps/99% | C2:256t/2541.3tps/99% | C3:256t/2247.7tps/99% | C4:256t/2163.1tps/99%
+                       C5:256t/2055.2tps/99% | C6:256t/1893.6tps/99% | C7:256t/1675.7tps/99% | C8:256t/1658.9tps/99%
+   Decode  (32 tok, 0.130s): Avg=245.91 | Min=238.62 | Max=249.45 tps
+   Latency (ms) : Min=4.01 | P10=4.02 | P25=4.04 | P50=4.06 | P75=4.07 | P90=4.14 | P95=4.19 | P99=4.19 | Max=4.19
+   Mean/SD/Jitt : Mean=4.07ms | StdDev=0.04ms | Jitter=0.01ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
    MTP Head     : 16/16 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (33024): RawRAM=32720 (99.08%) | Lookahead=48 (+0.15%) | ColdMiss=256 (0.78%) | EFF HIT=99.22%
-   Lookahead    : 60 prefetched -> 54 consumed (90.0% util) | Warmup >=75%:1t, >=85%:1t
+   Activations (33024): RawRAM=32726 (99.10%) | Lookahead=42 (+0.13%) | ColdMiss=256 (0.78%) | EFF HIT=99.22%
+   Lookahead    : 52 prefetched -> 46 consumed (88.5% util) | Warmup >=75%:1t, >=85%:1t
    Trajectory   : @16= 99.2% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L00 | 8256 | 8190 |   2 |  64 | 99.2%|   3.58 | | L02 | 8256 | 8170 |  22 |  64 | 99.2%|   4.72 |
-   | L01 | 8256 | 8184 |   8 |  64 | 99.2%|   4.12 | | L03 | 8256 | 8176 |  16 |  64 | 99.2%|   4.39 |
+   | L00 | 8256 | 8190 |   2 |  64 | 99.2%|   3.58 | | L02 | 8256 | 8171 |  21 |  64 | 99.2%|   4.82 |
+   | L01 | 8256 | 8179 |  13 |  64 | 99.2%|   4.23 | | L03 | 8256 | 8186 |   6 |  64 | 99.2%|   3.85 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 155.58 MB (Load=6.87 | Prefill=144.44 | Warmup=0.00 | Decode=4.28 MB)
-   SSD Data/Token (Decode)      : Avg=0.134 MB/tok (Min=0.031 | P50=0.113 | P95=0.523 | Max=0.523 MB) | Prefill=0.071 MB/tok
-   NVMe Batches / Requests      : 95 Batches | 34221 Reads | 33838 LBA Merges (Avg 4.7 KB/req)
-   SSD Read Bandwidth           : Avg=5515.01 MB/s | Peak=10670.60 MB/s (Pre-flight hwtest skipped)
-   OS Kernel I/O Verification   : Read=24.69 MB | Write=0.00 MB | Syscalls=400
-   Sync Stall vs Async DMA      : SyncStall=6.43 ms | AsyncOverlapped=27.04 ms (80.8% Overlapped)
-   RAM Traffic & Effective BW   : 2.10 GB moved | Eff=1.89 GB/s (STREAM hwtest skipped)
-   CPU Time & Utilization       : User=1.844s + Sys=0.266s (Wall=1.137s) | SysUtil=46.4% | ThrUtil=46.4% | 42.89 GFLOPS
+   Engine SSD Transfer Total    : 155.14 MB (Load=6.87 | Prefill=144.44 | Warmup=0.00 | Decode=3.83 MB)
+   SSD Data/Token (Decode)      : Avg=0.120 MB/tok (Min=0.031 | P50=0.113 | P95=0.523 | Max=0.523 MB) | Prefill=0.071 MB/tok
+   NVMe Batches / Requests      : 92 Batches | 34197 Raw -> 371 Merged (33826 LBA Merges, Avg 428.2 KB/io)
+   SSD I/O Size Histogram       : <64K=217 | 64K-512K=154 | 512K-2M=0 | >2M=0
+   SSD Read Bandwidth (Active)  : Min=446.08 | Avg=5750.41 | Peak=10546.52 MB/s | WallAmort=137.47 MB/s
+   OS Kernel I/O Verification   : Read=24.31 MB | Write=0.00 MB | Syscalls=388
+   Sync Stall vs Async DMA      : SyncStall=6.43 ms | AsyncOverlapped=25.74 ms (80.0% Overlapped)
+   RAM Traffic & Active BW      : 2.10 GB moved | Active=2.15 GB/s | WallAmort=1.86 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=1.00s (88.5%, 144.44 MB SSD) | Decode=0.13s (11.5%, 3.83 MB SSD)
+   CPU Time & Utilization       : User=2.078s + Sys=0.312s (Wall=1.157s) | SysUtil=51.7% | ThrUtil=51.7% | 47.79 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :    677.09 ms (  325.5 us/tok | 61.00%)
-   MoE AVX2 Q8 Expert Compute   :    281.49 ms (  135.3 us/tok | 25.36%)
-   Router + Lookahead Dispatch  :     64.11 ms (   30.8 us/tok |  5.78%)
-   LM Head Output Projection    :      4.01 ms (    1.9 us/tok |  0.36%)
-   Foreground NVMe Sync Stall   :      6.43 ms (    3.1 us/tok |  0.58%)
-   Unaccounted / OMP & Sampling :     76.82 ms (   36.9 us/tok |  6.92%) | Total Wall=1109.94 ms
+   Dense + Attention/Linear SSM :    688.39 ms (  331.0 us/tok | 61.00%)
+   MoE AVX2 Q8 Expert Compute   :    286.33 ms (  137.7 us/tok | 25.37%)
+   Router + Lookahead Dispatch  :     63.27 ms (   30.4 us/tok |  5.61%)
+   LM Head Output Projection    :      4.20 ms (    2.0 us/tok |  0.37%)
+   Foreground NVMe Sync Stall   :      6.43 ms (    3.1 us/tok |  0.57%)
+   Unaccounted / OMP & Sampling :     79.88 ms (   38.4 us/tok |  7.08%) | Total Wall=1128.50 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    21.51%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     6.18%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     2.31%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    64.38%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     5.62%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    20.63%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     6.02%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     2.24%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    65.48%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     5.63%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -1637,21 +1671,21 @@ Cloning into 'Apex-Inference-v1'...
   "ssd_offloaded_expert_bytes": 2433024,
   "prefill": {
     "tokens": 164,
-    "ttft_ms": 166.24,
-    "avg_tps": 986.53,
-    "min_tps": 801.3,
-    "max_tps": 1117.97
+    "ttft_ms": 172.54,
+    "avg_tps": 950.51,
+    "min_tps": 785.51,
+    "max_tps": 1073.85
   },
   "decode": {
     "tokens": 39,
-    "avg_tps": 209.78,
-    "min_tps": 195.19,
-    "max_tps": 215.21,
-    "p50_ms": 4.74,
-    "p90_ms": 4.86,
-    "p99_ms": 5.12,
-    "mean_ms": 4.77,
-    "jitter_ms": 0.07
+    "avg_tps": 202.26,
+    "min_tps": 181.68,
+    "max_tps": 208.94,
+    "p50_ms": 4.91,
+    "p90_ms": 5.17,
+    "p99_ms": 5.5,
+    "mean_ms": 4.94,
+    "jitter_ms": 0.12
   },
   "cache": {
     "raw_hit_rate_pct": 96.47,
@@ -1664,10 +1698,10 @@ Cloning into 'Apex-Inference-v1'...
     "warmup_bytes": 0,
     "decode_bytes": 1419264,
     "bytes_per_token": 42181.04,
-    "avg_mbs": 1664.44,
-    "peak_mbs": 6793.48,
-    "sync_wait_ms": 1.83,
-    "async_overlap_ms": 4.03
+    "avg_mbs": 2177.27,
+    "peak_mbs": 6578.95,
+    "sync_wait_ms": 1.6,
+    "async_overlap_ms": 2.83
   },
   "os_verification": {
     "io_read_bytes": 0,
@@ -1678,18 +1712,18 @@ Cloning into 'Apex-Inference-v1'...
     "ram_bytes_moved": 272146688
   },
   "kernel_attribution_ms": {
-    "dense_attention": 262.25,
-    "moe_compute": 72.84,
-    "router_lookahead": 5.67,
-    "lm_head": 6.0,
-    "unaccounted": 3.56
+    "dense_attention": 272.65,
+    "moe_compute": 75.33,
+    "router_lookahead": 5.8,
+    "lm_head": 6.02,
+    "unaccounted": 3.96
   },
   "resource_contribution_pct": {
-    "cpu_avx2_fma": 77.89,
-    "ram_bandwidth_pinning": 2.49,
-    "expert_cache_lrfu": 15.59,
-    "lookahead_parallel_overlap": 2.5,
-    "ssd_nvme_throughput": 1.53,
+    "cpu_avx2_fma": 81.92,
+    "ram_bandwidth_pinning": 2.52,
+    "expert_cache_lrfu": 12.07,
+    "lookahead_parallel_overlap": 2.25,
+    "ssd_nvme_throughput": 1.24,
     "total": 100.0
   }
 }
@@ -1715,21 +1749,21 @@ Cloning into 'Apex-Inference-v1'...
   "ssd_offloaded_expert_bytes": 3653632,
   "prefill": {
     "tokens": 164,
-    "ttft_ms": 212.15,
-    "avg_tps": 773.04,
-    "min_tps": 557.48,
-    "max_tps": 890.74
+    "ttft_ms": 218.91,
+    "avg_tps": 749.17,
+    "min_tps": 533.79,
+    "max_tps": 852.19
   },
   "decode": {
     "tokens": 39,
-    "avg_tps": 185.84,
-    "min_tps": 167.82,
-    "max_tps": 194.42,
-    "p50_ms": 5.32,
-    "p90_ms": 5.81,
-    "p99_ms": 5.96,
-    "mean_ms": 5.38,
-    "jitter_ms": 0.12
+    "avg_tps": 178.58,
+    "min_tps": 172.02,
+    "max_tps": 182.76,
+    "p50_ms": 5.59,
+    "p90_ms": 5.73,
+    "p99_ms": 5.81,
+    "mean_ms": 5.6,
+    "jitter_ms": 0.06
   },
   "cache": {
     "raw_hit_rate_pct": 85.56,
@@ -1742,10 +1776,10 @@ Cloning into 'Apex-Inference-v1'...
     "warmup_bytes": 0,
     "decode_bytes": 12193280,
     "bytes_per_token": 187425.26,
-    "avg_mbs": 2113.33,
-    "peak_mbs": 8728.09,
-    "sync_wait_ms": 5.13,
-    "async_overlap_ms": 16.27
+    "avg_mbs": 2926.17,
+    "peak_mbs": 7508.48,
+    "sync_wait_ms": 4.16,
+    "async_overlap_ms": 11.41
   },
   "os_verification": {
     "io_read_bytes": 0,
@@ -1756,18 +1790,18 @@ Cloning into 'Apex-Inference-v1'...
     "ram_bytes_moved": 366830592
   },
   "kernel_attribution_ms": {
-    "dense_attention": 236.6,
-    "moe_compute": 137.27,
-    "router_lookahead": 6.77,
-    "lm_head": 6.1,
-    "unaccounted": 30.14
+    "dense_attention": 246.73,
+    "moe_compute": 142.31,
+    "router_lookahead": 7.08,
+    "lm_head": 6.02,
+    "unaccounted": 31.01
   },
   "resource_contribution_pct": {
-    "cpu_avx2_fma": 72.97,
-    "ram_bandwidth_pinning": 2.82,
-    "expert_cache_lrfu": 13.69,
-    "lookahead_parallel_overlap": 6.24,
-    "ssd_nvme_throughput": 4.28,
+    "cpu_avx2_fma": 78.4,
+    "ram_bandwidth_pinning": 2.91,
+    "expert_cache_lrfu": 10.21,
+    "lookahead_parallel_overlap": 5.19,
+    "ssd_nvme_throughput": 3.29,
     "total": 100.0
   }
 }
@@ -1782,917 +1816,37 @@ ALL APEX INFERENCE V1 VERIFICATION TESTS PASSED 100.00%!
 ================================================================================
 Cloning into 'colibri'...
 gcc -D_FILE_OFFSET_BITS=64 -O3 -march=x86-64-v3 -fopenmp -Wall -Wextra -Wno-unused-parameter -Wno-misleading-indentation -Wno-unused-function -MMD -MP qwen38.c    -o qwen38.exe -lm -fopenmp -static -lpsapi
-gcc -D_FILE_OFFSET_BITS=64 -O3 -march=x86-64-v3 -fopenmp -Wall -Wextra -Wno-unused-parameter -Wno-misleading-indentation -Wno-unused-function  -MMD -MP glm53.c    -o glm53.exe -lm -fopenmp -static -lpsapi 
-================================================================================
- [3.2] Downloading Official Prebuilt llama.cpp AVX2 Windows Binaries
-================================================================================
-================================================================================
- [3.3] Cloning & Building ik_llama.cpp (CPU AVX2 Release)
-================================================================================
-Cloning into 'ik_llama'...
-error: unable to create file examples/server/webui_llamacpp/src/lib/components/app/chat/ChatAttachments/ChatAttachmentsPreview/ChatAttachmentsPreviewCurrentItem/ChatAttachmentsPreviewCurrentItemUnavailable.svelte: Filename too long
-fatal: unable to checkout working tree
-warning: Clone succeeded, but checkout failed.
-You can inspect what was checked out with 'git status'
-and retry with 'git restore --source=HEAD :/'
-
--- Building for: Visual Studio 18 2026
--- The C compiler identification is MSVC 19.51.36260.0
--- The CXX compiler identification is MSVC 19.51.36260.0
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/18/Enterprise/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/18/Enterprise/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Found Git: C:/Program Files/Git/ucrt64/bin/git.exe (found version "2.56.0.windows.4")
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
--- Looking for pthread_create in pthreads
--- Looking for pthread_create in pthreads - not found
--- Looking for pthread_create in pthread
--- Looking for pthread_create in pthread - not found
--- Found Threads: TRUE
--- Found OpenMP_C: -openmp (found version "2.0")
--- Found OpenMP_CXX: -openmp (found version "2.0")
--- Found OpenMP: TRUE (found version "2.0")
--- OpenMP found
--- Using optimized iqk matrix multiplications
--- Enabling IQK Flash Attention kernels
--- Including all IQK FA kernels
--- ccache found, compilation results will be cached. Disable with GGML_CCACHE=OFF.
--- CMAKE_SYSTEM_PROCESSOR: AMD64
--- CMAKE_GENERATOR_PLATFORM: 
--- x86 detected
-CMake Warning at common/CMakeLists.txt:26 (message):
-  Git index not found in git repository.
-
-
--- ARCH_FLAGS = 
-TARGET_SRCS contains: D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/examples/server/public/index.html.gz
-TARGET_SRCS contains: D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/examples/server/public_llamacpp/index_llamacpp.html.gz
-TARGET_SRCS contains: D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/examples/server/public_llamacpp/loading.html
--- Configuring done (19.0s)
--- Generating done (0.7s)
-CMake Warning (unused-cli):
-  Manually-specified variables were not used by the project:
-
-    GGML_F16C
-
-
--- Build files have been written to: D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/build
-MSBuild version 18.11.1-1.26513.3+940033be3 for .NET Framework
-
-  1>Checking Build System
-  Generating build details from Git
-  -- Found Git: C:/Program Files/Git/ucrt64/bin/git.exe (found version "2.56.0.windows.4")
-  Building Custom Rule D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/common/CMakeLists.txt
-  build-info.cpp
-  build_info.vcxproj -> D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\build_info.dir\Release\build_info.lib
-  Building Custom Rule D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/ggml/src/CMakeLists.txt
-  ggml.c
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(4020,13): warning C4068: unknown pragma 'GCC' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(4038,13): warning C4068: unknown pragma 'GCC' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(6819,25): warning C4477: 'fprintf' : format string '%ld' requires an argument of type 'long', but variadic argument 2 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(6819,25):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(6819,25):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(6819,25):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 2 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 3 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 4 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 5 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 6 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 7 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 8 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 9 has type 'int64_t' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%lld' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%Id' in the format string
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml.c(11118,16):
-      consider using '%I64d' in the format string
-  
-  ggml-alloc.c
-  ggml-quants.c
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\assert.h(21,9): warning C4005: 'static_assert': macro redefinition [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  (compiling source file '../../../ggml/src/ggml-quants.c')
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml-common.h(69,9):
-      see previous definition of 'static_assert'
-  
-  ggml-aarch64.c
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\assert.h(21,9): warning C4005: 'static_assert': macro redefinition [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  (compiling source file '../../../ggml/src/ggml-aarch64.c')
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml-common.h(69,9):
-      see previous definition of 'static_assert'
-  
-  Generating Code...
-  ggml-backend.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\ggml-backend.cpp(2124,30): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  ggml-moe-prefetch.cpp
-  iqk_mul_mat.cpp
-  iqk_kda.cpp
-  iqk_flash_attn.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(141,94): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(141,82): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(179,13): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(187,25): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(188,61): warning C4244: '=': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(196,38): warning C4244: '=': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(273,112): warning C4244: 'argument': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(281,119): warning C4244: 'argument': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(298,22): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(346,80): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(346,68): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(394,80): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(394,68): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_flash_attn.cpp(481,24): warning C4244: '=': conversion from 'uint64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  iqk_fa_576_512.cpp
-  iqk_fa_512_512.cpp
-  iqk_fa_320_256.cpp
-  iqk_fa_192_128.cpp
-  iqk_fa_192_192.cpp
-  iqk_fa_256_256.cpp
-  iqk_fa_128_128.cpp
-  iqk_fa_96_96.cpp
-  iqk_fa_64_64.cpp
-  iqk_gemm_floats.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_floats.cpp(637,9): warning C4065: switch statement contains 'default' but no 'case' labels [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  iqk_gemm_kquants.cpp
-  iqk_gemm_ktquants.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_ktquants.cpp(174,23): warning C4141: 'inline': used more than once [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_ktquants.cpp(174,23):
-      the template instantiation context (the oldest one first) is
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_ktquants.cpp(103,8):
-          while compiling class template '`anonymous-namespace'::Trellis3'
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_ktquants.cpp(216,23): warning C4141: 'inline': used more than once [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_ktquants.cpp(266,23): warning C4141: 'inline': used more than once [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  iqk_gemm_iquants.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_iquants.cpp(316,30): warning C4141: 'inline': used more than once [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_iquants.cpp(332,23): warning C4141: 'inline': used more than once [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_iquants.cpp(365,23): warning C4141: 'inline': used more than once [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  iqk_gemm_iqk_quants.cpp
-  iqk_gemm_1bit.cpp
-  Generating Code...
-  Compiling...
-  iqk_gemm_legacy_quants.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ggml\src\iqk\iqk_gemm_legacy_quants.cpp(2623,29): warning C4068: unknown pragma 'GCC' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\ggml\src\ggml.vcxproj]
-  iqk_quantize.cpp
-  iqk_cpu_ops.cpp
-  Generating Code...
-  Auto build dll exports
-     Creating library D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/build/ggml/src/Release/ggml.lib and object D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/build/ggml/src/Release/ggml.exp
-  ggml.vcxproj -> D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\bin\Release\ggml.dll
-  Building Custom Rule D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/src/CMakeLists.txt
-  llama.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(683,52): warning C4805: '!=': unsafe mix of type 'const int' and type 'const bool' in operation [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(714,52): warning C4805: '!=': unsafe mix of type 'int' and type 'bool' in operation [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(4219,35): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(4228,31): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(4246,35): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(4501,26): warning C4018: '>=': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(4505,72): warning C4018: '>=': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(4848,58): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(4960,37): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details. [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(5035,45): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details. [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(8053,65): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(9544,29): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(9559,29): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(9747,60): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(9667,9): warning C4297: 'llama_init_from_model': function assumed not to throw an exception but does [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama.cpp(9667,9):
-      __declspec(nothrow), throw(), noexcept(true), or noexcept was specified on the function
-  
-  llama-spec-features.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama-spec-features.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama-spec-features.cpp')
-  
-  llama-spec-features-dflash.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama-spec-features-dflash.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama-spec-features-dflash.cpp')
-  
-  llama-dflash.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama-dflash.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama-dflash.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-dflash.cpp(533,122): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  llama-dsv4.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama-dsv4.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama-dsv4.cpp')
-  
-  llama-vocab.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama-vocab.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama-vocab.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-vocab.cpp(680,82): warning C4267: '=': conversion from 'size_t' to 'llm_symbol::index', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-vocab.cpp(683,61): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-vocab.cpp(784,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-vocab.cpp(784,25): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-vocab.cpp(1352,55): warning C4267: 'argument': conversion from 'size_t' to 'llama_token', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-vocab.cpp(1357,31): warning C4267: 'argument': conversion from 'size_t' to 'llama_token', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-vocab.cpp(2922,26): warning C4244: 'return': conversion from 'long' to 'uint8_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-vocab.cpp(2927,26): warning C4244: 'return': conversion from 'long' to 'uint8_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-vocab.cpp(3097,74): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-vocab.cpp(3100,70): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-vocab.cpp(3889,20): warning C4267: 'return': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  llama-grammar.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-grammar.cpp(605,37): warning C4267: 'initializing': conversion from 'size_t' to 'uint32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  llama-sampling.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-sampling.cpp(31,20): warning C4244: '=': conversion from 'time_t' to 'uint32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-sampling.cpp(42,23): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-sampling.cpp(138,23): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-sampling.cpp(411,33): warning C4244: '=': conversion from 'double' to 'float', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-sampling.cpp(415,34): warning C4244: '/=': conversion from 'double' to 'float', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-sampling.cpp(461,24): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-sampling.cpp(599,27): warning C4244: 'initializing': conversion from 'float' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-sampling.cpp(599,27): warning C4244: 'initializing': conversion from 'float' to 'const int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-sampling.cpp(619,61): warning C4244: 'argument': conversion from 'const int32_t' to 'float', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-sampling.cpp(989,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-sampling.cpp(1012,31): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-sampling.cpp(1241,68): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  llama-mmap.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-mmap.cpp(120,89): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-mmap.cpp(143,99): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  llama-model-loader.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama-model-loader.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/llama-model-loader.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(472,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1332,32): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1332,32): warning C4244: 'initializing': conversion from 'int64_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1415,26): warning C4244: 'initializing': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1415,26): warning C4244: 'initializing': conversion from 'const int64_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1416,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1416,26): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1427,88): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1460,22): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1460,22): warning C4244: 'initializing': conversion from 'int64_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1461,80): warning C4267: 'argument': conversion from 'size_t' to 'const _Ty', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1461,80): warning C4267:         with [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1461,80): warning C4267:         [ [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1461,80): warning C4267:             _Ty=int32_t [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1461,80): warning C4267:         ] [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1485,87): warning C4244: 'argument': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1971,61): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(857,22): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(857,22): warning C4267:         with [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(857,22): warning C4267:         [ [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(857,22): warning C4267:             T=unsigned int [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(857,22): warning C4267:         ] [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(857,22):
-      the template instantiation context (the oldest one first) is
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1934,96):
-          see reference to function template instantiation 'bool llama_model_loader::get_arr_n<unsigned int>(const std::string &,unsigned int &,bool)' being compiled
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244: '=': conversion from 'const int64_t' to 'OT', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244:         with [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244:         [ [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244:             OT=uint32_t [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244:         ] [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30):
-      the template instantiation context (the oldest one first) is
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1033,12):
-          see reference to function template instantiation 'bool llama_model_loader::get_key<uint32_t>(const std::string &,T &,const bool)' being compiled
-          with
-          [
-              T=uint32_t
-          ]
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(953,42):
-          see reference to class template instantiation 'GGUFMeta::GKV<uint32_t>' being compiled
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(194,21):
-          while compiling class template member function 'bool GGUFMeta::GKV<uint32_t>::set(const gguf_context *,const int,T &,const llama_model_kv_override *)'
-          with
-          [
-              T=uint32_t
-          ]
-              D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(204,13):
-              see the first reference to 'GGUFMeta::GKV<uint32_t>::set' in 'GGUFMeta::GKV<uint32_t>::set'
-              D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(208,13):
-              see the first reference to 'GGUFMeta::GKV<uint32_t>::set' in 'GGUFMeta::GKV<uint32_t>::set'
-              D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(953,22):
-              see the first reference to 'GGUFMeta::GKV<uint32_t>::set' in 'llama_model_loader::get_key'
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(195,17):
-          see reference to function template instantiation 'bool GGUFMeta::GKV<uint32_t>::try_override<T>(OT &,const llama_model_kv_override *)' being compiled
-          with
-          [
-              T=uint32_t,
-              OT=uint32_t
-          ]
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244: '=': conversion from 'const int64_t' to 'OT', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244:         with [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244:         [ [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244:             OT=int [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244:         ] [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30):
-      the template instantiation context (the oldest one first) is
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(441,9):
-          see reference to function template instantiation 'bool llama_model_loader::get_key<int>(const std::string &,T &,const bool)' being compiled
-          with
-          [
-              T=int
-          ]
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(953,42):
-          see reference to class template instantiation 'GGUFMeta::GKV<int>' being compiled
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(194,21):
-          while compiling class template member function 'bool GGUFMeta::GKV<int>::set(const gguf_context *,const int,T &,const llama_model_kv_override *)'
-          with
-          [
-              T=int
-          ]
-              D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(204,13):
-              see the first reference to 'GGUFMeta::GKV<int>::set' in 'GGUFMeta::GKV<int>::set'
-              D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(208,13):
-              see the first reference to 'GGUFMeta::GKV<int>::set' in 'GGUFMeta::GKV<int>::set'
-              D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(953,22):
-              see the first reference to 'GGUFMeta::GKV<int>::set' in 'llama_model_loader::get_key'
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(195,17):
-          see reference to function template instantiation 'bool GGUFMeta::GKV<int>::try_override<T>(OT &,const llama_model_kv_override *)' being compiled
-          with
-          [
-              T=int,
-              OT=int
-          ]
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244: '=': conversion from 'const int64_t' to 'OT', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244:         with [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244:         [ [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244:             OT=uint16_t [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30): warning C4244:         ] [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(168,30):
-      the template instantiation context (the oldest one first) is
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(385,86):
-          see reference to class template instantiation 'GGUFMeta::GKV<uint16_t>' being compiled
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(194,21):
-          while compiling class template member function 'bool GGUFMeta::GKV<uint16_t>::set(const gguf_context *,const int,T &,const llama_model_kv_override *)'
-          with
-          [
-              T=uint16_t
-          ]
-              D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(204,13):
-              see the first reference to 'GGUFMeta::GKV<uint16_t>::set' in 'GGUFMeta::GKV<uint16_t>::set'
-              D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(208,13):
-              see the first reference to 'GGUFMeta::GKV<uint16_t>::set' in 'GGUFMeta::GKV<uint16_t>::set'
-              D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(953,22):
-              see the first reference to 'GGUFMeta::GKV<uint16_t>::set' in 'llama_model_loader::get_key'
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(195,17):
-          see reference to function template instantiation 'bool GGUFMeta::GKV<uint16_t>::try_override<T>(OT &,const llama_model_kv_override *)' being compiled
-          with
-          [
-              T=uint16_t,
-              OT=uint16_t
-          ]
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(178,30): warning C4244: '=': conversion from 'const double' to 'T', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(178,30): warning C4244:         with [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(178,30): warning C4244:         [ [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(178,30): warning C4244:             T=float [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(178,30): warning C4244:         ] [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(178,30):
-      the template instantiation context (the oldest one first) is
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(1926,35):
-          see reference to function template instantiation 'bool llama_model_loader::get_key<float>(llm_kv,float &,bool)' being compiled
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(964,12):
-          see reference to function template instantiation 'bool llama_model_loader::get_key<T>(const std::string &,T &,const bool)' being compiled
-          with
-          [
-              T=float
-          ]
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(953,42):
-          see reference to class template instantiation 'GGUFMeta::GKV<T>' being compiled
-          with
-          [
-              T=float
-          ]
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(194,21):
-          while compiling class template member function 'bool GGUFMeta::GKV<T>::set(const gguf_context *,const int,T &,const llama_model_kv_override *)'
-          with
-          [
-              T=float
-          ]
-              D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(204,13):
-              see the first reference to 'GGUFMeta::GKV<T>::set' in 'GGUFMeta::GKV<T>::set'
-          with
-          [
-              T=float
-          ]
-              D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(208,13):
-              see the first reference to 'GGUFMeta::GKV<T>::set' in 'GGUFMeta::GKV<T>::set'
-          with
-          [
-              T=float
-          ]
-              D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(953,22):
-              see the first reference to 'GGUFMeta::GKV<T>::set' in 'llama_model_loader::get_key'
-          with
-          [
-              T=float
-          ]
-              D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(964,12):
-              see the first reference to 'llama_model_loader::get_key' in 'llama_model_loader::get_key'
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-model-loader.cpp(195,17):
-          see reference to function template instantiation 'bool GGUFMeta::GKV<T>::try_override<T>(T &,const llama_model_kv_override *)' being compiled
-          with
-          [
-              T=float
-          ]
-  
-  llama-load-tensors.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchma
-
-... [TRUNCATED MIDDLE FOR README LIMIT] ...
-
-_v41::<lambda_3>::operator ()<llama_context::dsv4_runtime::comp_context>(const _T1 &) const' being compiled
-          with
-          [
-              _T1=llama_context::dsv4_runtime::comp_context
-          ]
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_deepseek4.cpp(2504,64): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_deepseek4.cpp(2629,74): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_deepseek4.cpp(2798,59): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_deepseek4.cpp(2853,27): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_deepseek4.cpp(2853,27): warning C4244: 'initializing': conversion from 'int64_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_openpangu.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_openpangu.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_openpangu.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_openpangu.cpp(269,77): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_openpangu.cpp(292,56): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_openpangu.cpp(354,54): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_openpangu.cpp(375,93): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_openpangu.cpp(537,21): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_openpangu.cpp(550,63): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_openpangu.cpp(678,73): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_openpangu.cpp(759,57): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_openpangu.cpp(813,47): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_openpangu.cpp(1186,28): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_openpangu.cpp(1186,28): warning C4244: 'initializing': conversion from 'int64_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_glm4.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_glm4.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_glm4.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm4.cpp(17,62): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm4.cpp(17,49): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm4.cpp(43,40): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm4.cpp(43,40): warning C4244: 'initializing': conversion from 'int64_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm4.cpp(70,72): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm4.cpp(72,72): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm4.cpp(170,36): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm4.cpp(170,36): warning C4244: 'initializing': conversion from 'int64_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm4.cpp(217,71): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm4.cpp(220,65): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm4.cpp(297,62): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm4.cpp(297,49): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm4.cpp(392,40): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm4.cpp(392,40): warning C4244: 'initializing': conversion from 'int64_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_bitnet.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_bitnet.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_bitnet.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_bitnet.cpp(64,21): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_bitnet.cpp(71,21): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_bitnet.cpp(189,21): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_bitnet.cpp(196,21): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_cohere2.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_cohere2.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_cohere2.cpp')
-  
-  build_cohere2_moe.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_cohere2_moe.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_cohere2_moe.cpp')
-  
-  Generating Code...
-  Compiling...
-  build_t5.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_t5.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_t5.cpp')
-  
-  build_jais.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_jais.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_jais.cpp')
-  
-  build_chatglm.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_chatglm.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_chatglm.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_chatglm.cpp(50,21): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_chatglm.cpp(57,21): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_dots1.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_dots1.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_dots1.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_dots1.cpp(50,21): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_dots1.cpp(59,21): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_ernie45.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_ernie45.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_ernie45.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_ernie45.cpp(63,21): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_ernie45.cpp(66,21): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_hunyuan.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_hunyuan.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_hunyuan.cpp')
-  
-  build_mimo2.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_mimo2.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_mimo2.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_mimo2.cpp(26,36): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_mimo2.cpp(26,36): warning C4244: 'initializing': conversion from 'int64_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_flint.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_flint.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_flint.cpp')
-  
-  build_openai.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_openai.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_openai.cpp')
-  
-  build_bailingmoe2.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_bailingmoe2.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_bailingmoe2.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_bailingmoe2.cpp(27,36): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_bailingmoe2.cpp(27,36): warning C4244: 'initializing': conversion from 'int64_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_bailingmoe2.cpp(30,62): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_bailingmoe2.cpp(30,49): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_bailingmoe2.cpp(50,68): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_bailingmoe2.cpp(52,68): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_bailingmoe3.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_bailingmoe3.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_bailingmoe3.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_bailingmoe3.cpp(31,58): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_bailingmoe3.cpp(31,51): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_glm5next.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_glm5next.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_glm5next.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm5next.cpp(44,60): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm5next.cpp(176,55): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_glm5next.cpp(198,63): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_raon1.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_raon1.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_raon1.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_raon1.cpp(45,78): warning C4244: 'argument': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_raon1.cpp(45,71): warning C4244: 'argument': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_raon1.cpp(248,97): warning C4244: 'argument': conversion from 'int64_t' to 'float', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_xing4.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_xing4.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_xing4.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_xing4.cpp(21,60): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_xing4.cpp(123,94): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_xing4.cpp(124,94): warning C4244: 'argument': conversion from 'int64_t' to 'float', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_minimaxm2.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_minimaxm2.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_minimaxm2.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_minimaxm2.cpp(88,33): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_minimaxm2.cpp(89,33): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_minimaxm2.cpp(98,68): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_minimaxm2.cpp(100,68): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_minimaxm2.cpp(223,21): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_minimaxm2.cpp(226,21): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_minimaxm3.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_minimaxm3.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_minimaxm3.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_minimaxm3.cpp(21,61): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_smollm3.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_smollm3.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_smollm3.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_smollm3.cpp(45,68): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\graphs\build_smollm3.cpp(49,68): warning C4244: 'argument': conversion from 'const int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  build_spark2_5.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(146,40): warning C4305: 'initializing': truncation from 'double' to 'float' [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_spark2_5.cpp')
-  
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\src\llama-hparams.h(378,47): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\src\llama.vcxproj]
-  (compiling source file '../../src/graphs/build_spark2_5.cpp')
-  
-  Generating Code...
-  Auto build dll exports
-     Creating library D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/build/src/Release/llama.lib and object D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/build/src/Release/llama.exp
-  llama.vcxproj -> D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\bin\Release\llama.dll
-  Building Custom Rule D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/common/CMakeLists.txt
-  chat-auto-parser-generator.cpp
-  chat-auto-parser-helpers.cpp
-  chat-diff-analyzer.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\chat-diff-analyzer.cpp(762,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\chat-diff-analyzer.cpp(763,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\chat-diff-analyzer.cpp(805,54): warning C4267: '-=': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\chat-diff-analyzer.cpp(806,53): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-  chat-peg-parser.cpp
-  common.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\common.cpp(1083,30): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details. [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-  sampling.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(303,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(303,20): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(789,19): warning C4267: '=': conversion from 'size_t' to '_Ty', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(789,19): warning C4267:         with [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(789,19): warning C4267:         [ [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(789,19): warning C4267:             _Ty=int [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(789,19): warning C4267:         ] [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(800,31): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(939,5): warning C4804: '+=': unsafe use of type 'bool' in operation [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(945,5): warning C4804: '-=': unsafe use of type 'bool' in operation [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(968,30): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(981,34): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(986,34): warning C4018: '<': signed/unsigned mismatch [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(1075,27): warning C4267: '+=': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(1079,27): warning C4267: '+=': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(1115,29): warning C4267: '-=': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(1116,47): warning C4267: '=': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\sampling.cpp(1154,25): warning C4267: '-=': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-  console.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\console.cpp(253,30): warning C4267: 'initializing': conversion from 'size_t' to 'DWORD', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\console.cpp(407,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-  json-partial.cpp
-  llguidance.cpp
-  json-schema-to-grammar.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\json-schema-to-grammar.cpp(97,46): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\json-schema-to-grammar.cpp(97,37): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\json-schema-to-grammar.cpp(112,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\json-schema-to-grammar.cpp(112,41): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\json-schema-to-grammar.cpp(173,20): warning C4244: 'initializing': conversion from 'int64_t' to 'char', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\json-schema-to-grammar.cpp(192,29): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\json-schema-to-grammar.cpp(203,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\json-schema-to-grammar.cpp(498,60): warning C4101: 'e': unreferenced local variable [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\json-schema-to-grammar.cpp(809,72): warning C4101: 'e': unreferenced local variable [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-  train.cpp
-  log.cpp
-  ngram-cache.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-cache.cpp(20,51): warning C4244: 'argument': conversion from 'int64_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-cache.cpp(212,31): warning C4267: 'initializing': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-cache.cpp(212,31): warning C4267: 'initializing': conversion from 'size_t' to 'const int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-  ngram-map.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-map.cpp(158,58): warning C4267: '=': conversion from 'size_t' to 'uint32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-map.cpp(169,24): warning C4267: 'initializing': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-map.cpp(321,45): warning C4267: '=': conversion from 'size_t' to '_Ty', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-map.cpp(321,45): warning C4267:         with [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-map.cpp(321,45): warning C4267:         [ [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-map.cpp(321,45): warning C4267:             _Ty=std::_Vbase [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-map.cpp(321,45): warning C4267:         ] [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-map.cpp(330,41): warning C4267: '=': conversion from 'size_t' to '_Ty', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-map.cpp(330,41): warning C4267:         with [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-map.cpp(330,41): warning C4267:         [ [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-map.cpp(330,41): warning C4267:             _Ty=std::_Vbase [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\ngram-map.cpp(330,41): warning C4267:         ] [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-  peg-parser.cpp
-  speculative.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\speculative.cpp(496,76): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\speculative.cpp(564,54): warning C4267: 'argument': conversion from 'size_t' to 'llama_pos', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\speculative.cpp(576,32): warning C4267: 'initializing': conversion from 'size_t' to 'llama_pos', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\speculative.cpp(576,32): warning C4267: 'initializing': conversion from 'size_t' to 'const llama_pos', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\speculative.cpp(1269,77): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\speculative.cpp(2571,59): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-  spec-tuner.cpp
-  unicode.cpp
-  ngram-mod.cpp
-  suffix-tree.cpp
-  Generating Code...
-  Compiling...
-  regex-partial.cpp
-  reasoning-budget.cpp
-  chat.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\chat.cpp(52,32): warning C4101: 'e': unreferenced local variable [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\chat.cpp(3132,70): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\chat.cpp(3145,49): warning C4267: 'argument': conversion from 'size_t' to 'int32_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-  lexer.cpp
-  parser.cpp
-  runtime.cpp
-  value.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\jinja\value.cpp(738,28): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\common\jinja\value.cpp(738,28): warning C4244: 'initializing': conversion from 'int64_t' to 'const int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-  string.cpp
-  caps.cpp
-  Generating Code...
-sampling.obj : warning LNK4006: "struct common_reasoning_budget_ctx * __cdecl common_reasoning_budget_init(struct llama_vocab const *,class std::vector<int,class std::allocator<int> > const &,class std::vector<int,class std::allocator<int> > const &,class std::vector<int,class std::allocator<int> > const &,int,enum common_reasoning_budget_state)" (?common_reasoning_budget_init@@YAPEAUcommon_reasoning_budget_ctx@@PEBUllama_vocab@@AEBV?$vector@HV?$allocator@H@std@@@std@@11HW4common_reasoning_budget_state@@@Z) already defined in reasoning-budget.obj; second definition ignored [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-sampling.obj : warning LNK4006: "enum common_reasoning_budget_state __cdecl common_reasoning_budget_get_state(struct common_reasoning_budget_ctx const *)" (?common_reasoning_budget_get_state@@YA?AW4common_reasoning_budget_state@@PEBUcommon_reasoning_budget_ctx@@@Z) already defined in reasoning-budget.obj; second definition ignored [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\common.vcxproj]
-  common.vcxproj -> D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\Release\common.lib
-  Building Custom Rule D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/examples/llama-bench/CMakeLists.txt
-  llama-bench.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\examples\llama-bench\llama-bench.cpp(480,30): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details. [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\examples\llama-bench\llama-bench.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\examples\llama-bench\llama-bench.cpp(1573,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\examples\llama-bench\llama-bench.vcxproj]
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\examples\llama-bench\llama-bench.cpp(93,13): warning C4244: 'initializing': conversion from 'double' to 'size_t', possible loss of data [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\examples\llama-bench\llama-bench.vcxproj]
-      D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\examples\llama-bench\llama-bench.cpp(93,13):
-      the template instantiation context (the oldest one first) is
-          D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\examples\llama-bench\llama-bench.cpp(1503,18):
-          see reference to function template instantiation 'T stdev<size_t>(const std::vector<size_t,std::allocator<size_t>> &)' being compiled
-          with
-          [
-              T=size_t
-          ]
-  
-  llama-bench.vcxproj -> D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\bin\Release\llama-bench.exe
-MSBuild version 18.11.1-1.26513.3+940033be3 for .NET Framework
-
-  build_info.vcxproj -> D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\build_info.dir\Release\build_info.lib
-  Auto build dll exports
-  ggml.vcxproj -> D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\bin\Release\ggml.dll
-  Auto build dll exports
-  llama.vcxproj -> D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\bin\Release\llama.dll
-  common.vcxproj -> D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\common\Release\common.lib
-  Building Custom Rule D:/a/apex-inference-benchmarker/apex-inference-benchmarker/baselines/ik_llama/examples/main/CMakeLists.txt
-  main.cpp
-D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\examples\main\main.cpp(518,19): warning C4804: '>': unsafe use of type 'bool' in operation [D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\examples\main\llama-cli.vcxproj]
-  llama-cli.vcxproj -> D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\build\bin\Release\llama-cli.exe
+gcc -D_FILE_OFFSET_BITS=64 -O3 -march=x86-64-v3 -fopenmp -Wall -Wextra -Wno-unused-parameter -Wno-misleading-indentation -Wno-unused-function  -MMD -MP glm53.c    -o glm53.exe -lm -fopenmp -static -lpsapi
 ```
 
 ### 📄 `03_host_hardware_benchmark.log`
 ```text
-================================================================================
-   APEX INFERENCE v1 — PRE-FLIGHT HOST HARDWARE TELEMETRY & BENCHMARK REPORT
-   (CrystalDiskMark NVMe Profile + PassMark PerformanceTest CPU/RAM Suite)
-================================================================================
- [Host System Specifications]
-   OS Platform        : Windows 11 / Server 2025 (x86_64)
-   CPU Model          : AMD EPYC 9V74 80-Core Processor                
-   Cores / Threads    : 2 Physical / 4 Logical
-   SIMD ISA Support   : AVX2=YES | FMA=YES | F16C=YES | AVX-VNNI=NO | AVX512-VNNI=YES
-   System Memory (RAM): 15.99 GB Total / 13.27 GB Available
-   Active Drive Space : 219.98 GB Total / 219.29 GB Free
---------------------------------------------------------------------------------
- [CrystalDiskMark-Style NVMe SSD Storage Benchmark]
-   SEQ1M Direct Uncached NVMe Read    :    589.12 MB/s (Hardware Floor)
-   SEQ1M Q8T1  Read (OS-Cached Max)   :   2479.09 MB/s
-   SEQ1M Q1T1  Read (Single Queue)    :   9646.11 MB/s
-   SEQ128K Q32T1 Expert-Stripe Read   :  11090.80 MB/s
-   RND4K Q32T16 Read                  :    710.81 MB/s (  181968 IOPS)
-   RND4K Q1T1  Read                   :    806.48 MB/s (Latency: 4.84 us)
---------------------------------------------------------------------------------
- [PassMark / STREAM System RAM Bandwidth & Latency Benchmark]
-   AVX2 256-bit Sequential Read BW    :     81.09 GB/s
-   AVX2 256-bit Sequential Write BW   :     74.26 GB/s
-   STREAM Triad (A = B + s*C) BW      :     49.12 GB/s
-   Random Pointer-Chase Latency       :     57.02 ns
---------------------------------------------------------------------------------
- [PassMark-Style CPU AVX2+FMA Compute & IQ2 Kernel Benchmark]
-   Single-Core AVX2+FMA Throughput    :     57.93 GFLOPS
-   Multi-Core  AVX2+FMA Throughput    :    226.78 GFLOPS
-   IQ2_XXS/XS Fused Dot Effective BW  :     26.81 GB/s (FP32 Equiv)
-================================================================================
+Host CPU: AMD EPYC 9V74 80-Core Processor | Cores=2 Threads=4 | RAM=15.99 GB
+--- winsat disk -seq -read -drive c ---
+Windows System Assessment Tool
+Error: Unable to run inside of a Virtual Machine.  Please try again running directly on the native hardware.
+--- winsat disk -seq -read -drive d ---
+Windows System Assessment Tool
+Error: Unable to run inside of a Virtual Machine.  Please try again running directly on the native hardware.
+--- winsat disk -ran -read -drive d ---
+Windows System Assessment Tool
+Error: Unable to run inside of a Virtual Machine.  Please try again running directly on the native hardware.
+--- winsat mem ---
+Windows System Assessment Tool
+Error: Unable to run inside of a Virtual Machine.  Please try again running directly on the native hardware.
 ```
 
-### 📄 `04_glm53_stage1_parity.log`
+### 📄 `04_qwen38_stage1_parity.log`
 ```text
 [Apex-Parity] Verifying 100.00% Greedy Token & Batched-vs-Serial Bit Parity...
-[Apex-Parity] Model Architecture : glm5-next (GLM-5.3-Flash)
+[Apex-Parity] Serial  Tokens (4) : [17, 21, 25, 17] -> "26:2"
+[Apex-Parity] Batched Tokens (4) : [17, 21, 25, 17] -> "26:2"
+[Apex-Parity] Model Architecture : qwen4exp (Qwen-3.8-Flash-Next)
 [Apex-Parity] Max Logit ULP Diff : 0.000000000e+00
 [Apex-Parity] Greedy Token Match : 4 / 4 (100.00% Parity)
 ```
 
-### 📄 `05_glm53_stage1_prompt_response.log`
+### 📄 `05_qwen38_stage1_prompt_response.log`
 ```text
 ================================================================================
    APEX INFERENCE v1 — PRE-FLIGHT HOST HARDWARE TELEMETRY & BENCHMARK REPORT
@@ -2703,27 +1857,27 @@ D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ex
    CPU Model          : AMD EPYC 9V74 80-Core Processor                
    Cores / Threads    : 2 Physical / 4 Logical
    SIMD ISA Support   : AVX2=YES | FMA=YES | F16C=YES | AVX-VNNI=NO | AVX512-VNNI=YES
-   System Memory (RAM): 15.99 GB Total / 13.39 GB Available
-   Active Drive Space : 219.98 GB Total / 126.94 GB Free
+   System Memory (RAM): 15.99 GB Total / 14.69 GB Available
+   Active Drive Space : 219.98 GB Total / 149.17 GB Free
 --------------------------------------------------------------------------------
  [CrystalDiskMark-Style NVMe SSD Storage Benchmark]
-   SEQ1M Direct Uncached NVMe Read    :    592.87 MB/s (Hardware Floor)
-   SEQ1M Q8T1  Read (OS-Cached Max)   :   2364.96 MB/s
-   SEQ1M Q1T1  Read (Single Queue)    :   9209.03 MB/s
-   SEQ128K Q32T1 Expert-Stripe Read   :  10962.85 MB/s
-   RND4K Q32T16 Read                  :    692.74 MB/s (  177342 IOPS)
-   RND4K Q1T1  Read                   :    786.60 MB/s (Latency: 4.97 us)
+   SEQ1M Direct Uncached NVMe Read    :    571.91 MB/s (Hardware Floor)
+   SEQ1M Q8T1  Read (OS-Cached Max)   :   2260.23 MB/s
+   SEQ1M Q1T1  Read (Single Queue)    :   9365.56 MB/s
+   SEQ128K Q32T1 Expert-Stripe Read   :  10504.16 MB/s
+   RND4K Q32T16 Read                  :    624.41 MB/s (  159850 IOPS)
+   RND4K Q1T1  Read                   :    742.91 MB/s (Latency: 5.26 us)
 --------------------------------------------------------------------------------
  [PassMark / STREAM System RAM Bandwidth & Latency Benchmark]
-   AVX2 256-bit Sequential Read BW    :     69.55 GB/s
-   AVX2 256-bit Sequential Write BW   :     62.61 GB/s
-   STREAM Triad (A = B + s*C) BW      :     46.16 GB/s
-   Random Pointer-Chase Latency       :     90.45 ns
+   AVX2 256-bit Sequential Read BW    :     66.81 GB/s
+   AVX2 256-bit Sequential Write BW   :     59.56 GB/s
+   STREAM Triad (A = B + s*C) BW      :     42.05 GB/s
+   Random Pointer-Chase Latency       :    102.93 ns
 --------------------------------------------------------------------------------
  [PassMark-Style CPU AVX2+FMA Compute & IQ2 Kernel Benchmark]
-   Single-Core AVX2+FMA Throughput    :     58.38 GFLOPS
-   Multi-Core  AVX2+FMA Throughput    :    226.53 GFLOPS
-   IQ2_XXS/XS Fused Dot Effective BW  :     26.29 GB/s (FP32 Equiv)
+   Single-Core AVX2+FMA Throughput    :     58.40 GFLOPS
+   Multi-Core  AVX2+FMA Throughput    :    223.39 GFLOPS
+   IQ2_XXS/XS Fused Dot Effective BW  :     26.21 GB/s (FP32 Equiv)
 ================================================================================
 
 
@@ -2731,131 +1885,136 @@ D:\a\apex-inference-benchmarker\apex-inference-benchmarker\baselines\ik_llama\ex
  [Apex-Run] Interactive Prompt & Streaming Model Generation
 ================================================================================
  >>> User Prompt   : "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:"
- >>> Chat Template : 70 tokenized input IDs
-[LIVE-PREFILL] 70/70 tok | Chunk=0.53 tps | Avg=0.53 tps | Hit=73.6% | NVMe=531.2 MB/s (51661.71 MB, QD=64) | RSS=13970.4 MB
+ >>> Chat Template : 91 tokenized input IDs
+[LIVE-PREFILL] 91/91 tok | Chunk=1.78 tps | Avg=1.78 tps | Hit=79.2% | NVMe=534.1 MB/s (19602.76 MB, QD=64) | RSS=13615.7 MB
 
  >>> [Apex-Model-Response] <think>
-<think>
-<th>
-<thinking>
-<thinking<th>
-Let me user this question is a question about the user asks about "Explain why the why hybrid Gate why Gate DeltaNet Gate Net attention Net with Net MoE and E LB co-eco and sequential KB-1 sequential MB NV sequential NV
+!
+!
+!<|im_end|>!<|im_end|>!
+!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ================================================================================
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5559.38 MB (593/12384 exp = 4.79% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.71 MB | End=13454.79 MB | Peak=14037.62 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 7676.15 MB (3699/25088 exp = 14.74% pinned) | Staging=132.81 MB
+   Process RSS (Start/End/Peak) : Start=4.70 MB | End=13502.75 MB | Peak=14018.57 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
-   PROMPT (70 tok)   : "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:"
+   PROMPT (91 tok)   : "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:"
    RESPONSE (64 tok) : "<think>
-<think>
-<th>
-<thinking>
-<thinking<th>
-Let me user this question is a question about the user asks about "Explain why the why hybrid Gate why Gate DeltaNet Gate Net attention Net with Net MoE and E LB co-eco and sequential KB-1 sequential MB NV sequential NV DMA"
+!
+!
+!<|im_end|>!<|im_end|>!
+!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 --------------------------------------------------------------------------------
  [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 65 Steps)]
-   Logit Summary: AvgTop1Prob=42.9% | AvgMargin=1.279 | MinMargin=0.023
+   Logit Summary: AvgTop1Prob=73.5% | AvgMargin=1.204 | MinMargin=0.120
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |   13699 | <th            |   17.30 |  47.4% |   32169 |   16.35 | 131114.48 |  0 |  0 |  0 |     0.0 |
-   |    2 |     766 | ink            |   18.90 |  53.4% |   15724 |   18.74 | 2808.42 | 20 |232 | 84 | 1511936.0 |
-   |    3 |     397 | >\n            |   12.80 |   6.2% |     318 |   12.73 | 2808.42 |  0 |  0 |  0 | 1511936.0 |
-   |    4 |   13699 | <th            |   14.70 |  18.4% |     334 |   14.61 | 1898.60 |148 |128 | 60 | 1004448.0 |
-   |    5 |     766 | ink            |   22.04 |  99.6% |     307 |   14.17 | 1898.60 |  0 |  0 |  0 | 1004448.0 |
-   |    6 |     397 | >\n            |   12.54 |  13.7% |      29 |   12.50 | 2379.76 |137 |142 | 57 | 1019392.0 |
-   |    7 |   13699 | <th            |   16.29 |  41.2% |     522 |   16.02 | 2379.76 |  0 |  0 |  0 | 1019392.0 |
-   |    8 |     397 | >\n            |   17.08 |  39.3% |    1339 |   16.33 | 1392.31 |195 | 99 | 42 | 729984.0 |
-   |   36 |   29136 |  Gate          |   15.35 |  36.3% |     479 |   14.86 | 2364.16 | 84 |165 | 87 | 1307712.0 |
-   |   37 |    3170 |  why           |   16.44 |  65.8% |   34464 |   13.18 | 2364.16 |  0 |  0 |  0 | 1307712.0 |
-   |   20 |    3405 |  question      |   16.21 |  30.6% |     374 |   15.58 | 2074.98 |108 |170 | 58 | 1149312.0 |
-   |   21 |     374 |  is            |   15.85 |  19.4% |   15504 |   14.87 | 2074.98 |  0 |  0 |  0 | 1149312.0 |
-   |   62 |   24384 |  NV            |   15.58 |  36.6% |   50665 |   15.35 | 1712.67 |147 |132 | 57 | 974848.0 |
-   |   63 |   50665 |  sequential    |   14.36 |  20.5% |   25372 |   14.09 | 1712.67 |  0 |  0 |  0 | 974848.0 |
-   |   64 |   24384 |  NV            |   17.08 |  41.8% |   25372 |   17.00 | 1698.18 |165 |116 | 55 | 920864.0 |
-   |   65 |   25372 |  DMA           |   17.65 |  62.3% |   81911 |   16.44 | 1698.18 |  0 |  0 |  0 | 920864.0 |
+   |    1 |  248068 | <think>        |   32.95 | 100.0% |  248045 |   12.90 | 51210.59 |  0 |  0 |  0 |     0.0 |
+   |    2 |     198 | \n             |   21.79 |  63.4% |     271 |   21.24 |  318.78 |392 | 84 |  4 | 122932.0 |
+   |    3 |       0 | !              |     nan | 100.0% |       1 |     nan |  318.78 |  0 |  0 |  0 | 122932.0 |
+   |    4 |     198 | \n             |   12.40 |  23.4% |     271 |   12.06 |  478.98 |378 | 87 | 15 | 156682.0 |
+   |    5 |       0 | !              |     nan | 100.0% |       1 |     nan |  478.98 |  0 |  0 |  0 | 156682.0 |
+   |    6 |     198 | \n             |   12.62 |  21.8% |  248046 |   12.50 |  363.30 |409 | 64 |  7 | 128584.0 |
+   |    7 |       0 | !              |     nan | 100.0% |       1 |     nan |  363.30 |  0 |  0 |  0 | 128584.0 |
+   |    8 |  248046 | <|im_end|>     |   13.00 |  28.4% |     198 |   12.13 |  506.17 |437 | 42 |  1 | 107957.0 |
+   |   26 |       0 | !              |   13.54 |  54.3% |     198 |   10.71 |  536.46 |318 |103 | 59 | 269957.0 |
+   |   27 |       0 | !              |     nan | 100.0% |       1 |     nan |  536.46 |  0 |  0 |  0 | 269957.0 |
+   |   18 |       0 | !              |   13.85 |  46.9% |     198 |   12.04 |  530.02 |296 |115 | 69 | 276882.0 |
+   |   19 |       0 | !              |     nan | 100.0% |       1 |     nan |  530.02 |  0 |  0 |  0 | 276882.0 |
+   |   62 |       0 | !              |   15.17 |  81.0% |     198 |   11.37 |  335.24 |420 | 52 |  8 | 175869.5 |
+   |   63 |       0 | !              |     nan | 100.0% |       1 |     nan |  335.24 |  0 |  0 |  0 | 175869.5 |
+   |   64 |       0 | !              |   13.02 |  35.5% |     198 |   11.60 |  353.97 |396 | 62 | 22 | 179119.5 |
+   |   65 |       0 | !              |     nan | 100.0% |       1 |     nan |  353.97 |  0 |  0 |  0 | 179119.5 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (70 tok, 131.114s, TTFT=131114.48ms): Avg=0.53 | Min=0.53 | Max=0.53 tps
-   Prefill Chunks (1): C1:70t/0.5tps/74%
-   Decode  (64 tok, 122.639s): Avg=0.52 | Min=0.36 | Max=0.73 tps
-   Latency (ms) : Min=1365.02 | P10=1453.93 | P25=1875.12 | P50=1947.85 | P75=1991.61 | P90=2074.98 | P95=2379.76 | P99=2808.42 | Max=2808.42
-   Mean/SD/Jitt : Mean=1916.24ms | StdDev=280.15ms | Jitter=103.85ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/64
+   Prefill (91 tok, 51.211s, TTFT=51210.59ms): Avg=1.78 | Min=1.78 | Max=1.78 tps
+   Prefill Chunks (1): C1:91t/1.8tps/79%
+   Decode  (64 tok, 23.376s): Avg=2.74 | Min=1.86 | Max=3.81 tps
+   Latency (ms) : Min=262.16 | P10=293.92 | P25=324.25 | P50=353.97 | P75=396.20 | P90=478.98 | P95=530.02 | P99=536.46 | Max=536.46
+   Mean/SD/Jitt : Mean=365.24ms | StdDev=72.39ms | Jitter=43.40ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/64
    MTP Head     : 32/32 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (34272): RawRAM=21703 (63.33%) | Lookahead=4452 (+12.99%) | ColdMiss=8117 (23.68%) | EFF HIT=76.32%
-   Lookahead    : 6853 prefetched -> 4452 consumed (65.0% util) | Warmup >=75%:23t, >=85%:-1t
-   Trajectory   : @16= 74.6% | @64= 76.3% | @128=  N/A | @256=  N/A | @512=  N/A
+   Activations (59040): RawRAM=47708 (80.81%) | Lookahead=1809 (+3.06%) | ColdMiss=9523 (16.13%) | EFF HIT=83.87%
+   Lookahead    : 4779 prefetched -> 2129 consumed (44.5% util) | Warmup >=75%:1t, >=85%:-1t
+   Trajectory   : @16= 80.8% | @64= 83.9% | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 |  816 |  391 | 215 | 210 | 74.3%|3054.69 | | L24 |  816 |  582 |  81 | 153 | 81.2%|2084.38 |
-   | L04 |  816 |  370 | 121 | 325 | 60.2%|3981.88 | | L25 |  816 |  576 |  80 | 160 | 80.4%|2249.69 |
-   | L05 |  816 |  382 | 144 | 290 | 64.5%|3687.19 | | L26 |  816 |  560 |  95 | 161 | 80.3%|2041.25 |
-   | L06 |  816 |  398 | 162 | 256 | 68.6%|3435.62 | | L27 |  816 |  546 |  84 | 186 | 77.2%|2501.25 |
-   | L07 |  816 |  469 | 135 | 212 | 74.0%|2918.12 | | L28 |  816 |  507 | 105 | 204 | 75.0%|2680.94 |
-   | L08 |  816 |  446 | 126 | 244 | 70.1%|3320.62 | | L29 |  816 |  543 |  98 | 175 | 78.6%|2314.38 |
-   | L09 |  816 |  443 | 118 | 255 | 68.8%|3234.38 | | L30 |  816 |  516 | 103 | 197 | 75.9%|2494.06 |
-   | L10 |  816 |  424 | 152 | 240 | 70.6%|3234.38 | | L31 |  816 |  519 |  97 | 200 | 75.5%|2609.06 |
-   | L11 |  816 |  492 | 110 | 214 | 73.8%|3571.88 | | L32 |  816 |  514 | 102 | 200 | 75.5%|2688.12 |
-   | L12 |  816 |  503 | 114 | 199 | 75.6%|3123.88 | | L33 |  816 |  547 |  99 | 170 | 79.2%|2443.75 |
-   | L13 |  816 |  532 |  83 | 201 | 75.4%|2458.12 | | L34 |  816 |  526 | 116 | 174 | 78.7%|2400.62 |
-   | L14 |  816 |  505 | 101 | 210 | 74.3%|2839.06 | | L35 |  816 |  524 | 124 | 168 | 79.4%|2343.12 |
-   | L15 |  816 |  528 |  91 | 197 | 75.9%|2515.62 | | L36 |  816 |  515 | 129 | 172 | 78.9%|2379.06 |
-   | L16 |  816 |  512 |  99 | 205 | 74.9%|2637.81 | | L37 |  816 |  531 | 107 | 178 | 78.2%|2357.50 |
-   | L17 |  816 |  531 |  87 | 198 | 75.7%|2666.56 | | L38 |  816 |  557 | 104 | 155 | 81.0%|2141.88 |
-   | L18 |  816 |  599 |  60 | 157 | 80.8%|1926.25 | | L39 |  816 |  531 | 114 | 171 | 79.0%|2278.44 |
-   | L19 |  816 |  570 |  79 | 167 | 79.5%|2070.00 | | L40 |  816 |  511 | 121 | 184 | 77.5%|2515.62 |
-   | L20 |  816 |  612 |  56 | 148 | 81.9%|1883.12 | | L41 |  816 |  517 | 117 | 182 | 77.7%|2515.62 |
-   | L21 |  816 |  589 |  66 | 161 | 80.3%|2105.94 | | L42 |  816 |  546 |  98 | 172 | 78.9%|2256.88 |
-   | L22 |  816 |  600 |  70 | 146 | 82.1%|1962.19 | | L43 |  816 |  558 |  91 | 167 | 79.5%|2113.12 |
-   | L23 |  816 |  578 |  78 | 160 | 80.4%|2055.62 | | L44 |  816 |  503 | 120 | 193 | 76.3%|3241.12 |
+   | L00 | 1230 |  888 |  28 | 314 | 74.5%| 576.12 | | L24 | 1230 |  999 |  52 | 179 | 85.4%| 539.53 |
+   | L01 | 1230 |  966 |  10 | 254 | 79.3%| 636.25 | | L25 | 1230 |  955 |  71 | 204 | 83.4%| 571.48 |
+   | L02 | 1230 |  973 |  14 | 243 | 80.2%| 651.93 | | L26 | 1230 |  942 |  83 | 205 | 83.3%| 637.28 |
+   | L03 | 1230 | 1068 |  10 | 152 | 87.6%| 590.28 | | L27 | 1230 |  966 |  80 | 184 | 85.0%| 582.76 |
+   | L04 | 1230 | 1010 |  11 | 209 | 83.0%| 742.92 | | L28 | 1230 |  928 |  69 | 233 | 81.1%| 667.36 |
+   | L05 | 1230 |  993 |  13 | 224 | 81.8%| 462.45 | | L29 | 1230 |  946 |  92 | 192 | 84.4%| 468.14 |
+   | L06 | 1230 |  963 |  10 | 257 | 79.1%| 528.25 | | L30 | 1230 |  924 |  84 | 222 | 82.0%| 517.11 |
+   | L07 | 1230 |  979 |  18 | 233 | 81.1%| 426.20 | | L31 | 1230 | 1031 |  36 | 163 | 86.7%| 420.61 |
+   | L08 | 1230 | 1055 |  11 | 164 | 86.7%| 226.61 | | L32 | 1230 | 1006 |  45 | 179 | 85.4%| 498.17 |
+   | L09 | 1230 | 1037 |  17 | 176 | 85.7%| 247.78 | | L33 | 1230 |  931 |  93 | 206 | 83.3%| 486.87 |
+   | L10 | 1230 | 1030 |  16 | 184 | 85.0%| 260.23 | | L34 | 1230 |  979 |  52 | 199 | 83.8%| 515.67 |
+   | L11 | 1230 | 1049 |  18 | 163 | 86.7%| 254.00 | | L35 | 1230 |  994 |  63 | 173 | 85.9%| 394.68 |
+   | L12 | 1230 |  992 |  23 | 215 | 82.5%| 516.97 | | L36 | 1230 |  999 |  42 | 189 | 84.6%| 435.01 |
+   | L13 | 1230 | 1039 |  28 | 163 | 86.7%| 308.25 | | L37 | 1230 | 1032 |  19 | 179 | 85.4%| 449.29 |
+   | L14 | 1230 |  973 |  61 | 196 | 84.1%| 505.59 | | L38 | 1230 |  944 |  27 | 259 | 78.9%| 627.88 |
+   | L15 | 1230 | 1071 |  26 | 133 | 89.2%| 426.73 | | L39 | 1230 | 1038 |  36 | 156 | 87.3%| 498.17 |
+   | L16 | 1230 | 1005 |  59 | 166 | 86.5%| 468.09 | | L40 | 1230 |  999 |  50 | 181 | 85.3%| 473.73 |
+   | L17 | 1230 |  969 |  64 | 197 | 84.0%| 586.52 | | L41 | 1230 | 1008 |  31 | 191 | 84.5%| 361.55 |
+   | L18 | 1230 |  980 |  28 | 222 | 82.0%| 663.60 | | L42 | 1230 |  987 |  24 | 219 | 82.2%| 417.72 |
+   | L19 | 1230 |  990 |  72 | 168 | 86.3%| 432.13 | | L43 | 1230 | 1034 |  31 | 165 | 86.6%| 306.81 |
+   | L20 | 1230 |  983 |  48 | 199 | 83.8%| 420.61 | | L44 | 1230 | 1026 |  12 | 192 | 84.4%| 364.43 |
+   | L21 | 1230 |  983 |  29 | 218 | 82.3%| 673.00 | | L45 | 1230 | 1036 |   7 | 187 | 84.8%| 299.61 |
+   | L22 | 1230 |  945 |  20 | 265 | 78.5%| 727.51 | | L46 | 1230 | 1018 |  19 | 193 | 84.3%| 388.92 |
+   | L23 | 1230 | 1026 |  43 | 161 | 86.9%| 377.39 | | L47 | 1230 | 1019 |  14 | 197 | 84.0%| 438.01 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 116789.27 MB (Load=6361.84 | Prefill=45299.88 | Warmup=0.00 | Decode=65127.56 MB)
-   SSD Data/Token (Decode)      : Avg=1017.618 MB/tok (Min=712.875 | P50=1043.438 | P95=1277.062 | Max=1476.500 MB) | Prefill=647.141 MB/tok
-   NVMe Batches / Requests      : 2551 Batches | 46571 Reads | 0 LBA Merges (Avg 2568.0 KB/req)
-   SSD Read Bandwidth           : Avg=549.86 MB/s | Peak=4484.30 MB/s (100.0% of 592.9 MB/s Direct NVMe)
-   OS Kernel I/O Verification   : Read=117776.31 MB | Write=128.00 MB | Syscalls=58145
-   Sync Stall vs Async DMA      : SyncStall=109713.77 ms | AsyncOverlapped=200149.76 ms (64.6% Overlapped)
-   RAM Traffic & Effective BW   : 777.28 GB moved | Eff=3.06 GB/s (STREAM Triad Max=46.16 GB/s)
-   CPU Time & Utilization       : User=256.984s + Sys=9.469s (Wall=270.816s) | SysUtil=24.6% | ThrUtil=24.6% | 55.72 GFLOPS
+   Engine SSD Transfer Total    : 29286.48 MB (Load=4614.69 | Prefill=14988.07 | Warmup=0.00 | Decode=9683.72 MB)
+   SSD Data/Token (Decode)      : Avg=151.308 MB/tok (Min=86.066 | P50=146.662 | P95=263.630 | Max=270.393 MB) | Prefill=164.704 MB/tok
+   NVMe Batches / Requests      : 1988 Batches | 45982 Raw -> 43841 Merged (2141 LBA Merges, Avg 684.0 KB/io)
+   SSD I/O Size Histogram       : <64K=2178 | 64K-512K=9872 | 512K-2M=31313 | >2M=478
+   SSD Read Bandwidth (Active)  : Min=14.35 | Avg=594.51 | Peak=8881.01 MB/s | WallAmort=392.65 MB/s (100.0% of 571.9 MB/s Direct NVMe)
+   OS Kernel I/O Verification   : Read=30284.07 MB | Write=128.00 MB | Syscalls=60893
+   Sync Stall vs Async DMA      : SyncStall=29274.29 ms | AsyncOverlapped=40658.90 ms (58.1% Overlapped)
+   RAM Traffic & Active BW      : 622.87 GB moved | Active=16.26 GB/s (38.7% STREAM) | WallAmort=8.35 GB/s (Max=42.05 GB/s)
+   Stage Breakdown (Pref/Dec)   : Prefill=51.21s (68.7%, 14988.07 MB SSD) | Decode=23.38s (31.3%, 9683.72 MB SSD)
+   CPU Time & Utilization       : User=121.672s + Sys=8.953s (Wall=88.195s) | SysUtil=37.0% | ThrUtil=37.0% | 82.71 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :  32420.49 ms (241943.9 us/tok | 12.78%)
-   MoE AVX2 Q8 Expert Compute   :  43439.00 ms (324171.6 us/tok | 17.12%)
-   Router + Lookahead Dispatch  :    632.21 ms ( 4718.0 us/tok |  0.25%)
-   LM Head Output Projection    :   1243.00 ms ( 9276.1 us/tok |  0.49%)
-   Foreground NVMe Sync Stall   : 109713.77 ms (818759.5 us/tok | 43.24%)
-   Unaccounted / OMP & Sampling :  66305.48 ms (494817.0 us/tok | 26.13%) | Total Wall=253753.95 ms
+   Dense + Attention/Linear SSM :  17755.03 ms (114548.6 us/tok | 23.80%)
+   MoE AVX2 Q8 Expert Compute   :  17955.10 ms (115839.3 us/tok | 24.07%)
+   Router + Lookahead Dispatch  :    800.38 ms ( 5163.7 us/tok |  1.07%)
+   LM Head Output Projection    :   2591.20 ms (16717.4 us/tok |  3.47%)
+   Foreground NVMe Sync Stall   :  29274.29 ms (188866.4 us/tok | 39.25%)
+   Unaccounted / OMP & Sampling :   6210.21 ms (40065.9 us/tok |  8.33%) | Total Wall=74586.21 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    35.34%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |    24.92%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    30.77%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     7.36%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     1.61%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    69.11%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     8.13%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    13.58%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     6.62%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.56%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -2863,140 +2022,130 @@ Let me user this question is a question about the user asks about "Explain why t
 ================================================================================
 ```
 
-### 📄 `05a_glm53_stage1_fair_64p_32g.log`
+### 📄 `05a_qwen38_stage1_fair_64p_32g.log`
 ```text
-[Apex-Init] Model Loaded: GLM 5.3 Flash | Layers=45 | Hidden=4096 | Experts=288 (Top-8) | Pinned Trunk=6460.98 MB | Expert Cache=5221.88 MB (557 slots)
+[Apex-Init] Model Loaded: Qwen3.8 Flash Next | Layers=48 | Hidden=2560 | Experts=512 (Top-10) | Pinned Trunk=4614.77 MB | Expert Cache=7196.78 MB (3468 slots)
 [Apex-Prompt] Input (64 tokens): "[64-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 64/64 tok | Chunk=0.54 tps | Avg=0.54 tps | Hit=73.8% | NVMe=532.0 MB/s (47437.59 MB, QD=64) | RSS=13629.8 MB
-[LIVE-DECODE] 2/32 tok | Avg=0.35 tps | Hit=73.8% (LA:+1.0%) | NVMe=533.2 MB/s (50472.02 MB) | RSS=13599.9 MB
-[LIVE-DECODE] 4/32 tok | Avg=0.38 tps | Hit=74.0% (LA:+1.9%) | NVMe=534.2 MB/s (52820.71 MB) | RSS=13485.8 MB
-[LIVE-DECODE] 6/32 tok | Avg=0.39 tps | Hit=74.1% (LA:+2.8%) | NVMe=535.1 MB/s (55295.09 MB) | RSS=13380.2 MB
-[LIVE-DECODE] 8/32 tok | Avg=0.43 tps | Hit=74.3% (LA:+3.5%) | NVMe=536.8 MB/s (57293.02 MB) | RSS=13343.2 MB
-[LIVE-DECODE] 10/32 tok | Avg=0.44 tps | Hit=74.5% (LA:+4.2%) | NVMe=538.6 MB/s (59354.02 MB) | RSS=13283.1 MB
-[LIVE-DECODE] 12/32 tok | Avg=0.45 tps | Hit=74.7% (LA:+5.0%) | NVMe=540.0 MB/s (61595.34 MB) | RSS=13230.2 MB
-[LIVE-DECODE] 14/32 tok | Avg=0.47 tps | Hit=74.8% (LA:+5.7%) | NVMe=541.8 MB/s (63562.27 MB) | RSS=13189.6 MB
-[LIVE-DECODE] 16/32 tok | Avg=0.49 tps | Hit=75.0% (LA:+6.1%) | NVMe=542.8 MB/s (65121.40 MB) | RSS=13183.5 MB
-[LIVE-DECODE] 18/32 tok | Avg=0.48 tps | Hit=75.1% (LA:+6.7%) | NVMe=543.7 MB/s (67543.59 MB) | RSS=13161.5 MB
-[LIVE-DECODE] 20/32 tok | Avg=0.48 tps | Hit=75.2% (LA:+7.3%) | NVMe=544.3 MB/s (69636.27 MB) | RSS=13116.1 MB
-[LIVE-DECODE] 22/32 tok | Avg=0.49 tps | Hit=75.4% (LA:+7.9%) | NVMe=545.1 MB/s (71636.15 MB) | RSS=13107.9 MB
-[LIVE-DECODE] 24/32 tok | Avg=0.49 tps | Hit=75.4% (LA:+8.4%) | NVMe=546.0 MB/s (73899.02 MB) | RSS=13107.9 MB
-[LIVE-DECODE] 26/32 tok | Avg=0.49 tps | Hit=75.5% (LA:+8.9%) | NVMe=547.0 MB/s (76036.21 MB) | RSS=13107.9 MB
-[LIVE-DECODE] 28/32 tok | Avg=0.49 tps | Hit=75.5% (LA:+9.2%) | NVMe=547.6 MB/s (78130.84 MB) | RSS=13107.9 MB
-[LIVE-DECODE] 30/32 tok | Avg=0.49 tps | Hit=75.6% (LA:+9.6%) | NVMe=548.3 MB/s (80132.84 MB) | RSS=13107.9 MB
-[LIVE-DECODE] 32/32 tok | Avg=0.50 tps | Hit=75.7% (LA:+9.9%) | NVMe=548.7 MB/s (82005.96 MB) | RSS=13107.9 MB
+[LIVE-PREFILL] 64/64 tok | Chunk=1.70 tps | Avg=1.70 tps | Hit=79.7% | NVMe=527.1 MB/s (14858.61 MB, QD=64) | RSS=13120.5 MB
+[LIVE-DECODE] 8/32 tok | Avg=1.95 tps | Hit=80.3% (LA:+1.8%) | NVMe=541.0 MB/s (17036.89 MB) | RSS=13127.1 MB
+[LIVE-DECODE] 16/32 tok | Avg=2.32 tps | Hit=81.2% (LA:+2.9%) | NVMe=561.6 MB/s (18641.19 MB) | RSS=13091.0 MB
+[LIVE-DECODE] 24/32 tok | Avg=2.48 tps | Hit=82.1% (LA:+3.4%) | NVMe=576.1 MB/s (19955.60 MB) | RSS=13085.1 MB
+[LIVE-DECODE] 32/32 tok | Avg=2.64 tps | Hit=82.9% (LA:+3.7%) | NVMe=590.7 MB/s (21096.85 MB) | RSS=13073.6 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5221.88 MB (557/12384 exp = 4.50% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.82 MB | End=13107.92 MB | Peak=13698.38 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 7196.78 MB (3468/25088 exp = 13.82% pinned) | Staging=132.81 MB
+   Process RSS (Start/End/Peak) : Start=4.89 MB | End=13073.65 MB | Peak=13550.32 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (64 tok)   : "[64-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency..."
-   RESPONSE (32 tok) : " a 1-bit... More
-[1. More highlights…
-In
-In a1-bit quantized 1-bit quantized 1-bitized 1-bit"
+   RESPONSE (32 tok) : " 2!@!$!m! !! !! !! !! !! !! !! !! !!!! !! !!"
 --------------------------------------------------------------------------------
  [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 33 Steps)]
-   Logit Summary: AvgTop1Prob=36.8% | AvgMargin=1.757 | MinMargin=0.015
+   Logit Summary: AvgTop1Prob=56.5% | AvgMargin=0.439 | MinMargin=0.031
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |     264 |  a             |   13.92 |  10.6% |   47414 |   13.42 | 119193.33 |  0 |  0 |  0 |     0.0 |
-   |    2 |     220 |                |   14.20 |   9.2% |   24923 |   14.18 | 2864.00 | 19 |227 | 90 | 1553632.0 |
-   |    3 |      16 | 1              |   18.33 |  26.6% |      19 |   17.27 | 2864.00 |  0 |  0 |  0 | 1553632.0 |
-   |    4 |   15245 | -bit           |   13.67 |  13.4% |      13 |   13.56 | 2361.46 | 79 |202 | 55 | 1202528.0 |
-   |    5 |    1112 | ...            |   13.59 |   8.9% |    1565 |   13.29 | 2361.46 |  0 |  0 |  0 | 1202528.0 |
-   |    6 |    4398 |  More          |   11.74 |   8.2% |     508 |   10.90 | 2383.80 | 73 |207 | 56 | 1266880.0 |
-   |    7 |     198 | \n             |   11.62 |   6.7% |     271 |   11.49 | 2383.80 |  0 |  0 |  0 | 1266880.0 |
-   |    8 |      58 | [              |   13.68 |   7.4% |     785 |   13.10 | 1798.52 |118 |175 | 43 | 1022944.0 |
-   |   18 |      16 | 1              |   14.79 |  37.1% |       8 |   12.48 | 2374.09 | 86 |187 | 63 | 1240160.0 |
-   |   19 |   15245 | -bit           |   24.00 |  99.8% |    1455 |   16.07 | 2374.09 |  0 |  0 |  0 | 1240160.0 |
-   |   24 |   15245 | -bit           |   14.65 |  22.8% |     198 |   14.42 | 2059.88 |110 |162 | 64 | 1158592.0 |
-   |   25 |   10267 |  quant         |   20.95 |  97.4% |     220 |   15.80 | 2059.88 |  0 |  0 |  0 | 1158592.0 |
-   |   30 |    1506 | ized           |   16.47 |  78.5% |   10267 |   12.96 | 1819.29 |136 |131 | 69 | 1025024.0 |
-   |   31 |     220 |                |   19.68 |  90.4% |      16 |   16.01 | 1819.29 |  0 |  0 |  0 | 1025024.0 |
-   |   32 |      16 | 1              |   15.37 |  33.8% |      19 |   14.89 | 1739.18 |153 |119 | 64 | 959040.0 |
-   |   33 |   15245 | -bit           |   25.55 | 100.0% |    1455 |   16.54 | 1739.18 |  0 |  0 |  0 | 959040.0 |
+   |    1 |     220 |                |   15.43 |   8.4% |    2446 |   14.41 | 37718.98 |  0 |  0 |  0 |     0.0 |
+   |    2 |      17 | 2              |   18.13 |  24.4% |      16 |   18.10 |  548.40 |241 |186 | 53 | 297232.0 |
+   |    3 |       0 | !              |     nan | 100.0% |       1 |     nan |  548.40 |  0 |  0 |  0 | 297232.0 |
+   |    4 |      31 | @              |   12.60 |   7.7% |      76 |   12.56 |  604.22 |235 |178 | 67 | 325719.5 |
+   |    5 |       0 | !              |     nan | 100.0% |       1 |     nan |  604.22 |  0 |  0 |  0 | 325719.5 |
+   |    6 |       3 | $              |   12.91 |  13.1% |      12 |   12.65 |  532.83 |262 |158 | 60 | 302784.0 |
+   |    7 |       0 | !              |     nan | 100.0% |       1 |     nan |  532.83 |  0 |  0 |  0 | 302784.0 |
+   |    8 |      76 | m              |   11.77 |   3.8% |   35716 |   11.70 |  370.87 |382 | 79 | 19 | 189544.5 |
+   |   24 |     729 |  !             |   12.39 |  23.4% |       3 |   10.35 |  421.38 |424 | 56 |  0 | 151844.5 |
+   |   25 |       0 | !              |     nan | 100.0% |       1 |     nan |  421.38 |  0 |  0 |  0 | 151844.5 |
+   |   10 |     729 |  !             |   11.71 |   9.5% |    1088 |   10.91 |  377.22 |342 |122 | 16 | 220394.5 |
+   |   11 |       0 | !              |     nan | 100.0% |       1 |     nan |  377.22 |  0 |  0 |  0 | 220394.5 |
+   |   30 |     729 |  !             |   11.42 |   8.7% |     198 |   11.23 |  291.97 |435 | 45 |  0 | 134494.5 |
+   |   31 |       0 | !              |     nan | 100.0% |       1 |     nan |  291.97 |  0 |  0 |  0 | 134494.5 |
+   |   32 |     729 |  !             |   12.57 |  23.3% |   13682 |   10.85 |  293.12 |446 | 34 |  0 | 122669.5 |
+   |   33 |       0 | !              |     nan | 100.0% |       1 |     nan |  293.12 |  0 |  0 |  0 | 122669.5 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (64 tok, 119.193s, TTFT=119193.33ms): Avg=0.54 | Min=0.54 | Max=0.54 tps
-   Prefill Chunks (1): C1:64t/0.5tps/74%
-   Decode  (32 tok, 64.153s): Avg=0.50 | Min=0.35 | Max=0.70 tps
-   Latency (ms) : Min=1423.75 | P10=1722.07 | P25=1819.29 | P50=1936.22 | P75=2361.46 | P90=2383.80 | P95=2864.00 | P99=2864.00 | Max=2864.00
-   Mean/SD/Jitt : Mean=2004.77ms | StdDev=333.54ms | Jitter=128.21ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/32
+   Prefill (64 tok, 37.719s, TTFT=37718.98ms): Avg=1.70 | Min=1.70 | Max=1.70 tps
+   Prefill Chunks (1): C1:64t/1.7tps/80%
+   Decode  (32 tok, 12.103s): Avg=2.64 | Min=1.66 | Max=3.56 tps
+   Latency (ms) : Min=281.01 | P10=291.97 | P25=320.76 | P50=350.58 | P75=421.38 | P90=548.40 | P95=604.22 | P99=604.22 | Max=604.22
+   Mean/SD/Jitt : Mean=378.21ms | StdDev=95.82ms | Jitter=26.93ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/32
    MTP Head     : 16/16 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (26880): RawRAM=17664 (65.71%) | Lookahead=2672 (+9.94%) | ColdMiss=6544 (24.35%) | EFF HIT=75.65%
-   Lookahead    : 3711 prefetched -> 2672 consumed (72.0% util) | Warmup >=75%:15t, >=85%:-1t
-   Trajectory   : @16= 75.0% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
+   Activations (38400): RawRAM=30419 (79.22%) | Lookahead=1429 (+3.72%) | ColdMiss=6552 (17.06%) | EFF HIT=82.94%
+   Lookahead    : 3172 prefetched -> 1589 consumed (50.1% util) | Warmup >=75%:1t, >=85%:-1t
+   Trajectory   : @16= 81.2% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 |  640 |  327 | 102 | 211 | 67.0%|2249.69 | | L24 |  640 |  457 |  49 | 134 | 79.1%|1473.44 |
-   | L04 |  640 |  315 |  72 | 253 | 60.5%|2680.94 | | L25 |  640 |  443 |  53 | 144 | 77.5%|1681.88 |
-   | L05 |  640 |  316 |  76 | 248 | 61.2%|2623.44 | | L26 |  640 |  452 |  69 | 119 | 81.4%|1437.50 |
-   | L06 |  640 |  345 |  89 | 206 | 67.8%|2285.62 | | L27 |  640 |  436 |  65 | 139 | 78.3%|1602.81 |
-   | L07 |  640 |  386 |  84 | 170 | 73.4%|1983.75 | | L28 |  640 |  431 |  67 | 142 | 77.8%|1653.12 |
-   | L08 |  640 |  384 |  71 | 185 | 71.1%|2041.25 | | L29 |  640 |  423 |  65 | 152 | 76.2%|1760.94 |
-   | L09 |  640 |  363 |  70 | 207 | 67.7%|2235.31 | | L30 |  640 |  430 |  58 | 152 | 76.2%|1660.31 |
-   | L10 |  640 |  360 |  78 | 202 | 68.4%|2256.88 | | L31 |  640 |  419 |  60 | 161 | 74.8%|1732.19 |
-   | L11 |  640 |  406 |  61 | 173 | 73.0%|2465.62 | | L32 |  640 |  407 |  77 | 156 | 75.6%|1796.88 |
-   | L12 |  640 |  410 |  64 | 166 | 74.1%|2177.50 | | L33 |  640 |  445 |  54 | 141 | 78.0%|1588.44 |
-   | L13 |  640 |  429 |  51 | 160 | 75.0%|1768.12 | | L34 |  640 |  449 |  65 | 126 | 80.3%|1487.81 |
-   | L14 |  640 |  439 |  43 | 158 | 75.3%|1696.25 | | L35 |  640 |  431 |  72 | 137 | 78.6%|1588.44 |
-   | L15 |  640 |  438 |  47 | 155 | 75.8%|1660.31 | | L36 |  640 |  429 |  67 | 144 | 77.5%|1638.75 |
-   | L16 |  640 |  437 |  65 | 138 | 78.4%|1681.88 | | L37 |  640 |  402 |  85 | 153 | 76.1%|1854.38 |
-   | L17 |  640 |  442 |  54 | 144 | 77.5%|1660.31 | | L38 |  640 |  432 |  67 | 141 | 78.0%|1610.00 |
-   | L18 |  640 |  461 |  47 | 132 | 79.4%|1516.56 | | L39 |  640 |  428 |  74 | 138 | 78.4%|1602.81 |
-   | L19 |  640 |  458 |  53 | 129 | 79.8%|1480.62 | | L40 |  640 |  444 |  56 | 140 | 78.1%|1552.50 |
-   | L20 |  640 |  455 |  42 | 143 | 77.7%|1595.62 | | L41 |  640 |  428 |  62 | 150 | 76.6%|1703.44 |
-   | L21 |  640 |  464 |  49 | 127 | 80.2%|1430.31 | | L42 |  640 |  456 |  53 | 131 | 79.5%|1459.06 |
-   | L22 |  640 |  467 |  46 | 127 | 80.2%|1415.94 | | L43 |  640 |  447 |  72 | 121 | 81.1%|1523.75 |
-   | L23 |  640 |  438 |  55 | 147 | 77.0%|1588.44 | | L44 |  640 |  435 |  63 | 142 | 77.8%|1968.12 |
+   | L00 |  800 |  537 |  26 | 237 | 70.4%| 443.04 | | L24 |  800 |  639 |  35 | 126 | 84.2%| 364.70 |
+   | L01 |  800 |  605 |  23 | 172 | 78.5%| 398.44 | | L25 |  800 |  649 |  33 | 118 | 85.2%| 325.22 |
+   | L02 |  800 |  599 |  16 | 185 | 76.9%| 534.01 | | L26 |  800 |  624 |  40 | 136 | 83.0%| 355.30 |
+   | L03 |  800 |  698 |   8 |  94 | 88.2%| 332.74 | | L27 |  800 |  650 |  24 | 126 | 84.2%| 300.78 |
+   | L04 |  800 |  654 |  11 | 135 | 83.1%| 415.04 | | L28 |  800 |  611 |  30 | 159 | 80.1%| 404.17 |
+   | L05 |  800 |  622 |  17 | 161 | 79.9%| 407.93 | | L29 |  800 |  620 |  41 | 139 | 82.6%| 315.45 |
+   | L06 |  800 |  611 |  23 | 166 | 79.2%| 415.45 | | L30 |  800 |  636 |  36 | 128 | 84.0%| 279.44 |
+   | L07 |  800 |  599 |  25 | 176 | 78.0%| 394.19 | | L31 |  800 |  660 |  28 | 112 | 86.0%| 266.48 |
+   | L08 |  800 |  645 |  31 | 124 | 84.5%| 216.65 | | L32 |  800 |  672 |  33 |  95 | 88.1%| 265.06 |
+   | L09 |  800 |  658 |  27 | 115 | 85.6%| 192.99 | | L33 |  800 |  609 |  46 | 145 | 81.9%| 306.81 |
+   | L10 |  800 |  633 |  30 | 137 | 82.9%| 229.10 | | L34 |  800 |  611 |  39 | 150 | 81.2%| 316.89 |
+   | L11 |  800 |  638 |  34 | 128 | 84.0%| 236.57 | | L35 |  800 |  657 |  32 | 111 | 86.1%| 247.75 |
+   | L12 |  800 |  608 |  31 | 161 | 79.9%| 389.14 | | L36 |  800 |  619 |  38 | 143 | 82.1%| 306.81 |
+   | L13 |  800 |  598 |  56 | 146 | 81.8%| 325.54 | | L37 |  800 |  630 |  26 | 144 | 82.0%| 368.46 |
+   | L14 |  800 |  616 |  51 | 133 | 83.4%| 308.25 | | L38 |  800 |  595 |  33 | 172 | 78.5%| 449.29 |
+   | L15 |  800 |  667 |  19 | 114 | 85.8%| 345.90 | | L39 |  800 |  694 |  14 |  92 | 88.5%| 297.02 |
+   | L16 |  800 |  670 |  32 |  98 | 87.8%| 265.06 | | L40 |  800 |  685 |  19 |  96 | 88.0%| 263.18 |
+   | L17 |  800 |  645 |  35 | 120 | 85.0%| 319.58 | | L41 |  800 |  656 |  20 | 124 | 84.5%| 223.27 |
+   | L18 |  800 |  603 |  39 | 158 | 80.2%| 428.61 | | L42 |  800 |  624 |  27 | 149 | 81.4%| 301.05 |
+   | L19 |  800 |  655 |  41 | 104 | 87.0%| 253.52 | | L43 |  800 |  680 |  23 |  97 | 87.9%| 210.30 |
+   | L20 |  800 |  615 |  38 | 147 | 81.6%| 303.93 | | L44 |  800 |  639 |  29 | 132 | 83.5%| 278.00 |
+   | L21 |  800 |  608 |  40 | 152 | 81.0%| 432.37 | | L45 |  800 |  646 |  26 | 128 | 84.0%| 273.68 |
+   | L22 |  800 |  575 |  39 | 186 | 76.8%| 490.65 | | L46 |  800 |  638 |  22 | 140 | 82.5%| 275.12 |
+   | L23 |  800 |  678 |  23 |  99 | 87.6%| 221.83 | | L47 |  800 |  638 |  20 | 142 | 82.2%| 385.38 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 82005.96 MB (Load=6361.84 | Prefill=41075.75 | Warmup=0.00 | Decode=34568.38 MB)
-   SSD Data/Token (Decode)      : Avg=1080.262 MB/tok (Min=779.562 | P50=1047.312 | P95=1517.219 | Max=1517.219 MB) | Prefill=641.809 MB/tok
-   NVMe Batches / Requests      : 1313 Batches | 32315 Reads | 0 LBA Merges (Avg 2598.6 KB/req)
-   SSD Read Bandwidth           : Avg=548.73 MB/s | Peak=4638.75 MB/s (Pre-flight hwtest skipped)
-   OS Kernel I/O Verification   : Read=82014.99 MB | Write=0.00 MB | Syscalls=36351
-   Sync Stall vs Async DMA      : SyncStall=88816.70 ms | AsyncOverlapped=137407.61 ms (60.7% Overlapped)
-   RAM Traffic & Effective BW   : 487.81 GB moved | Eff=2.66 GB/s (STREAM hwtest skipped)
-   CPU Time & Utilization       : User=194.828s + Sys=6.734s (Wall=198.374s) | SysUtil=25.4% | ThrUtil=25.4% | 23.50 GFLOPS
+   Engine SSD Transfer Total    : 21096.85 MB (Load=4614.69 | Prefill=10243.92 | Warmup=0.00 | Decode=6238.24 MB)
+   SSD Data/Token (Decode)      : Avg=194.945 MB/tok (Min=119.794 | P50=185.102 | P95=318.085 | Max=318.085 MB) | Prefill=160.061 MB/tok
+   NVMe Batches / Requests      : 1297 Batches | 31560 Raw -> 30257 Merged (1303 LBA Merges, Avg 714.0 KB/io)
+   SSD I/O Size Histogram       : <64K=1595 | 64K-512K=7504 | 512K-2M=20714 | >2M=444
+   SSD Read Bandwidth (Active)  : Min=10.89 | Avg=590.72 | Peak=9804.07 MB/s | WallAmort=423.45 MB/s
+   OS Kernel I/O Verification   : Read=21116.82 MB | Write=0.00 MB | Syscalls=39759
+   Sync Stall vs Async DMA      : SyncStall=20462.86 ms | AsyncOverlapped=26994.42 ms (56.9% Overlapped)
+   RAM Traffic & Active BW      : 360.23 GB moved | Active=14.61 GB/s | WallAmort=7.23 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=37.72s (75.7%, 10243.92 MB SSD) | Decode=12.10s (24.3%, 6238.24 MB SSD)
+   CPU Time & Utilization       : User=77.953s + Sys=5.859s (Wall=62.473s) | SysUtil=33.5% | ThrUtil=33.5% | 31.02 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :  24678.12 ms (257063.7 us/tok | 13.46%)
-   MoE AVX2 Q8 Expert Compute   :  31923.97 ms (332541.3 us/tok | 17.41%)
-   Router + Lookahead Dispatch  :    632.27 ms ( 6586.2 us/tok |  0.34%)
-   LM Head Output Projection    :    637.98 ms ( 6645.6 us/tok |  0.35%)
-   Foreground NVMe Sync Stall   :  88816.70 ms (925173.9 us/tok | 48.44%)
-   Unaccounted / OMP & Sampling :  36657.06 ms (381844.4 us/tok | 19.99%) | Total Wall=183346.09 ms
+   Dense + Attention/Linear SSM :  11621.26 ms (121054.7 us/tok | 23.33%)
+   MoE AVX2 Q8 Expert Compute   :  11739.16 ms (122282.9 us/tok | 23.56%)
+   Router + Lookahead Dispatch  :    509.43 ms ( 5306.5 us/tok |  1.02%)
+   LM Head Output Projection    :   1301.15 ms (13553.6 us/tok |  2.61%)
+   Foreground NVMe Sync Stall   :  20462.86 ms (213154.8 us/tok | 41.07%)
+   Unaccounted / OMP & Sampling :   4187.70 ms (43621.9 us/tok |  8.41%) | Total Wall=49821.55 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    38.15%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |    22.03%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    30.11%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     7.24%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.47%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    66.84%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     8.33%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    14.64%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     6.43%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     3.76%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -3004,186 +2153,244 @@ In a1-bit quantized 1-bit quantized 1-bitized 1-bit"
 ================================================================================
 ```
 
-### 📄 `06_glm53_stage2_512_warmup.log`
+### 📄 `06_qwen38_stage2_512_warmup.log`
 ```text
-[Apex-Init] Model Loaded: GLM 5.3 Flash | Layers=45 | Hidden=4096 | Experts=288 (Top-8) | Pinned Trunk=6460.98 MB | Expert Cache=5653.12 MB (603 slots)
+[Apex-Init] Model Loaded: Qwen3.8 Flash Next | Layers=48 | Hidden=2560 | Experts=512 (Top-10) | Pinned Trunk=4614.77 MB | Expert Cache=7632.57 MB (3678 slots)
 [Apex-Prompt] Input (512 tokens): "[512-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/512 tok | Chunk=0.90 tps | Avg=0.90 tps | Hit=89.2% | NVMe=531.0 MB/s (74277.59 MB, QD=64) | RSS=14114.8 MB
-[LIVE-PREFILL] 512/512 tok | Chunk=0.88 tps | Avg=0.89 tps | Hit=88.9% | NVMe=531.1 MB/s (145202.09 MB, QD=64) | RSS=14115.5 MB
-[LIVE-DECODE] 2/128 tok | Avg=0.28 tps | Hit=88.9% (LA:+0.1%) | NVMe=531.4 MB/s (148490.09 MB) | RSS=13950.1 MB
-[LIVE-DECODE] 4/128 tok | Avg=0.32 tps | Hit=88.9% (LA:+0.2%) | NVMe=531.7 MB/s (151125.27 MB) | RSS=13805.9 MB
-[LIVE-DECODE] 6/128 tok | Avg=0.36 tps | Hit=88.8% (LA:+0.3%) | NVMe=532.1 MB/s (153469.40 MB) | RSS=13639.9 MB
-[LIVE-DECODE] 8/128 tok | Avg=0.38 tps | Hit=88.8% (LA:+0.4%) | NVMe=532.6 MB/s (155649.65 MB) | RSS=13562.4 MB
-[LIVE-DECODE] 10/128 tok | Avg=0.41 tps | Hit=88.8% (LA:+0.4%) | NVMe=533.1 MB/s (157599.27 MB) | RSS=13543.0 MB
-[LIVE-DECODE] 12/128 tok | Avg=0.43 tps | Hit=88.8% (LA:+0.5%) | NVMe=533.6 MB/s (159647.71 MB) | RSS=13520.4 MB
-[LIVE-DECODE] 14/128 tok | Avg=0.44 tps | Hit=88.8% (LA:+0.6%) | NVMe=534.1 MB/s (161641.52 MB) | RSS=13529.7 MB
-[LIVE-DECODE] 16/128 tok | Avg=0.45 tps | Hit=88.7% (LA:+0.6%) | NVMe=534.7 MB/s (163743.21 MB) | RSS=13529.7 MB
-[LIVE-DECODE] 18/128 tok | Avg=0.45 tps | Hit=88.7% (LA:+0.7%) | NVMe=534.3 MB/s (165782.65 MB) | RSS=13529.3 MB
-[LIVE-DECODE] 20/128 tok | Avg=0.46 tps | Hit=88.7% (LA:+0.8%) | NVMe=534.8 MB/s (167775.09 MB) | RSS=13529.3 MB
-[LIVE-DECODE] 22/128 tok | Avg=0.46 tps | Hit=88.7% (LA:+0.8%) | NVMe=535.2 MB/s (169944.15 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 24/128 tok | Avg=0.46 tps | Hit=88.7% (LA:+0.9%) | NVMe=535.5 MB/s (172122.77 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 26/128 tok | Avg=0.47 tps | Hit=88.7% (LA:+1.0%) | NVMe=535.8 MB/s (174170.09 MB) | RSS=13536.2 MB
-[LIVE-DECODE] 28/128 tok | Avg=0.47 tps | Hit=88.6% (LA:+1.0%) | NVMe=535.8 MB/s (176170.84 MB) | RSS=13529.3 MB
-[LIVE-DECODE] 30/128 tok | Avg=0.48 tps | Hit=88.6% (LA:+1.1%) | NVMe=536.2 MB/s (177989.09 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 32/128 tok | Avg=0.48 tps | Hit=88.6% (LA:+1.1%) | NVMe=536.7 MB/s (179686.46 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 34/128 tok | Avg=0.49 tps | Hit=88.6% (LA:+1.2%) | NVMe=537.1 MB/s (181678.34 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 36/128 tok | Avg=0.49 tps | Hit=88.6% (LA:+1.3%) | NVMe=537.4 MB/s (183836.27 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 38/128 tok | Avg=0.49 tps | Hit=88.6% (LA:+1.3%) | NVMe=537.7 MB/s (185962.71 MB) | RSS=13539.9 MB
-[LIVE-DECODE] 40/128 tok | Avg=0.49 tps | Hit=88.6% (LA:+1.4%) | NVMe=538.0 MB/s (187879.15 MB) | RSS=13540.1 MB
-[LIVE-DECODE] 42/128 tok | Avg=0.49 tps | Hit=88.5% (LA:+1.5%) | NVMe=538.3 MB/s (189974.46 MB) | RSS=13540.2 MB
-[LIVE-DECODE] 44/128 tok | Avg=0.49 tps | Hit=88.5% (LA:+1.5%) | NVMe=538.7 MB/s (192302.02 MB) | RSS=13548.4 MB
-[LIVE-DECODE] 46/128 tok | Avg=0.49 tps | Hit=88.5% (LA:+1.6%) | NVMe=538.8 MB/s (194566.59 MB) | RSS=13548.4 MB
-[LIVE-DECODE] 48/128 tok | Avg=0.49 tps | Hit=88.5% (LA:+1.7%) | NVMe=539.1 MB/s (196637.02 MB) | RSS=13548.4 MB
-[LIVE-DECODE] 50/128 tok | Avg=0.49 tps | Hit=88.5% (LA:+1.7%) | NVMe=539.5 MB/s (198808.40 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 52/128 tok | Avg=0.50 tps | Hit=88.5% (LA:+1.8%) | NVMe=539.8 MB/s (200715.27 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 54/128 tok | Avg=0.50 tps | Hit=88.4% (LA:+1.9%) | NVMe=540.1 MB/s (202490.02 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 56/128 tok | Avg=0.50 tps | Hit=88.4% (LA:+2.0%) | NVMe=540.3 MB/s (204853.96 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 58/128 tok | Avg=0.50 tps | Hit=88.4% (LA:+2.0%) | NVMe=540.6 MB/s (207062.65 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 60/128 tok | Avg=0.50 tps | Hit=88.4% (LA:+2.1%) | NVMe=540.8 MB/s (208901.27 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 62/128 tok | Avg=0.50 tps | Hit=88.4% (LA:+2.1%) | NVMe=541.2 MB/s (210775.34 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 64/128 tok | Avg=0.50 tps | Hit=88.4% (LA:+2.2%) | NVMe=541.5 MB/s (212614.96 MB) | RSS=13529.3 MB
-[LIVE-DECODE] 66/128 tok | Avg=0.50 tps | Hit=88.4% (LA:+2.3%) | NVMe=541.8 MB/s (214711.09 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 68/128 tok | Avg=0.51 tps | Hit=88.4% (LA:+2.3%) | NVMe=541.8 MB/s (216703.52 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 70/128 tok | Avg=0.51 tps | Hit=88.4% (LA:+2.4%) | NVMe=542.0 MB/s (218583.77 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 72/128 tok | Avg=0.51 tps | Hit=88.3% (LA:+2.5%) | NVMe=542.2 MB/s (220449.15 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 74/128 tok | Avg=0.51 tps | Hit=88.3% (LA:+2.5%) | NVMe=542.5 MB/s (222329.52 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 76/128 tok | Avg=0.51 tps | Hit=88.3% (LA:+2.6%) | NVMe=542.8 MB/s (224333.96 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 78/128 tok | Avg=0.51 tps | Hit=88.3% (LA:+2.6%) | NVMe=543.0 MB/s (226278.59 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 80/128 tok | Avg=0.51 tps | Hit=88.3% (LA:+2.7%) | NVMe=543.2 MB/s (228052.27 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 82/128 tok | Avg=0.52 tps | Hit=88.3% (LA:+2.7%) | NVMe=543.4 MB/s (229578.77 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 84/128 tok | Avg=0.52 tps | Hit=88.3% (LA:+2.7%) | NVMe=543.5 MB/s (231160.34 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 86/128 tok | Avg=0.52 tps | Hit=88.3% (LA:+2.8%) | NVMe=543.6 MB/s (232828.46 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 88/128 tok | Avg=0.52 tps | Hit=88.3% (LA:+2.8%) | NVMe=543.8 MB/s (234557.09 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 90/128 tok | Avg=0.53 tps | Hit=88.3% (LA:+2.9%) | NVMe=544.0 MB/s (236348.09 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 92/128 tok | Avg=0.53 tps | Hit=88.2% (LA:+2.9%) | NVMe=544.3 MB/s (238193.84 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 94/128 tok | Avg=0.53 tps | Hit=88.2% (LA:+3.0%) | NVMe=544.5 MB/s (240147.96 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 96/128 tok | Avg=0.53 tps | Hit=88.2% (LA:+3.0%) | NVMe=544.8 MB/s (241871.71 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 98/128 tok | Avg=0.53 tps | Hit=88.2% (LA:+3.1%) | NVMe=544.9 MB/s (243673.84 MB) | RSS=13547.8 MB
-[LIVE-DECODE] 100/128 tok | Avg=0.53 tps | Hit=88.2% (LA:+3.1%) | NVMe=545.2 MB/s (245370.52 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 102/128 tok | Avg=0.53 tps | Hit=88.2% (LA:+3.2%) | NVMe=545.3 MB/s (247108.46 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 104/128 tok | Avg=0.54 tps | Hit=88.2% (LA:+3.2%) | NVMe=545.4 MB/s (248928.02 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 106/128 tok | Avg=0.54 tps | Hit=88.2% (LA:+3.2%) | NVMe=545.6 MB/s (250821.21 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 108/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.3%) | NVMe=545.8 MB/s (252777.59 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 110/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.3%) | NVMe=546.0 MB/s (254556.02 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 112/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.4%) | NVMe=546.2 MB/s (256344.46 MB) | RSS=13540.1 MB
-[LIVE-DECODE] 114/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.4%) | NVMe=546.3 MB/s (258227.52 MB) | RSS=13529.3 MB
-[LIVE-DECODE] 116/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.5%) | NVMe=546.5 MB/s (259907.09 MB) | RSS=13538.7 MB
-[LIVE-DECODE] 118/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.5%) | NVMe=546.6 MB/s (261633.65 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 120/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.6%) | NVMe=546.8 MB/s (263484.84 MB) | RSS=13548.1 MB
-[LIVE-DECODE] 122/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.6%) | NVMe=546.9 MB/s (265425.65 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 124/128 tok | Avg=0.54 tps | Hit=88.1% (LA:+3.7%) | NVMe=547.1 MB/s (267128.34 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 126/128 tok | Avg=0.55 tps | Hit=88.1% (LA:+3.7%) | NVMe=547.2 MB/s (268742.52 MB) | RSS=13548.0 MB
-[LIVE-DECODE] 128/128 tok | Avg=0.55 tps | Hit=88.1% (LA:+3.7%) | NVMe=547.4 MB/s (270496.09 MB) | RSS=13540.9 MB
+[LIVE-PREFILL] 256/512 tok | Chunk=2.61 tps | Avg=2.61 tps | Hit=90.7% | NVMe=534.0 MB/s (23425.94 MB, QD=64) | RSS=13596.1 MB
+[LIVE-PREFILL] 512/512 tok | Chunk=2.65 tps | Avg=2.63 tps | Hit=90.9% | NVMe=523.7 MB/s (41144.77 MB, QD=64) | RSS=13597.3 MB
+[LIVE-DECODE] 4/128 tok | Avg=1.64 tps | Hit=90.9% (LA:+0.1%) | NVMe=525.9 MB/s (42388.03 MB) | RSS=13596.9 MB
+[LIVE-DECODE] 8/128 tok | Avg=1.99 tps | Hit=90.9% (LA:+0.3%) | NVMe=532.4 MB/s (43469.80 MB) | RSS=13500.9 MB
+[LIVE-DECODE] 16/128 tok | Avg=2.33 tps | Hit=91.0% (LA:+0.5%) | NVMe=547.0 MB/s (45507.89 MB) | RSS=13463.2 MB
+[LIVE-DECODE] 24/128 tok | Avg=2.39 tps | Hit=91.0% (LA:+0.7%) | NVMe=555.6 MB/s (47308.14 MB) | RSS=13458.2 MB
+[LIVE-DECODE] 32/128 tok | Avg=2.49 tps | Hit=91.1% (LA:+0.9%) | NVMe=565.2 MB/s (48909.64 MB) | RSS=13458.2 MB
+[LIVE-DECODE] 40/128 tok | Avg=2.59 tps | Hit=91.1% (LA:+1.0%) | NVMe=575.7 MB/s (50515.94 MB) | RSS=13458.2 MB
+[LIVE-DECODE] 48/128 tok | Avg=2.62 tps | Hit=91.1% (LA:+1.2%) | NVMe=585.2 MB/s (52385.33 MB) | RSS=13458.2 MB
+[LIVE-DECODE] 56/128 tok | Avg=2.67 tps | Hit=91.2% (LA:+1.3%) | NVMe=592.5 MB/s (53864.49 MB) | RSS=13458.2 MB
+[LIVE-DECODE] 64/128 tok | Avg=2.67 tps | Hit=91.2% (LA:+1.4%) | NVMe=599.4 MB/s (55579.97 MB) | RSS=13452.0 MB
+[LIVE-DECODE] 72/128 tok | Avg=2.70 tps | Hit=91.2% (LA:+1.5%) | NVMe=605.8 MB/s (56990.57 MB) | RSS=13452.0 MB
+[LIVE-DECODE] 80/128 tok | Avg=2.76 tps | Hit=91.3% (LA:+1.6%) | NVMe=613.2 MB/s (58281.21 MB) | RSS=13458.2 MB
+[LIVE-DECODE] 88/128 tok | Avg=2.73 tps | Hit=91.3% (LA:+1.7%) | NVMe=616.8 MB/s (59904.48 MB) | RSS=13458.1 MB
+[LIVE-DECODE] 96/128 tok | Avg=2.76 tps | Hit=91.4% (LA:+1.7%) | NVMe=623.2 MB/s (61224.82 MB) | RSS=13458.1 MB
+[LIVE-DECODE] 104/128 tok | Avg=2.76 tps | Hit=91.4% (LA:+1.8%) | NVMe=628.6 MB/s (62735.81 MB) | RSS=13458.1 MB
+[LIVE-DECODE] 112/128 tok | Avg=2.78 tps | Hit=91.5% (LA:+1.9%) | NVMe=634.5 MB/s (64165.56 MB) | RSS=13458.1 MB
+[LIVE-DECODE] 120/128 tok | Avg=2.80 tps | Hit=91.5% (LA:+2.0%) | NVMe=639.0 MB/s (65422.71 MB) | RSS=13458.1 MB
+[LIVE-DECODE] 128/128 tok | Avg=2.79 tps | Hit=91.5% (LA:+2.1%) | NVMe=643.3 MB/s (67011.64 MB) | RSS=13458.1 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5653.12 MB (603/12384 exp = 4.87% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.68 MB | End=13540.92 MB | Peak=14179.12 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 7632.57 MB (3678/25088 exp = 14.66% pinned) | Staging=132.81 MB
+   Process RSS (Start/End/Peak) : Start=4.74 MB | End=13458.15 MB | Peak=14025.31 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (512 tok)   : "[512-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequenc..."
-   RESPONSE (128 tok) : " single coal LBA-sorting coalesced QED LBA-sorted QD32 NVMe read and pass and register-blocked-blocked-blocked multi-blocked multi-row Q8_K GE pass. Explain why elimination PCIe amplification derive asymptotic throughput decode throughput.</think>In high-throughput Mixt-of- (Mo) model inference with NVMe offloading achieving token generation requires overlapping Gen PCIe Gen DMA transfers AVX compute pinned attention state recurrent state trunk cache pinned RAM expert cache locked RAM horizon router co prefetching over activations directly decode prefill long context tokens inverted expert gro..."
+   RESPONSE (128 tok) : " layer-wise!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!!!
+
+!
+
+!
+
+!!!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!!!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!!!
+
+!
+
+!!!
+
+!
+
+!!!
+
+!
+
+!!!
+
+!
+
+!!!
+
+!!!!!
+
+!!!
+
+!!!!!
+
+!
+
+!"
 --------------------------------------------------------------------------------
  [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 129 Steps)]
-   Logit Summary: AvgTop1Prob=48.0% | AvgMargin=1.558 | MinMargin=0.009
+   Logit Summary: AvgTop1Prob=83.4% | AvgMargin=1.017 | MinMargin=0.011
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |    3175 |  single        |   26.48 | 100.0% |   15326 |   16.87 | 573036.52 |  0 |  0 |  0 |     0.0 |
-   |    2 |   11492 |  coal          |   24.96 | 100.0% |    1062 |   16.43 | 3574.50 | 37 |166 |133 | 1683456.0 |
-   |    3 |   39929 |  LB            |   17.75 |  78.0% |   33903 |   16.24 | 3574.50 |  0 |  0 |  0 | 1683456.0 |
-   |    4 |      32 | A              |   14.08 |  30.6% |    1911 |   13.59 | 2615.53 | 81 |171 | 84 | 1349216.0 |
-   |    5 |   46254 | -sort          |   18.02 |  42.5% |    1331 |   17.61 | 2615.53 |  0 |  0 |  0 | 1349216.0 |
-   |    6 |     287 | ing            |   14.36 |  38.6% |   11492 |   11.93 | 2226.16 |114 |152 | 70 | 1200192.0 |
-   |    7 |   11492 |  coal          |   16.09 |  54.1% |    1207 |   14.51 | 2226.16 |  0 |  0 |  0 | 1200192.0 |
-   |    8 |    3300 | esc            |   18.05 |  93.7% |     642 |   13.98 | 1998.70 |127 |136 | 73 | 1116288.0 |
-   |   56 |  154842 | </think>       |   14.32 |  56.1% |     641 |   13.02 | 2222.20 | 92 |172 | 72 | 1210336.0 |
-   |   57 |     641 | In             |   15.30 |  41.7% |     565 |   13.90 | 2222.20 |  0 |  0 |  0 | 1210336.0 |
-   |   44 |    3170 |  why           |   17.45 |  85.5% |     419 |   13.32 | 2157.38 |119 |141 | 76 | 1191712.0 |
-   |   45 |   42687 |  elimination   |   15.17 |  16.8% |   21673 |   14.81 | 2157.38 |  0 |  0 |  0 | 1191712.0 |
-   |  126 |     291 | ed             |   14.96 |  32.3% |    1207 |   14.08 | 1518.13 |191 | 88 | 57 | 826464.0 |
-   |  127 |    9421 | -block         |   17.23 |  54.2% |    7299 |   15.51 | 1518.13 |  0 |  0 |  0 | 826464.0 |
-   |  128 |    9421 | -block         |   14.61 |  29.9% |    1207 |   13.52 | 1595.50 |190 | 93 | 53 | 897824.0 |
-   |  129 |     291 | ed             |   20.50 |  98.5% |   29819 |   14.11 | 1595.50 |  0 |  0 |  0 | 897824.0 |
+   |    1 |    6000 |  layer         |   23.21 | 100.0% |   22028 |   13.32 | 194712.04 |  0 |  0 |  0 |     0.0 |
+   |    2 |   42962 | -wise          |   20.97 |  99.8% |     271 |   13.36 |  441.03 |352 | 97 | 31 | 227232.0 |
+   |    3 |       0 | !              |     nan | 100.0% |       1 |     nan |  441.03 |  0 |  0 |  0 | 227232.0 |
+   |    4 |     271 | \n\n           |   14.91 |  64.2% |    1249 |   12.28 |  775.39 |126 |255 | 99 | 409321.5 |
+   |    5 |       0 | !              |     nan | 100.0% |       1 |     nan |  775.39 |  0 |  0 |  0 | 409321.5 |
+   |    6 |     271 | \n\n           |   14.60 |  51.0% |      12 |   12.47 |  479.64 |252 |172 | 56 | 307019.5 |
+   |    7 |       0 | !              |     nan | 100.0% |       1 |     nan |  479.64 |  0 |  0 |  0 | 307019.5 |
+   |    8 |     271 | \n\n           |   15.03 |  62.2% |      12 |   12.04 |  310.15 |313 |161 |  6 | 246844.5 |
+   |   24 |     271 | \n\n           |   14.22 |  63.2% |     729 |   11.22 |  556.54 |335 |135 | 10 | 221519.5 |
+   |   25 |       0 | !              |     nan | 100.0% |       1 |     nan |  556.54 |  0 |  0 |  0 | 221519.5 |
+   |   82 |     271 | \n\n           |   14.28 |  58.8% |       0 |   13.23 |  548.21 |325 |120 | 35 | 255469.5 |
+   |   83 |       0 | !              |     nan | 100.0% |       1 |     nan |  548.21 |  0 |  0 |  0 | 255469.5 |
+   |  126 |     271 | \n\n           |   15.13 |  67.9% |       0 |   13.61 |  354.40 |393 | 61 | 26 | 197857.0 |
+   |  127 |       0 | !              |     nan | 100.0% |       1 |     nan |  354.40 |  0 |  0 |  0 | 197857.0 |
+   |  128 |     271 | \n\n           |   15.21 |  63.7% |       0 |   13.85 |  279.79 |441 | 38 |  1 | 129844.5 |
+   |  129 |       0 | !              |     nan | 100.0% |       1 |     nan |  279.79 |  0 |  0 |  0 | 129844.5 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (512 tok, 573.037s, TTFT=573036.52ms): Avg=0.89 | Min=0.88 | Max=0.90 tps
-   Prefill Chunks (2): C1:256t/0.9tps/89% | C2:256t/0.9tps/89%
-   Decode  (128 tok, 234.100s): Avg=0.55 | Min=0.28 | Max=0.70 tps
-   Latency (ms) : Min=1423.28 | P10=1565.39 | P25=1651.36 | P50=1761.35 | P75=1944.75 | P90=2120.47 | P95=2222.20 | P99=3574.50 | Max=3574.50
-   Mean/SD/Jitt : Mean=1828.91ms | StdDev=305.95ms | Jitter=75.26ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/128
+   Prefill (512 tok, 194.712s, TTFT=194712.04ms): Avg=2.63 | Min=2.61 | Max=2.65 tps
+   Prefill Chunks (2): C1:256t/2.6tps/91% | C2:256t/2.7tps/91%
+   Decode  (128 tok, 45.886s): Avg=2.79 | Min=1.29 | Max=3.77 tps
+   Latency (ms) : Min=265.33 | P10=281.82 | P25=298.65 | P50=334.58 | P75=403.00 | P90=479.64 | P95=507.82 | P99=775.39 | Max=775.39
+   Mean/SD/Jitt : Mean=358.48ms | StdDev=88.59ms | Jitter=39.43ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/128
    MTP Head     : 64/64 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (193536): RawRAM=163160 (84.30%) | Lookahead=7250 (+3.75%) | ColdMiss=23126 (11.95%) | EFF HIT=88.05%
-   Lookahead    : 12666 prefetched -> 7250 consumed (57.2% util) | Warmup >=75%:1t, >=85%:1t
-   Trajectory   : @16= 88.7% | @64= 88.4% | @128= 88.1% | @256=  N/A | @512=  N/A
+   Activations (276480): RawRAM=247376 (89.47%) | Lookahead=5688 (+2.06%) | ColdMiss=23416 (8.47%) | EFF HIT=91.53%
+   Lookahead    : 13376 prefetched -> 6328 consumed (47.3% util) | Warmup >=75%:1t, >=85%:1t
+   Trajectory   : @16= 91.0% | @64= 91.2% | @128= 91.5% | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 | 4608 | 3600 | 451 | 557 | 87.9%|7245.00 | | L24 | 4608 | 3993 | 117 | 498 | 89.2%|5225.31 |
-   | L04 | 4608 | 3632 | 205 | 771 | 83.3%|8754.38 | | L25 | 4608 | 3952 | 129 | 527 | 88.6%|6037.50 |
-   | L05 | 4608 | 3614 | 289 | 705 | 84.7%|8215.31 | | L26 | 4608 | 3977 | 140 | 491 | 89.3%|5311.56 |
-   | L06 | 4608 | 3661 | 301 | 646 | 86.0%|7712.19 | | L27 | 4608 | 3873 | 134 | 601 | 87.0%|7029.38 |
-   | L07 | 4608 | 3813 | 251 | 544 | 88.2%|6360.94 | | L28 | 4608 | 3891 | 157 | 560 | 87.8%|6087.81 |
-   | L08 | 4608 | 3868 | 152 | 588 | 87.2%|6770.62 | | L29 | 4608 | 3914 | 158 | 536 | 88.4%|5987.19 |
-   | L09 | 4608 | 3792 | 176 | 640 | 86.1%|7000.62 | | L30 | 4608 | 3900 | 170 | 538 | 88.3%|5721.25 |
-   | L10 | 4608 | 3719 | 231 | 658 | 85.7%|7374.38 | | L31 | 4608 | 3821 | 139 | 648 | 85.9%|7144.38 |
-   | L11 | 4608 | 3842 | 181 | 585 | 87.3%|8484.38 | | L32 | 4608 | 3824 | 166 | 618 | 86.6%|6720.31 |
-   | L12 | 4608 | 3890 | 169 | 549 | 88.1%|6968.00 | | L33 | 4608 | 3889 | 167 | 552 | 88.0%|6555.00 |
-   | L13 | 4608 | 3952 | 126 | 530 | 88.5%|5527.19 | | L34 | 4608 | 3900 | 209 | 499 | 89.2%|5699.69 |
-   | L14 | 4608 | 3898 | 156 | 554 | 88.0%|6138.12 | | L35 | 4608 | 3863 | 211 | 534 | 88.4%|6008.75 |
-   | L15 | 4608 | 3907 | 155 | 546 | 88.2%|5865.00 | | L36 | 4608 | 3841 | 245 | 522 | 88.7%|6095.00 |
-   | L16 | 4608 | 3914 | 163 | 531 | 88.5%|5951.25 | | L37 | 4608 | 3902 | 180 | 526 | 88.6%|5714.06 |
-   | L17 | 4608 | 3972 | 107 | 529 | 88.5%|5548.75 | | L38 | 4608 | 3897 | 181 | 530 | 88.5%|5886.56 |
-   | L18 | 4608 | 4034 |  85 | 489 | 89.4%|5390.62 | | L39 | 4608 | 3906 | 161 | 541 | 88.3%|5721.25 |
-   | L19 | 4608 | 4061 | 103 | 444 | 90.4%|4513.75 | | L40 | 4608 | 3923 | 171 | 514 | 88.8%|5591.88 |
-   | L20 | 4608 | 3996 | 127 | 485 | 89.5%|5290.00 | | L41 | 4608 | 3885 | 197 | 526 | 88.6%|5994.38 |
-   | L21 | 4608 | 3985 | 130 | 493 | 89.3%|5297.19 | | L42 | 4608 | 3960 | 137 | 511 | 88.9%|5361.88 |
-   | L22 | 4608 | 4027 | 103 | 478 | 89.6%|5038.44 | | L43 | 4608 | 3974 | 155 | 479 | 89.6%|5261.25 |
-   | L23 | 4608 | 4003 | 116 | 489 | 89.4%|5088.75 | | L44 | 4608 | 3895 | 149 | 564 | 87.8%|7612.88 |
+   | L00 | 5760 | 5054 |  65 | 641 | 88.9%|1189.31 | | L24 | 5760 | 5152 | 133 | 475 | 91.8%|1661.82 |
+   | L01 | 5760 | 5151 |  65 | 544 | 90.6%|1286.21 | | L25 | 5760 | 5164 | 142 | 454 | 92.1%|1283.96 |
+   | L02 | 5760 | 5183 |  33 | 544 | 90.6%|1731.74 | | L26 | 5760 | 5039 | 191 | 530 | 90.8%|1641.14 |
+   | L03 | 5760 | 5343 |  33 | 384 | 93.3%|1317.80 | | L27 | 5760 | 5126 | 171 | 463 | 92.0%|1385.47 |
+   | L04 | 5760 | 5287 |  25 | 448 | 92.2%|1413.21 | | L28 | 5760 | 5068 | 168 | 524 | 90.9%|1518.95 |
+   | L05 | 5760 | 5204 |  49 | 507 | 91.2%|1252.00 | | L29 | 5760 | 5004 | 212 | 544 | 90.6%|1296.39 |
+   | L06 | 5760 | 5131 |  47 | 582 | 89.9%|1300.88 | | L30 | 5760 | 5033 | 205 | 522 | 90.9%|1250.29 |
+   | L07 | 5760 | 5131 |  84 | 545 | 90.5%|1224.68 | | L31 | 5760 | 5186 | 143 | 431 | 92.5%|1198.44 |
+   | L08 | 5760 | 5220 |  78 | 462 | 92.0%| 820.53 | | L32 | 5760 | 5188 | 127 | 445 | 92.3%|1327.20 |
+   | L09 | 5760 | 5224 |  80 | 456 | 92.1%| 765.75 | | L33 | 5760 | 4995 | 223 | 542 | 90.6%|1261.82 |
+   | L10 | 5760 | 5179 |  96 | 485 | 91.6%| 819.29 | | L34 | 5760 | 5046 | 172 | 542 | 90.6%|1351.12 |
+   | L11 | 5760 | 5160 | 127 | 473 | 91.8%| 839.21 | | L35 | 5760 | 5161 | 137 | 462 | 92.0%| 993.90 |
+   | L12 | 5760 | 5155 | 109 | 496 | 91.4%|1314.04 | | L36 | 5760 | 5149 | 124 | 487 | 91.5%|1042.87 |
+   | L13 | 5760 | 5041 | 198 | 521 | 91.0%|1178.27 | | L37 | 5760 | 5176 |  93 | 491 | 91.5%|1374.19 |
+   | L14 | 5760 | 5099 | 182 | 479 | 91.7%|1096.17 | | L38 | 5760 | 5084 | 113 | 563 | 90.2%|1513.31 |
+   | L15 | 5760 | 5333 | 117 | 310 | 94.6%|1079.05 | | L39 | 5760 | 5237 |  89 | 434 | 92.5%|1263.28 |
+   | L16 | 5760 | 5223 | 178 | 359 | 93.8%|1259.52 | | L40 | 5760 | 5254 |  85 | 421 | 92.7%|1075.29 |
+   | L17 | 5760 | 5050 | 215 | 495 | 91.4%|1537.74 | | L41 | 5760 | 5161 |  92 | 507 | 91.2%| 993.90 |
+   | L18 | 5760 | 5128 | 112 | 520 | 91.0%|1627.98 | | L42 | 5760 | 5154 | 104 | 502 | 91.3%|1165.31 |
+   | L19 | 5760 | 5107 | 201 | 452 | 92.2%|1107.69 | | L43 | 5760 | 5256 |  84 | 420 | 92.7%| 898.83 |
+   | L20 | 5760 | 5066 | 201 | 493 | 91.4%|1218.60 | | L44 | 5760 | 5190 |  64 | 506 | 91.2%|1114.89 |
+   | L21 | 5760 | 5083 | 128 | 549 | 90.5%|1518.95 | | L45 | 5760 | 5219 |  68 | 473 | 91.8%| 980.93 |
+   | L22 | 5760 | 5084 | 112 | 564 | 90.2%|1635.50 | | L46 | 5760 | 5271 |  56 | 433 | 92.5%| 978.05 |
+   | L23 | 5760 | 5233 | 120 | 407 | 92.9%| 969.41 | | L47 | 5760 | 5194 |  37 | 529 | 90.8%|1097.85 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 270496.09 MB (Load=6361.84 | Prefill=138840.25 | Warmup=0.00 | Decode=125294.00 MB)
-   SSD Data/Token (Decode)      : Avg=978.859 MB/tok (Min=763.250 | P50=958.219 | P95=1172.062 | Max=1644.000 MB) | Prefill=271.172 MB/tok
-   NVMe Batches / Requests      : 5244 Batches | 109637 Reads | 0 LBA Merges (Avg 2526.4 KB/req)
-   SSD Read Bandwidth           : Avg=547.40 MB/s | Peak=4580.36 MB/s (Pre-flight hwtest skipped)
-   OS Kernel I/O Verification   : Read=270505.12 MB | Write=0.01 MB | Syscalls=113722
-   Sync Stall vs Async DMA      : SyncStall=315759.20 ms | AsyncOverlapped=481881.65 ms (60.4% Overlapped)
-   RAM Traffic & Effective BW   : 2783.29 GB moved | Eff=3.45 GB/s (STREAM hwtest skipped)
-   CPU Time & Utilization       : User=1308.297s + Sys=21.047s (Wall=823.902s) | SysUtil=40.3% | ThrUtil=40.3% | 37.31 GFLOPS
+   Engine SSD Transfer Total    : 67011.64 MB (Load=4614.69 | Prefill=36530.07 | Warmup=0.00 | Decode=25866.87 MB)
+   SSD Data/Token (Decode)      : Avg=202.085 MB/tok (Min=124.848 | P50=198.579 | P95=269.733 | Max=399.728 MB) | Prefill=71.348 MB/tok
+   NVMe Batches / Requests      : 5153 Batches | 120700 Raw -> 115580 Merged (5120 LBA Merges, Avg 593.7 KB/io)
+   SSD I/O Size Histogram       : <64K=9473 | 64K-512K=26750 | 512K-2M=78754 | >2M=603
+   SSD Read Bandwidth (Active)  : Min=7.98 | Avg=643.31 | Peak=10614.81 MB/s | WallAmort=278.52 MB/s
+   OS Kernel I/O Verification   : Read=67031.77 MB | Write=0.00 MB | Syscalls=125096
+   Sync Stall vs Async DMA      : SyncStall=71219.04 ms | AsyncOverlapped=95667.92 ms (57.3% Overlapped)
+   RAM Traffic & Active BW      : 2072.99 GB moved | Active=13.66 GB/s | WallAmort=8.62 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=194.71s (80.9%, 36530.07 MB SSD) | Decode=45.89s (19.1%, 25866.87 MB SSD)
+   CPU Time & Utilization       : User=521.156s + Sys=19.344s (Wall=253.478s) | SysUtil=53.3% | ThrUtil=53.3% | 49.31 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM : 172232.33 ms (269113.0 us/tok | 21.34%)
-   MoE AVX2 Q8 Expert Compute   : 197827.86 ms (309106.0 us/tok | 24.51%)
-   Router + Lookahead Dispatch  :   3117.31 ms ( 4870.8 us/tok |  0.39%)
-   LM Head Output Projection    :   2489.33 ms ( 3889.6 us/tok |  0.31%)
-   Foreground NVMe Sync Stall   : 315759.20 ms (493373.7 us/tok | 39.12%)
-   Unaccounted / OMP & Sampling : 115710.49 ms (180797.6 us/tok | 14.34%) | Total Wall=807136.53 ms
+   Dense + Attention/Linear SSM :  69601.34 ms (108752.1 us/tok | 28.93%)
+   MoE AVX2 Q8 Expert Compute   :  77063.52 ms (120411.7 us/tok | 32.03%)
+   Router + Lookahead Dispatch  :   3480.69 ms ( 5438.6 us/tok |  1.45%)
+   LM Head Output Projection    :   5087.50 ms ( 7949.2 us/tok |  2.11%)
+   Foreground NVMe Sync Stall   :  71219.04 ms (111279.8 us/tok | 29.60%)
+   Unaccounted / OMP & Sampling :  14146.01 ms (22103.1 us/tok |  5.88%) | Total Wall=240598.10 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    59.81%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |    12.50%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    17.34%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     7.97%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.38%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    78.44%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     4.77%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     7.17%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     6.22%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     3.40%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -3191,170 +2398,208 @@ In a1-bit quantized 1-bit quantized 1-bitized 1-bit"
 ================================================================================
 ```
 
-### 📄 `07_glm53_stage3_openai_stress.log`
+### 📄 `07_qwen38_stage3_openai_stress.log`
 ```text
-[Stage 3] /v1/models: {"object": "list", "data": [{"id": "glm-5.3-flash-ud-iq2_xxs", "object": "model", "created": 1770000000, "owned_by": "apex-inference-v1", "architecture": "glm5-next (GLM-5.3-Flash)"}]}
-[Stage 3] /v1/chat/completions (stream=false) 111101.9ms | usage={'prompt_tokens': 19, 'completion_tokens': 16, 'total_tokens': 35} | text='\nSummarize LBACoalesce in one sentence.\nSummarize LB'
-[Stage 3] /v1/chat/completions (stream=true SSE) 44673.2ms | chunks=3 | DONE=True
+[Stage 3] /v1/models: {"object": "list", "data": [{"id": "qwen-3.8-flash-next-ud-iq2_xs", "object": "model", "created": 1770000000, "owned_by": "apex-inference-v1", "architecture": "qwen4exp (Qwen-3.8-Flash-Next)"}]}
+[Stage 3] /v1/chat/completions (stream=false) 28099.6ms | usage={'prompt_tokens': 18, 'completion_tokens': 16, 'total_tokens': 34} | text='\n\n<think>\nThe user is asking me to summarize "LBA-coalesced'
+[Stage 3] /v1/chat/completions (stream=true SSE) 9278.7ms | chunks=3 | DONE=True
 [Stage 3] Tool Call Response: finish_reason=tool_calls | fn=get_nvme_telemetry
 [Stage 3] Full OpenAI + llama.cpp API parity (/responses, /completions, /tokenize, /detokenize, /props) PASSED!
 ```
 
-### 📄 `08_glm53_stage4_2048_mtp_ab.log`
+### 📄 `08_qwen38_stage4_2048_mtp_ab.log`
 ```text
-[Apex-Init] Model Loaded: GLM 5.3 Flash | Layers=45 | Hidden=4096 | Experts=288 (Top-8) | Pinned Trunk=6460.98 MB | Expert Cache=5409.38 MB (577 slots)
+[Apex-Init] Model Loaded: Qwen3.8 Flash Next | Layers=48 | Hidden=2560 | Experts=512 (Top-10) | Pinned Trunk=4614.77 MB | Expert Cache=5978.64 MB (2881 slots)
 [Apex-Prompt] Input (2048 tokens): "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/2048 tok | Chunk=0.91 tps | Avg=0.91 tps | Hit=89.2% | NVMe=533.2 MB/s (74277.59 MB, QD=64) | RSS=13871.2 MB
-[LIVE-PREFILL] 512/2048 tok | Chunk=0.84 tps | Avg=0.87 tps | Hit=88.9% | NVMe=532.7 MB/s (145295.52 MB, QD=64) | RSS=13871.5 MB
-[LIVE-PREFILL] 768/2048 tok | Chunk=0.89 tps | Avg=0.88 tps | Hit=88.9% | NVMe=532.3 MB/s (214799.34 MB, QD=64) | RSS=13871.2 MB
-[LIVE-PREFILL] 1024/2048 tok | Chunk=0.89 tps | Avg=0.88 tps | Hit=88.9% | NVMe=532.3 MB/s (283922.65 MB, QD=64) | RSS=13871.3 MB
-[LIVE-PREFILL] 1280/2048 tok | Chunk=0.88 tps | Avg=0.88 tps | Hit=89.0% | NVMe=532.2 MB/s (352711.65 MB, QD=64) | RSS=13871.1 MB
-[LIVE-PREFILL] 1536/2048 tok | Chunk=0.89 tps | Avg=0.88 tps | Hit=89.0% | NVMe=532.2 MB/s (420869.27 MB, QD=64) | RSS=13871.1 MB
-[LIVE-PREFILL] 1792/2048 tok | Chunk=0.89 tps | Avg=0.88 tps | Hit=89.0% | NVMe=531.8 MB/s (488245.34 MB, QD=64) | RSS=13871.1 MB
-[LIVE-PREFILL] 2048/2048 tok | Chunk=0.89 tps | Avg=0.88 tps | Hit=89.1% | NVMe=531.7 MB/s (554073.90 MB, QD=64) | RSS=13871.9 MB
-[LIVE-DECODE] 2/64 tok | Avg=0.40 tps | Hit=89.1% (LA:+0.0%) | NVMe=531.8 MB/s (556479.90 MB) | RSS=13876.5 MB
-[LIVE-DECODE] 4/64 tok | Avg=0.36 tps | Hit=89.1% (LA:+0.0%) | NVMe=531.8 MB/s (559379.21 MB) | RSS=13621.3 MB
-[LIVE-DECODE] 6/64 tok | Avg=0.39 tps | Hit=89.1% (LA:+0.1%) | NVMe=531.9 MB/s (561775.40 MB) | RSS=13529.8 MB
-[LIVE-DECODE] 8/64 tok | Avg=0.41 tps | Hit=89.1% (LA:+0.1%) | NVMe=532.1 MB/s (564116.40 MB) | RSS=13419.4 MB
-[LIVE-DECODE] 10/64 tok | Avg=0.42 tps | Hit=89.1% (LA:+0.1%) | NVMe=532.2 MB/s (566273.09 MB) | RSS=13363.4 MB
-[LIVE-DECODE] 12/64 tok | Avg=0.43 tps | Hit=89.1% (LA:+0.1%) | NVMe=532.4 MB/s (568477.52 MB) | RSS=13323.9 MB
-[LIVE-DECODE] 14/64 tok | Avg=0.44 tps | Hit=89.0% (LA:+0.1%) | NVMe=532.5 MB/s (570583.40 MB) | RSS=13310.9 MB
-[LIVE-DECODE] 16/64 tok | Avg=0.45 tps | Hit=89.0% (LA:+0.2%) | NVMe=532.7 MB/s (572697.09 MB) | RSS=13295.2 MB
-[LIVE-DECODE] 18/64 tok | Avg=0.45 tps | Hit=89.0% (LA:+0.2%) | NVMe=532.9 MB/s (574993.90 MB) | RSS=13295.2 MB
-[LIVE-DECODE] 20/64 tok | Avg=0.46 tps | Hit=89.0% (LA:+0.2%) | NVMe=533.0 MB/s (577239.46 MB) | RSS=13295.2 MB
-[LIVE-DECODE] 22/64 tok | Avg=0.46 tps | Hit=89.0% (LA:+0.2%) | NVMe=533.2 MB/s (579315.46 MB) | RSS=13295.2 MB
-[LIVE-DECODE] 24/64 tok | Avg=0.47 tps | Hit=89.0% (LA:+0.2%) | NVMe=533.3 MB/s (581565.90 MB) | RSS=13295.2 MB
-[LIVE-DECODE] 26/64 tok | Avg=0.47 tps | Hit=89.0% (LA:+0.3%) | NVMe=533.5 MB/s (583846.09 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 28/64 tok | Avg=0.47 tps | Hit=89.0% (LA:+0.3%) | NVMe=533.6 MB/s (586124.40 MB) | RSS=13304.6 MB
-[LIVE-DECODE] 30/64 tok | Avg=0.47 tps | Hit=89.0% (LA:+0.3%) | NVMe=533.8 MB/s (588219.21 MB) | RSS=13304.6 MB
-[LIVE-DECODE] 32/64 tok | Avg=0.47 tps | Hit=89.0% (LA:+0.3%) | NVMe=533.9 MB/s (590308.34 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 34/64 tok | Avg=0.48 tps | Hit=89.0% (LA:+0.3%) | NVMe=534.0 MB/s (592218.65 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 36/64 tok | Avg=0.48 tps | Hit=89.0% (LA:+0.4%) | NVMe=534.1 MB/s (594383.96 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 38/64 tok | Avg=0.48 tps | Hit=89.0% (LA:+0.4%) | NVMe=534.2 MB/s (596320.09 MB) | RSS=13295.2 MB
-[LIVE-DECODE] 40/64 tok | Avg=0.49 tps | Hit=89.0% (LA:+0.4%) | NVMe=534.3 MB/s (598268.96 MB) | RSS=13295.2 MB
-[LIVE-DECODE] 42/64 tok | Avg=0.49 tps | Hit=89.0% (LA:+0.4%) | NVMe=534.5 MB/s (600236.02 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 44/64 tok | Avg=0.49 tps | Hit=89.0% (LA:+0.4%) | NVMe=534.6 MB/s (602103.02 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 46/64 tok | Avg=0.49 tps | Hit=89.0% (LA:+0.4%) | NVMe=534.6 MB/s (603994.84 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 48/64 tok | Avg=0.49 tps | Hit=89.0% (LA:+0.4%) | NVMe=534.8 MB/s (606210.34 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 50/64 tok | Avg=0.50 tps | Hit=89.0% (LA:+0.5%) | NVMe=534.9 MB/s (608237.40 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 52/64 tok | Avg=0.49 tps | Hit=89.0% (LA:+0.5%) | NVMe=535.0 MB/s (610643.96 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 54/64 tok | Avg=0.50 tps | Hit=89.0% (LA:+0.5%) | NVMe=535.1 MB/s (612746.71 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 56/64 tok | Avg=0.50 tps | Hit=89.0% (LA:+0.5%) | NVMe=535.3 MB/s (614623.27 MB) | RSS=13304.6 MB
-[LIVE-DECODE] 58/64 tok | Avg=0.50 tps | Hit=89.0% (LA:+0.5%) | NVMe=535.5 MB/s (616607.90 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 60/64 tok | Avg=0.50 tps | Hit=89.0% (LA:+0.6%) | NVMe=535.6 MB/s (618617.27 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 62/64 tok | Avg=0.50 tps | Hit=88.9% (LA:+0.6%) | NVMe=535.7 MB/s (620700.65 MB) | RSS=13304.5 MB
-[LIVE-DECODE] 64/64 tok | Avg=0.50 tps | Hit=88.9% (LA:+0.6%) | NVMe=535.8 MB/s (622629.59 MB) | RSS=13304.5 MB
+[LIVE-PREFILL] 256/2048 tok | Chunk=2.70 tps | Avg=2.70 tps | Hit=90.7% | NVMe=542.5 MB/s (23425.94 MB, QD=64) | RSS=11948.6 MB
+[LIVE-PREFILL] 512/2048 tok | Chunk=2.71 tps | Avg=2.71 tps | Hit=90.6% | NVMe=548.8 MB/s (42324.09 MB, QD=64) | RSS=11969.4 MB
+[LIVE-PREFILL] 768/2048 tok | Chunk=2.70 tps | Avg=2.71 tps | Hit=90.6% | NVMe=554.9 MB/s (61641.39 MB, QD=64) | RSS=11973.0 MB
+[LIVE-PREFILL] 1024/2048 tok | Chunk=2.70 tps | Avg=2.70 tps | Hit=90.5% | NVMe=558.8 MB/s (80842.50 MB, QD=64) | RSS=11973.6 MB
+[LIVE-PREFILL] 1280/2048 tok | Chunk=2.73 tps | Avg=2.71 tps | Hit=90.6% | NVMe=560.9 MB/s (99081.85 MB, QD=64) | RSS=11973.3 MB
+[LIVE-PREFILL] 1536/2048 tok | Chunk=2.76 tps | Avg=2.72 tps | Hit=90.7% | NVMe=563.0 MB/s (116639.63 MB, QD=64) | RSS=11973.1 MB
+[LIVE-PREFILL] 1792/2048 tok | Chunk=2.74 tps | Avg=2.72 tps | Hit=90.8% | NVMe=564.5 MB/s (134582.25 MB, QD=64) | RSS=11973.4 MB
+[LIVE-PREFILL] 2048/2048 tok | Chunk=2.72 tps | Avg=2.72 tps | Hit=90.8% | NVMe=565.8 MB/s (152636.55 MB, QD=64) | RSS=11974.2 MB
+[LIVE-DECODE] 4/64 tok | Avg=1.38 tps | Hit=90.8% (LA:+0.0%) | NVMe=566.3 MB/s (154194.41 MB) | RSS=11976.8 MB
+[LIVE-DECODE] 8/64 tok | Avg=1.77 tps | Hit=90.8% (LA:+0.1%) | NVMe=568.4 MB/s (155393.27 MB) | RSS=11972.6 MB
+[LIVE-DECODE] 16/64 tok | Avg=2.23 tps | Hit=90.8% (LA:+0.2%) | NVMe=574.7 MB/s (157754.41 MB) | RSS=11972.4 MB
+[LIVE-DECODE] 24/64 tok | Avg=2.47 tps | Hit=90.9% (LA:+0.2%) | NVMe=581.2 MB/s (160104.02 MB) | RSS=11972.1 MB
+[LIVE-DECODE] 32/64 tok | Avg=2.58 tps | Hit=90.9% (LA:+0.3%) | NVMe=587.1 MB/s (162401.76 MB) | RSS=11969.9 MB
+[LIVE-DECODE] 40/64 tok | Avg=2.67 tps | Hit=90.9% (LA:+0.4%) | NVMe=592.7 MB/s (164527.47 MB) | RSS=11960.4 MB
+[LIVE-DECODE] 48/64 tok | Avg=2.75 tps | Hit=90.9% (LA:+0.5%) | NVMe=598.5 MB/s (166627.80 MB) | RSS=11955.8 MB
+[LIVE-DECODE] 56/64 tok | Avg=2.83 tps | Hit=90.9% (LA:+0.5%) | NVMe=603.9 MB/s (168477.02 MB) | RSS=11955.8 MB
+[LIVE-DECODE] 64/64 tok | Avg=2.89 tps | Hit=90.9% (LA:+0.6%) | NVMe=608.8 MB/s (170230.57 MB) | RSS=11955.8 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5409.38 MB (577/12384 exp = 4.66% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.67 MB | End=13304.49 MB | Peak=13972.89 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 5978.64 MB (2881/25088 exp = 11.48% pinned) | Staging=132.81 MB
+   Process RSS (Start/End/Peak) : Start=4.74 MB | End=11955.75 MB | Peak=12372.99 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (2048 tok)   : "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequen..."
-   RESPONSE (64 tok) : " high-throughput Mixtures of Mixtures-of-Expert (MoE) language inference with NVMe offloading achieving low-lat token generation requires overlapping Genie DMAand compute DMA transfers AVX compute attention dense recurrent attention recurrent state trunking Window cachehoriz dual lookahead coactivation preching% of activations direct RAM without CPU execution"
+   RESPONSE (64 tok) : " layer-wise!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!!!
+
+!
+
+!
+
+!!!
+
+!
+
+!
+
+!!!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!
+
+!"
 --------------------------------------------------------------------------------
  [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 65 Steps)]
-   Logit Summary: AvgTop1Prob=43.9% | AvgMargin=1.572 | MinMargin=0.007
+   Logit Summary: AvgTop1Prob=82.7% | AvgMargin=0.866 | MinMargin=0.129
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |    1550 |  high          |   25.48 | 100.0% |     279 |   13.45 | 2317204.97 |  0 |  0 |  0 |     0.0 |
-   |    2 |   42503 | -through       |   27.04 | 100.0% |   63308 |   16.24 | 2505.53 |130 |105 |101 | 1231872.0 |
-   |    3 |     628 | put            |   23.73 |  99.6% |   19183 |   17.58 | 2505.53 |  0 |  0 |  0 | 1231872.0 |
-   |    4 |   19183 |  Mix           |   17.39 |  84.5% |   19705 |   14.33 | 2992.51 | 39 |215 | 82 | 1484448.0 |
-   |    5 |   18482 | tures          |   16.37 |  54.3% |      68 |   15.04 | 2992.51 |  0 |  0 |  0 | 1484448.0 |
-   |    6 |     315 |  of            |   13.92 |  18.4% |    8667 |   13.83 | 2215.47 |107 |152 | 77 | 1226848.0 |
-   |    7 |   19183 |  Mix           |   18.45 |  89.7% |   57687 |   15.44 | 2215.47 |  0 |  0 |  0 | 1226848.0 |
-   |    8 |   18482 | tures          |   16.65 |  62.5% |    4974 |   14.96 | 2134.19 |119 |142 | 75 | 1198592.0 |
-   |   52 |   18547 |  dual          |   14.99 |  20.4% |   86025 |   14.43 | 2263.02 |107 |149 | 80 | 1232160.0 |
-   |   53 |   86025 |  lookahead     |   13.07 |   7.8% |    9270 |   12.69 | 2263.02 |  0 |  0 |  0 | 1232160.0 |
-   |    9 |    8667 | -of            |   17.27 |  47.5% |     315 |   17.04 | 2134.19 |  0 |  0 |  0 | 1198592.0 |
-   |   18 |     448 |  with          |   16.53 |  65.9% |    4128 |   13.64 | 2089.10 |129 |132 | 75 | 1175968.0 |
-   |   62 |   21984 |  RAM           |   16.11 |  41.3% |   33742 |   15.25 | 1922.08 |142 |124 | 70 | 1066688.0 |
-   |   63 |    2041 |  without       |   15.58 |  48.8% |   28891 |   13.67 | 1922.08 |  0 |  0 |  0 | 1066688.0 |
-   |   64 |   13931 |  CPU           |   16.17 |  32.7% |   11315 |   14.94 | 1812.69 |140 |147 | 49 | 987616.0 |
-   |   65 |   11315 |  execution     |   14.77 |  16.3% |   15289 |   14.61 | 1812.69 |  0 |  0 |  0 | 987616.0 |
+   |    1 |    6000 |  layer         |   21.89 |  99.5% |     271 |   16.32 | 753264.10 |  0 |  0 |  0 |     0.0 |
+   |    2 |   42962 | -wise          |   22.34 |  99.5% |     271 |   16.47 |  518.81 |341 | 86 | 53 | 277694.5 |
+   |    3 |       0 | !              |     nan | 100.0% |       1 |     nan |  518.81 |  0 |  0 |  0 | 277694.5 |
+   |    4 |     271 | \n\n           |   16.51 |  89.2% |      12 |   11.88 |  928.76 | 27 |322 |131 | 519934.0 |
+   |    5 |       0 | !              |     nan | 100.0% |       1 |     nan |  928.76 |  0 |  0 |  0 | 519934.0 |
+   |    6 |     271 | \n\n           |   15.91 |  81.7% |  248046 |   12.04 |  482.67 |240 |192 | 48 | 329444.5 |
+   |    7 |       0 | !              |     nan | 100.0% |       1 |     nan |  482.67 |  0 |  0 |  0 | 329444.5 |
+   |    8 |     271 | \n\n           |   15.66 |  75.8% |       0 |   13.24 |  331.25 |301 |174 |  5 | 284369.5 |
+   |   26 |       0 | !              |   15.65 |  63.7% |     271 |   14.82 |  401.20 |251 |212 | 17 | 324182.0 |
+   |   27 |       0 | !              |     nan | 100.0% |       1 |     nan |  401.20 |  0 |  0 |  0 | 324182.0 |
+   |   34 |       0 | !              |   16.39 |  64.6% |     271 |   15.58 |  377.50 |284 |190 |  6 | 290744.5 |
+   |   35 |       0 | !              |     nan | 100.0% |       1 |     nan |  377.50 |  0 |  0 |  0 | 290744.5 |
+   |   62 |     271 | \n\n           |   14.68 |  48.3% |       0 |   14.40 |  288.20 |363 |117 |  0 | 228707.0 |
+   |   63 |       0 | !              |     nan | 100.0% |       1 |     nan |  288.20 |  0 |  0 |  0 | 228707.0 |
+   |   64 |     271 | \n\n           |   14.92 |  60.9% |       0 |   13.88 |  290.14 |361 |119 |  0 | 217182.0 |
+   |   65 |       0 | !              |     nan | 100.0% |       1 |     nan |  290.14 |  0 |  0 |  0 | 217182.0 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (2048 tok, 2317.205s, TTFT=2317204.97ms): Avg=0.88 | Min=0.84 | Max=0.91 tps
-   Prefill Chunks (8): C1:256t/0.9tps/89% | C2:256t/0.8tps/89% | C3:256t/0.9tps/89% | C4:256t/0.9tps/89%
-                       C5:256t/0.9tps/89% | C6:256t/0.9tps/89% | C7:256t/0.9tps/89% | C8:256t/0.9tps/89%
-   Decode  (64 tok, 127.177s): Avg=0.50 | Min=0.33 | Max=0.59 tps
-   Latency (ms) : Min=1681.23 | P10=1772.89 | P25=1821.36 | P50=1930.95 | P75=2067.43 | P90=2215.47 | P95=2505.53 | P99=2992.51 | Max=2992.51
-   Mean/SD/Jitt : Mean=1987.14ms | StdDev=250.24ms | Jitter=81.67ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/64
+   Prefill (2048 tok, 753.264s, TTFT=753264.10ms): Avg=2.72 | Min=2.70 | Max=2.76 tps
+   Prefill Chunks (8): C1:256t/2.7tps/91% | C2:256t/2.7tps/91% | C3:256t/2.7tps/91% | C4:256t/2.7tps/91%
+                       C5:256t/2.7tps/91% | C6:256t/2.8tps/91% | C7:256t/2.7tps/91% | C8:256t/2.7tps/91%
+   Decode  (64 tok, 22.112s): Avg=2.89 | Min=1.08 | Max=3.52 tps
+   Latency (ms) : Min=284.30 | P10=288.20 | P25=298.14 | P50=312.81 | P75=334.86 | P90=401.20 | P95=518.81 | P99=928.76 | Max=928.76
+   Mean/SD/Jitt : Mean=345.50ms | StdDev=117.18ms | Jitter=27.07ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/64
    MTP Head     : 32/32 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (698880): RawRAM=617457 (88.35%) | Lookahead=4156 (+0.59%) | ColdMiss=77267 (11.06%) | EFF HIT=88.94%
-   Lookahead    : 6991 prefetched -> 4156 consumed (59.4% util) | Warmup >=75%:1t, >=85%:1t
-   Trajectory   : @16= 89.0% | @64= 88.9% | @128=  N/A | @256=  N/A | @512=  N/A
+   Activations (998400): RawRAM=902365 (90.38%) | Lookahead=5552 (+0.56%) | ColdMiss=90483 (9.06%) | EFF HIT=90.94%
+   Lookahead    : 9730 prefetched -> 5872 consumed (60.3% util) | Warmup >=75%:1t, >=85%:1t
+   Trajectory   : @16= 90.8% | @64= 90.9% | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 |16640 |14180 | 235 |2225 | 86.6%|17681.25 | | L24 |16640 |14844 |  58 |1738 | 89.6%|13390.31 |
-   | L04 |16640 |14248 | 115 |2277 | 86.3%|18033.44 | | L25 |16640 |14824 |  75 |1741 | 89.5%|13749.69 |
-   | L05 |16640 |14217 | 164 |2259 | 86.4%|17882.50 | | L26 |16640 |14811 |  74 |1755 | 89.5%|13577.19 |
-   | L06 |16640 |14237 | 182 |2221 | 86.7%|17710.00 | | L27 |16640 |14701 |  93 |1846 | 88.9%|14633.75 |
-   | L07 |16640 |14509 | 155 |1976 | 88.1%|15740.62 | | L28 |16640 |14703 |  92 |1845 | 88.9%|14439.69 |
-   | L08 |16640 |14500 | 101 |2039 | 87.7%|16100.00 | | L29 |16640 |14798 |  96 |1746 | 89.5%|13685.00 |
-   | L09 |16640 |14513 |  99 |2028 | 87.8%|16121.56 | | L30 |16640 |14702 | 105 |1833 | 89.0%|14224.06 |
-   | L10 |16640 |14364 | 136 |2140 | 87.1%|16905.00 | | L31 |16640 |14729 |  61 |1850 | 88.9%|14583.44 |
-   | L11 |16640 |14688 | 135 |1817 | 89.1%|19031.25 | | L32 |16640 |14675 |  99 |1866 | 88.8%|14727.19 |
-   | L12 |16640 |14742 | 103 |1795 | 89.2%|16565.75 | | L33 |16640 |14852 |  87 |1701 | 89.8%|13591.56 |
-   | L13 |16640 |14916 |  84 |1640 | 90.1%|12800.94 | | L34 |16640 |14768 | 109 |1763 | 89.4%|13720.94 |
-   | L14 |16640 |15019 |  80 |1541 | 90.7%|12276.25 | | L35 |16640 |14701 | 120 |1819 | 89.1%|14245.62 |
-   | L15 |16640 |15110 |  88 |1442 | 91.3%|11485.62 | | L36 |16640 |14669 | 119 |1852 | 88.9%|14461.25 |
-   | L16 |16640 |14940 |  86 |1614 | 90.3%|12700.31 | | L37 |16640 |14703 |  89 |1848 | 88.9%|14195.31 |
-   | L17 |16640 |14795 |  62 |1783 | 89.3%|13792.81 | | L38 |16640 |14689 |  98 |1853 | 88.9%|14310.31 |
-   | L18 |16640 |14917 |  53 |1670 | 90.0%|13002.19 | | L39 |16640 |14602 | 118 |1920 | 88.5%|14892.50 |
-   | L19 |16640 |14875 |  60 |1705 | 89.8%|13052.50 | | L40 |16640 |14678 |  89 |1873 | 88.7%|14389.38 |
-   | L20 |16640 |14829 |  64 |1747 | 89.5%|13512.50 | | L41 |16640 |14645 | 110 |1885 | 88.7%|14763.12 |
-   | L21 |16640 |14927 |  57 |1656 | 90.0%|12865.62 | | L42 |16640 |14752 |  86 |1802 | 89.2%|13879.06 |
-   | L22 |16640 |14886 |  71 |1683 | 89.9%|13102.81 | | L43 |16640 |14767 |  99 |1774 | 89.3%|13828.75 |
-   | L23 |16640 |14804 |  69 |1767 | 89.4%|13656.25 | | L44 |16640 |14628 |  80 |1932 | 88.4%|17579.12 |
+   | L00 |20800 |18000 | 221 |2579 | 87.6%|4716.80 | | L24 |20800 |18904 |  96 |1800 | 91.3%|3836.84 |
+   | L01 |20800 |18386 | 153 |2261 | 89.1%|3242.29 | | L25 |20800 |18654 |  99 |2047 | 90.2%|4105.66 |
+   | L02 |20800 |18270 | 139 |2391 | 88.5%|4642.68 | | L26 |20800 |18790 | 114 |1896 | 90.9%|3908.28 |
+   | L03 |20800 |18782 | 139 |1879 | 91.0%|4116.94 | | L27 |20800 |18757 | 135 |1908 | 90.8%|3966.55 |
+   | L04 |20800 |19086 |  69 |1645 | 92.1%|3691.77 | | L28 |20800 |18939 | 121 |1740 | 91.6%|3641.33 |
+   | L05 |20800 |18626 | 117 |2057 | 90.1%|4254.17 | | L29 |20800 |18831 | 118 |1851 | 91.1%|2926.95 |
+   | L06 |20800 |18489 |  70 |2241 | 89.2%|4466.60 | | L30 |20800 |18530 |  99 |2171 | 89.6%|3361.96 |
+   | L07 |20800 |18481 | 171 |2148 | 89.7%|4002.54 | | L31 |20800 |18954 | 105 |1741 | 91.6%|2818.92 |
+   | L08 |20800 |18879 | 151 |1770 | 91.5%|2482.76 | | L32 |20800 |18885 |  76 |1839 | 91.2%|3701.49 |
+   | L09 |20800 |18947 | 141 |1712 | 91.8%|2355.76 | | L33 |20800 |18671 |  93 |2036 | 90.2%|3141.58 |
+   | L10 |20800 |19009 | 127 |1664 | 92.0%|2287.28 | | L34 |20800 |18845 |  97 |1858 | 91.1%|2944.24 |
+   | L11 |20800 |18986 | 152 |1662 | 92.0%|2315.92 | | L35 |20800 |18905 |  75 |1820 | 91.2%|2787.23 |
+   | L12 |20800 |18960 | 196 |1644 | 92.1%|3577.42 | | L36 |20800 |18939 | 122 |1739 | 91.6%|2788.67 |
+   | L13 |20800 |19103 | 148 |1549 | 92.6%|2517.87 | | L37 |20800 |18843 | 111 |1846 | 91.1%|3789.84 |
+   | L14 |20800 |18857 | 146 |1797 | 91.4%|2908.23 | | L38 |20800 |18699 |  84 |2017 | 90.3%|4032.35 |
+   | L15 |20800 |18994 | 147 |1659 | 92.0%|3556.74 | | L39 |20800 |19000 | 100 |1700 | 91.8%|3628.17 |
+   | L16 |20800 |18877 | 158 |1765 | 91.5%|3780.44 | | L40 |20800 |18876 |  57 |1867 | 91.0%|3720.29 |
+   | L17 |20800 |18855 | 138 |1807 | 91.3%|3780.44 | | L41 |20800 |18550 |  56 |2194 | 89.5%|3325.95 |
+   | L18 |20800 |18877 | 138 |1785 | 91.4%|3772.92 | | L42 |20800 |18738 |  55 |2007 | 90.4%|3128.61 |
+   | L19 |20800 |18796 | 148 |1856 | 91.1%|3009.06 | | L43 |20800 |18919 |  67 |1814 | 91.3%|2839.09 |
+   | L20 |20800 |18625 | 156 |2019 | 90.3%|3271.22 | | L44 |20800 |18846 |  54 |1900 | 90.9%|2952.88 |
+   | L21 |20800 |18992 | 154 |1654 | 92.0%|3541.70 | | L45 |20800 |18810 |  62 |1928 | 90.7%|2974.49 |
+   | L22 |20800 |18965 | 127 |1708 | 91.8%|3645.09 | | L46 |20800 |19243 |  31 |1526 | 92.7%|2388.23 |
+   | L23 |20800 |18753 | 144 |1903 | 90.9%|3112.77 | | L47 |20800 |18642 |  75 |2083 | 90.0%|4130.10 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 622629.59 MB (Load=6361.84 | Prefill=547712.06 | Warmup=0.00 | Decode=68555.69 MB)
-   SSD Data/Token (Decode)      : Avg=1071.183 MB/tok (Min=933.500 | P50=1052.938 | P95=1203.281 | Max=1449.656 MB) | Prefill=267.438 MB/tok
-   NVMe Batches / Requests      : 3857 Batches | 254534 Reads | 0 LBA Merges (Avg 2504.9 KB/req)
-   SSD Read Bandwidth           : Avg=535.77 MB/s | Peak=4610.77 MB/s (Pre-flight hwtest skipped)
-   OS Kernel I/O Verification   : Read=622638.62 MB | Write=0.01 MB | Syscalls=258593
-   Sync Stall vs Async DMA      : SyncStall=1058811.32 ms | AsyncOverlapped=1150274.23 ms (52.1% Overlapped)
-   RAM Traffic & Effective BW   : 7358.13 GB moved | Eff=3.01 GB/s (STREAM hwtest skipped)
-   CPU Time & Utilization       : User=4654.391s + Sys=47.688s (Wall=2460.010s) | SysUtil=47.8% | ThrUtil=47.8% | 44.20 GFLOPS
+   Engine SSD Transfer Total    : 170230.57 MB (Load=4614.69 | Prefill=148021.85 | Warmup=0.00 | Decode=17594.02 MB)
+   SSD Data/Token (Decode)      : Avg=274.907 MB/tok (Min=212.092 | P50=276.752 | P95=321.723 | Max=507.748 MB) | Prefill=72.276 MB/tok
+   NVMe Batches / Requests      : 4555 Batches | 335027 Raw -> 315323 Merged (19704 LBA Merges, Avg 552.8 KB/io)
+   SSD I/O Size Histogram       : <64K=33329 | 64K-512K=70618 | 512K-2M=210244 | >2M=1132
+   SSD Read Bandwidth (Active)  : Min=10.87 | Avg=608.84 | Peak=11712.67 MB/s | WallAmort=219.55 MB/s
+   OS Kernel I/O Verification   : Read=170251.11 MB | Write=0.00 MB | Syscalls=324837
+   Sync Stall vs Async DMA      : SyncStall=261664.34 ms | AsyncOverlapped=271199.69 ms (50.9% Overlapped)
+   RAM Traffic & Active BW      : 5562.56 GB moved | Active=11.25 GB/s | WallAmort=7.17 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=753.26s (97.1%, 148021.85 MB SSD) | Decode=22.11s (2.9%, 17594.02 MB SSD)
+   CPU Time & Utilization       : User=1814.734s + Sys=40.984s (Wall=787.420s) | SysUtil=58.9% | ThrUtil=58.9% | 54.50 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM : 629680.50 ms (298144.2 us/tok | 25.76%)
-   MoE AVX2 Q8 Expert Compute   : 674518.08 ms (319374.1 us/tok | 27.59%)
-   Router + Lookahead Dispatch  :  10408.78 ms ( 4928.4 us/tok |  0.43%)
-   LM Head Output Projection    :   1251.54 ms (  592.6 us/tok |  0.05%)
-   Foreground NVMe Sync Stall   : 1058811.32 ms (501331.1 us/tok | 43.32%)
-   Unaccounted / OMP & Sampling :  69711.71 ms (33007.4 us/tok |  2.85%) | Total Wall=2444381.93 ms
+   Dense + Attention/Linear SSM : 224192.95 ms (106152.0 us/tok | 28.91%)
+   MoE AVX2 Q8 Expert Compute   : 267919.48 ms (126855.8 us/tok | 34.55%)
+   Router + Lookahead Dispatch  :  11828.13 ms ( 5600.4 us/tok |  1.53%)
+   LM Head Output Projection    :   2484.71 ms ( 1176.5 us/tok |  0.32%)
+   Foreground NVMe Sync Stall   : 261664.34 ms (123894.1 us/tok | 33.75%)
+   Unaccounted / OMP & Sampling :   7286.27 ms ( 3449.9 us/tok |  0.94%) | Total Wall=775375.87 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    68.20%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     7.69%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    14.01%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     8.24%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     1.86%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    82.58%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     3.35%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     6.05%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     5.53%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.49%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -3362,82 +2607,60 @@ In a1-bit quantized 1-bit quantized 1-bitized 1-bit"
 ================================================================================
 ```
 
-### 📄 `09_glm53_colibri_bench.log`
+### 📄 `09_qwen38_colibri_bench.log`
 ```text
-=== [Colibri-GLM53] CMD: ./baselines/colibri/c/glm53.exe --model D:/apex_d_drive/models/glm53 --ids 1,8,15,22,29,36,43,50,57,64,71,78,85,92,99,106,113,120,127,134,141,148,155,162,169,176,183,190,197,204,211,218,225,232,239,246,253,260,267,274,281,288,295,302,309,316,323,330,337,344,351,358,365,372,379,386,393,400,407,414,421,428,435,442 --greedy 64 32 (5x cutoff=1005.0s) ===
-[gguf] D:\apex_d_drive\models\glm53\GLM-5.3-Flash-UD-IQ2_XXS-00001-of-00004.gguf: glm5-next, 4 part(s), 38435 tensors under the checkpoint's names (1283 renamed, 129 fused expert tensors split per expert, 0 kept as named), read in place
-glm53: GGUF experts interleaved by 16 rows on 3 of 42 layers (G53_ILV16=0: the file's rows)
-  [COMP-LIVE] Colibri-GLM53: elapsed=15.0s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=30.1s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=45.1s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=60.1s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=75.2s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=95.7s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=110.8s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=125.8s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=141.2s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=156.2s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=171.2s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=186.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=201.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=216.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=231.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=246.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=261.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=276.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=291.4s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=306.5s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=321.6s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=337.1s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=352.1s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=367.4s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=382.8s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=397.9s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=412.9s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=428.4s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=443.5s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=458.7s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=473.8s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=488.9s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=504.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=519.3s / cutoff=1005.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=534.5s / cutoff=1005.0s
-[STATS] 43008 selections across 6945 distinct experts -> D:/apex_d_drive/models/glm53/.coli_usage
-teacher_forcing 5556 335 11 15 15 22 22 22 22 36 57 22 36 64 9 154850 154850 154850 123 121 127967 127501 243 104 253 237 154842 1986 197 220 220 0 220 154827 154827 154827 154827 220 83 220 274 220 220 274 295 83 279 8 220 1 1 2776 72 83 84 365 13 220 220 220 320 83 220 220
-greedy 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330
-decode 64 token in 420.8s = 0.152 tok/s (6.6 s/token)
-experts hits 15425 miss 11249 bytes 111319384064
-=== [Colibri-GLM53] Finished rc=0 elapsed=539.10s cancelled=False ===
+=== [Colibri-Qwen38] CMD: ./baselines/colibri/c/qwen38.exe 72 2 D:/apex_d_drive/models/qwen38\ref.json (5x cutoff=325.0s) ===
+[gguf] MTP head C:\apex_c_drive\models\qwen38\mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf: 32 tensors
+[gguf] D:\apex_d_drive\models\qwen38\Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf: 3 file(s), 1224 tensors, read in place (native ggml types, no conversion)
+== Qwen3.8-Flash-Next native text engine | cache=72/layer | CPU ==
+[tok] loaded 248320 base pieces + 33 added tokens (max id 248319) from D:/apex_d_drive/models/qwen38/tokenizer.json
+[qwen38] native text weights: prefix=model, 48 layers, PLE=1, cache=72/layer, FP8=native, BF16=native (resident matrices 4.40 GiB)
+[qwen38] MTP head mtp.*: wiring b (a norm per stream, fc_hidden per stream), RoPE base 1e+07, 96.86 MiB resident; routed experts Q8_0 from the snapshot (its own GGUF), cache 72 (Q38_MTP_CAP) x 4.98 MiB = 0.35 GiB full
+[qwen38] MTP norm weights, mean: embedding -0.7642, hidden -0.3284, mixer 3.7881 (q38_rms0 scales by 1+w; a plain norm's weights would sit near 1)
+[qwen38] trunk: 62 matrices int8 on the CPU (0.08 GiB, 0.28 GiB of BF16 released) in 0.3s; Q38_TRUNK_CPU_INT8=0 keeps BF16
+[qwen38 MTP] draft vocabulary: the lm_head has no int8 rows on the host, so the head scores the whole vocabulary (Q38_MTP_VOCAB=0 silences this)
+[qwen38] routed experts: GGUF IQ2_XXS/IQ2_XXS/IQ4_NL (layer 0), 1.68 MiB per expert; cache 72/layer
+[qwen38] trunk: 62 int8 matrices interleaved by 16 for the CPU in 0.02s (Q38_ILV16=0 keeps the rows)
+resident weights loaded in 9.6s | RSS after load: 4.60 GB
+[qwen38] decode rows' routed experts grouped by expert, one parallel region a layer (Q38_MOE_GROUPED=0: one expert at a time)
+  [COMP-LIVE] Colibri-Qwen38: elapsed=15.0s / cutoff=325.0s
+  [COMP-LIVE] Colibri-Qwen38: elapsed=30.0s / cutoff=325.0s
+  [COMP-LIVE] Colibri-Qwen38: elapsed=45.1s / cutoff=325.0s
+  [COMP-LIVE] Colibri-Qwen38: elapsed=60.1s / cutoff=325.0s
+TTFT: 25.68 s (time to first token)
+[qwen38 MTP] run: 2.58 tokens/forward (12 forwards per 31 tokens) | acceptance 82.6% (19/23 drafts) | wiring b | fixed depth, by position: 1 91.7% (11/12) 2 72.7% (8/11) 3 0.0% (0/0)
+[qwen38 spec gate] run: T(1) 0.0 ms, rows 2:1.50 3:2.00, rho 0.50, acceptance by position 0.50 0.50 0.50 0.50 0.50
+[qwen38 lookup] run: 2.58 tokens/forward (12 forwards per 31 tokens) | acceptance 0.0% (0/0 drafts in 0 verifies) | gate on, 0 declined, 0 probes
+
+PEAK RSS: 10.73 GB
+Expert cache hit rate: 62.0% (hit=15849 miss=9733)
+Speed: 0.66 tok/s (48.8s for 32 tokens)
+[STATS] 48560 selections across 8462 distinct experts -> D:/apex_d_drive/models/qwen38/.coli_usage
+
+Reference: 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 
+C engine : 220 248046 198 248045 74455 198 248068 198 760 1156 682 3106 1092 7701 310 381 264 7132 36412 2805 269 82987 886 314 5587 13 6558 728 22903 411 25 271 Text      :  <|im_end|>
+<|im_start|>assistant
+<think>
+The user has sent what appears to be a garbled/corrupted string of characters. Let me analyze this:
+
+
+
+Matching tokens: 0/32
+=== [Colibri-Qwen38] Finished rc=1 elapsed=61.15s cancelled=False ===
 ```
 
-### 📄 `11b_glm53_ik_llama_bench.log`
+### 📄 `12_qwen38_competitor_comparison.log`
 ```text
-=== [ik_llama.cpp] CMD: baselines/ik_llama/build\bin\Release\llama-bench.exe -m D:/apex_d_drive/models/glm53\GLM-5.3-Flash-UD-IQ2_XXS-00001-of-00004.gguf -p 64 -n 32 -t 4 -r 1 (5x cutoff=1005.0s) ===
-  [COMP-LIVE] ik_llama.cpp: elapsed=15.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=30.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=45.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=60.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=75.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=90.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=105.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=120.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=135.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=150.1s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=165.2s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=180.2s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=195.2s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=210.2s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=225.2s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=240.2s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=255.3s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=270.3s / cutoff=1005.0s
-| model                          |       size |     params | backend    | threads |          test |              t/s |
-| ------------------------------ | ---------: | ---------: | ---------- | ------: | ------------: | ---------------: |
-| glm5next 312B.A17B IQ2_XXS - 2.0625 bpw |  92.43 GiB |   313.51 B | CPU        |       4 |          pp64 |      0.76 ± 0.00 |
-  [COMP-LIVE] ik_llama.cpp: elapsed=285.3s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=300.3s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=315.3s / cutoff=1005.0s
-  [COMP-LIVE] ik_llama.cpp: elapsed=330.5s / cutoff=1005.0s
+================================================================================
+ [Stage 5 Summary] QWEN38 Fair Head-to-Head Comparison vs Colibri (4T)
+================================================================================
+| Engine / Stage | Prefill (tps) | Decode (tps) | P50 (ms) | Eff Hit% | SSD Avg (MB/s) | Peak RSS | Notes |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **Apex v1 (Fair 64p/32g)** | 1.70 | 2.64 | 350.58 | 82.94% | 590.72 | 13550.32 MB | Native GGUF + MTP ON |
+| **Apex v1 (512p/128g)** | 2.63 | 2.79 | 334.58 | 91.53% | 643.31 | 14025.31 MB | Native GGUF + MTP ON |
+| **Apex v1 (2048p/64g)** | 2.72 | 2.89 | 312.81 | 90.94% | 608.84 | 12372.99 MB | Native GGUF + MTP ON |
+| **JustVugg/colibri (64p/32g)** | - | 0.66 | - | 62.0% | - | - | `Q38_MTP=1` / Native |
+================================================================================
 ```
 
 <!-- APEX_BENCHMARK_LOGS_END -->
