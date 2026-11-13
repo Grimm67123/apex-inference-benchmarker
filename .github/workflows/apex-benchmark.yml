@@ -206,19 +206,19 @@ jobs:
           import urllib.request, json, zipfile, os
           os.makedirs("llama_bin", exist_ok=True)
           req = urllib.request.Request(
-          "https://api.github.com/repos/ggml-org/llama.cpp/releases/latest",
-          headers={"User-Agent": "Apex-Inference-Benchmarker/1.0"}
+              "https://api.github.com/repos/ggml-org/llama.cpp/releases/latest",
+              headers={"User-Agent": "Apex-Inference-Benchmarker/1.0"}
           )
           with urllib.request.urlopen(req, timeout=30) as resp:
-          data = json.loads(resp.read().decode())
+              data = json.loads(resp.read().decode())
           for a in data.get("assets", []):
-          name = a["name"].lower()
-          if "bin-win-avx2-x64.zip" in name or ("win" in name and "x64.zip" in name and "cuda" not in name and "vulkan" not in name and "sycl" not in name):
-          urllib.request.urlretrieve(a["browser_download_url"], "llama_win.zip")
-          with zipfile.ZipFile("llama_win.zip", "r") as z:
-          z.extractall("llama_bin")
-          print("[llama.cpp] Extracted:", a["name"], flush=True)
-          break
+              name = a["name"].lower()
+              if "bin-win-avx2-x64.zip" in name or ("win" in name and "x64.zip" in name and "cuda" not in name and "vulkan" not in name and "sycl" not in name):
+                  urllib.request.urlretrieve(a["browser_download_url"], "llama_win.zip")
+                  with zipfile.ZipFile("llama_win.zip", "r") as z:
+                      z.extractall("llama_bin")
+                  print("[llama.cpp] Extracted:", a["name"], flush=True)
+                  break
           PYEOF
 
           echo "================================================================================"
