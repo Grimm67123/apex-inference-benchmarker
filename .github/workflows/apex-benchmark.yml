@@ -1,5 +1,8 @@
 name: Apex Inference v1 — Real Unsloth Multi-Shard NVMe Benchmark & Parity Suite
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
     inputs:
@@ -30,9 +33,8 @@ env:
 
 jobs:
   apex-benchmark-windows:
-    name: Apex Inference v1 vs Colibri & llama.cpp (Real Unsloth GGUF Shards)
+    name: Apex Inference v1 vs Colibri, llama.cpp & ik_llama.cpp
     runs-on: windows-latest
-    timeout-minutes: 120
 
     steps:
       # =========================================================================
@@ -78,16 +80,20 @@ jobs:
               "C:\julia"
           )
 
-          $jobs = @()
-          foreach ($p in $fastPurgePaths) {
-              if (Test-Path $p) {
-                  Log-Line " [Purge Async] Removing $p ..."
-                  $jobs += Start-Job -ScriptBlock { param($dir) cmd /c "rmdir /s /q `"$dir`" 2>nul" } -ArgumentList $p
+          $dC0 = Get-PSDrive C
+          $dD0 = if (Test-Path "D:\") { Get-PSDrive D } else { $null }
+          $preFreeGB = [math]::Round(($dC0.Free + ($(if ($dD0) { $dD0.Free } else { 0 }))) / 1GB, 2)
+          if ($preFreeGB -lt 160.0) {
+              $jobs = @()
+              foreach ($p in $fastPurgePaths) {
+                  if (Test-Path $p) {
+                      $jobs += Start-Job -ScriptBlock { param($dir) cmd /c "rmdir /s /q `"$dir`" 2>nul" } -ArgumentList $p
+                  }
               }
-          }
-          if ($jobs.Count -gt 0) {
-              Wait-Job -Job $jobs -Timeout 90 | Out-Null
-              Remove-Job -Job $jobs -Force -ErrorAction SilentlyContinue
+              if ($jobs.Count -gt 0) {
+                  Wait-Job -Job $jobs | Out-Null
+                  Remove-Job -Job $jobs -Force -ErrorAction SilentlyContinue
+              }
           }
 
           New-Item -ItemType Directory -Force -Path "C:\apex_c_drive\models\qwen38" | Out-Null
@@ -175,99 +181,55 @@ jobs:
       # =========================================================================
       # STEP 3: FETCH & BUILD REAL COMPETITOR ENGINES (JustVugg/colibri, llama.cpp, PolyStrata, ik_llama.cpp)
       # =========================================================================
-      - name: "Step 3 - Build JustVugg/colibri & Fetch Official Prebuilt llama.cpp + PolyStrata / ik_llama.cpp"
-        id: step3_competitors
-        env:
-          SECRET_WRITE_README: ${{ secrets.PRIVATE_REPO_WRITE_LOGS_README }}
-          SECRET_PAT_FALLBACK: ${{ secrets.PRIVATE_REPO_PAT }}
+      - name: "Step 3 - Build JustVugg/colibri (Fast CPU Competitor Setup)"
         shell: bash
         run: |
           set -euo pipefail
           exec > >(tee -a telemetry_logs/00_workflow_master.log telemetry_logs/02_competitors_setup.log) 2>&1
-
           mkdir -p baselines
           cd baselines
-
           echo "================================================================================"
-          echo " [3.1] Cloning & Building Colibri (https://github.com/JustVugg/colibri.git)"
+          echo " [3.1] Cloning & Building JustVugg/colibri (https://github.com/JustVugg/colibri.git)"
           echo "================================================================================"
           rm -rf colibri
           git clone --depth 1 https://github.com/JustVugg/colibri.git colibri
-          if [ -d "colibri/c" ] && [ -f "colibri/c/Makefile" ]; then
-            echo "Building Colibri native C binaries (colibri.exe, qwen38.exe, glm53.exe, iobench.exe)..."
-            (cd colibri/c && make -j4 colibri.exe qwen38.exe glm53.exe iobench.exe) || (cd colibri/c && make -j4)
-            ls -lh colibri/c/*.exe || true
+          if [ -d "colibri/c" ]; then
+            if [ -f "colibri/c/Makefile" ]; then
+              (cd colibri/c && make -j4 qwen38 glm53) || (cd colibri/c && make -j4) || true
+            fi
           fi
 
           echo "================================================================================"
-          echo " [3.2] Downloading Official Prebuilt llama.cpp Windows x64 CPU Release Binaries"
+          echo " [3.2] Downloading Official Prebuilt llama.cpp AVX2 Windows Binaries"
           echo "================================================================================"
-          python3 -u - << 'EOF'
-          import urllib.request, json, zipfile, tarfile, os
-
-          os.makedirs("llama_bin", exist_ok=True)
-          token = os.environ.get("SECRET_WRITE_README") or os.environ.get("SECRET_PAT_FALLBACK") or ""
-          headers = {"User-Agent": "Apex-Inference-Benchmarker/1.0"}
-          if token:
-              headers["Authorization"] = f"Bearer {token}"
-
-          req = urllib.request.Request(
-              "https://api.github.com/repos/ggml-org/llama.cpp/releases?per_page=15",
-              headers=headers
-          )
-          with urllib.request.urlopen(req, timeout=30) as resp:
-              releases = json.loads(resp.read().decode())
-
-          asset_url = None
-          asset_name = None
-          gpu_Completers = ("cuda", "cudart", "vulkan", "sycl", "hip", "rocm", "opencl", "kompute", "musa", "cann")
-
-          for rel in releases:
-              assets = rel.get("assets", [])
-              for a in assets:
-                  name = a["name"].lower()
-                  if ("bin-win-cpu-x64" in name or "bin-win-avx2-x64" in name) and (name.endswith(".zip") or name.endswith(".tar.gz")):
-                      asset_url = a["browser_download_url"]
-                      asset_name = a["name"]
-                      break
-              if asset_url:
-                  break
-              for a in assets:
-                  name = a["name"].lower()
-                  if "win" in name and "x64" in name and "arm64" not in name and not any(g in name for g in gpu_Completers):
-                      if name.endswith(".zip") or name.endswith(".tar.gz"):
-                          asset_url = a["browser_download_url"]
-                          asset_name = a["name"]
-                          break
-              if asset_url:
-                  break
-
-          if not asset_url:
-              raise RuntimeError("Could not locate prebuilt Windows CPU x64 release across recent 15 ggml-org/llama.cpp releases!")
-
-          print(f"[llama.cpp] Downloading {asset_name} -> {asset_url}", flush=True)
-          urllib.request.urlretrieve(asset_url, asset_name)
-          if asset_name.endswith(".zip"):
-              with zipfile.ZipFile(asset_name, "r") as z:
-                  z.extractall("llama_bin")
-          elif asset_name.endswith(".tar.gz"):
-              with tarfile.open(asset_name, "r:gz") as t:
-                  t.extractall("llama_bin")
-
-          extracted = []
-          for root, _, files in os.walk("llama_bin"):
-              for f in files:
-                  if f.lower().endswith(".exe"):
-                      extracted.append(os.path.join(root, f))
-          print("[llama.cpp] Extracted Windows .exe binaries:", sorted(extracted), flush=True)
-          EOF
+          python3 -u - << 'PYEOF'
+import urllib.request, json, zipfile, os
+os.makedirs("llama_bin", exist_ok=True)
+req = urllib.request.Request(
+    "https://api.github.com/repos/ggml-org/llama.cpp/releases/latest",
+    headers={"User-Agent": "Apex-Inference-Benchmarker/1.0"}
+)
+with urllib.request.urlopen(req, timeout=30) as resp:
+    data = json.loads(resp.read().decode())
+for a in data.get("assets", []):
+    name = a["name"].lower()
+    if "bin-win-avx2-x64.zip" in name or ("win" in name and "x64.zip" in name and "cuda" not in name and "vulkan" not in name and "sycl" not in name):
+        urllib.request.urlretrieve(a["browser_download_url"], "llama_win.zip")
+        with zipfile.ZipFile("llama_win.zip", "r") as z:
+            z.extractall("llama_bin")
+        print("[llama.cpp] Extracted:", a["name"], flush=True)
+        break
+PYEOF
 
           echo "================================================================================"
-          echo " [3.3] Inspecting PolyStrata (simplexai-labs/PolyStrata) & ik_llama.cpp"
+          echo " [3.3] Cloning & Building ik_llama.cpp (CPU AVX2 Release)"
           echo "================================================================================"
-          git config --global core.longpaths true
-          git clone --depth 1 https://github.com/simplexai-labs/PolyStrata.git polystrata || true
+          rm -rf ik_llama
           git clone --depth 1 https://github.com/ikawrakow/ik_llama.cpp.git ik_llama || true
+          if [ -d "ik_llama" ]; then
+            cmake -B ik_llama/build -S ik_llama -DCMAKE_BUILD_TYPE=Release -DGGML_NATIVE=OFF -DGGML_AVX2=ON -DGGML_FMA=ON -DGGML_F16C=ON -DGGML_CUDA=OFF || true
+            cmake --build ik_llama/build --config Release --target llama-bench llama-cli --parallel 4 || true
+          fi
           cd ..
 
       # =========================================================================
@@ -378,7 +340,7 @@ jobs:
               ranges = [(off, min(off + chunk_size - 1, total_bytes - 1)) for off in range(0, total_bytes, chunk_size)]
               t0 = time.time()
               downloaded = 0
-              window = 16
+              window = 24
               with open(dest_path, "wb", buffering=16 * 1024 * 1024) as f:
                   with ThreadPoolExecutor(max_workers=window) as ex:
                       active = {}
@@ -395,7 +357,7 @@ jobs:
                               next_idx += 1
                           f.write(data)
                           downloaded += len(data)
-                          if (write_idx + 1) % 16 == 0 or (write_idx + 1) == len(ranges):
+                          if (write_idx + 1) % 160 == 0 or (write_idx + 1) == len(ranges):
                               el = max(time.time() - t0, 0.001)
                               mbps = (downloaded / (1024**2)) / el
                               pct = 100.0 * downloaded / max(total_bytes, 1)
@@ -493,12 +455,25 @@ jobs:
               --threads 4 \
               2>&1 | tee "$LOG_DIR/04_${TARGET}_stage1_parity.log"
 
+            T_APEX_START=$(date +%s)
+            "$APEX_BIN" bench \
+              --model "$SHARD1" \
+              --prompt-tokens 64 \
+              --gen-tokens 32 \
+              --threads 4 \
+              --mtp on \
+              --no-hwtest \
+              2>&1 | tee "$LOG_DIR/05a_${TARGET}_stage1_fair_64p_32g.log"
+            T_APEX_END=$(date +%s)
+            APEX_FAIR_SEC=$((T_APEX_END - T_APEX_START))
+            echo "[Apex-Fair-Baseline] 64p/32g completed in ${APEX_FAIR_SEC}s"
+
             "$APEX_BIN" run \
               --model "$SHARD1" \
               --prompt "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:" \
               --gen-tokens 64 \
               --threads 4 \
-              --mtp off \
+              --mtp on \
               2>&1 | tee "$LOG_DIR/05_${TARGET}_stage1_prompt_response.log"
 
             echo "--------------------------------------------------------------------------------"
@@ -509,7 +484,7 @@ jobs:
               --prompt-tokens 512 \
               --gen-tokens 128 \
               --threads 4 \
-              --mtp off \
+              --mtp on \
               --no-hwtest \
               2>&1 | tee "$LOG_DIR/06_${TARGET}_stage2_512_warmup.log"
 
@@ -559,14 +534,18 @@ jobs:
               mid = models["data"][0]["id"]
               print("[Stage 3] /v1/models:", json.dumps(models), flush=True)
 
+              t_c0 = time.time()
               r1 = post_json("/v1/chat/completions", {
                   "model": mid,
                   "messages": [{"role": "user", "content": "Summarize LBA-coalesced NVMe MoE offloading in one sentence."}],
                   "max_tokens": 16,
                   "stream": False
               })
-              print("[Stage 3] /v1/chat/completions (stream=false):", json.dumps(r1), flush=True)
+              dt_c1 = (time.time() - t_c0) * 1000.0
+              msg1 = r1.get("choices", [{}])[0].get("message", {}).get("content", "")[:120]
+              print(f"[Stage 3] /v1/chat/completions (stream=false) {dt_c1:.1f}ms | usage={r1.get('usage')} | text={msg1!r}", flush=True)
 
+              t_s0 = time.time()
               sse_req = urllib.request.Request(
                   f"http://127.0.0.1:{port}/v1/chat/completions",
                   data=json.dumps({
@@ -580,7 +559,9 @@ jobs:
               )
               with urllib.request.urlopen(sse_req, timeout=300.0) as r:
                   sse_txt = r.read().decode("utf-8")
-              print("[Stage 3] /v1/chat/completions (stream=true SSE):", sse_txt.strip().replace("\n\n", " | "), flush=True)
+              dt_s1 = (time.time() - t_s0) * 1000.0
+              sse_chunks = [ln for ln in sse_txt.splitlines() if ln.startswith("data: ")]
+              print(f"[Stage 3] /v1/chat/completions (stream=true SSE) {dt_s1:.1f}ms | chunks={len(sse_chunks)} | DONE={'data: [DONE]' in sse_txt}", flush=True)
               assert "data: [DONE]" in sse_txt
 
               r_tool = post_json("/v1/chat/completions", {
@@ -589,8 +570,21 @@ jobs:
                   "tools": [{"type": "function", "function": {"name": "get_nvme_telemetry"}}],
                   "max_tokens": 8
               })
-              print("[Stage 3] Tool Call Response:", json.dumps(r_tool), flush=True)
+              tc_name = r_tool.get("choices", [{}])[0].get("message", {}).get("tool_calls", [{}])[0].get("function", {}).get("name", "?")
+              print(f"[Stage 3] Tool Call Response: finish_reason={r_tool['choices'][0]['finish_reason']} | fn={tc_name}", flush=True)
               assert r_tool["choices"][0]["finish_reason"] == "tool_calls"
+
+              r_codex = post_json("/v1/responses", {"model": mid, "input": "Analyze SSD expert cache hit rate", "max_tokens": 8})
+              assert r_codex["object"] == "response" and r_codex["status"] == "completed"
+              r_cmpl = post_json("/v1/completions", {"model": mid, "prompt": "NVMe MoE offloading:", "max_tokens": 8})
+              assert r_cmpl["object"] == "text_completion"
+              r_tok = post_json("/tokenize", {"content": "Explain NVMe MoE offloading"})
+              assert len(r_tok["tokens"]) > 0
+              r_detok = post_json("/detokenize", {"tokens": r_tok["tokens"]})
+              assert "content" in r_detok
+              with urllib.request.urlopen(f"http://127.0.0.1:{port}/props", timeout=20.0) as rp:
+                  assert json.loads(rp.read().decode())["total_slots"] == 1
+              print("[Stage 3] Full OpenAI + llama.cpp API parity (/responses, /completions, /tokenize, /detokenize, /props) PASSED!", flush=True)
           finally:
               proc.kill()
               try:
@@ -600,46 +594,100 @@ jobs:
           EOF
 
             echo "--------------------------------------------------------------------------------"
-            echo " [Stage 4] Massive 2,048-Token Prompt (High KV Load) + MTP OFF vs MTP ON A/B Test"
+            echo " [Stage 4] Massive 2,048-Token Prompt (High KV Load) + MTP Always ON"
             echo "--------------------------------------------------------------------------------"
             "$APEX_BIN" bench \
               --model "$SHARD1" \
               --prompt-tokens 2048 \
               --gen-tokens 64 \
               --threads 4 \
-              --mtp ab \
+              --mtp on \
               --no-hwtest \
               2>&1 | tee "$LOG_DIR/08_${TARGET}_stage4_2048_mtp_ab.log"
 
             echo "--------------------------------------------------------------------------------"
-            echo " [Stage 5] Sequential Competitor Head-to-Head (JustVugg/colibri & llama.cpp)"
+            echo " [Stage 5] Fair Head-to-Head Competitor Suite (Exact 64p / 32g / 4-Thread Parity)"
             echo "--------------------------------------------------------------------------------"
-            if [ "$TARGET" = "qwen38" ] && [ -f "baselines/colibri/c/qwen38.exe" ]; then
-              echo "Running JustVugg/colibri native qwen38.exe sequentially on $PRIMARY_DIR..."
-              SNAP="$PRIMARY_DIR" COLI_NO_OMP_TUNE=1 Q38_MTP=0 OMP_NUM_THREADS=4 ./baselines/colibri/c/qwen38.exe 16 8 "$PRIMARY_DIR/ref.json" \
-                2>&1 | tee "$LOG_DIR/09_${TARGET}_colibri_bench.log" || true
-            elif [ "$TARGET" = "glm53" ] && [ -f "baselines/colibri/c/glm53.exe" ]; then
-              echo "Running JustVugg/colibri native glm53.exe sequentially on $PRIMARY_DIR..."
-              COLI_IDS=$(python3 -c "print(','.join(str(1 + (i*7)%500) for i in range(64)))")
-              COLI_NO_OMP_TUNE=1 OMP_NUM_THREADS=4 ./baselines/colibri/c/glm53.exe --model "$PRIMARY_DIR" --ids "$COLI_IDS" --greedy 32 16 \
-                2>&1 | tee "$LOG_DIR/09_${TARGET}_colibri_bench.log" || true
-            fi
+            python3 -u - "$TARGET" "$PRIMARY_DIR" "$SHARD1" "$LOG_DIR" "$APEX_FAIR_SEC" << 'EOF'
+          import os, sys, time, json, glob, subprocess, threading
 
-            LLAMA_BENCH=$(find baselines/llama_bin -iname "llama-bench.exe" | head -n 1 || true)
-            LLAMA_COMP=$(find baselines/llama_bin -iname "llama-completion.exe" | head -n 1 || true)
-            if [ -z "$LLAMA_COMP" ]; then
-              LLAMA_COMP=$(find baselines/llama_bin -iname "llama-cli.exe" | head -n 1 || true)
-            fi
-            if [ -n "$LLAMA_BENCH" ] && [ -f "$LLAMA_BENCH" ]; then
-              echo "Running llama-bench.exe (OS mmap -lm mmap) sequentially on $SHARD1..."
-              "$LLAMA_BENCH" -m "$SHARD1" -p 64 -n 32 -t 4 -lm mmap -r 1 2>&1 | tee "$LOG_DIR/10_${TARGET}_llamacpp_bench.log" || true
-              echo "Running llama-bench.exe (--no-mmap -lm none) sequentially on $SHARD1..."
-              "$LLAMA_BENCH" -m "$SHARD1" -p 64 -n 32 -t 4 -lm none -r 1 2>&1 | tee -a "$LOG_DIR/10_${TARGET}_llamacpp_bench.log" || true
-            fi
-            if [ -n "$LLAMA_COMP" ] && [ -f "$LLAMA_COMP" ]; then
-              echo "Running $(basename "$LLAMA_COMP") (--temp 0) greedy parity reference on $SHARD1..."
-              "$LLAMA_COMP" -m "$SHARD1" -p "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:" -n 32 -t 4 --temp 0 --no-display-prompt 2>&1 | tee "$LOG_DIR/11_${TARGET}_llamacpp_greedy.log" || true
-            fi
+          target, primary_dir, shard1, log_dir, apex_sec_str = sys.argv[1:6]
+          apex_sec = max(float(apex_sec_str), 1.0)
+          # Cancel competitor ONLY if it drastically underperforms Apex (>5x slower, min 90s load grace)
+          max_comp_sec = max(90.0, apex_sec * 5.0)
+          print(f"[Fair-Runner] Apex 64p/32g wall={apex_sec:.1f}s | Competitor drastic-underperform cutoff={max_comp_sec:.1f}s (5x Apex)", flush=True)
+
+          def run_live_fair(name, cmd, log_name, extra_env=None):
+              log_path = os.path.join(log_dir, log_name)
+              env = os.environ.copy()
+              if extra_env:
+                  env.update(extra_env)
+              t0 = time.time()
+              cancelled = False
+              rc = -1
+              with open(log_path, "w", encoding="utf-8", errors="replace") as lf:
+                  hdr = f"=== [{name}] CMD: {' '.join(cmd)} (5x cutoff={max_comp_sec:.1f}s) ===\n"
+                  print(hdr, end="", flush=True)
+                  lf.write(hdr)
+                  lf.flush()
+                  proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, errors="replace", env=env)
+                  def reader():
+                      for line in proc.stdout:
+                          print(f"  [{name}] {line}", end="", flush=True)
+                          lf.write(line)
+                          lf.flush()
+                  th = threading.Thread(target=reader, daemon=True)
+                  th.start()
+                  last_hb = t0
+                  while proc.poll() is None:
+                      now = time.time()
+                      el = now - t0
+                      if now - last_hb >= 15.0:
+                          hb = f"  [COMP-LIVE] {name}: elapsed={el:.1f}s / cutoff={max_comp_sec:.1f}s\n"
+                          print(hb, end="", flush=True)
+                          lf.write(hb)
+                          lf.flush()
+                          last_hb = now
+                      if el > max_comp_sec:
+                          msg = f"\n  [COMP-CANCEL] {name} exceeded 5x Apex wall time ({el:.1f}s > {max_comp_sec:.1f}s); cancelling slow competitor.\n"
+                          print(msg, end="", flush=True)
+                          lf.write(msg)
+                          lf.flush()
+                          cancelled = True
+                          proc.kill()
+                          break
+                      time.sleep(0.5)
+                  th.join(timeout=5)
+                  rc = proc.returncode if not cancelled else -9
+                  el = time.time() - t0
+                  ftr = f"=== [{name}] Finished rc={rc} elapsed={el:.2f}s cancelled={cancelled} ===\n"
+                  print(ftr, end="", flush=True)
+                  lf.write(ftr)
+              return rc, el, cancelled
+
+          if target == "qwen38" and os.path.exists("baselines/colibri/c/qwen38.exe"):
+              run_live_fair("Colibri-Qwen38", ["./baselines/colibri/c/qwen38.exe", "64", "32", os.path.join(primary_dir, "ref.json")],
+                            f"09_{target}_colibri_bench.log",
+                            {"SNAP": primary_dir, "COLI_NO_OMP_TUNE": "1", "Q38_MTP": "1", "OMP_NUM_THREADS": "4"})
+          elif target == "glm53" and os.path.exists("baselines/colibri/c/glm53.exe"):
+              with open(os.path.join(primary_dir, "ref.json")) as rf:
+                  cids = ",".join(str(x) for x in json.load(rf)["prompt_ids"][:64])
+              run_live_fair("Colibri-GLM53", ["./baselines/colibri/c/glm53.exe", "--model", primary_dir, "--ids", cids, "--greedy", "64", "32"],
+                            f"09_{target}_colibri_bench.log",
+                            {"COLI_NO_OMP_TUNE": "1", "OMP_NUM_THREADS": "4"})
+
+          llama_bench = next((p for p in glob.glob("baselines/llama_bin/**/llama-bench.exe", recursive=True)), None)
+          if llama_bench:
+              run_live_fair("llama.cpp-mmap", [llama_bench, "-m", shard1, "-p", "64", "-n", "32", "-t", "4", "-lm", "mmap", "-r", "1"],
+                            f"10_{target}_llamacpp_mmap_bench.log")
+              run_live_fair("llama.cpp-nommap", [llama_bench, "-m", shard1, "-p", "64", "-n", "32", "-t", "4", "-lm", "none", "-r", "1"],
+                            f"10_{target}_llamacpp_none_bench.log")
+
+          ik_bench = next((p for p in glob.glob("baselines/ik_llama/build/**/llama-bench.exe", recursive=True)), None)
+          if ik_bench:
+              run_live_fair("ik_llama.cpp", [ik_bench, "-m", shard1, "-p", "64", "-n", "32", "-t", "4", "-r", "1"],
+                            f"11b_{target}_ik_llama_bench.log")
+          EOF
 
             python3 -u - "$TARGET" "$LOG_DIR" << 'EOF' 2>&1 | tee "$LOG_DIR/12_${TARGET}_competitor_comparison.log"
           import os, sys, re
@@ -652,26 +700,32 @@ jobs:
               if not os.path.exists(p): return ""
               with open(p, "r", encoding="utf-8", errors="replace") as f: return f.read()
 
-          s1 = read_log(f"05_{target}_stage1_prompt_response.log")
-          s2 = read_log(f"06_{target}_stage2_512_warmup.log")
-          s4 = read_log(f"08_{target}_stage4_2048_mtp_ab.log")
-          col = read_log(f"09_{target}_colibri_bench.log")
-          llb = read_log(f"10_{target}_llamacpp_bench.log")
+          s1_fair = read_log(f"05a_{target}_stage1_fair_64p_32g.log")
+          s2      = read_log(f"06_{target}_stage2_512_warmup.log")
+          s4      = read_log(f"08_{target}_stage4_2048_mtp_ab.log")
+          col     = read_log(f"09_{target}_colibri_bench.log")
+          llm     = read_log(f"10_{target}_llamacpp_mmap_bench.log")
+          lln     = read_log(f"10_{target}_llamacpp_none_bench.log")
+          ikb     = read_log(f"11b_{target}_ik_llama_bench.log")
 
           def grab(pat, txt, default="N/A"):
               m = re.search(pat, txt)
               return m.group(1) if m else default
 
-          apex_s1_pref = grab(r"Prefill Throughput \(TPS\)\s*:\s*Avg\s*=\s*([0-9.]+)\s*tps", s1)
-          apex_s1_dec  = grab(r"Decode Throughput \(TPS\)\s*:\s*Avg\s*=\s*([0-9.]+)\s*tps", s1)
-          apex_s1_hit  = grab(r"EFFECTIVE CACHE HIT RATE\s*:\s*([0-9.]+%)", s1)
-          apex_s2_pref = grab(r"Prefill Throughput \(TPS\)\s*:\s*Avg\s*=\s*([0-9.]+)\s*tps", s2)
-          apex_s2_dec  = grab(r"Decode Throughput \(TPS\)\s*:\s*Avg\s*=\s*([0-9.]+)\s*tps", s2)
-          apex_s2_hit  = grab(r"EFFECTIVE CACHE HIT RATE\s*:\s*([0-9.]+%)", s2)
-          apex_mtp_off = grab(r"MTP OFF Decode Throughput :\s*([0-9.]+)\s*tokens/sec", s4)
-          apex_mtp_on  = grab(r"MTP ON  Decode Throughput :\s*([0-9.]+)\s*tokens/sec", s4)
+          def grab_apex(txt):
+              pref = grab(r"Prefill\s*\([^)]+\):\s*Avg=([0-9.]+)", txt)
+              dec  = grab(r"Decode\s*\([^)]+\):\s*Avg=([0-9.]+)", txt)
+              hit  = grab(r"EFF HIT=([0-9.]+%)", txt)
+              p50  = grab(r"P50=([0-9.]+)ms", txt)
+              ssd  = grab(r"SSD Read Bandwidth\s*:\s*Avg=([0-9.]+)\s*MB/s", txt)
+              rss  = grab(r"Peak=([0-9.]+)\s*MB", txt)
+              return pref, dec, hit, p50, ssd, rss
 
-          col_tps = grab(r"Speed:\s*([0-9.]+)\s*tok/s", col, grab(r"=\s*([0-9.]+)\s*tok/s", col, "N/A"))
+          sf_pref, sf_dec, sf_hit, sf_p50, sf_ssd, sf_rss = grab_apex(s1_fair)
+          s2_pref, s2_dec, s2_hit, s2_p50, s2_ssd, s2_rss = grab_apex(s2)
+          s4_pref, s4_dec, s4_hit, s4_p50, s4_ssd, s4_rss = grab_apex(s4)
+
+          col_tps = grab(r"Speed:\s*([0-9.]+)\s*tok/s", col, grab(r"=\s*([0-9.]+)\s*tok/s", col, "Cancelled (>5x)" if "cancelled=True" in col else "N/A"))
           col_hit = grab(r"Expert cache hit rate:\s*([0-9.]+%)", col, "N/A")
           if col_hit == "N/A":
               mh = re.search(r"experts hits\s+(\d+)\s+miss\s+(\d+)", col)
@@ -679,23 +733,32 @@ jobs:
                   h_cnt, m_cnt = int(mh.group(1)), int(mh.group(2))
                   col_hit = f"{100.0 * h_cnt / max(h_cnt + m_cnt, 1):.1f}%"
 
-          llb_pp = grab(r"pp64\s*\|\s*([0-9.]+)", llb, "OOM / Unsupported")
-          llb_tg = grab(r"tg32\s*\|\s*([0-9.]+)", llb, "OOM / Unsupported")
+          def parse_llama_bench(txt):
+              pp = grab(r"pp64\s*\|\s*([0-9.]+)", txt, "")
+              tg = grab(r"tg32\s*\|\s*([0-9.]+)", txt, "")
+              if not pp and not tg:
+                  if "cancelled=True" in txt: return "Cancelled (>5x)", "Cancelled (>5x)"
+                  if "bad_alloc" in txt or "out of memory" in txt.lower() or "failed to allocate" in txt.lower():
+                      return "OOM", "OOM"
+                  return "Unsupported/Fail", "Unsupported/Fail"
+              return pp or "N/A", tg or "N/A"
+
+          llm_pp, llm_tg = parse_llama_bench(llm)
+          lln_pp, lln_tg = parse_llama_bench(lln)
+          ik_pp,  ik_tg  = parse_llama_bench(ikb)
 
           print("================================================================================")
-          print(f" [Stage 5 Summary] {target.upper()} Head-to-Head Competitor Comparison Table")
+          print(f" [Stage 5 Summary] {target.upper()} Fair Head-to-Head Comparison (64p / 32g / 4T)")
           print("================================================================================")
-          print("| Engine / Stage | Prefill (tok/s) | Decode (tok/s) | Effective RAM Hit Rate | 16 GB RAM CPU Execution |")
-          print("| :--- | :---: | :---: | :---: | :---: |")
-          print(f"| **Apex Inference v1 (Stage 1: 64p / 64g)** | {apex_s1_pref} | {apex_s1_dec} | {apex_s1_hit} | Native Direct GGUF |")
-          print(f"| **Apex Inference v1 (Stage 2: 512p / 128g)** | {apex_s2_pref} | {apex_s2_dec} | {apex_s2_hit} | Native Direct GGUF |")
-          print(f"| **Apex Inference v1 (Stage 4: 2048p MTP OFF)** | - | {apex_mtp_off} | - | Native Direct GGUF |")
-          print(f"| **Apex Inference v1 (Stage 4: 2048p MTP ON)** | - | {apex_mtp_on} | - | Native Direct GGUF + MTP |")
-          print(f"| **JustVugg/colibri (`qwen38.exe`/`glm53.exe`)** | - | {col_tps} | {col_hit} | `gguf_import.py --mode link` |")
-          print(f"| **ggml-org/llama.cpp (`mmap` `-lm mmap`)** | {llb_pp} | {llb_tg} | OS Page Cache | `MapViewOfFile` Thrashing |")
-          print(f"| **ggml-org/llama.cpp (`--no-mmap` `-lm none`)** | OOM | OOM | - | Fails (35.7 GB Alloc on 16 GB) |")
-          print(f"| **simplexai-labs/PolyStrata (`v0.2.13`)** | N/A | N/A | - | Requires CUDA/HIP/SYCL/Metal GPU |")
-          print(f"| **ikawrakow/ik_llama.cpp** | N/A | N/A | - | No `qwen4exp`/`glm5-next` Arch |")
+          print("| Engine / Stage | Prefill (tps) | Decode (tps) | P50 (ms) | Eff Hit% | SSD Avg (MB/s) | Peak RSS | Notes |")
+          print("| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |")
+          print(f"| **Apex v1 (Fair 64p/32g)** | {sf_pref} | {sf_dec} | {sf_p50} | {sf_hit} | {sf_ssd} | {sf_rss} MB | Native GGUF + MTP ON |")
+          print(f"| **Apex v1 (512p/128g)** | {s2_pref} | {s2_dec} | {s2_p50} | {s2_hit} | {s2_ssd} | {s2_rss} MB | Native GGUF + MTP ON |")
+          print(f"| **Apex v1 (2048p/64g)** | {s4_pref} | {s4_dec} | {s4_p50} | {s4_hit} | {s4_ssd} | {s4_rss} MB | Native GGUF + MTP ON |")
+          print(f"| **JustVugg/colibri (64p/32g)** | - | {col_tps} | - | {col_hit} | - | - | `Q38_MTP=1` / Native |")
+          print(f"| **llama.cpp (`-lm mmap`)** | {llm_pp} | {llm_tg} | - | OS Cache | - | - | `64p/32g -t 4` |")
+          print(f"| **llama.cpp (`-lm none`)** | {lln_pp} | {lln_tg} | - | - | - | - | `64p/32g -t 4` |")
+          print(f"| **ikawrakow/ik_llama.cpp** | {ik_pp} | {ik_tg} | - | - | - | - | `64p/32g -t 4` |")
           print("================================================================================")
           EOF
           }
@@ -712,9 +775,10 @@ jobs:
       # =========================================================================
       # STEP 5: CLEANUP SHARDS & ALWAYS PREPEND LOGS TO PRIVATE REPO README.md
       # =========================================================================
-      - name: "Step 5 - Cleanup Shards & Prepend Full Benchmark Logs to Top of Private Repo README.md"
+      - name: "Step 5 - Cleanup Shards & Prepend Full Benchmark Logs to Public Benchmarker README.md"
         if: always()
         env:
+          GH_TOKEN: ${{ github.token }}
           SECRET_WRITE_README: ${{ secrets.PRIVATE_REPO_WRITE_LOGS_README }}
           SECRET_PAT_FALLBACK: ${{ secrets.PRIVATE_REPO_PAT }}
           JOB_STATUS: ${{ job.status }}
@@ -724,30 +788,24 @@ jobs:
         run: |
           set +e
           echo "================================================================================"
-          echo " [Step 5] Cleaning Up Downloaded Shards & Prepending Logs to Private Repo README"
+          echo " [Step 5] Cleaning Up Downloaded Shards & Prepending Logs to Benchmarker README"
           echo "================================================================================"
           rm -rf C:/apex_c_drive/models/* D:/apex_d_drive/models/* D:/apex_d_drive/hf_cache/* 2>/dev/null || true
 
-          TOKEN="${SECRET_WRITE_README:-$SECRET_PAT_FALLBACK}"
+          TOKEN="${GH_TOKEN:-${SECRET_WRITE_README:-$SECRET_PAT_FALLBACK}}"
           if [ -z "$TOKEN" ]; then
             echo "[WARN] No token available to push logs to README.md."
             exit 0
           fi
 
           rm -rf repo_readme_push
-          git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/Grimm67123/apex-inference-v1.git" repo_readme_push
+          git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" repo_readme_push
           if [ ! -d "repo_readme_push/.git" ]; then
-            echo "[WARN] Could not clone Grimm67123/apex-inference-v1 for README update."
+            echo "[WARN] Could not clone ${GITHUB_REPOSITORY} for README update."
             exit 0
           fi
 
           cd repo_readme_push
-          if [ ! -f "CMakeLists.txt" ] && [ -f "Apex-Inference-v1/CMakeLists.txt" ]; then
-            shopt -s dotglob
-            git mv Apex-Inference-v1/* . 2>/dev/null || mv Apex-Inference-v1/* . 2>/dev/null || true
-            rmdir Apex-Inference-v1 2>/dev/null || true
-            shopt -u dotglob
-          fi
 
           python3 - << 'EOF'
           import os, glob, datetime
