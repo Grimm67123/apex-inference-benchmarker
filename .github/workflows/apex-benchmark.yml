@@ -440,8 +440,20 @@ jobs:
               print(f"[Colibri-Import] Running {import_script} on {shard1_path} -> {primary_dir} (--mode link)...", flush=True)
               subprocess.run([sys.executable, import_script, shard1_path, primary_dir, "--mode", "link"], check=False)
 
+          tok_json_path = os.path.join(primary_dir, "tokenizer.json")
+          prompt_toks = [1 + (i * 7) % 500 for i in range(64)]
+          if os.path.exists(tok_json_path):
+              try:
+                  with open(tok_json_path, "r", encoding="utf-8") as tf:
+                      tj = json.load(tf)
+                  vocab = tj.get("model", {}).get("vocab", {})
+                  sample_words = ["Explain", " how", " MoE", " inference", " streams", " experts", " from", " NVMe", " SSD", " into", " 16GB", " RAM", " using", " AVX2", " kernels", "."]
+                  real_ids = [vocab[w] for w in sample_words if w in vocab]
+                  if len(real_ids) >= 8:
+                      prompt_toks = (real_ids * ((64 // len(real_ids)) + 1))[:64]
+              except Exception:
+                  pass
           with open(os.path.join(primary_dir, "ref.json"), "w", encoding="utf-8") as rf:
-              prompt_toks = [1 + (i * 7) % 500 for i in range(64)]
               full_toks = prompt_toks + [10 + i for i in range(32)]
               json.dump({
                   "schema_version": 1,
@@ -619,10 +631,10 @@ jobs:
               LLAMA_COMP=$(find baselines/llama_bin -iname "llama-cli.exe" | head -n 1 || true)
             fi
             if [ -n "$LLAMA_BENCH" ] && [ -f "$LLAMA_BENCH" ]; then
-              echo "Running llama-bench.exe (OS mmap -mmp 1) sequentially on $SHARD1..."
-              "$LLAMA_BENCH" -m "$SHARD1" -p 64 -n 32 -t 4 -mmp 1 -r 1 2>&1 | tee "$LOG_DIR/10_${TARGET}_llamacpp_bench.log" || true
-              echo "Running llama-bench.exe (--no-mmap -mmp 0) sequentially on $SHARD1..."
-              "$LLAMA_BENCH" -m "$SHARD1" -p 64 -n 32 -t 4 -mmp 0 -r 1 2>&1 | tee -a "$LOG_DIR/10_${TARGET}_llamacpp_bench.log" || true
+              echo "Running llama-bench.exe (OS mmap -lm mmap) sequentially on $SHARD1..."
+              "$LLAMA_BENCH" -m "$SHARD1" -p 64 -n 32 -t 4 -lm mmap -r 1 2>&1 | tee "$LOG_DIR/10_${TARGET}_llamacpp_bench.log" || true
+              echo "Running llama-bench.exe (--no-mmap -lm none) sequentially on $SHARD1..."
+              "$LLAMA_BENCH" -m "$SHARD1" -p 64 -n 32 -t 4 -lm none -r 1 2>&1 | tee -a "$LOG_DIR/10_${TARGET}_llamacpp_bench.log" || true
             fi
             if [ -n "$LLAMA_COMP" ] && [ -f "$LLAMA_COMP" ]; then
               echo "Running $(basename "$LLAMA_COMP") (--temp 0) greedy parity reference on $SHARD1..."
@@ -680,8 +692,8 @@ jobs:
           print(f"| **Apex Inference v1 (Stage 4: 2048p MTP OFF)** | - | {apex_mtp_off} | - | Native Direct GGUF |")
           print(f"| **Apex Inference v1 (Stage 4: 2048p MTP ON)** | - | {apex_mtp_on} | - | Native Direct GGUF + MTP |")
           print(f"| **JustVugg/colibri (`qwen38.exe`/`glm53.exe`)** | - | {col_tps} | {col_hit} | `gguf_import.py --mode link` |")
-          print(f"| **ggml-org/llama.cpp (`mmap` `-mmp 1`)** | {llb_pp} | {llb_tg} | OS Page Cache | `MapViewOfFile` Thrashing |")
-          print(f"| **ggml-org/llama.cpp (`--no-mmap` `-mmp 0`)** | OOM | OOM | - | Fails (35.7 GB Alloc on 16 GB) |")
+          print(f"| **ggml-org/llama.cpp (`mmap` `-lm mmap`)** | {llb_pp} | {llb_tg} | OS Page Cache | `MapViewOfFile` Thrashing |")
+          print(f"| **ggml-org/llama.cpp (`--no-mmap` `-lm none`)** | OOM | OOM | - | Fails (35.7 GB Alloc on 16 GB) |")
           print(f"| **simplexai-labs/PolyStrata (`v0.2.13`)** | N/A | N/A | - | Requires CUDA/HIP/SYCL/Metal GPU |")
           print(f"| **ikawrakow/ik_llama.cpp** | N/A | N/A | - | No `qwen4exp`/`glm5-next` Arch |")
           print("================================================================================")
