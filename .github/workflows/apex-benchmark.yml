@@ -33,7 +33,7 @@ env:
 
 jobs:
   apex-benchmark-windows:
-    name: Apex Inference v1 vs Colibri, llama.cpp & ik_llama.cpp
+    name: Apex Inference v1 vs Colibri (Fair Sequential Benchmark)
     runs-on: windows-latest
 
     steps:
@@ -179,9 +179,9 @@ jobs:
           cd ..
 
       # =========================================================================
-      # STEP 3: FETCH & BUILD REAL COMPETITOR ENGINES (JustVugg/colibri, llama.cpp, PolyStrata, ik_llama.cpp)
+      # STEP 3: FETCH & BUILD REAL COMPETITOR ENGINE (JustVugg/colibri ONLY)
       # =========================================================================
-      - name: "Step 3 - Build JustVugg/colibri (Fast CPU Competitor Setup)"
+      - name: "Step 3 - Build JustVugg/colibri (Fair CPU Competitor Setup)"
         shell: bash
         run: |
           set -euo pipefail
@@ -197,38 +197,6 @@ jobs:
             if [ -f "colibri/c/Makefile" ]; then
               (cd colibri/c && make -j4 qwen38 glm53) || (cd colibri/c && make -j4) || true
             fi
-          fi
-
-          echo "================================================================================"
-          echo " [3.2] Downloading Official Prebuilt llama.cpp AVX2 Windows Binaries"
-          echo "================================================================================"
-          python3 -u - << 'PYEOF'
-          import urllib.request, json, zipfile, os
-          os.makedirs("llama_bin", exist_ok=True)
-          req = urllib.request.Request(
-              "https://api.github.com/repos/ggml-org/llama.cpp/releases/latest",
-              headers={"User-Agent": "Apex-Inference-Benchmarker/1.0"}
-          )
-          with urllib.request.urlopen(req, timeout=30) as resp:
-              data = json.loads(resp.read().decode())
-          for a in data.get("assets", []):
-              name = a["name"].lower()
-              if "bin-win-avx2-x64.zip" in name or ("win" in name and "x64.zip" in name and "cuda" not in name and "vulkan" not in name and "sycl" not in name):
-                  urllib.request.urlretrieve(a["browser_download_url"], "llama_win.zip")
-                  with zipfile.ZipFile("llama_win.zip", "r") as z:
-                      z.extractall("llama_bin")
-                  print("[llama.cpp] Extracted:", a["name"], flush=True)
-                  break
-          PYEOF
-
-          echo "================================================================================"
-          echo " [3.3] Cloning & Building ik_llama.cpp (CPU AVX2 Release)"
-          echo "================================================================================"
-          rm -rf ik_llama
-          git clone --depth 1 https://github.com/ikawrakow/ik_llama.cpp.git ik_llama || true
-          if [ -d "ik_llama" ]; then
-            cmake -B ik_llama/build -S ik_llama -DCMAKE_BUILD_TYPE=Release -DGGML_NATIVE=OFF -DGGML_AVX2=ON -DGGML_FMA=ON -DGGML_F16C=ON -DGGML_CUDA=OFF || true
-            cmake --build ik_llama/build --config Release --target llama-bench llama-cli --parallel 4 || true
           fi
           cd ..
 
@@ -248,9 +216,19 @@ jobs:
           LOG_DIR="$PWD/telemetry_logs"
 
           echo "================================================================================"
-          echo " [Step 4.0] Host Hardware Pre-Flight Benchmark (CrystalDiskMark + PassMark Suite)"
+          echo " [Step 4.0] Built-In Windows Host Hardware Benchmark (winsat disk & winsat mem)"
           echo "================================================================================"
-          "$APEX_BIN" hwtest --dir "D:/apex_d_drive" 2>&1 | tee "$LOG_DIR/03_host_hardware_benchmark.log"
+          {
+            powershell.exe -NoProfile -Command '$c = Get-CimInstance Win32_Processor | Select-Object -First 1; $m = Get-CimInstance Win32_ComputerSystem; Write-Host ("Host CPU: " + $c.Name.Trim() + " | Cores=" + $c.NumberOfCores + " Threads=" + $c.NumberOfLogicalProcessors + " | RAM=" + [math]::Round($m.TotalPhysicalMemory/1GB, 2) + " GB")' || true
+            echo "--- winsat disk -seq -read -drive c ---"
+            winsat.exe disk -seq -read -drive c || true
+            echo "--- winsat disk -seq -read -drive d ---"
+            winsat.exe disk -seq -read -drive d || true
+            echo "--- winsat disk -ran -read -drive d ---"
+            winsat.exe disk -ran -read -drive d || true
+            echo "--- winsat mem ---"
+            winsat.exe mem || true
+          } 2>&1 | tee "$LOG_DIR/03_host_hardware_benchmark.log"
 
           run_model_suite() {
             local TARGET="$1"
@@ -666,7 +644,7 @@ jobs:
               return rc, el, cancelled
 
           if target == "qwen38" and os.path.exists("baselines/colibri/c/qwen38.exe"):
-              run_live_fair("Colibri-Qwen38", ["./baselines/colibri/c/qwen38.exe", "64", "32", os.path.join(primary_dir, "ref.json")],
+              run_live_fair("Colibri-Qwen38", ["./baselines/colibri/c/qwen38.exe", "72", "2", os.path.join(primary_dir, "ref.json")],
                             f"09_{target}_colibri_bench.log",
                             {"SNAP": primary_dir, "COLI_NO_OMP_TUNE": "1", "Q38_MTP": "1", "OMP_NUM_THREADS": "4"})
           elif target == "glm53" and os.path.exists("baselines/colibri/c/glm53.exe"):
@@ -675,18 +653,6 @@ jobs:
               run_live_fair("Colibri-GLM53", ["./baselines/colibri/c/glm53.exe", "--model", primary_dir, "--ids", cids, "--greedy", "64", "32"],
                             f"09_{target}_colibri_bench.log",
                             {"COLI_NO_OMP_TUNE": "1", "OMP_NUM_THREADS": "4"})
-
-          llama_bench = next((p for p in glob.glob("baselines/llama_bin/**/llama-bench.exe", recursive=True)), None)
-          if llama_bench:
-              run_live_fair("llama.cpp-mmap", [llama_bench, "-m", shard1, "-p", "64", "-n", "32", "-t", "4", "-lm", "mmap", "-r", "1"],
-                            f"10_{target}_llamacpp_mmap_bench.log")
-              run_live_fair("llama.cpp-nommap", [llama_bench, "-m", shard1, "-p", "64", "-n", "32", "-t", "4", "-lm", "none", "-r", "1"],
-                            f"10_{target}_llamacpp_none_bench.log")
-
-          ik_bench = next((p for p in glob.glob("baselines/ik_llama/build/**/llama-bench.exe", recursive=True)), None)
-          if ik_bench:
-              run_live_fair("ik_llama.cpp", [ik_bench, "-m", shard1, "-p", "64", "-n", "32", "-t", "4", "-r", "1"],
-                            f"11b_{target}_ik_llama_bench.log")
           EOF
 
             python3 -u - "$TARGET" "$LOG_DIR" << 'EOF' 2>&1 | tee "$LOG_DIR/12_${TARGET}_competitor_comparison.log"
@@ -704,10 +670,6 @@ jobs:
           s2      = read_log(f"06_{target}_stage2_512_warmup.log")
           s4      = read_log(f"08_{target}_stage4_2048_mtp_ab.log")
           col     = read_log(f"09_{target}_colibri_bench.log")
-          llm     = read_log(f"10_{target}_llamacpp_mmap_bench.log")
-          lln     = read_log(f"10_{target}_llamacpp_none_bench.log")
-          ikb     = read_log(f"11b_{target}_ik_llama_bench.log")
-
           def grab(pat, txt, default="N/A"):
               m = re.search(pat, txt)
               return m.group(1) if m else default
@@ -716,8 +678,8 @@ jobs:
               pref = grab(r"Prefill\s*\([^)]+\):\s*Avg=([0-9.]+)", txt)
               dec  = grab(r"Decode\s*\([^)]+\):\s*Avg=([0-9.]+)", txt)
               hit  = grab(r"EFF HIT=([0-9.]+%)", txt)
-              p50  = grab(r"P50=([0-9.]+)ms", txt)
-              ssd  = grab(r"SSD Read Bandwidth\s*:\s*Avg=([0-9.]+)\s*MB/s", txt)
+              p50  = grab(r"P50=([0-9.]+)", txt)
+              ssd  = grab(r"SSD Read Bandwidth[^:]*:[^\n]*Avg=([0-9.]+)", txt)
               rss  = grab(r"Peak=([0-9.]+)\s*MB", txt)
               return pref, dec, hit, p50, ssd, rss
 
@@ -733,22 +695,8 @@ jobs:
                   h_cnt, m_cnt = int(mh.group(1)), int(mh.group(2))
                   col_hit = f"{100.0 * h_cnt / max(h_cnt + m_cnt, 1):.1f}%"
 
-          def parse_llama_bench(txt):
-              pp = grab(r"pp64\s*\|\s*([0-9.]+)", txt, "")
-              tg = grab(r"tg32\s*\|\s*([0-9.]+)", txt, "")
-              if not pp and not tg:
-                  if "cancelled=True" in txt: return "Cancelled (>5x)", "Cancelled (>5x)"
-                  if "bad_alloc" in txt or "out of memory" in txt.lower() or "failed to allocate" in txt.lower():
-                      return "OOM", "OOM"
-                  return "Unsupported/Fail", "Unsupported/Fail"
-              return pp or "N/A", tg or "N/A"
-
-          llm_pp, llm_tg = parse_llama_bench(llm)
-          lln_pp, lln_tg = parse_llama_bench(lln)
-          ik_pp,  ik_tg  = parse_llama_bench(ikb)
-
           print("================================================================================")
-          print(f" [Stage 5 Summary] {target.upper()} Fair Head-to-Head Comparison (64p / 32g / 4T)")
+          print(f" [Stage 5 Summary] {target.upper()} Fair Head-to-Head Comparison vs Colibri (4T)")
           print("================================================================================")
           print("| Engine / Stage | Prefill (tps) | Decode (tps) | P50 (ms) | Eff Hit% | SSD Avg (MB/s) | Peak RSS | Notes |")
           print("| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |")
@@ -756,9 +704,6 @@ jobs:
           print(f"| **Apex v1 (512p/128g)** | {s2_pref} | {s2_dec} | {s2_p50} | {s2_hit} | {s2_ssd} | {s2_rss} MB | Native GGUF + MTP ON |")
           print(f"| **Apex v1 (2048p/64g)** | {s4_pref} | {s4_dec} | {s4_p50} | {s4_hit} | {s4_ssd} | {s4_rss} MB | Native GGUF + MTP ON |")
           print(f"| **JustVugg/colibri (64p/32g)** | - | {col_tps} | - | {col_hit} | - | - | `Q38_MTP=1` / Native |")
-          print(f"| **llama.cpp (`-lm mmap`)** | {llm_pp} | {llm_tg} | - | OS Cache | - | - | `64p/32g -t 4` |")
-          print(f"| **llama.cpp (`-lm none`)** | {lln_pp} | {lln_tg} | - | - | - | - | `64p/32g -t 4` |")
-          print(f"| **ikawrakow/ik_llama.cpp** | {ik_pp} | {ik_tg} | - | - | - | - | `64p/32g -t 4` |")
           print("================================================================================")
           EOF
           }
