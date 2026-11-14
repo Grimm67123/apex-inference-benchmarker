@@ -162,12 +162,7 @@ jobs:
           mkdir -p build
           echo " [Step 2] Compiling Apex Inference v1 (C++17 AVX2+FMA+F16C+OpenMP)..."
           g++ -O3 -std=c++17 -march=native -mavx2 -mfma -mf16c -fopenmp -fno-math-errno -pthread \
-            -Iinclude \
-            src/apex_platform.cpp src/apex_hw_bench.cpp src/apex_telemetry.cpp \
-            src/apex_gguf.cpp src/apex_cache.cpp \
-            src/model_glm53.cpp src/model_glm53_run.cpp \
-            src/model_qwen38.cpp src/model_qwen38_run.cpp \
-            src/apex_server.cpp src/main.cpp \
+            -Iinclude src/*.cpp \
             -o build/apex.exe -lws2_32 -lpsapi
           cp build/apex.exe ./apex.exe
           ls -lh build/apex.exe ./apex.exe
