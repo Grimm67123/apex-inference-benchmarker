@@ -1,22 +1,22 @@
 <!-- APEX_BENCHMARK_LOGS_START -->
 # 📊 Latest GitHub Actions Benchmark & Diagnostic Telemetry Logs
 
-- **Workflow Run**: [#33 (Run ID `43600390278`)](https://github.com/Grimm67123/apex-inference-benchmarker/actions/runs/43600390278)
+- **Workflow Run**: [#35 (Run ID `43602698397`)](https://github.com/Grimm67123/apex-inference-benchmarker/actions/runs/43602698397)
 - **Status**: **FAILURE**
-- **Timestamp**: `2026-11-14 13:34:49 UTC`
+- **Timestamp**: `2026-11-14 14:02:36 UTC`
 
 ### 🖥️ Consolidated Master Workflow Log (`00_workflow_master.log`)
 ```text
-[2026-11-14T13:33:57.108Z] ================================================================================
-[2026-11-14T13:33:57.130Z]  [Step 1] Configuring Windows Defender Exclusions & Reclaiming Runner Storage
-[2026-11-14T13:33:57.132Z] ================================================================================
-[2026-11-14T13:34:06.034Z]  [Step 1] Windows Defender exclusions active on C:\ and D:\.
-[2026-11-14T13:34:06.238Z] --------------------------------------------------------------------------------
-[2026-11-14T13:34:06.240Z]  [Disk Telemetry] Drive C (C:/apex_c_drive) Free : 30.94 GB / 149.89 GB
-[2026-11-14T13:34:06.241Z]  [Disk Telemetry] Drive D (D:/apex_d_drive) Free : 147.01 GB / 150 GB
-[2026-11-14T13:34:06.243Z]  [Disk Telemetry] Total Combined Usable Free Space: 177.95 GB
-[2026-11-14T13:34:06.257Z] --------------------------------------------------------------------------------
-[2026-11-14T13:34:06.258Z]  [OK] Disk space verification passed: 177.95 GB >= 150.00 GB.
+[2026-11-14T14:01:45.989Z] ================================================================================
+[2026-11-14T14:01:46.008Z]  [Step 1] Configuring Windows Defender Exclusions & Reclaiming Runner Storage
+[2026-11-14T14:01:46.010Z] ================================================================================
+[2026-11-14T14:01:51.200Z]  [Step 1] Windows Defender exclusions active on C:\ and D:\.
+[2026-11-14T14:01:51.444Z] --------------------------------------------------------------------------------
+[2026-11-14T14:01:51.446Z]  [Disk Telemetry] Drive C (C:/apex_c_drive) Free : 30.94 GB / 149.89 GB
+[2026-11-14T14:01:51.447Z]  [Disk Telemetry] Drive D (D:/apex_d_drive) Free : 147.01 GB / 150 GB
+[2026-11-14T14:01:51.449Z]  [Disk Telemetry] Total Combined Usable Free Space: 177.95 GB
+[2026-11-14T14:01:51.465Z] --------------------------------------------------------------------------------
+[2026-11-14T14:01:51.466Z]  [OK] Disk space verification passed: 177.95 GB >= 150.00 GB.
 ================================================================================
  [Step 2] Cloning Private Repository Grimm67123/apex-inference-v1
 ================================================================================
@@ -48,16 +48,16 @@ src/apex_avx512.cpp:160:46: note: called from here
 
 ### 📄 `00_workflow_master.log`
 ```text
-[2026-11-14T13:33:57.108Z] ================================================================================
-[2026-11-14T13:33:57.130Z]  [Step 1] Configuring Windows Defender Exclusions & Reclaiming Runner Storage
-[2026-11-14T13:33:57.132Z] ================================================================================
-[2026-11-14T13:34:06.034Z]  [Step 1] Windows Defender exclusions active on C:\ and D:\.
-[2026-11-14T13:34:06.238Z] --------------------------------------------------------------------------------
-[2026-11-14T13:34:06.240Z]  [Disk Telemetry] Drive C (C:/apex_c_drive) Free : 30.94 GB / 149.89 GB
-[2026-11-14T13:34:06.241Z]  [Disk Telemetry] Drive D (D:/apex_d_drive) Free : 147.01 GB / 150 GB
-[2026-11-14T13:34:06.243Z]  [Disk Telemetry] Total Combined Usable Free Space: 177.95 GB
-[2026-11-14T13:34:06.257Z] --------------------------------------------------------------------------------
-[2026-11-14T13:34:06.258Z]  [OK] Disk space verification passed: 177.95 GB >= 150.00 GB.
+[2026-11-14T14:01:45.989Z] ================================================================================
+[2026-11-14T14:01:46.008Z]  [Step 1] Configuring Windows Defender Exclusions & Reclaiming Runner Storage
+[2026-11-14T14:01:46.010Z] ================================================================================
+[2026-11-14T14:01:51.200Z]  [Step 1] Windows Defender exclusions active on C:\ and D:\.
+[2026-11-14T14:01:51.444Z] --------------------------------------------------------------------------------
+[2026-11-14T14:01:51.446Z]  [Disk Telemetry] Drive C (C:/apex_c_drive) Free : 30.94 GB / 149.89 GB
+[2026-11-14T14:01:51.447Z]  [Disk Telemetry] Drive D (D:/apex_d_drive) Free : 147.01 GB / 150 GB
+[2026-11-14T14:01:51.449Z]  [Disk Telemetry] Total Combined Usable Free Space: 177.95 GB
+[2026-11-14T14:01:51.465Z] --------------------------------------------------------------------------------
+[2026-11-14T14:01:51.466Z]  [OK] Disk space verification passed: 177.95 GB >= 150.00 GB.
 ================================================================================
  [Step 2] Cloning Private Repository Grimm67123/apex-inference-v1
 ================================================================================
