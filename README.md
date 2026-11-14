@@ -1,29 +1,29 @@
 <!-- APEX_BENCHMARK_LOGS_START -->
 # 📊 Latest GitHub Actions Benchmark & Diagnostic Telemetry Logs
 
-- **Workflow Run**: [#28 (Run ID `43567917411`)](https://github.com/Grimm67123/apex-inference-benchmarker/actions/runs/43567917411)
+- **Workflow Run**: [#29 (Run ID `43579936566`)](https://github.com/Grimm67123/apex-inference-benchmarker/actions/runs/43579936566)
 - **Status**: **SUCCESS**
-- **Timestamp**: `2026-11-14 08:18:50 UTC`
+- **Timestamp**: `2026-11-14 09:45:24 UTC`
 
 ### 🖥️ Consolidated Master Workflow Log (`00_workflow_master.log`)
 ```text
-[2026-11-14T06:45:55.189Z] ================================================================================
-[2026-11-14T06:45:55.210Z]  [Step 1] Configuring Windows Defender Exclusions & Reclaiming Runner Storage
-[2026-11-14T06:45:55.213Z] ================================================================================
-[2026-11-14T06:45:59.865Z]  [Step 1] Windows Defender exclusions active on C:\ and D:\.
-[2026-11-14T06:46:00.077Z] --------------------------------------------------------------------------------
-[2026-11-14T06:46:00.079Z]  [Disk Telemetry] Drive C (C:/apex_c_drive) Free : 30.98 GB / 149.89 GB
-[2026-11-14T06:46:00.081Z]  [Disk Telemetry] Drive D (D:/apex_d_drive) Free : 147.01 GB / 150 GB
-[2026-11-14T06:46:00.082Z]  [Disk Telemetry] Total Combined Usable Free Space: 177.99 GB
-[2026-11-14T06:46:00.083Z] --------------------------------------------------------------------------------
-[2026-11-14T06:46:00.098Z]  [OK] Disk space verification passed: 177.99 GB >= 150.00 GB.
+[2026-11-14T09:18:41.573Z] ================================================================================
+[2026-11-14T09:18:41.592Z]  [Step 1] Configuring Windows Defender Exclusions & Reclaiming Runner Storage
+[2026-11-14T09:18:41.594Z] ================================================================================
+[2026-11-14T09:18:46.137Z]  [Step 1] Windows Defender exclusions active on C:\ and D:\.
+[2026-11-14T09:18:46.366Z] --------------------------------------------------------------------------------
+[2026-11-14T09:18:46.368Z]  [Disk Telemetry] Drive C (C:/apex_c_drive) Free : 31 GB / 149.89 GB
+[2026-11-14T09:18:46.369Z]  [Disk Telemetry] Drive D (D:/apex_d_drive) Free : 147.01 GB / 150 GB
+[2026-11-14T09:18:46.371Z]  [Disk Telemetry] Total Combined Usable Free Space: 178.01 GB
+[2026-11-14T09:18:46.385Z] --------------------------------------------------------------------------------
+[2026-11-14T09:18:46.387Z]  [OK] Disk space verification passed: 178.01 GB >= 150.00 GB.
 ================================================================================
  [Step 2] Cloning Private Repository Grimm67123/apex-inference-v1
 ================================================================================
 Cloning into 'Apex-Inference-v1'...
  [Step 2] Compiling Apex Inference v1 (C++17 AVX2+FMA+F16C+OpenMP)...
--rwxr-xr-x 1 runneradmin 197121 880K Nov 14 06:46 ./apex.exe
--rwxr-xr-x 1 runneradmin 197121 880K Nov 14 06:46 build/apex.exe
+-rwxr-xr-x 1 runneradmin 197121 880K Nov 14 09:19 ./apex.exe
+-rwxr-xr-x 1 runneradmin 197121 880K Nov 14 09:19 build/apex.exe
  [Step 2] Running Pre-Flight Unit, Greedy Parity & OpenAI API Stress Verification...
 [gen_synthetic_gguf] Wrote tests/synth_glm53_ud_iq2_xxs.gguf (6748.6 KB)
 [gen_synthetic_gguf] Wrote tests/synth_qwen38_ud_iq2_xs.gguf (9282.8 KB)
@@ -39,27 +39,27 @@ Cloning into 'Apex-Inference-v1'...
    CPU Model          : AMD EPYC 7763 64-Core Processor                
    Cores / Threads    : 2 Physical / 4 Logical
    SIMD ISA Support   : AVX2=YES | FMA=YES | F16C=YES | AVX-VNNI=NO | AVX512-VNNI=NO
-   System Memory (RAM): 15.99 GB Total / 13.48 GB Available
+   System Memory (RAM): 15.99 GB Total / 13.46 GB Available
    Active Drive Space : 150.00 GB Total / 147.00 GB Free
 --------------------------------------------------------------------------------
  [CrystalDiskMark-Style NVMe SSD Storage Benchmark]
-   SEQ1M Direct Uncached NVMe Read    :    479.15 MB/s (Hardware Floor)
-   SEQ1M Q8T1  Read (OS-Cached Max)   :   1476.37 MB/s
-   SEQ1M Q1T1  Read (Single Queue)    :   8003.60 MB/s
-   SEQ128K Q32T1 Expert-Stripe Read   :  10871.09 MB/s
-   RND4K Q32T16 Read                  :    493.57 MB/s (  126353 IOPS)
-   RND4K Q1T1  Read                   :    708.52 MB/s (Latency: 5.51 us)
+   SEQ1M Direct Uncached NVMe Read    :    430.00 MB/s (Hardware Floor)
+   SEQ1M Q8T1  Read (OS-Cached Max)   :   1623.86 MB/s
+   SEQ1M Q1T1  Read (Single Queue)    :   7844.96 MB/s
+   SEQ128K Q32T1 Expert-Stripe Read   :  10492.75 MB/s
+   RND4K Q32T16 Read                  :    484.50 MB/s (  124033 IOPS)
+   RND4K Q1T1  Read                   :    664.32 MB/s (Latency: 5.88 us)
 --------------------------------------------------------------------------------
  [PassMark / STREAM System RAM Bandwidth & Latency Benchmark]
-   AVX2 256-bit Sequential Read BW    :     57.45 GB/s
-   AVX2 256-bit Sequential Write BW   :     46.77 GB/s
-   STREAM Triad (A = B + s*C) BW      :     31.51 GB/s
-   Random Pointer-Chase Latency       :     93.22 ns
+   AVX2 256-bit Sequential Read BW    :     58.30 GB/s
+   AVX2 256-bit Sequential Write BW   :     40.06 GB/s
+   STREAM Triad (A = B + s*C) BW      :     34.95 GB/s
+   Random Pointer-Chase Latency       :     51.85 ns
 --------------------------------------------------------------------------------
  [PassMark-Style CPU AVX2+FMA Compute & IQ2 Kernel Benchmark]
-   Single-Core AVX2+FMA Throughput    :     51.38 GFLOPS
-   Multi-Core  AVX2+FMA Throughput    :    197.06 GFLOPS
-   IQ2_XXS/XS Fused Dot Effective BW  :     22.16 GB/s (FP32 Equiv)
+   Single-Core AVX2+FMA Throughput    :     50.96 GFLOPS
+   Multi-Core  AVX2+FMA Throughput    :    101.03 GFLOPS
+   IQ2_XXS/XS Fused Dot Effective BW  :     18.95 GB/s (FP32 Equiv)
 ================================================================================
 
 
@@ -85,18 +85,18 @@ Cloning into 'Apex-Inference-v1'...
 === [TEST] GLM-5.3-Flash 2048-Token Prefill & Decode + MTP Off/On A/B Benchmark: ./apex.exe bench --model tests/synth_glm53_ud_iq2_xxs.gguf --prompt-tokens 2048 --gen-tokens 32 --mtp on --no-hwtest ===
 [Apex-Init] Model Loaded: GLM-5.3-Flash-UD-IQ2_XXS-Synthetic | Layers=4 | Hidden=256 | Experts=16 (Top-4) | Pinned Trunk=3.48 MB | Expert Cache=3.24 MB (67 slots)
 [Apex-Prompt] Input (2048 tokens): "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/2048 tok | Chunk=1380.69 tps | Avg=1380.69 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=73.7 MB
-[LIVE-PREFILL] 512/2048 tok | Chunk=1215.56 tps | Avg=1292.87 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=73.9 MB
-[LIVE-PREFILL] 768/2048 tok | Chunk=1096.67 tps | Avg=1220.11 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=74.2 MB
-[LIVE-PREFILL] 1024/2048 tok | Chunk=972.88 tps | Avg=1147.23 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=74.5 MB
-[LIVE-PREFILL] 1280/2048 tok | Chunk=886.85 tps | Avg=1083.60 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=74.8 MB
-[LIVE-PREFILL] 1536/2048 tok | Chunk=804.62 tps | Avg=1024.40 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=75.0 MB
-[LIVE-PREFILL] 1792/2048 tok | Chunk=749.70 tps | Avg=973.45 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=75.3 MB
-[LIVE-PREFILL] 2048/2048 tok | Chunk=697.13 tps | Avg=927.49 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=75.5 MB
-[LIVE-DECODE] 8/32 tok | Avg=198.03 tps | Hit=100.0% (LA:+0.0%) | NVMe=2633.5 MB/s (6.58 MB) | RSS=75.6 MB
-[LIVE-DECODE] 16/32 tok | Avg=196.89 tps | Hit=100.0% (LA:+0.0%) | NVMe=2633.5 MB/s (6.58 MB) | RSS=75.6 MB
-[LIVE-DECODE] 24/32 tok | Avg=194.74 tps | Hit=100.0% (LA:+0.0%) | NVMe=2633.5 MB/s (6.58 MB) | RSS=75.6 MB
-[LIVE-DECODE] 32/32 tok | Avg=195.57 tps | Hit=100.0% (LA:+0.0%) | NVMe=2633.5 MB/s (6.58 MB) | RSS=75.6 MB
+[LIVE-PREFILL] 256/2048 tok | Chunk=1423.48 tps | Avg=1423.48 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=60.5 MB
+[LIVE-PREFILL] 512/2048 tok | Chunk=1235.44 tps | Avg=1322.81 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=60.8 MB
+[LIVE-PREFILL] 768/2048 tok | Chunk=1116.87 tps | Avg=1246.22 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=61.1 MB
+[LIVE-PREFILL] 1024/2048 tok | Chunk=964.12 tps | Avg=1161.27 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=61.3 MB
+[LIVE-PREFILL] 1280/2048 tok | Chunk=900.95 tps | Avg=1097.83 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=61.6 MB
+[LIVE-PREFILL] 1536/2048 tok | Chunk=806.78 tps | Avg=1035.57 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=61.9 MB
+[LIVE-PREFILL] 1792/2048 tok | Chunk=755.78 tps | Avg=983.55 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=62.1 MB
+[LIVE-PREFILL] 2048/2048 tok | Chunk=691.58 tps | Avg=934.25 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=62.4 MB
+[LIVE-DECODE] 8/32 tok | Avg=196.08 tps | Hit=100.0% (LA:+0.0%) | NVMe=2558.3 MB/s (6.58 MB) | RSS=62.4 MB
+[LIVE-DECODE] 16/32 tok | Avg=196.73 tps | Hit=100.0% (LA:+0.0%) | NVMe=2558.3 MB/s (6.58 MB) | RSS=62.4 MB
+[LIVE-DECODE] 24/32 tok | Avg=197.15 tps | Hit=100.0% (LA:+0.0%) | NVMe=2558.3 MB/s (6.58 MB) | RSS=62.4 MB
+[LIVE-DECODE] 32/32 tok | Avg=197.00 tps | Hit=100.0% (LA:+0.0%) | NVMe=2558.3 MB/s (6.58 MB) | RSS=62.4 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
@@ -108,9 +108,9 @@ Cloning into 'Apex-Inference-v1'...
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
    GGUF Total / SSD Pool        : 0.01 GB GGUF | 0.00 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=3.48 MB | KV/State=25.37 MB (14080 B/tok)
-   LRFU Cache / Staging Ring    : 3.24 MB (67/64 exp = 104.69% pinned) | Staging=3.09 MB
-   Process RSS (Start/End/Peak) : Start=4.87 MB | End=75.55 MB | Peak=75.55 MB
+   Pinned Dense / KV+State RAM  : Dense=3.48 MB | KV/State=15.37 MB (3840 B/tok)
+   LRFU Cache / Staging Ring    : 3.24 MB (67/64 exp = 104.69% pinned) | Staging=1.55 MB
+   Process RSS (Start/End/Peak) : Start=4.88 MB | End=62.41 MB | Peak=62.41 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (2048 tok)   : "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequen..."
@@ -121,31 +121,31 @@ Cloning into 'Apex-Inference-v1'...
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |      55 | tok_55         |  190.69 |  99.3% |     246 |  185.76 | 2208.10 |  0 |  0 |  0 |     0.0 |
-   |    2 |      55 | tok_55         |  179.98 | 100.0% |     246 |  150.29 |    5.06 | 12 |  0 |  0 |     0.0 |
-   |    3 |     175 | tok_175        |   77.47 |  67.6% |     179 |   76.74 |    5.06 |  0 |  0 |  0 |     0.0 |
-   |    4 |      55 | tok_55         |  178.88 | 100.0% |     119 |  162.42 |    5.01 | 12 |  0 |  0 |     0.0 |
-   |    5 |      39 | tok_39         |  158.03 | 100.0% |     246 |  148.54 |    5.01 |  0 |  0 |  0 |     0.0 |
-   |    6 |      55 | tok_55         |  191.28 |  98.6% |     119 |  187.05 |    5.06 | 12 |  0 |  0 |     0.0 |
-   |    7 |      36 | tok_36         |   70.07 | 100.0% |     145 |   61.63 |    5.06 |  0 |  0 |  0 |     0.0 |
-   |    8 |     246 | tok_246        |  205.36 | 100.0% |      86 |  185.83 |    5.06 | 12 |  0 |  0 |     0.0 |
-   |   18 |     246 | tok_246        |  185.81 | 100.0% |      55 |  160.85 |    5.35 | 12 |  0 |  0 |     0.0 |
-   |   19 |     228 | tok_228        |   93.10 |  98.4% |      40 |   88.99 |    5.35 |  0 |  0 |  0 |     0.0 |
-   |   20 |      86 | tok_86         |  167.81 |  99.1% |     246 |  163.11 |    5.28 | 12 |  0 |  0 |     0.0 |
-   |   21 |      68 | tok_68         |  177.01 | 100.0% |     246 |  152.23 |    5.28 |  0 |  0 |  0 |     0.0 |
-   |   30 |     246 | tok_246        |  176.20 | 100.0% |     124 |  160.53 |    5.06 | 12 |  0 |  0 |     0.0 |
-   |   31 |     229 | tok_229        |  171.33 | 100.0% |      70 |  153.29 |    5.06 |  0 |  0 |  0 |     0.0 |
-   |   32 |      21 | tok_21         |  222.52 |  97.9% |      86 |  218.66 |    5.00 | 12 |  0 |  0 |     0.0 |
-   |   33 |     246 | tok_246        |  115.62 | 100.0% |     232 |   96.08 |    5.00 |  0 |  0 |  0 |     0.0 |
+   |    1 |      55 | tok_55         |  190.69 |  99.3% |     246 |  185.76 | 2192.14 |  0 |  0 |  0 |     0.0 |
+   |    2 |      55 | tok_55         |  179.98 | 100.0% |     246 |  150.29 |    5.08 | 12 |  0 |  0 |     0.0 |
+   |    3 |     175 | tok_175        |   77.47 |  67.6% |     179 |   76.74 |    5.08 |  0 |  0 |  0 |     0.0 |
+   |    4 |      55 | tok_55         |  178.88 | 100.0% |     119 |  162.42 |    5.05 | 12 |  0 |  0 |     0.0 |
+   |    5 |      39 | tok_39         |  158.03 | 100.0% |     246 |  148.54 |    5.05 |  0 |  0 |  0 |     0.0 |
+   |    6 |      55 | tok_55         |  191.28 |  98.6% |     119 |  187.05 |    5.16 | 12 |  0 |  0 |     0.0 |
+   |    7 |      36 | tok_36         |   70.07 | 100.0% |     145 |   61.63 |    5.16 |  0 |  0 |  0 |     0.0 |
+   |    8 |     246 | tok_246        |  205.36 | 100.0% |      86 |  185.83 |    5.10 | 12 |  0 |  0 |     0.0 |
+   |   28 |     246 | tok_246        |  194.87 | 100.0% |      54 |  173.43 |    5.13 | 12 |  0 |  0 |     0.0 |
+   |   29 |     229 | tok_229        |  172.54 | 100.0% |      70 |  154.16 |    5.13 |  0 |  0 |  0 |     0.0 |
+   |   12 |      86 | tok_86         |  168.49 |  89.7% |     246 |  166.31 |    5.10 | 12 |  0 |  0 |     0.0 |
+   |   13 |      68 | tok_68         |  148.39 | 100.0% |     104 |  119.46 |    5.10 |  0 |  0 |  0 |     0.0 |
+   |   30 |     246 | tok_246        |  176.20 | 100.0% |     124 |  160.53 |    5.08 | 12 |  0 |  0 |     0.0 |
+   |   31 |     229 | tok_229        |  171.33 | 100.0% |      70 |  153.29 |    5.08 |  0 |  0 |  0 |     0.0 |
+   |   32 |      21 | tok_21         |  222.52 |  97.9% |      86 |  218.66 |    5.06 | 12 |  0 |  0 |     0.0 |
+   |   33 |     246 | tok_246        |  115.62 | 100.0% |     232 |   96.08 |    5.06 |  0 |  0 |  0 |     0.0 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (2048 tok, 2.208s, TTFT=2208.10ms): Avg=927.49 | Min=697.13 | Max=1380.69 tps
-   Prefill Chunks (8): C1:256t/1380.7tps/100% | C2:256t/1215.6tps/100% | C3:256t/1096.7tps/100% | C4:256t/972.9tps/100%
-                       C5:256t/886.9tps/100% | C6:256t/804.6tps/100% | C7:256t/749.7tps/100% | C8:256t/697.1tps/100%
-   Decode  (32 tok, 0.164s): Avg=195.57 | Min=187.02 | Max=199.99 tps
-   Latency (ms) : Min=5.00 | P10=5.00 | P25=5.04 | P50=5.06 | P75=5.22 | P90=5.28 | P95=5.35 | P99=5.35 | Max=5.35
-   Mean/SD/Jitt : Mean=5.11ms | StdDev=0.11ms | Jitter=0.03ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
+   Prefill (2048 tok, 2.192s, TTFT=2192.14ms): Avg=934.25 | Min=691.58 | Max=1423.48 tps
+   Prefill Chunks (8): C1:256t/1423.5tps/100% | C2:256t/1235.4tps/100% | C3:256t/1116.9tps/100% | C4:256t/964.1tps/100%
+                       C5:256t/901.0tps/100% | C6:256t/806.8tps/100% | C7:256t/755.8tps/100% | C8:256t/691.6tps/100%
+   Decode  (32 tok, 0.162s): Avg=197.00 | Min=193.72 | Max=198.98 tps
+   Latency (ms) : Min=5.03 | P10=5.04 | P25=5.05 | P50=5.08 | P75=5.10 | P90=5.13 | P95=5.16 | P99=5.16 | Max=5.16
+   Mean/SD/Jitt : Mean=5.08ms | StdDev=0.03ms | Jitter=0.02ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
    MTP Head     : 16/16 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
@@ -167,30 +167,30 @@ Cloning into 'Apex-Inference-v1'...
    SSD Data/Token (Decode)      : Avg=0.000 MB/tok (Min=0.000 | P50=0.000 | P95=0.000 | Max=0.000 MB) | Prefill=0.000 MB/tok
    NVMe Batches / Requests      : 1 Batches | 331 Raw -> 143 Merged (188 LBA Merges, Avg 47.1 KB/io)
    SSD I/O Size Histogram       : <64K=107 | 64K-512K=32 | 512K-2M=4 | >2M=0
-   SSD Read Bandwidth (Active)  : Min=300.62 | Avg=2633.47 | Peak=6578.95 MB/s | WallAmort=2.77 MB/s
+   SSD Read Bandwidth (Active)  : Min=247.52 | Avg=2558.28 | Peak=6443.30 MB/s | WallAmort=2.79 MB/s
    OS Kernel I/O Verification   : Read=6.59 MB | Write=0.00 MB | Syscalls=160
-   Sync Stall vs Async DMA      : SyncStall=0.00 ms | AsyncOverlapped=1.11 ms (100.0% Overlapped)
-   RAM Traffic & Active BW      : 1.43 GB moved | Active=0.64 GB/s | WallAmort=0.60 GB/s
-   Stage Breakdown (Pref/Dec)   : Prefill=2.21s (93.1%, 0.00 MB SSD) | Decode=0.16s (6.9%, 0.00 MB SSD)
-   CPU Time & Utilization       : User=2.906s + Sys=0.750s (Wall=2.390s) | SysUtil=38.2% | ThrUtil=38.2% | 35.37 GFLOPS
+   Sync Stall vs Async DMA      : SyncStall=0.00 ms | AsyncOverlapped=1.22 ms (100.0% Overlapped)
+   RAM Traffic & Active BW      : 1.41 GB moved | Active=0.63 GB/s | WallAmort=0.60 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=2.19s (93.1%, 0.00 MB SSD) | Decode=0.16s (6.9%, 0.00 MB SSD)
+   CPU Time & Utilization       : User=2.938s + Sys=0.734s (Wall=2.371s) | SysUtil=38.7% | ThrUtil=38.7% | 35.82 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :   1995.53 ms (  959.4 us/tok | 84.14%)
-   MoE AVX2 Q8 Expert Compute   :    251.09 ms (  120.7 us/tok | 10.59%)
-   Router + Lookahead Dispatch  :     59.07 ms (   28.4 us/tok |  2.49%)
-   LM Head Output Projection    :      5.98 ms (    2.9 us/tok |  0.25%)
+   Dense + Attention/Linear SSM :   1983.01 ms (  953.4 us/tok | 84.22%)
+   MoE AVX2 Q8 Expert Compute   :    249.12 ms (  119.8 us/tok | 10.58%)
+   Router + Lookahead Dispatch  :     59.48 ms (   28.6 us/tok |  2.53%)
+   LM Head Output Projection    :      5.71 ms (    2.7 us/tok |  0.24%)
    Foreground NVMe Sync Stall   :      0.00 ms (    0.0 us/tok |  0.00%)
-   Unaccounted / OMP & Sampling :     60.06 ms (   28.9 us/tok |  2.53%) | Total Wall=2371.73 ms
+   Unaccounted / OMP & Sampling :     57.26 ms (   27.5 us/tok |  2.43%) | Total Wall=2354.58 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    16.08%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     2.13%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    16.56%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     2.15%  |
    | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     0.09%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    79.68%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.02%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    79.20%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.00%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -202,18 +202,18 @@ Cloning into 'Apex-Inference-v1'...
 === [TEST] Qwen-3.8-Flash-Next 2048-Token Prefill & Decode + MTP Off/On A/B Benchmark: ./apex.exe bench --model tests/synth_qwen38_ud_iq2_xs.gguf --prompt-tokens 2048 --gen-tokens 32 --mtp on --no-hwtest ===
 [Apex-Init] Model Loaded: Qwen3.8-Flash-Next-UD-IQ2_XS-Synthetic | Layers=4 | Hidden=256 | Experts=16 (Top-4) | Pinned Trunk=4.70 MB | Expert Cache=2.17 MB (40 slots)
 [Apex-Prompt] Input (2048 tokens): "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/2048 tok | Chunk=1969.71 tps | Avg=1969.71 tps | Hit=99.2% | NVMe=2663.2 MB/s (24.91 MB, QD=64) | RSS=89.2 MB
-[LIVE-PREFILL] 512/2048 tok | Chunk=1845.16 tps | Avg=1905.40 tps | Hit=99.2% | NVMe=3599.5 MB/s (42.92 MB, QD=64) | RSS=89.4 MB
-[LIVE-PREFILL] 768/2048 tok | Chunk=1726.69 tps | Avg=1841.86 tps | Hit=99.2% | NVMe=4158.8 MB/s (61.04 MB, QD=64) | RSS=89.8 MB
-[LIVE-PREFILL] 1024/2048 tok | Chunk=1582.15 tps | Avg=1769.25 tps | Hit=99.2% | NVMe=4623.7 MB/s (79.10 MB, QD=64) | RSS=90.1 MB
-[LIVE-PREFILL] 1280/2048 tok | Chunk=1553.52 tps | Avg=1721.44 tps | Hit=99.2% | NVMe=4957.5 MB/s (97.14 MB, QD=64) | RSS=90.5 MB
-[LIVE-PREFILL] 1536/2048 tok | Chunk=1425.97 tps | Avg=1663.98 tps | Hit=99.2% | NVMe=5192.9 MB/s (115.20 MB, QD=64) | RSS=91.0 MB
-[LIVE-PREFILL] 1792/2048 tok | Chunk=1292.10 tps | Avg=1598.26 tps | Hit=99.2% | NVMe=5384.6 MB/s (133.27 MB, QD=64) | RSS=91.5 MB
-[LIVE-PREFILL] 2048/2048 tok | Chunk=1281.33 tps | Avg=1550.33 tps | Hit=99.2% | NVMe=5559.7 MB/s (151.30 MB, QD=64) | RSS=91.8 MB
-[LIVE-DECODE] 8/32 tok | Avg=178.69 tps | Hit=99.2% (LA:+0.0%) | NVMe=5460.8 MB/s (152.70 MB) | RSS=91.8 MB
-[LIVE-DECODE] 16/32 tok | Avg=179.25 tps | Hit=99.2% (LA:+0.1%) | NVMe=5406.6 MB/s (153.28 MB) | RSS=91.8 MB
-[LIVE-DECODE] 24/32 tok | Avg=179.06 tps | Hit=99.2% (LA:+0.1%) | NVMe=5308.4 MB/s (154.23 MB) | RSS=91.8 MB
-[LIVE-DECODE] 32/32 tok | Avg=179.23 tps | Hit=99.2% (LA:+0.1%) | NVMe=5228.4 MB/s (155.14 MB) | RSS=91.8 MB
+[LIVE-PREFILL] 256/2048 tok | Chunk=1881.55 tps | Avg=1881.55 tps | Hit=99.2% | NVMe=2630.7 MB/s (24.91 MB, QD=64) | RSS=85.7 MB
+[LIVE-PREFILL] 512/2048 tok | Chunk=1839.90 tps | Avg=1860.49 tps | Hit=99.2% | NVMe=3642.9 MB/s (42.92 MB, QD=64) | RSS=85.9 MB
+[LIVE-PREFILL] 768/2048 tok | Chunk=1698.00 tps | Avg=1802.98 tps | Hit=99.2% | NVMe=4227.4 MB/s (61.04 MB, QD=64) | RSS=86.2 MB
+[LIVE-PREFILL] 1024/2048 tok | Chunk=1583.47 tps | Avg=1742.59 tps | Hit=99.2% | NVMe=4672.8 MB/s (79.10 MB, QD=64) | RSS=86.5 MB
+[LIVE-PREFILL] 1280/2048 tok | Chunk=1532.98 tps | Avg=1696.20 tps | Hit=99.2% | NVMe=5003.8 MB/s (97.14 MB, QD=64) | RSS=87.0 MB
+[LIVE-PREFILL] 1536/2048 tok | Chunk=1437.07 tps | Avg=1646.71 tps | Hit=99.2% | NVMe=5240.8 MB/s (115.20 MB, QD=64) | RSS=87.5 MB
+[LIVE-PREFILL] 1792/2048 tok | Chunk=1319.63 tps | Avg=1590.40 tps | Hit=99.2% | NVMe=5455.6 MB/s (133.27 MB, QD=64) | RSS=87.9 MB
+[LIVE-PREFILL] 2048/2048 tok | Chunk=1284.94 tps | Avg=1544.50 tps | Hit=99.2% | NVMe=5675.4 MB/s (151.30 MB, QD=64) | RSS=88.2 MB
+[LIVE-DECODE] 8/32 tok | Avg=177.42 tps | Hit=99.2% (LA:+0.0%) | NVMe=5570.0 MB/s (152.70 MB) | RSS=88.3 MB
+[LIVE-DECODE] 16/32 tok | Avg=178.05 tps | Hit=99.2% (LA:+0.1%) | NVMe=5518.3 MB/s (153.28 MB) | RSS=88.3 MB
+[LIVE-DECODE] 24/32 tok | Avg=178.14 tps | Hit=99.2% (LA:+0.1%) | NVMe=5423.9 MB/s (154.23 MB) | RSS=88.3 MB
+[LIVE-DECODE] 32/32 tok | Avg=178.43 tps | Hit=99.2% (LA:+0.1%) | NVMe=5333.8 MB/s (155.30 MB) | RSS=88.3 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
@@ -226,8 +226,8 @@ Cloning into 'Apex-Inference-v1'...
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
    GGUF Total / SSD Pool        : 0.01 GB GGUF | 0.00 GB Routed Experts on NVMe
    Pinned Dense / KV+State RAM  : Dense=4.70 MB | KV/State=22.85 MB (13824 B/tok)
-   LRFU Cache / Staging Ring    : 2.17 MB (40/80 exp = 50.00% pinned) | Staging=3.47 MB
-   Process RSS (Start/End/Peak) : Start=4.86 MB | End=91.78 MB | Peak=91.78 MB
+   LRFU Cache / Staging Ring    : 2.17 MB (40/80 exp = 50.00% pinned) | Staging=1.73 MB
+   Process RSS (Start/End/Peak) : Start=4.87 MB | End=88.26 MB | Peak=88.26 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (2048 tok)   : "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequen..."
@@ -238,75 +238,75 @@ Cloning into 'Apex-Inference-v1'...
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |      49 | qtok_49        |   63.71 |  97.6% |     254 |   59.93 | 1321.01 |  0 |  0 |  0 |     0.0 |
-   |    2 |     254 | qtok_254       |   63.01 | 100.0% |       2 |   54.14 |    5.64 |  6 | 10 |  0 |   535.5 |
-   |    3 |      49 | qtok_49        |   93.73 | 100.0% |     177 |   84.12 |    5.64 |  0 |  0 |  0 |   535.5 |
-   |    4 |     254 | qtok_254       |   65.57 | 100.0% |       2 |   56.25 |    5.61 | 15 |  1 |  0 |    59.8 |
-   |    5 |      49 | qtok_49        |   84.71 |  99.7% |     177 |   78.29 |    5.61 |  0 |  0 |  0 |    59.8 |
-   |    6 |     254 | qtok_254       |   70.80 | 100.0% |       2 |   58.38 |    5.62 | 15 |  1 |  0 |    87.5 |
-   |    7 |      49 | qtok_49        |   83.85 |  99.9% |     129 |   77.09 |    5.62 |  0 |  0 |  0 |    87.5 |
-   |    8 |     254 | qtok_254       |   72.14 | 100.0% |      66 |   61.47 |    5.51 | 16 |  0 |  0 |    32.0 |
+   |    1 |      49 | qtok_49        |   63.71 |  97.6% |     254 |   59.93 | 1325.99 |  0 |  0 |  0 |     0.0 |
+   |    2 |     254 | qtok_254       |   63.01 | 100.0% |       2 |   54.14 |    5.69 |  6 | 10 |  0 |   535.5 |
+   |    3 |      49 | qtok_49        |   93.73 | 100.0% |     177 |   84.12 |    5.69 |  0 |  0 |  0 |   535.5 |
+   |    4 |     254 | qtok_254       |   65.57 | 100.0% |       2 |   56.25 |    5.58 | 15 |  1 |  0 |    59.8 |
+   |    5 |      49 | qtok_49        |   84.71 |  99.7% |     177 |   78.29 |    5.58 |  0 |  0 |  0 |    59.8 |
+   |    6 |     254 | qtok_254       |   70.80 | 100.0% |       2 |   58.38 |    5.63 | 15 |  1 |  0 |    87.5 |
+   |    7 |      49 | qtok_49        |   83.85 |  99.9% |     129 |   77.09 |    5.63 |  0 |  0 |  0 |    87.5 |
+   |    8 |     254 | qtok_254       |   72.14 | 100.0% |      66 |   61.47 |    5.66 | 16 |  0 |  0 |    32.0 |
+   |   28 |      49 | qtok_49        |   65.10 | 100.0% |      18 |   55.78 |    5.66 | 10 |  6 |  0 |   198.5 |
+   |   29 |     148 | qtok_148       |   77.89 | 100.0% |     127 |   51.09 |    5.66 |  0 |  0 |  0 |   198.5 |
+   |    9 |      49 | qtok_49        |   84.72 | 100.0% |     129 |   76.64 |    5.66 |  0 |  0 |  0 |    32.0 |
    |   10 |     254 | qtok_254       |   70.81 |  99.7% |      66 |   64.77 |    5.64 | 15 |  1 |  0 |    59.8 |
-   |   11 |      49 | qtok_49        |   84.60 |  79.6% |     129 |   83.23 |    5.64 |  0 |  0 |  0 |    59.8 |
-   |   20 |     193 | qtok_193       |   68.95 | 100.0% |      17 |   58.95 |    5.63 | 14 |  2 |  0 |    87.5 |
-   |   21 |      63 | qtok_63        |   75.06 |  99.9% |     193 |   67.57 |    5.63 |  0 |  0 |  0 |    87.5 |
-   |   30 |     254 | qtok_254       |   59.08 |  96.0% |      49 |   55.91 |    5.49 | 14 |  2 |  0 |   115.2 |
-   |   31 |      48 | qtok_48        |  139.73 | 100.0% |      49 |  108.61 |    5.49 |  0 |  0 |  0 |   115.2 |
-   |   32 |     254 | qtok_254       |   53.74 |  72.9% |     194 |   52.16 |    5.59 | 14 |  2 |  0 |    87.5 |
-   |   33 |      49 | qtok_49        |  132.17 | 100.0% |      48 |  102.59 |    5.59 |  0 |  0 |  0 |    87.5 |
+   |   30 |     254 | qtok_254       |   59.08 |  96.0% |      49 |   55.91 |    5.55 | 14 |  2 |  0 |   115.2 |
+   |   31 |      48 | qtok_48        |  139.73 | 100.0% |      49 |  108.61 |    5.55 |  0 |  0 |  0 |   115.2 |
+   |   32 |     254 | qtok_254       |   53.74 |  72.9% |     194 |   52.16 |    5.56 | 14 |  2 |  0 |    87.5 |
+   |   33 |      49 | qtok_49        |  132.17 | 100.0% |      48 |  102.59 |    5.56 |  0 |  0 |  0 |    87.5 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (2048 tok, 1.321s, TTFT=1321.01ms): Avg=1550.33 | Min=1281.33 | Max=1969.71 tps
-   Prefill Chunks (8): C1:256t/1969.7tps/99% | C2:256t/1845.2tps/99% | C3:256t/1726.7tps/99% | C4:256t/1582.2tps/99%
-                       C5:256t/1553.5tps/99% | C6:256t/1426.0tps/99% | C7:256t/1292.1tps/99% | C8:256t/1281.3tps/99%
-   Decode  (32 tok, 0.179s): Avg=179.23 | Min=177.21 | Max=182.26 tps
-   Latency (ms) : Min=5.49 | P10=5.51 | P25=5.55 | P50=5.59 | P75=5.62 | P90=5.64 | P95=5.64 | P99=5.64 | Max=5.64
-   Mean/SD/Jitt : Mean=5.58ms | StdDev=0.05ms | Jitter=0.03ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
+   Prefill (2048 tok, 1.326s, TTFT=1325.99ms): Avg=1544.50 | Min=1284.94 | Max=1881.55 tps
+   Prefill Chunks (8): C1:256t/1881.5tps/99% | C2:256t/1839.9tps/99% | C3:256t/1698.0tps/99% | C4:256t/1583.5tps/99%
+                       C5:256t/1533.0tps/99% | C6:256t/1437.1tps/99% | C7:256t/1319.6tps/99% | C8:256t/1284.9tps/99%
+   Decode  (32 tok, 0.179s): Avg=178.43 | Min=175.87 | Max=180.68 tps
+   Latency (ms) : Min=5.53 | P10=5.55 | P25=5.57 | P50=5.62 | P75=5.64 | P90=5.66 | P95=5.69 | P99=5.69 | Max=5.69
+   Mean/SD/Jitt : Mean=5.60ms | StdDev=0.04ms | Jitter=0.03ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
    MTP Head     : 16/16 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
    Activations (33024): RawRAM=32726 (99.10%) | Lookahead=42 (+0.13%) | ColdMiss=256 (0.78%) | EFF HIT=99.22%
-   Lookahead    : 52 prefetched -> 46 consumed (88.5% util) | Warmup >=75%:1t, >=85%:1t
+   Lookahead    : 55 prefetched -> 46 consumed (83.6% util) | Warmup >=75%:1t, >=85%:1t
    Trajectory   : @16= 99.2% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L00 | 8256 | 8190 |   2 |  64 | 99.2%|   3.58 | | L02 | 8256 | 8171 |  21 |  64 | 99.2%|   4.82 |
+   | L00 | 8256 | 8190 |   2 |  64 | 99.2%|   3.58 | | L02 | 8256 | 8171 |  21 |  64 | 99.2%|   4.99 |
    | L01 | 8256 | 8179 |  13 |  64 | 99.2%|   4.23 | | L03 | 8256 | 8186 |   6 |  64 | 99.2%|   3.85 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 155.14 MB (Load=6.87 | Prefill=144.44 | Warmup=0.00 | Decode=3.83 MB)
-   SSD Data/Token (Decode)      : Avg=0.120 MB/tok (Min=0.031 | P50=0.113 | P95=0.523 | Max=0.523 MB) | Prefill=0.071 MB/tok
-   NVMe Batches / Requests      : 92 Batches | 34197 Raw -> 371 Merged (33826 LBA Merges, Avg 428.2 KB/io)
-   SSD I/O Size Histogram       : <64K=217 | 64K-512K=154 | 512K-2M=0 | >2M=0
-   SSD Read Bandwidth (Active)  : Min=438.51 | Avg=5228.36 | Peak=10603.91 MB/s | WallAmort=103.46 MB/s
-   OS Kernel I/O Verification   : Read=24.31 MB | Write=0.00 MB | Syscalls=388
-   Sync Stall vs Async DMA      : SyncStall=6.34 ms | AsyncOverlapped=27.79 ms (81.4% Overlapped)
-   RAM Traffic & Active BW      : 2.10 GB moved | Active=1.61 GB/s | WallAmort=1.40 GB/s
-   Stage Breakdown (Pref/Dec)   : Prefill=1.32s (88.1%, 144.44 MB SSD) | Decode=0.18s (11.9%, 3.83 MB SSD)
-   CPU Time & Utilization       : User=2.719s + Sys=0.469s (Wall=1.530s) | SysUtil=52.1% | ThrUtil=52.1% | 48.19 GFLOPS
+   Engine SSD Transfer Total    : 155.30 MB (Load=6.87 | Prefill=144.44 | Warmup=0.00 | Decode=4.00 MB)
+   SSD Data/Token (Decode)      : Avg=0.125 MB/tok (Min=0.031 | P50=0.113 | P95=0.523 | Max=0.523 MB) | Prefill=0.071 MB/tok
+   NVMe Batches / Requests      : 93 Batches | 34206 Raw -> 374 Merged (33832 LBA Merges, Avg 425.2 KB/io)
+   SSD I/O Size Histogram       : <64K=220 | 64K-512K=154 | 512K-2M=0 | >2M=0
+   SSD Read Bandwidth (Active)  : Min=453.93 | Avg=5333.82 | Peak=11397.55 MB/s | WallAmort=103.17 MB/s
+   OS Kernel I/O Verification   : Read=24.47 MB | Write=0.00 MB | Syscalls=391
+   Sync Stall vs Async DMA      : SyncStall=5.80 ms | AsyncOverlapped=27.10 ms (82.4% Overlapped)
+   RAM Traffic & Active BW      : 2.10 GB moved | Active=1.60 GB/s | WallAmort=1.40 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=1.33s (88.1%, 144.44 MB SSD) | Decode=0.18s (11.9%, 4.00 MB SSD)
+   CPU Time & Utilization       : User=2.812s + Sys=0.500s (Wall=1.538s) | SysUtil=53.9% | ThrUtil=53.9% | 49.81 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :    927.15 ms (  445.7 us/tok | 61.83%)
-   MoE AVX2 Q8 Expert Compute   :    375.58 ms (  180.6 us/tok | 25.05%)
-   Router + Lookahead Dispatch  :     81.43 ms (   39.1 us/tok |  5.43%)
-   LM Head Output Projection    :      5.82 ms (    2.8 us/tok |  0.39%)
-   Foreground NVMe Sync Stall   :      6.34 ms (    3.0 us/tok |  0.42%)
-   Unaccounted / OMP & Sampling :    103.23 ms (   49.6 us/tok |  6.88%) | Total Wall=1499.55 ms
+   Dense + Attention/Linear SSM :    933.76 ms (  448.9 us/tok | 62.03%)
+   MoE AVX2 Q8 Expert Compute   :    375.65 ms (  180.6 us/tok | 24.95%)
+   Router + Lookahead Dispatch  :     81.78 ms (   39.3 us/tok |  5.43%)
+   LM Head Output Projection    :      5.86 ms (    2.8 us/tok |  0.39%)
+   Foreground NVMe Sync Stall   :      5.80 ms (    2.8 us/tok |  0.39%)
+   Unaccounted / OMP & Sampling :    102.48 ms (   49.3 us/tok |  6.81%) | Total Wall=1505.34 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    18.06%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     5.87%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     1.92%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    69.67%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    17.72%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     5.85%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     1.86%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    70.09%  |
    | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     4.48%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
@@ -331,27 +331,27 @@ Cloning into 'Apex-Inference-v1'...
   "quantization": "Unsloth UD-IQ2_XXS",
   "mtp_enabled": false,
   "dense_pinned_ram_bytes": 3037760,
-  "kv_cache_ram_bytes": 21282816,
-  "kv_bytes_per_token": 14080,
+  "kv_cache_ram_bytes": 10797056,
+  "kv_bytes_per_token": 2560,
   "expert_cache_ram_bytes": 2534400,
   "ssd_offloaded_expert_bytes": 2433024,
   "prefill": {
     "tokens": 164,
-    "ttft_ms": 238.43,
-    "avg_tps": 687.82,
-    "min_tps": 567.72,
-    "max_tps": 796.7
+    "ttft_ms": 237.77,
+    "avg_tps": 689.75,
+    "min_tps": 564.19,
+    "max_tps": 784.91
   },
   "decode": {
     "tokens": 39,
-    "avg_tps": 141.26,
-    "min_tps": 116.99,
-    "max_tps": 150.78,
-    "p50_ms": 6.84,
-    "p90_ms": 8.29,
-    "p99_ms": 8.55,
-    "mean_ms": 7.08,
-    "jitter_ms": 0.23
+    "avg_tps": 143.26,
+    "min_tps": 129.12,
+    "max_tps": 146.89,
+    "p50_ms": 6.91,
+    "p90_ms": 7.26,
+    "p99_ms": 7.74,
+    "mean_ms": 6.98,
+    "jitter_ms": 0.16
   },
   "cache": {
     "raw_hit_rate_pct": 100.0,
@@ -364,10 +364,10 @@ Cloning into 'Apex-Inference-v1'...
     "warmup_bytes": 0,
     "decode_bytes": 0,
     "bytes_per_token": 26949.67,
-    "avg_mbs": 2370.23,
-    "peak_mbs": 6127.45,
+    "avg_mbs": 2606.72,
+    "peak_mbs": 5813.95,
     "sync_wait_ms": 0.0,
-    "async_overlap_ms": 0.83
+    "async_overlap_ms": 0.86
   },
   "os_verification": {
     "io_read_bytes": 0,
@@ -375,21 +375,21 @@ Cloning into 'Apex-Inference-v1'...
     "io_syscalls": 0,
     "cpu_user_sec": 0.0,
     "cpu_sys_sec": 0.0,
-    "ram_bytes_moved": 272146688
+    "ram_bytes_moved": 269808128
   },
   "kernel_attribution_ms": {
-    "dense_attention": 386.75,
-    "moe_compute": 105.1,
-    "router_lookahead": 7.23,
-    "lm_head": 8.86,
-    "unaccounted": 6.58
+    "dense_attention": 381.3,
+    "moe_compute": 106.07,
+    "router_lookahead": 7.25,
+    "lm_head": 8.97,
+    "unaccounted": 6.41
   },
   "resource_contribution_pct": {
-    "cpu_avx2_fma": 87.61,
-    "ram_bandwidth_pinning": 1.9,
-    "expert_cache_lrfu": 8.69,
-    "lookahead_parallel_overlap": 1.41,
-    "ssd_nvme_throughput": 0.39,
+    "cpu_avx2_fma": 88.25,
+    "ram_bandwidth_pinning": 1.92,
+    "expert_cache_lrfu": 8.03,
+    "lookahead_parallel_overlap": 1.44,
+    "ssd_nvme_throughput": 0.36,
     "total": 100.0
   }
 }
@@ -415,21 +415,21 @@ Cloning into 'Apex-Inference-v1'...
   "ssd_offloaded_expert_bytes": 3653632,
   "prefill": {
     "tokens": 164,
-    "ttft_ms": 302.44,
-    "avg_tps": 542.25,
-    "min_tps": 383.62,
-    "max_tps": 613.24
+    "ttft_ms": 307.15,
+    "avg_tps": 533.95,
+    "min_tps": 378.06,
+    "max_tps": 613.33
   },
   "decode": {
     "tokens": 39,
-    "avg_tps": 126.91,
-    "min_tps": 115.19,
-    "max_tps": 130.66,
-    "p50_ms": 7.83,
-    "p90_ms": 8.14,
-    "p99_ms": 8.68,
-    "mean_ms": 7.88,
-    "jitter_ms": 0.2
+    "avg_tps": 123.08,
+    "min_tps": 98.61,
+    "max_tps": 129.4,
+    "p50_ms": 7.89,
+    "p90_ms": 9.0,
+    "p99_ms": 10.14,
+    "mean_ms": 8.12,
+    "jitter_ms": 0.25
   },
   "cache": {
     "raw_hit_rate_pct": 85.44,
@@ -437,15 +437,15 @@ Cloning into 'Apex-Inference-v1'...
     "warmup_tokens_to_75pct": 1
   },
   "ssd": {
-    "total_bytes_transferred": 37925472,
+    "total_bytes_transferred": 37982304,
     "prefill_bytes": 20240384,
     "warmup_bytes": 0,
-    "decode_bytes": 12128256,
-    "bytes_per_token": 186824.99,
-    "avg_mbs": 2444.13,
-    "peak_mbs": 8680.56,
-    "sync_wait_ms": 4.73,
-    "async_overlap_ms": 13.49
+    "decode_bytes": 12185088,
+    "bytes_per_token": 187104.95,
+    "avg_mbs": 2682.39,
+    "peak_mbs": 9432.87,
+    "sync_wait_ms": 4.57,
+    "async_overlap_ms": 12.34
   },
   "os_verification": {
     "io_read_bytes": 0,
@@ -456,18 +456,18 @@ Cloning into 'Apex-Inference-v1'...
     "ram_bytes_moved": 366830592
   },
   "kernel_attribution_ms": {
-    "dense_attention": 344.83,
-    "moe_compute": 200.36,
-    "router_lookahead": 9.13,
-    "lm_head": 8.4,
-    "unaccounted": 42.29
+    "dense_attention": 355.28,
+    "moe_compute": 203.06,
+    "router_lookahead": 9.2,
+    "lm_head": 8.94,
+    "unaccounted": 42.96
   },
   "resource_contribution_pct": {
-    "cpu_avx2_fma": 81.31,
-    "ram_bandwidth_pinning": 2.16,
-    "expert_cache_lrfu": 9.04,
-    "lookahead_parallel_overlap": 4.63,
-    "ssd_nvme_throughput": 2.86,
+    "cpu_avx2_fma": 82.66,
+    "ram_bandwidth_pinning": 2.14,
+    "expert_cache_lrfu": 8.17,
+    "lookahead_parallel_overlap": 4.39,
+    "ssd_nvme_throughput": 2.64,
     "total": 100.0
   }
 }
@@ -493,41 +493,41 @@ Host CPU: AMD EPYC 7763 64-Core Processor | Cores=2 Threads=4 | RAM=15.99 GB
    CPU Model          : AMD EPYC 7763 64-Core Processor                
    Cores / Threads    : 2 Physical / 4 Logical
    SIMD ISA Support   : AVX2=YES | FMA=YES | F16C=YES | AVX-VNNI=NO | AVX512-VNNI=NO
-   System Memory (RAM): 15.99 GB Total / 13.47 GB Available
+   System Memory (RAM): 15.99 GB Total / 13.45 GB Available
    Active Drive Space : 150.00 GB Total / 146.95 GB Free
 --------------------------------------------------------------------------------
  [CrystalDiskMark-Style NVMe SSD Storage Benchmark]
-   SEQ1M Direct Uncached NVMe Read    :    510.04 MB/s (Hardware Floor)
-   SEQ1M Q8T1  Read (OS-Cached Max)   :   1467.63 MB/s
-   SEQ1M Q1T1  Read (Single Queue)    :   8015.68 MB/s
-   SEQ128K Q32T1 Expert-Stripe Read   :  10515.33 MB/s
-   RND4K Q32T16 Read                  :    499.72 MB/s (  127928 IOPS)
-   RND4K Q1T1  Read                   :    736.21 MB/s (Latency: 5.31 us)
+   SEQ1M Direct Uncached NVMe Read    :    495.52 MB/s (Hardware Floor)
+   SEQ1M Q8T1  Read (OS-Cached Max)   :   1469.92 MB/s
+   SEQ1M Q1T1  Read (Single Queue)    :   8190.95 MB/s
+   SEQ128K Q32T1 Expert-Stripe Read   :  10639.14 MB/s
+   RND4K Q32T16 Read                  :    481.64 MB/s (  123300 IOPS)
+   RND4K Q1T1  Read                   :    742.78 MB/s (Latency: 5.26 us)
 --------------------------------------------------------------------------------
  [PassMark / STREAM System RAM Bandwidth & Latency Benchmark]
-   AVX2 256-bit Sequential Read BW    :     59.02 GB/s
-   AVX2 256-bit Sequential Write BW   :     38.52 GB/s
-   STREAM Triad (A = B + s*C) BW      :     41.90 GB/s
-   Random Pointer-Chase Latency       :     56.58 ns
+   AVX2 256-bit Sequential Read BW    :     60.72 GB/s
+   AVX2 256-bit Sequential Write BW   :     49.87 GB/s
+   STREAM Triad (A = B + s*C) BW      :     41.33 GB/s
+   Random Pointer-Chase Latency       :     51.89 ns
 --------------------------------------------------------------------------------
  [PassMark-Style CPU AVX2+FMA Compute & IQ2 Kernel Benchmark]
-   Single-Core AVX2+FMA Throughput    :     51.29 GFLOPS
-   Multi-Core  AVX2+FMA Throughput    :    190.98 GFLOPS
-   IQ2_XXS/XS Fused Dot Effective BW  :     22.97 GB/s (FP32 Equiv)
+   Single-Core AVX2+FMA Throughput    :     51.03 GFLOPS
+   Multi-Core  AVX2+FMA Throughput    :    183.09 GFLOPS
+   IQ2_XXS/XS Fused Dot Effective BW  :     21.47 GB/s (FP32 Equiv)
 ================================================================================
 
 
 ================================================================================
  [Disk Throttle Probe] 1024 MB Uncached Direct I/O Test on C:/apex_c_drive
-   Drive Free: 30.98 GB / 149.89 GB | Bypassing OS Page Cache (Direct/Unbuffered)
+   Drive Free: 31.00 GB / 149.89 GB | Bypassing OS Page Cache (Direct/Unbuffered)
 --------------------------------------------------------------------------------
-   Uncached Write (1024 MB)      : 165.50 MB/s (6.19s)
-   Window #01 (300.0 MB in 0.51s):   593.82 MB/s (Uncached Direct Read)
-   Window #02 (196.0 MB in 0.50s):   391.64 MB/s (Uncached Direct Read)
-   Window #03 (196.0 MB in 0.50s):   388.70 MB/s (Uncached Direct Read)
-   Window #04 (216.0 MB in 0.54s):   403.41 MB/s (Uncached Direct Read)
-   Window #05 (116.0 MB in 0.27s):   432.17 MB/s (Uncached Direct Read)
-   Sustained Uncached Read Avg  :   442.56 MB/s (Min=388.70 | Max=593.82 MB/s)
+   Uncached Write (1024 MB)      : 133.65 MB/s (7.66s)
+   Window #01 (256.0 MB in 0.50s):   511.38 MB/s (Uncached Direct Read)
+   Window #02 (244.0 MB in 0.53s):   458.53 MB/s (Uncached Direct Read)
+   Window #03 (196.0 MB in 0.51s):   386.85 MB/s (Uncached Direct Read)
+   Window #04 (216.0 MB in 0.55s):   390.73 MB/s (Uncached Direct Read)
+   Window #05 (112.0 MB in 0.24s):   457.54 MB/s (Uncached Direct Read)
+   Sustained Uncached Read Avg  :   438.16 MB/s (Min=386.85 | Max=511.38 MB/s)
 ================================================================================
 
 
@@ -535,204 +535,209 @@ Host CPU: AMD EPYC 7763 64-Core Processor | Cores=2 Threads=4 | RAM=15.99 GB
  [Disk Throttle Probe] 1024 MB Uncached Direct I/O Test on D:/apex_d_drive
    Drive Free: 146.95 GB / 150.00 GB | Bypassing OS Page Cache (Direct/Unbuffered)
 --------------------------------------------------------------------------------
-   Uncached Write (1024 MB)      : 391.46 MB/s (2.62s)
-   Window #01 (200.0 MB in 0.51s):   395.56 MB/s (Uncached Direct Read)
-   Window #02 (216.0 MB in 0.55s):   391.69 MB/s (Uncached Direct Read)
-   Window #03 (216.0 MB in 0.54s):   403.14 MB/s (Uncached Direct Read)
-   Window #04 (196.0 MB in 0.50s):   389.10 MB/s (Uncached Direct Read)
-   Window #05 (196.0 MB in 0.46s):   424.31 MB/s (Uncached Direct Read)
-   Sustained Uncached Read Avg  :   400.22 MB/s (Min=389.10 | Max=424.31 MB/s)
+   Uncached Write (1024 MB)      : 397.55 MB/s (2.58s)
+   Window #01 (184.0 MB in 0.50s):   366.73 MB/s (Uncached Direct Read)
+   Window #02 (196.0 MB in 0.50s):   389.35 MB/s (Uncached Direct Read)
+   Window #03 (216.0 MB in 0.55s):   392.32 MB/s (Uncached Direct Read)
+   Window #04 (220.0 MB in 0.54s):   408.96 MB/s (Uncached Direct Read)
+   Window #05 (196.0 MB in 0.50s):   388.26 MB/s (Uncached Direct Read)
+   Window #06 ( 12.0 MB in 0.00s):  2649.24 MB/s (Uncached Direct Read)
+   Sustained Uncached Read Avg  :   393.39 MB/s (Min=366.73 | Max=2649.24 MB/s)
 ================================================================================
 
 ================================================================================
- >>> EXECUTING REAL MULTI-SHARD BENCHMARK SUITE FOR TARGET: glm53 <<<
+ >>> EXECUTING REAL MULTI-SHARD BENCHMARK SUITE FOR TARGET: qwen38 <<<
 ================================================================================
 
-[HF-MultiDrive-DL] Streaming unsloth/GLM-5.3-Flash-GGUF/UD-IQ2_XXS/GLM-5.3-Flash-UD-IQ2_XXS-00001-of-00004.gguf (0.009 GB) -> D:/apex_d_drive/models/glm53\GLM-5.3-Flash-UD-IQ2_XXS-00001-of-00004.gguf (Sequential Non-Truncate)
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00001-of-00004.gguf: 100.00% (0.01/0.01 GB) @ 119.7 MB/s
+[HF-MultiDrive-DL] Streaming unsloth/Qwen3.8-Flash-Next-GGUF/UD-IQ2_XS/Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf (0.010 GB) -> D:/apex_d_drive/models/qwen38\Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf (Sequential Non-Truncate)
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf: 100.00% (0.01/0.01 GB) @ 17.6 MB/s
 
-[HF-MultiDrive-DL] Streaming unsloth/GLM-5.3-Flash-GGUF/UD-IQ2_XXS/GLM-5.3-Flash-UD-IQ2_XXS-00002-of-00004.gguf (46.470 GB) -> D:/apex_d_drive/models/glm53\GLM-5.3-Flash-UD-IQ2_XXS-00002-of-00004.gguf (Sequential Non-Truncate)
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00002-of-00004.gguf:  10.76% (5.00/46.47 GB) @ 506.8 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00002-of-00004.gguf:  21.52% (10.00/46.47 GB) @ 371.9 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00002-of-00004.gguf:  32.28% (15.00/46.47 GB) @ 364.8 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00002-of-00004.gguf:  43.04% (20.00/46.47 GB) @ 341.7 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00002-of-00004.gguf:  53.80% (25.00/46.47 GB) @ 350.0 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00002-of-00004.gguf:  64.56% (30.00/46.47 GB) @ 355.3 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00002-of-00004.gguf:  75.32% (35.00/46.47 GB) @ 352.1 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00002-of-00004.gguf:  86.08% (40.00/46.47 GB) @ 353.3 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00002-of-00004.gguf:  96.84% (45.00/46.47 GB) @ 359.7 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00002-of-00004.gguf: 100.00% (46.47/46.47 GB) @ 356.7 MB/s
+[HF-MultiDrive-DL] Streaming unsloth/Qwen3.8-Flash-Next-GGUF/UD-IQ2_XS/Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf (43.792 GB) -> D:/apex_d_drive/models/qwen38\Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf (Sequential Non-Truncate)
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  11.42% (5.00/43.79 GB) @ 355.6 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  22.84% (10.00/43.79 GB) @ 317.1 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  34.25% (15.00/43.79 GB) @ 323.3 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  45.67% (20.00/43.79 GB) @ 326.5 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  57.09% (25.00/43.79 GB) @ 322.9 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  68.51% (30.00/43.79 GB) @ 318.4 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  79.92% (35.00/43.79 GB) @ 299.4 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf:  91.34% (40.00/43.79 GB) @ 291.9 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00002-of-00003.gguf: 100.00% (43.79/43.79 GB) @ 280.0 MB/s
 
-[HF-MultiDrive-DL] Streaming unsloth/GLM-5.3-Flash-GGUF/UD-IQ2_XXS/GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf (45.866 GB) -> D:/apex_d_drive/models/glm53\GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf (Sequential Non-Truncate)
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf:  10.90% (5.00/45.87 GB) @ 310.6 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf:  21.80% (10.00/45.87 GB) @ 324.8 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf:  32.70% (15.00/45.87 GB) @ 316.0 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf:  43.61% (20.00/45.87 GB) @ 332.3 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf:  54.51% (25.00/45.87 GB) @ 338.9 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf:  65.41% (30.00/45.87 GB) @ 338.6 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf:  76.31% (35.00/45.87 GB) @ 344.6 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf:  87.21% (40.00/45.87 GB) @ 340.8 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf:  98.11% (45.00/45.87 GB) @ 339.5 MB/s
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00003-of-00004.gguf: 100.00% (45.87/45.87 GB) @ 342.8 MB/s
+[HF-MultiDrive-DL] Streaming unsloth/Qwen3.8-Flash-Next-GGUF/UD-IQ2_XS/Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf (26.822 GB) -> D:/apex_d_drive/models/qwen38\Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf (Sequential Non-Truncate)
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf:  18.64% (5.00/26.82 GB) @ 186.5 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf:  37.28% (10.00/26.82 GB) @ 229.3 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf:  55.92% (15.00/26.82 GB) @ 257.4 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf:  74.57% (20.00/26.82 GB) @ 262.6 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf:  93.21% (25.00/26.82 GB) @ 269.3 MB/s
+  [DL] Qwen3.8-Flash-Next-UD-IQ2_XS-00003-of-00003.gguf: 100.00% (26.82/26.82 GB) @ 270.5 MB/s
 
-[HF-MultiDrive-DL] Streaming unsloth/GLM-5.3-Flash-GGUF/UD-IQ2_XXS/GLM-5.3-Flash-UD-IQ2_XXS-00004-of-00004.gguf (2.506 GB) -> C:/apex_c_drive/models/glm53\GLM-5.3-Flash-UD-IQ2_XXS-00004-of-00004.gguf (Sequential Non-Truncate)
-  [DL] GLM-5.3-Flash-UD-IQ2_XXS-00004-of-00004.gguf: 100.00% (2.51/2.51 GB) @ 122.4 MB/s
-  [RAID0-Link] Linked D:/apex_d_drive/models/glm53\GLM-5.3-Flash-UD-IQ2_XXS-00004-of-00004.gguf -> C:/apex_c_drive/models/glm53\GLM-5.3-Flash-UD-IQ2_XXS-00004-of-00004.gguf (Dual-Drive C: + D: active)
+[HF-MultiDrive-DL] Streaming unsloth/Qwen3.8-Flash-Next-GGUF/MTP/mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf (2.595 GB) -> C:/apex_c_drive/models/qwen38\mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf (Sequential Non-Truncate)
+  [DL] mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf: 100.00% (2.60/2.60 GB) @ 117.6 MB/s
+  [RAID0-Link] Linked D:/apex_d_drive/models/qwen38\mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf -> C:/apex_c_drive/models/qwen38\mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf (Dual-Drive C: + D: active)
 
-[Download Verification] Files=4 | Total Bytes=101,844,951,904 (94.85 GB) | Elapsed=293.16s
-[Colibri-Import] Running baselines/colibri/c/tools/gguf_import.py on D:/apex_d_drive/models/glm53\GLM-5.3-Flash-UD-IQ2_XXS-00001-of-00004.gguf -> D:/apex_d_drive/models/glm53 (--mode link)...
-colibri model directory ready: D:\apex_d_drive\models\glm53  (glm5-next, 45 layers, mode link)
-Verified Primary Shard 1 Path: D:/apex_d_drive/models/glm53\GLM-5.3-Flash-UD-IQ2_XXS-00001-of-00004.gguf (Alt Shard Dir: C:/apex_c_drive/models/glm53)
+[Download Verification] Files=4 | Total Bytes=78,618,661,594 (73.22 GB) | Elapsed=286.27s
+[Colibri-Import] Running baselines/colibri/c/tools/gguf_import.py on D:/apex_d_drive/models/qwen38\Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf -> D:/apex_d_drive/models/qwen38 (--mode link)...
+colibri model directory ready: D:\apex_d_drive\models\qwen38  (qwen4exp, 48 layers, mode link)
+  MTP head: C:\apex_c_drive\models\qwen38\mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf
+Verified Primary Shard 1 Path: D:/apex_d_drive/models/qwen38\Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf (Alt Shard Dir: C:/apex_c_drive/models/qwen38)
 --------------------------------------------------------------------------------
  [Stage 1] Small Prompt (64 tokens) + 100.00% Greedy Parity & Prompt/Response Trace
 --------------------------------------------------------------------------------
 [Apex-Parity] Verifying 100.00% Greedy Token & Batched-vs-Serial Bit Parity...
-[Apex-Parity] Serial  Tokens (4) : [19, 13, 17, 5] -> "4.2&"
-[Apex-Parity] Batched Tokens (4) : [19, 13, 17, 5] -> "4.2&"
-[Apex-Parity] Model Architecture : glm5-next (GLM-5.3-Flash)
+[Apex-Parity] Serial  Tokens (4) : [198, 198, 198, 198] -> "
+
+
+
+"
+[Apex-Parity] Batched Tokens (4) : [198, 198, 198, 198] -> "
+
+
+
+"
+[Apex-Parity] Model Architecture : qwen4exp (Qwen-3.8-Flash-Next)
 [Apex-Parity] Max Logit ULP Diff : 0.000000000e+00
 [Apex-Parity] Greedy Token Match : 4 / 4 (100.00% Parity)
-[Apex-Init] Model Loaded: GLM 5.3 Flash | Layers=45 | Hidden=4096 | Experts=288 (Top-8) | Pinned Trunk=6460.98 MB | Expert Cache=5371.88 MB (573 slots)
+[Apex-Init] Model Loaded: Qwen3.8 Flash Next | Layers=48 | Hidden=2560 | Experts=512 (Top-10) | Pinned Trunk=4614.77 MB | Expert Cache=7999.88 MB (3855 slots)
 [Apex-Prompt] Input (64 tokens): "[64-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 64/64 tok | Chunk=0.49 tps | Avg=0.49 tps | Hit=76.5% | NVMe=487.3 MB/s (47437.59 MB, QD=64) | RSS=13770.9 MB
-[LIVE-DECODE] 2/32 tok | Avg=0.25 tps | Hit=76.5% (LA:+10.1%) | NVMe=482.6 MB/s (50529.52 MB) | RSS=13728.8 MB
-[LIVE-DECODE] 4/32 tok | Avg=0.28 tps | Hit=76.5% (LA:+10.8%) | NVMe=478.2 MB/s (52885.40 MB) | RSS=13651.4 MB
-[LIVE-DECODE] 6/32 tok | Avg=0.29 tps | Hit=76.6% (LA:+11.5%) | NVMe=473.8 MB/s (55352.59 MB) | RSS=13522.0 MB
-[LIVE-DECODE] 8/32 tok | Avg=0.31 tps | Hit=76.7% (LA:+12.0%) | NVMe=471.8 MB/s (57341.15 MB) | RSS=13502.4 MB
-[LIVE-DECODE] 10/32 tok | Avg=0.33 tps | Hit=76.9% (LA:+12.6%) | NVMe=469.8 MB/s (59420.34 MB) | RSS=13468.9 MB
-[LIVE-DECODE] 12/32 tok | Avg=0.33 tps | Hit=77.0% (LA:+13.2%) | NVMe=467.4 MB/s (61661.65 MB) | RSS=13409.7 MB
-[LIVE-DECODE] 14/32 tok | Avg=0.34 tps | Hit=77.1% (LA:+13.7%) | NVMe=466.5 MB/s (63635.77 MB) | RSS=13406.9 MB
-[LIVE-DECODE] 16/32 tok | Avg=0.36 tps | Hit=77.3% (LA:+13.9%) | NVMe=465.8 MB/s (65208.09 MB) | RSS=13406.8 MB
-[LIVE-DECODE] 18/32 tok | Avg=0.35 tps | Hit=77.3% (LA:+14.5%) | NVMe=463.9 MB/s (67659.02 MB) | RSS=13406.8 MB
-[LIVE-DECODE] 20/32 tok | Avg=0.35 tps | Hit=77.4% (LA:+14.9%) | NVMe=462.2 MB/s (69754.71 MB) | RSS=13337.1 MB
-[LIVE-DECODE] 22/32 tok | Avg=0.36 tps | Hit=77.5% (LA:+15.4%) | NVMe=460.9 MB/s (71761.77 MB) | RSS=13283.2 MB
-[LIVE-DECODE] 24/32 tok | Avg=0.36 tps | Hit=77.5% (LA:+15.8%) | NVMe=459.7 MB/s (74033.34 MB) | RSS=13272.6 MB
-[LIVE-DECODE] 26/32 tok | Avg=0.36 tps | Hit=77.5% (LA:+16.1%) | NVMe=458.7 MB/s (76170.52 MB) | RSS=13272.5 MB
-[LIVE-DECODE] 28/32 tok | Avg=0.36 tps | Hit=77.6% (LA:+16.4%) | NVMe=457.8 MB/s (78374.77 MB) | RSS=13272.5 MB
-[LIVE-DECODE] 30/32 tok | Avg=0.36 tps | Hit=77.6% (LA:+16.7%) | NVMe=456.9 MB/s (80399.84 MB) | RSS=13272.5 MB
-[LIVE-DECODE] 32/32 tok | Avg=0.37 tps | Hit=77.6% (LA:+16.8%) | NVMe=456.6 MB/s (82344.15 MB) | RSS=13272.5 MB
+[LIVE-PREFILL] 64/64 tok | Chunk=2.75 tps | Avg=2.75 tps | Hit=88.1% | NVMe=780.1 MB/s (10578.12 MB, QD=64) | RSS=13794.6 MB
+[LIVE-DECODE] 8/32 tok | Avg=1.72 tps | Hit=89.4% (LA:+0.9%) | NVMe=829.8 MB/s (12068.83 MB) | RSS=13771.4 MB
+[LIVE-DECODE] 16/32 tok | Avg=1.80 tps | Hit=90.5% (LA:+1.2%) | NVMe=873.2 MB/s (13291.94 MB) | RSS=13743.2 MB
+[LIVE-DECODE] 24/32 tok | Avg=1.83 tps | Hit=91.4% (LA:+1.3%) | NVMe=914.1 MB/s (14367.80 MB) | RSS=13736.1 MB
+[LIVE-DECODE] 31/32 tok | Avg=1.85 tps | Hit=92.0% (LA:+1.5%) | NVMe=942.8 MB/s (15318.39 MB) | RSS=13735.4 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=OFF
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5371.88 MB (573/12384 exp = 4.63% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.86 MB | End=13272.52 MB | Peak=13844.00 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 7999.88 MB (3855/25088 exp = 15.37% pinned) | Staging=66.41 MB
+   Process RSS (Start/End/Peak) : Start=4.86 MB | End=13735.40 MB | Peak=14033.30 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (64 tok)   : "[64-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency..."
-   RESPONSE (32 tok) : " a 1-bit... More
-[1. More highlights…
-In
-In a1-bit quantized 1-bit quantized 1-bitized 1-bit"
+   RESPONSE (31 tok) : " a2
+
+as
+2:
+2u
+ar
+22
+22
+0
+2223
+
+<|im_start|>
+
+u"
 --------------------------------------------------------------------------------
- [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 33 Steps)]
-   Logit Summary: AvgTop1Prob=36.8% | AvgMargin=1.757 | MinMargin=0.015
+ [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 32 Steps)]
+   Logit Summary: AvgTop1Prob=10.8% | AvgMargin=1.072 | MinMargin=0.004
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |     264 |  a             |   13.92 |  10.6% |   47414 |   13.42 | 129827.96 |  0 |  0 |  0 |     0.0 |
-   |    2 |     220 |                |   14.20 |   9.2% |   24923 |   14.18 | 3989.04 | 21 |227 | 88 | 1583072.0 |
-   |    3 |      16 | 1              |   18.33 |  26.6% |      19 |   17.27 | 3989.04 |  0 |  0 |  0 | 1583072.0 |
-   |    4 |   15245 | -bit           |   13.67 |  13.4% |      13 |   13.56 | 3067.80 | 84 |190 | 62 | 1206208.0 |
-   |    5 |    1112 | ...            |   13.59 |   8.9% |    1565 |   13.29 | 3067.80 |  0 |  0 |  0 | 1206208.0 |
-   |    6 |    4398 |  More          |   11.74 |   8.2% |     508 |   10.90 | 3227.65 | 77 |196 | 63 | 1263200.0 |
-   |    7 |     198 | \n             |   11.62 |   6.7% |     271 |   11.49 | 3227.65 |  0 |  0 |  0 | 1263200.0 |
-   |    8 |      58 | [              |   13.68 |   7.4% |     785 |   13.10 | 2472.06 |125 |162 | 49 | 1018144.0 |
-   |   18 |      16 | 1              |   14.79 |  37.1% |       8 |   12.48 | 3053.33 | 88 |179 | 69 | 1254880.0 |
-   |   19 |   15245 | -bit           |   24.00 |  99.8% |    1455 |   16.07 | 3053.33 |  0 |  0 |  0 | 1254880.0 |
-   |   12 |   21265 |  highlights    |   11.86 |  14.3% |    7998 |   11.70 | 2853.89 | 96 |194 | 46 | 1147552.0 |
-   |   13 |   88737 | ???\n          |   14.28 |  12.8% |    9335 |   14.26 | 2853.89 |  0 |  0 |  0 | 1147552.0 |
-   |   30 |    1506 | ized           |   16.47 |  78.5% |   10267 |   12.96 | 2495.31 |141 |124 | 71 | 1036832.0 |
-   |   31 |     220 |                |   19.68 |  90.4% |      16 |   16.01 | 2495.31 |  0 |  0 |  0 | 1036832.0 |
-   |   32 |      16 | 1              |   15.37 |  33.8% |      19 |   14.89 | 2328.55 |161 |107 | 68 | 995488.0 |
-   |   33 |   15245 | -bit           |   25.55 | 100.0% |    1455 |   16.54 | 2328.55 |  0 |  0 |  0 | 995488.0 |
+   |    1 |     264 |  a             |   13.79 |  18.1% |     303 |   13.43 | 23272.16 |  0 |  0 |  0 |     0.0 |
+   |    2 |      17 | 2              |    8.52 |   0.6% |     286 |    8.17 |  648.94 |889 | 71 |  0 | 237101.5 |
+   |    3 |     198 | \n             |   14.17 |  53.5% |      11 |   12.36 |  648.94 |  0 |  0 |  0 | 237101.5 |
+   |    4 |     198 | \n             |    9.66 |   5.1% |     350 |    7.90 |  694.00 |418 | 61 |  1 | 227289.0 |
+   |    5 |     299 | as             |    8.80 |   1.5% |      64 |    8.72 |  519.67 |456 | 24 |  0 | 131518.0 |
+   |    6 |     198 | \n             |   10.44 |  11.5% |      25 |    9.21 |  566.27 |441 | 39 |  0 | 199143.0 |
+   |    7 |      17 | 2              |   10.14 |   5.4% |      18 |    9.57 |  514.26 |454 | 26 |  0 | 131872.0 |
+   |    8 |      25 | :              |    9.71 |   7.4% |     198 |    8.84 |  521.68 |448 | 32 |  0 | 159664.0 |
+   |   19 |      17 | 2              |    9.23 |   2.8% |      16 |    9.20 |  613.21 |472 |  8 |  0 | 143339.0 |
+   |   17 |     198 | \n             |    9.98 |   5.6% |      24 |    8.90 |  555.65 |441 | 39 |  0 | 213793.0 |
+   |   27 |     198 | \n             |   11.97 |  38.6% |      17 |    9.61 |  542.69 |442 | 38 |  0 | 194564.0 |
+   |   10 |      17 | 2              |    9.02 |   2.6% |     198 |    8.66 |  539.91 |463 | 17 |  0 | 126814.0 |
+   |   29 |  248045 | <|im_start|>   |    8.43 |   1.2% |      17 |    7.65 |  503.57 |467 | 13 |  0 | 108043.0 |
+   |   30 |     198 | \n             |   10.29 |   7.2% |      84 |    8.09 |  538.25 |449 | 31 |  0 | 160314.0 |
+   |   31 |     198 | \n             |    8.42 |   1.1% |      17 |    7.79 |  509.40 |471 |  9 |  0 | 104364.0 |
+   |   32 |      84 | u              |    8.39 |   0.9% |      17 |    7.95 |  507.41 |472 |  8 |  0 | 102693.0 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (64 tok, 129.828s, TTFT=129827.96ms): Avg=0.49 | Min=0.49 | Max=0.49 tps
-   Prefill Chunks (1): C1:64t/0.5tps/77%
-   Decode  (32 tok, 87.658s): Avg=0.37 | Min=0.25 | Max=0.53 tps
-   Latency (ms) : Min=1889.11 | P10=2328.55 | P25=2495.31 | P50=2697.57 | P75=3053.33 | P90=3227.65 | P95=3989.04 | P99=3989.04 | Max=3989.04
-   Mean/SD/Jitt : Mean=2739.31ms | StdDev=451.13ms | Jitter=184.95ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/32
-   MTP Head     : 16/16 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
+   Prefill (64 tok, 23.272s, TTFT=23272.16ms): Avg=2.75 | Min=2.75 | Max=2.75 tps
+   Prefill Chunks (1): C1:64t/2.8tps/88%
+   Decode  (31 tok, 16.713s): Avg=1.85 | Min=1.44 | Max=1.99 tps
+   Latency (ms) : Min=503.40 | P10=505.23 | P25=509.71 | P50=521.68 | P75=539.91 | P90=613.21 | P95=648.94 | P99=694.00 | Max=694.00
+   Mean/SD/Jitt : Mean=539.12ms | StdDev=46.78ms | Jitter=30.20ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/31
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (26880): RawRAM=16332 (60.76%) | Lookahead=4528 (+16.85%) | ColdMiss=6020 (22.40%) | EFF HIT=77.60%
-   Lookahead    : 4270 prefetched -> 3129 consumed (73.3% util) | Warmup >=75%:1t, >=85%:-1t
-   Trajectory   : @16= 77.3% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
+   Activations (45600): RawRAM=41269 (90.50%) | Lookahead=682 (+1.50%) | ColdMiss=3649 (8.00%) | EFF HIT=92.00%
+   Lookahead    : 2843 prefetched -> 692 consumed (24.3% util) | Warmup >=75%:1t, >=85%:1t
+   Trajectory   : @16= 90.5% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 |  640 |  291 |  98 | 251 | 60.8%|2903.75 | | L24 |  640 |  443 |  75 | 122 | 80.9%|1466.25 |
-   | L04 |  640 |  290 | 127 | 223 | 65.2%|2716.88 | | L25 |  640 |  409 |  97 | 134 | 79.1%|1681.88 |
-   | L05 |  640 |  267 | 158 | 215 | 66.4%|2623.44 | | L26 |  640 |  435 |  98 | 107 | 83.3%|1423.12 |
-   | L06 |  640 |  315 | 141 | 184 | 71.2%|2285.62 | | L27 |  640 |  414 |  97 | 129 | 79.8%|1581.25 |
-   | L07 |  640 |  354 | 136 | 150 | 76.6%|1976.56 | | L28 |  640 |  406 | 103 | 131 | 79.5%|1617.19 |
-   | L08 |  640 |  333 | 143 | 164 | 74.4%|2034.06 | | L29 |  640 |  385 | 114 | 141 | 78.0%|1753.75 |
-   | L09 |  640 |  289 | 164 | 187 | 70.8%|2213.75 | | L30 |  640 |  396 | 103 | 141 | 78.0%|1653.12 |
-   | L10 |  640 |  306 | 147 | 187 | 70.8%|2235.31 | | L31 |  640 |  383 | 116 | 141 | 78.0%|1725.00 |
-   | L11 |  640 |  394 |  93 | 153 | 76.1%|2437.50 | | L32 |  640 |  361 | 143 | 136 | 78.8%|1775.31 |
-   | L12 |  640 |  354 | 138 | 148 | 76.9%|2177.50 | | L33 |  640 |  376 | 133 | 131 | 79.5%|1581.25 |
-   | L13 |  640 |  402 |  90 | 148 | 76.9%|1753.75 | | L34 |  640 |  433 |  91 | 116 | 81.9%|1466.25 |
-   | L14 |  640 |  427 |  66 | 147 | 77.0%|1667.50 | | L35 |  640 |  374 | 139 | 127 | 80.2%|1595.62 |
-   | L15 |  640 |  428 |  71 | 141 | 78.0%|1638.75 | | L36 |  640 |  356 | 152 | 132 | 79.4%|1631.56 |
-   | L16 |  640 |  422 |  90 | 128 | 80.0%|1667.50 | | L37 |  640 |  385 | 115 | 140 | 78.1%|1840.00 |
-   | L17 |  640 |  430 |  77 | 133 | 79.2%|1624.38 | | L38 |  640 |  405 | 104 | 131 | 79.5%|1610.00 |
-   | L18 |  640 |  446 |  72 | 122 | 80.9%|1509.38 | | L39 |  640 |  404 | 108 | 128 | 80.0%|1588.44 |
-   | L19 |  640 |  447 |  76 | 117 | 81.7%|1480.62 | | L40 |  640 |  421 |  89 | 130 | 79.7%|1538.12 |
-   | L20 |  640 |  429 |  78 | 133 | 79.2%|1588.44 | | L41 |  640 |  408 |  92 | 140 | 78.1%|1674.69 |
-   | L21 |  640 |  451 |  73 | 116 | 81.9%|1437.50 | | L42 |  640 |  362 | 157 | 121 | 81.1%|1444.69 |
-   | L22 |  640 |  453 |  70 | 117 | 81.7%|1430.31 | | L43 |  640 |  424 | 105 | 111 | 82.7%|1509.38 |
-   | L23 |  640 |  422 |  82 | 136 | 78.8%|1602.81 | | L44 |  640 |  402 | 107 | 131 | 79.5%|1951.38 |
+   | L00 |  950 |  666 |  70 | 214 | 77.5%| 475.05 | | L24 |  950 |  894 |   9 |  47 | 95.1%| 116.55 |
+   | L01 |  950 |  815 |  41 |  94 | 90.1%| 393.46 | | L25 |  950 |  890 |   8 |  52 | 94.5%| 116.55 |
+   | L02 |  950 |  824 |  24 | 102 | 89.3%| 405.98 | | L26 |  950 |  866 |  17 |  67 | 92.9%| 191.75 |
+   | L03 |  950 |  892 |   3 |  55 | 94.2%| 552.69 | | L27 |  950 |  872 |  14 |  64 | 93.3%| 265.06 |
+   | L04 |  950 |  885 |   7 |  58 | 93.9%| 315.43 | | L28 |  950 |  850 |  22 |  78 | 91.8%| 233.11 |
+   | L05 |  950 |  870 |  10 |  70 | 92.6%| 317.70 | | L29 |  950 |  862 |  10 |  78 | 91.8%| 164.21 |
+   | L06 |  950 |  873 |  16 |  61 | 93.6%| 221.83 | | L30 |  950 |  836 |  15 |  99 | 89.6%| 200.22 |
+   | L07 |  950 |  874 |  16 |  60 | 93.7%| 165.09 | | L31 |  950 |  833 |  21 |  96 | 89.9%| 207.42 |
+   | L08 |  950 |  900 |  10 |  40 | 95.8%| 109.57 | | L32 |  950 |  863 |   8 |  79 | 91.7%| 193.63 |
+   | L09 |  950 |  894 |   3 |  53 | 94.4%|  98.36 | | L33 |  950 |  855 |  13 |  82 | 91.4%| 151.25 |
+   | L10 |  950 |  882 |  11 |  57 | 94.0%| 118.29 | | L34 |  950 |  863 |   6 |  81 | 91.5%| 162.77 |
+   | L11 |  950 |  895 |   5 |  50 | 94.7%| 144.43 | | L35 |  950 |  878 |   4 |  68 | 92.8%| 116.67 |
+   | L12 |  950 |  870 |  16 |  64 | 93.3%| 233.11 | | L36 |  950 |  856 |  14 |  80 | 91.6%| 241.99 |
+   | L13 |  950 |  861 |  17 |  72 | 92.4%| 146.92 | | L37 |  950 |  878 |   7 |  65 | 93.2%| 140.99 |
+   | L14 |  950 |  853 |  19 |  78 | 91.8%| 214.62 | | L38 |  950 |  874 |  12 |  64 | 93.3%| 246.26 |
+   | L15 |  950 |  857 |  12 |  81 | 91.5%| 233.11 | | L39 |  950 |  864 |  12 |  74 | 92.2%| 334.62 |
+   | L16 |  950 |  868 |  10 |  72 | 92.4%| 182.35 | | L40 |  950 |  855 |  11 |  84 | 91.2%| 255.66 |
+   | L17 |  950 |  868 |  13 |  69 | 92.7%| 187.99 | | L41 |  950 |  857 |   4 |  89 | 90.6%| 136.84 |
+   | L18 |  950 |  862 |  18 |  70 | 92.6%| 186.11 | | L42 |  950 |  824 |  17 | 109 | 88.5%| 259.28 |
+   | L19 |  950 |  872 |  10 |  68 | 92.8%| 159.89 | | L43 |  950 |  864 |   8 |  78 | 91.8%| 180.05 |
+   | L20 |  950 |  844 |  16 |  90 | 90.5%| 184.38 | | L44 |  950 |  853 |   9 |  88 | 90.7%| 164.21 |
+   | L21 |  950 |  831 |  31 |  88 | 90.7%| 404.17 | | L45 |  950 |  839 |  15 |  96 | 89.9%| 223.27 |
+   | L22 |  950 |  884 |  14 |  52 | 94.5%| 238.75 | | L46 |  950 |  876 |  10 |  64 | 93.3%| 218.95 |
+   | L23 |  950 |  876 |  10 |  64 | 93.3%| 162.77 | | L47 |  950 |  851 |  14 |  85 | 91.1%| 274.46 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 82344.15 MB (Load=6361.84 | Prefill=41075.75 | Warmup=0.00 | Decode=34906.56 MB)
-   SSD Data/Token (Decode)      : Avg=1090.830 MB/tok (Min=786.156 | P50=1068.594 | P95=1545.969 | Max=1545.969 MB) | Prefill=641.809 MB/tok
-   NVMe Batches / Requests      : 1386 Batches | 32453 Raw -> 31982 Merged (471 LBA Merges, Avg 2636.5 KB/io)
-   SSD I/O Size Histogram       : <64K=481 | 64K-512K=226 | 512K-2M=172 | >2M=31103
-   SSD Read Bandwidth (Active)  : Min=0.32 | Avg=456.57 | Peak=4122.14 MB/s | WallAmort=378.62 MB/s
-   OS Kernel I/O Verification   : Read=82353.18 MB | Write=0.00 MB | Syscalls=36018
-   Sync Stall vs Async DMA      : SyncStall=90310.30 ms | AsyncOverlapped=165203.24 ms (64.7% Overlapped)
-   RAM Traffic & Active BW      : 487.81 GB moved | Active=5.95 GB/s | WallAmort=2.24 GB/s
-   Stage Breakdown (Pref/Dec)   : Prefill=129.83s (59.7%, 41075.75 MB SSD) | Decode=87.66s (40.3%, 34906.56 MB SSD)
-   CPU Time & Utilization       : User=238.641s + Sys=9.750s (Wall=236.996s) | SysUtil=26.2% | ThrUtil=26.2% | 24.24 GFLOPS
+   Engine SSD Transfer Total    : 15318.39 MB (Load=4614.69 | Prefill=5963.42 | Warmup=0.00 | Decode=4740.28 MB)
+   SSD Data/Token (Decode)      : Avg=152.912 MB/tok (Min=100.286 | P50=143.666 | P95=221.962 | Max=231.544 MB) | Prefill=93.178 MB/tok
+   NVMe Batches / Requests      : 1446 Batches | 22104 Raw -> 21338 Merged (766 LBA Merges, Avg 735.1 KB/io)
+   SSD I/O Size Histogram       : <64K=1835 | 64K-512K=5284 | 512K-2M=13785 | >2M=434
+   SSD Read Bandwidth (Active)  : Min=2.33 | Avg=942.82 | Peak=9264.26 MB/s | WallAmort=383.11 MB/s
+   OS Kernel I/O Verification   : Read=15338.37 MB | Write=0.00 MB | Syscalls=30840
+   Sync Stall vs Async DMA      : SyncStall=2850.73 ms | AsyncOverlapped=5582.09 ms (66.2% Overlapped)
+   RAM Traffic & Active BW      : 392.99 GB moved | Active=11.21 GB/s | WallAmort=9.83 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=23.27s (58.2%, 5963.42 MB SSD) | Decode=16.71s (41.8%, 4740.28 MB SSD)
+   CPU Time & Utilization       : User=107.406s + Sys=8.609s (Wall=55.275s) | SysUtil=52.5% | ThrUtil=52.5% | 48.54 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :  34067.03 ms (354864.9 us/tok | 15.66%)
-   MoE AVX2 Q8 Expert Compute   :  46864.71 ms (488174.1 us/tok | 21.55%)
-   Router + Lookahead Dispatch  :    686.70 ms ( 7153.1 us/tok |  0.32%)
-   LM Head Output Projection    :   1030.11 ms (10730.3 us/tok |  0.47%)
-   Foreground NVMe Sync Stall   :  90310.30 ms (940732.3 us/tok | 41.52%)
-   Unaccounted / OMP & Sampling :  44527.19 ms (463824.9 us/tok | 20.47%) | Total Wall=217486.03 ms
+   Dense + Attention/Linear SSM :  17615.16 ms (185422.8 us/tok | 44.05%)
+   MoE AVX2 Q8 Expert Compute   :  16245.92 ms (171009.7 us/tok | 40.63%)
+   Router + Lookahead Dispatch  :    991.14 ms (10433.0 us/tok |  2.48%)
+   LM Head Output Projection    :   1182.99 ms (12452.6 us/tok |  2.96%)
+   Foreground NVMe Sync Stall   :   2850.73 ms (30007.7 us/tok |  7.13%)
+   Unaccounted / OMP & Sampling :   1098.88 ms (11567.1 us/tok |  2.75%) | Total Wall=39984.83 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    35.63%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |    24.84%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    28.75%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     8.71%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.07%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    73.91%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     2.41%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     6.47%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    11.88%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     5.33%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
    Basis: Avoided SSD stall ns (Cache/LA) + NVMe DMA ns + Kernel Compute ns + RAM BW ns.
 ================================================================================
 
-[Apex-Fair-Baseline] 64p/32g completed in 239s
+[Apex-Fair-Baseline] 64p/32g completed in 57s
 
 ================================================================================
    APEX INFERENCE v1 — PRE-FLIGHT HOST HARDWARE TELEMETRY & BENCHMARK REPORT
@@ -743,27 +748,27 @@ In a1-bit quantized 1-bit quantized 1-bitized 1-bit"
    CPU Model          : AMD EPYC 7763 64-Core Processor                
    Cores / Threads    : 2 Physical / 4 Logical
    SIMD ISA Support   : AVX2=YES | FMA=YES | F16C=YES | AVX-VNNI=NO | AVX512-VNNI=NO
-   System Memory (RAM): 15.99 GB Total / 13.55 GB Available
-   Active Drive Space : 150.00 GB Total / 54.59 GB Free
+   System Memory (RAM): 15.99 GB Total / 14.74 GB Available
+   Active Drive Space : 150.00 GB Total / 76.31 GB Free
 --------------------------------------------------------------------------------
  [CrystalDiskMark-Style NVMe SSD Storage Benchmark]
-   SEQ1M Direct Uncached NVMe Read    :    454.49 MB/s (Hardware Floor)
-   SEQ1M Q8T1  Read (OS-Cached Max)   :   1469.24 MB/s
-   SEQ1M Q1T1  Read (Single Queue)    :   7917.90 MB/s
-   SEQ128K Q32T1 Expert-Stripe Read   :  10565.37 MB/s
-   RND4K Q32T16 Read                  :    495.71 MB/s (  126901 IOPS)
-   RND4K Q1T1  Read                   :    697.67 MB/s (Latency: 5.60 us)
+   SEQ1M Direct Uncached NVMe Read    :    447.53 MB/s (Hardware Floor)
+   SEQ1M Q8T1  Read (OS-Cached Max)   :   1515.50 MB/s
+   SEQ1M Q1T1  Read (Single Queue)    :   7953.47 MB/s
+   SEQ128K Q32T1 Expert-Stripe Read   :  10172.58 MB/s
+   RND4K Q32T16 Read                  :    420.33 MB/s (  107603 IOPS)
+   RND4K Q1T1  Read                   :    439.30 MB/s (Latency: 8.89 us)
 --------------------------------------------------------------------------------
  [PassMark / STREAM System RAM Bandwidth & Latency Benchmark]
-   AVX2 256-bit Sequential Read BW    :     56.13 GB/s
-   AVX2 256-bit Sequential Write BW   :     41.82 GB/s
-   STREAM Triad (A = B + s*C) BW      :     38.93 GB/s
-   Random Pointer-Chase Latency       :     85.77 ns
+   AVX2 256-bit Sequential Read BW    :     62.67 GB/s
+   AVX2 256-bit Sequential Write BW   :     51.77 GB/s
+   STREAM Triad (A = B + s*C) BW      :     44.13 GB/s
+   Random Pointer-Chase Latency       :     47.84 ns
 --------------------------------------------------------------------------------
  [PassMark-Style CPU AVX2+FMA Compute & IQ2 Kernel Benchmark]
-   Single-Core AVX2+FMA Throughput    :     51.42 GFLOPS
-   Multi-Core  AVX2+FMA Throughput    :    196.58 GFLOPS
-   IQ2_XXS/XS Fused Dot Effective BW  :     21.60 GB/s (FP32 Equiv)
+   Single-Core AVX2+FMA Throughput    :     51.39 GFLOPS
+   Multi-Core  AVX2+FMA Throughput    :    191.26 GFLOPS
+   IQ2_XXS/XS Fused Dot Effective BW  :     20.65 GB/s (FP32 Equiv)
 ================================================================================
 
 
@@ -771,133 +776,125 @@ In a1-bit quantized 1-bit quantized 1-bitized 1-bit"
  [Apex-Run] Interactive Prompt & Streaming Model Generation
 ================================================================================
  >>> User Prompt   : "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:"
- >>> Chat Template : 70 tokenized input IDs
-[LIVE-PREFILL] 70/70 tok | Chunk=0.50 tps | Avg=0.50 tps | Hit=76.8% | NVMe=480.0 MB/s (51661.71 MB, QD=64) | RSS=13929.9 MB
+ >>> Chat Template : 91 tokenized input IDs
+[LIVE-PREFILL] 91/91 tok | Chunk=3.88 tps | Avg=3.88 tps | Hit=91.8% | NVMe=477.1 MB/s (5364.89 MB, QD=64) | RSS=14219.6 MB
 
- >>> [Apex-Model-Response] <think>
-<think>
-<th>
-<thinking>
-<thinking<th>
-Let me user this question is a question about the user asks about "Explain why the why hybrid Gate why Gate DeltaNet Gate Net attention Net with Net MoE and E LB co-eco and sequential KB-1 sequential MB NV sequential NV
+ >>> [Apex-Model-Response] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ================================================================================
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=OFF
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5521.88 MB (589/12384 exp = 4.76% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.83 MB | End=13393.82 MB | Peak=13999.27 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 8483.40 MB (4088/25088 exp = 16.29% pinned) | Staging=66.41 MB
+   Process RSS (Start/End/Peak) : Start=4.84 MB | End=14235.63 MB | Peak=14475.04 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
-   PROMPT (70 tok)   : "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:"
-   RESPONSE (64 tok) : "<think>
-<think>
-<th>
-<thinking>
-<thinking<th>
-Let me user this question is a question about the user asks about "Explain why the why hybrid Gate why Gate DeltaNet Gate Net attention Net with Net MoE and E LB co-eco and sequential KB-1 sequential MB NV sequential NV DMA"
+   PROMPT (91 tok)   : "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:"
+   RESPONSE (63 tok) : "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 --------------------------------------------------------------------------------
- [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 65 Steps)]
-   Logit Summary: AvgTop1Prob=42.9% | AvgMargin=1.279 | MinMargin=0.023
+ [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 64 Steps)]
+   Logit Summary: AvgTop1Prob=100.0% | AvgMargin=0.000 | MinMargin=1000000000.000
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |   13699 | <th            |   17.30 |  47.4% |   32169 |   16.35 | 139720.40 |  0 |  0 |  0 |     0.0 |
-   |    2 |     766 | ink            |   18.90 |  53.4% |   15724 |   18.74 | 4010.77 | 20 |233 | 83 | 1565280.0 |
-   |    3 |     397 | >\n            |   12.80 |   6.2% |     318 |   12.73 | 4010.77 |  0 |  0 |  0 | 1565280.0 |
-   |    4 |   13699 | <th            |   14.70 |  18.4% |     334 |   14.61 | 2690.52 |148 |120 | 68 | 1037568.0 |
-   |    5 |     766 | ink            |   22.04 |  99.6% |     307 |   14.17 | 2690.52 |  0 |  0 |  0 | 1037568.0 |
-   |    6 |     397 | >\n            |   12.54 |  13.7% |      29 |   12.50 | 2779.75 |137 |140 | 59 | 1056160.0 |
-   |    7 |   13699 | <th            |   16.29 |  41.2% |     522 |   16.02 | 2779.75 |  0 |  0 |  0 | 1056160.0 |
-   |    8 |     397 | >\n            |   17.08 |  39.3% |    1339 |   16.33 | 1970.26 |195 | 96 | 45 | 752064.0 |
-   |   36 |   29136 |  Gate          |   15.35 |  36.3% |     479 |   14.86 | 3196.04 | 84 |162 | 90 | 1315072.0 |
-   |   37 |    3170 |  why           |   16.44 |  65.8% |   34464 |   13.18 | 3196.04 |  0 |  0 |  0 | 1315072.0 |
-   |   20 |    3405 |  question      |   16.21 |  30.6% |     374 |   15.58 | 2854.31 |110 |165 | 61 | 1164032.0 |
-   |   21 |     374 |  is            |   15.85 |  19.4% |   15504 |   14.87 | 2854.31 |  0 |  0 |  0 | 1164032.0 |
-   |   62 |   24384 |  NV            |   15.58 |  36.6% |   50665 |   15.35 | 2336.31 |147 |130 | 59 | 996928.0 |
-   |   63 |   50665 |  sequential    |   14.36 |  20.5% |   25372 |   14.09 | 2336.31 |  0 |  0 |  0 | 996928.0 |
-   |   64 |   24384 |  NV            |   17.08 |  41.8% |   25372 |   17.00 | 2254.36 |165 |111 | 60 | 939264.0 |
-   |   65 |   25372 |  DMA           |   17.65 |  62.3% |   81911 |   16.44 | 2254.36 |  0 |  0 |  0 | 939264.0 |
+   |    1 |       0 | !              |     nan | 100.0% |       1 |     nan | 23434.55 |  0 |  0 |  0 |     0.0 |
+   |    2 |       0 | !              |     nan | 100.0% |       1 |     nan |  817.94 |952 |  8 |  0 | 39476.5 |
+   |    3 |       0 | !              |     nan | 100.0% |       1 |     nan |  817.94 |  0 |  0 |  0 | 39476.5 |
+   |    4 |       0 | !              |     nan | 100.0% |       1 |     nan |  656.28 |480 |  0 |  0 |    64.0 |
+   |    5 |       0 | !              |     nan | 100.0% |       1 |     nan |  687.62 |479 |  1 |  0 |  3064.0 |
+   |    6 |       0 | !              |     nan | 100.0% |       1 |     nan |  656.55 |480 |  0 |  0 |  1339.0 |
+   |    7 |       0 | !              |     nan | 100.0% |       1 |     nan |  670.73 |480 |  0 |  0 |    64.0 |
+   |    8 |       0 | !              |     nan | 100.0% |       1 |     nan |  666.56 |480 |  0 |  0 |    64.0 |
+   |   23 |       0 | !              |     nan | 100.0% |       1 |     nan |  689.06 |480 |  0 |  0 |    64.0 |
+   |   32 |       0 | !              |     nan | 100.0% |       1 |     nan |  688.00 |480 |  0 |  0 |    64.0 |
+   |   27 |       0 | !              |     nan | 100.0% |       1 |     nan |  686.62 |480 |  0 |  0 |    64.0 |
+   |   30 |       0 | !              |     nan | 100.0% |       1 |     nan |  686.03 |480 |  0 |  0 |    64.0 |
+   |   61 |       0 | !              |     nan | 100.0% |       1 |     nan |  483.38 |480 |  0 |  0 |    64.0 |
+   |   62 |       0 | !              |     nan | 100.0% |       1 |     nan |  484.15 |480 |  0 |  0 |    64.0 |
+   |   63 |       0 | !              |     nan | 100.0% |       1 |     nan |  481.59 |480 |  0 |  0 |    64.0 |
+   |   64 |       0 | !              |     nan | 100.0% |       1 |     nan |  482.12 |480 |  0 |  0 |    64.0 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (70 tok, 139.720s, TTFT=139720.40ms): Avg=0.50 | Min=0.50 | Max=0.50 tps
-   Prefill Chunks (1): C1:70t/0.5tps/77%
-   Decode  (64 tok, 166.574s): Avg=0.38 | Min=0.25 | Max=0.53 tps
-   Latency (ms) : Min=1890.51 | P10=2027.10 | P25=2515.37 | P50=2641.09 | P75=2694.12 | P90=2819.34 | P95=3196.04 | P99=4010.77 | Max=4010.77
-   Mean/SD/Jitt : Mean=2602.72ms | StdDev=375.05ms | Jitter=119.14ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/64
-   MTP Head     : 32/32 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
+   Prefill (91 tok, 23.435s, TTFT=23434.55ms): Avg=3.88 | Min=3.88 | Max=3.88 tps
+   Prefill Chunks (1): C1:91t/3.9tps/92%
+   Decode  (63 tok, 39.373s): Avg=1.60 | Min=1.22 | Max=2.13 tps
+   Latency (ms) : Min=470.46 | P10=483.76 | P25=549.24 | P50=659.82 | P75=675.34 | P90=686.03 | P95=688.00 | P99=817.94 | Max=817.94
+   Mean/SD/Jitt : Mean=624.98ms | StdDev=85.80ms | Jitter=17.08ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/63
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (34272): RawRAM=20241 (59.06%) | Lookahead=6547 (+19.10%) | ColdMiss=7484 (21.84%) | EFF HIT=78.16%
-   Lookahead    : 7717 prefetched -> 5083 consumed (65.9% util) | Warmup >=75%:1t, >=85%:-1t
-   Trajectory   : @16= 77.4% | @64= 78.2% | @128=  N/A | @256=  N/A | @512=  N/A
+   Activations (35877): RawRAM=35404 (98.68%) | Lookahead=9 (+0.03%) | ColdMiss=464 (1.29%) | EFF HIT=98.71%
+   Lookahead    : 23 prefetched -> 10 consumed (43.5% util) | Warmup >=75%:1t, >=85%:1t
+   Trajectory   : @16= 96.5% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 |  816 |  347 | 149 | 320 | 60.8%|4348.44 | | L24 |  816 |  477 | 196 | 143 | 82.5%|2084.38 |
-   | L04 |  816 |  335 | 187 | 294 | 64.0%|4010.62 | | L25 |  816 |  544 | 121 | 151 | 81.5%|2264.06 |
-   | L05 |  816 |  341 | 215 | 260 | 68.1%|3687.19 | | L26 |  816 |  508 | 157 | 151 | 81.5%|2048.44 |
-   | L06 |  816 |  370 | 220 | 226 | 72.3%|3435.62 | | L27 |  816 |  527 | 113 | 176 | 78.4%|2522.81 |
-   | L07 |  816 |  419 | 205 | 192 | 76.5%|2918.12 | | L28 |  816 |  464 | 168 | 184 | 77.5%|2680.94 |
-   | L08 |  816 |  398 | 196 | 222 | 72.8%|3320.62 | | L29 |  816 |  499 | 156 | 161 | 80.3%|2314.38 |
-   | L09 |  816 |  399 | 185 | 232 | 71.6%|3234.38 | | L30 |  816 |  471 | 168 | 177 | 78.3%|2494.06 |
-   | L10 |  816 |  365 | 231 | 220 | 73.0%|3234.38 | | L31 |  816 |  499 | 137 | 180 | 77.9%|2609.06 |
-   | L11 |  816 |  458 | 164 | 194 | 76.2%|3618.75 | | L32 |  816 |  497 | 140 | 179 | 78.1%|2688.12 |
-   | L12 |  816 |  477 | 162 | 177 | 78.3%|3199.25 | | L33 |  816 |  514 | 143 | 159 | 80.5%|2443.75 |
-   | L13 |  816 |  522 | 113 | 181 | 77.8%|2508.44 | | L34 |  816 |  518 | 144 | 154 | 81.1%|2400.62 |
-   | L14 |  816 |  473 | 153 | 190 | 76.7%|2839.06 | | L35 |  816 |  508 | 159 | 149 | 81.7%|2343.12 |
-   | L15 |  816 |  516 | 123 | 177 | 78.3%|2515.62 | | L36 |  816 |  500 | 167 | 149 | 81.7%|2379.06 |
-   | L16 |  816 |  458 | 173 | 185 | 77.3%|2637.81 | | L37 |  816 |  481 | 179 | 156 | 80.9%|2364.69 |
-   | L17 |  816 |  463 | 175 | 178 | 78.2%|2666.56 | | L38 |  816 |  548 | 125 | 143 | 82.5%|2141.88 |
-   | L18 |  816 |  567 |  96 | 153 | 81.2%|1983.75 | | L39 |  816 |  513 | 156 | 147 | 82.0%|2264.06 |
-   | L19 |  816 |  547 | 112 | 157 | 80.8%|2098.75 | | L40 |  816 |  485 | 167 | 164 | 79.9%|2515.62 |
-   | L20 |  816 |  590 |  91 | 135 | 83.5%|1897.50 | | L41 |  816 |  466 | 188 | 162 | 80.1%|2515.62 |
-   | L21 |  816 |  565 | 100 | 151 | 81.5%|2134.69 | | L42 |  816 |  517 | 149 | 150 | 81.6%|2256.88 |
-   | L22 |  816 |  549 | 129 | 138 | 83.1%|1976.56 | | L43 |  816 |  522 | 149 | 145 | 82.2%|2105.94 |
-   | L23 |  816 |  550 | 116 | 150 | 81.6%|2070.00 | | L44 |  816 |  474 | 170 | 172 | 78.9%|3241.12 |
+   | L00 | 1540 | 1266 |   9 | 265 | 82.8%| 461.57 | | L24 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L01 |  946 |  865 |   0 |  81 | 91.4%| 117.04 | | L25 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L02 |  946 |  873 |   0 |  73 | 92.3%| 122.97 | | L26 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L03 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L27 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L04 |  721 |  720 |   0 |   1 | 99.9%|   2.08 | | L28 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L05 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L29 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L06 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L30 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L07 |  721 |  720 |   0 |   1 | 99.9%|   1.68 | | L31 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L08 |  721 |  720 |   0 |   1 | 99.9%|   1.25 | | L32 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L09 |  721 |  720 |   0 |   1 | 99.9%|   1.25 | | L33 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L10 |  721 |  720 |   0 |   1 | 99.9%|   1.25 | | L34 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L11 |  721 |  720 |   0 |   1 | 99.9%|   1.25 | | L35 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L12 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L36 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L13 |  721 |  720 |   0 |   1 | 99.9%|   1.44 | | L37 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L14 |  721 |  720 |   0 |   1 | 99.9%|   1.44 | | L38 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L15 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L39 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L16 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L40 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L17 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L41 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L18 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L42 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L19 |  721 |  720 |   0 |   1 | 99.9%|   1.44 | | L43 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L20 |  721 |  720 |   0 |   1 | 99.9%|   1.44 | | L44 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L21 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L45 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L22 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L46 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L23 |  721 |  720 |   0 |   1 | 99.9%|   1.44 | | L47 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 118497.27 MB (Load=6361.84 | Prefill=45299.88 | Warmup=0.00 | Decode=66835.56 MB)
-   SSD Data/Token (Decode)      : Avg=1044.306 MB/tok (Min=734.438 | P50=1072.312 | P95=1284.250 | Max=1528.594 MB) | Prefill=647.141 MB/tok
-   NVMe Batches / Requests      : 2669 Batches | 47273 Raw -> 46653 Merged (620 LBA Merges, Avg 2600.9 KB/io)
-   SSD I/O Size Histogram       : <64K=481 | 64K-512K=226 | 512K-2M=172 | >2M=45774
-   SSD Read Bandwidth (Active)  : Min=0.30 | Avg=447.64 | Peak=3876.13 MB/s | WallAmort=386.87 MB/s (100.0% of 454.5 MB/s Direct NVMe)
-   OS Kernel I/O Verification   : Read=119484.31 MB | Write=128.00 MB | Syscalls=58227
-   Sync Stall vs Async DMA      : SyncStall=116383.99 ms | AsyncOverlapped=249811.52 ms (68.2% Overlapped)
-   RAM Traffic & Active BW      : 777.28 GB moved | Active=7.35 GB/s (18.9% STREAM) | WallAmort=2.54 GB/s (Max=38.93 GB/s)
-   Stage Breakdown (Pref/Dec)   : Prefill=139.72s (45.6%, 45299.88 MB SSD) | Decode=166.57s (54.4%, 66835.56 MB SSD)
-   CPU Time & Utilization       : User=314.516s + Sys=12.109s (Wall=326.048s) | SysUtil=25.0% | ThrUtil=25.0% | 49.23 GFLOPS
+   Engine SSD Transfer Total    : 5449.98 MB (Load=4614.69 | Prefill=750.20 | Warmup=0.00 | Decode=85.09 MB)
+   SSD Data/Token (Decode)      : Avg=1.351 MB/tok (Min=0.062 | P50=0.062 | P95=0.062 | Max=38.551 MB) | Prefill=8.244 MB/tok
+   NVMe Batches / Requests      : 127 Batches | 5060 Raw -> 4853 Merged (207 LBA Merges, Avg 1150.0 KB/io)
+   SSD I/O Size Histogram       : <64K=2674 | 64K-512K=1137 | 512K-2M=636 | >2M=406
+   SSD Read Bandwidth (Active)  : Min=0.81 | Avg=477.57 | Peak=3911.27 MB/s | WallAmort=86.77 MB/s (100.0% of 447.5 MB/s Direct NVMe)
+   OS Kernel I/O Verification   : Read=6288.31 MB | Write=128.00 MB | Syscalls=21905
+   Sync Stall vs Async DMA      : SyncStall=604.28 ms | AsyncOverlapped=703.38 ms (53.8% Overlapped)
+   RAM Traffic & Active BW      : 497.06 GB moved | Active=8.37 GB/s (19.0% STREAM) | WallAmort=7.91 GB/s (Max=44.13 GB/s)
+   Stage Breakdown (Pref/Dec)   : Prefill=23.43s (37.3%, 750.20 MB SSD) | Decode=39.37s (62.7%, 85.09 MB SSD)
+   CPU Time & Utilization       : User=128.703s + Sys=12.172s (Wall=79.096s) | SysUtil=44.5% | ThrUtil=44.5% | 85.16 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :  41063.26 ms (306442.2 us/tok | 13.41%)
-   MoE AVX2 Q8 Expert Compute   :  62929.67 ms (469624.4 us/tok | 20.55%)
-   Router + Lookahead Dispatch  :    842.00 ms ( 6283.6 us/tok |  0.27%)
-   LM Head Output Projection    :   1690.05 ms (12612.3 us/tok |  0.55%)
-   Foreground NVMe Sync Stall   : 116383.99 ms (868537.2 us/tok | 38.00%)
-   Unaccounted / OMP & Sampling :  83385.75 ms (622281.7 us/tok | 27.22%) | Total Wall=306294.71 ms
+   Dense + Attention/Linear SSM :  40117.40 ms (260502.6 us/tok | 63.87%)
+   MoE AVX2 Q8 Expert Compute   :  16076.96 ms (104395.8 us/tok | 25.60%)
+   Router + Lookahead Dispatch  :   1622.80 ms (10537.7 us/tok |  2.58%)
+   LM Head Output Projection    :   3186.01 ms (20688.4 us/tok |  5.07%)
+   Foreground NVMe Sync Stall   :    604.28 ms ( 3923.9 us/tok |  0.96%)
+   Unaccounted / OMP & Sampling :   1200.53 ms ( 7795.6 us/tok |  1.91%) | Total Wall=62807.99 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    33.04%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |    27.47%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    29.69%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     8.24%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     1.56%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    81.29%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     0.51%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     2.65%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    13.07%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.48%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -907,186 +904,142 @@ Let me user this question is a question about the user asks about "Explain why t
 --------------------------------------------------------------------------------
  [Stage 2] Medium Prompt (512 tokens) + Domain Cache Warmup Trajectory (@16..@512)
 --------------------------------------------------------------------------------
-[Apex-Init] Model Loaded: GLM 5.3 Flash | Layers=45 | Hidden=4096 | Experts=288 (Top-8) | Pinned Trunk=6460.98 MB | Expert Cache=5606.25 MB (598 slots)
+[Apex-Init] Model Loaded: Qwen3.8 Flash Next | Layers=48 | Hidden=2560 | Experts=512 (Top-10) | Pinned Trunk=4614.77 MB | Expert Cache=8421.14 MB (4058 slots)
 [Apex-Prompt] Input (512 tokens): "[512-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/512 tok | Chunk=0.83 tps | Avg=0.83 tps | Hit=90.6% | NVMe=504.3 MB/s (74277.59 MB, QD=64) | RSS=14093.6 MB
-[LIVE-PREFILL] 512/512 tok | Chunk=0.82 tps | Avg=0.83 tps | Hit=90.4% | NVMe=510.2 MB/s (145295.52 MB, QD=64) | RSS=14093.8 MB
-[LIVE-DECODE] 2/128 tok | Avg=0.22 tps | Hit=90.4% (LA:+10.6%) | NVMe=507.6 MB/s (148736.77 MB) | RSS=14007.1 MB
-[LIVE-DECODE] 4/128 tok | Avg=0.24 tps | Hit=90.3% (LA:+10.7%) | NVMe=504.7 MB/s (151480.96 MB) | RSS=13835.1 MB
-[LIVE-DECODE] 6/128 tok | Avg=0.26 tps | Hit=90.3% (LA:+10.7%) | NVMe=502.4 MB/s (153889.77 MB) | RSS=13680.2 MB
-[LIVE-DECODE] 8/128 tok | Avg=0.28 tps | Hit=90.3% (LA:+10.8%) | NVMe=501.0 MB/s (156170.65 MB) | RSS=13614.0 MB
-[LIVE-DECODE] 10/128 tok | Avg=0.29 tps | Hit=90.3% (LA:+10.8%) | NVMe=499.9 MB/s (158190.65 MB) | RSS=13562.2 MB
-[LIVE-DECODE] 12/128 tok | Avg=0.30 tps | Hit=90.2% (LA:+10.9%) | NVMe=498.7 MB/s (160325.34 MB) | RSS=13530.8 MB
-[LIVE-DECODE] 14/128 tok | Avg=0.31 tps | Hit=90.2% (LA:+10.9%) | NVMe=497.5 MB/s (162419.46 MB) | RSS=13504.6 MB
-[LIVE-DECODE] 16/128 tok | Avg=0.32 tps | Hit=90.2% (LA:+11.0%) | NVMe=496.5 MB/s (164537.59 MB) | RSS=13497.8 MB
-[LIVE-DECODE] 18/128 tok | Avg=0.33 tps | Hit=90.2% (LA:+11.0%) | NVMe=495.4 MB/s (166678.84 MB) | RSS=13497.8 MB
-[LIVE-DECODE] 20/128 tok | Avg=0.33 tps | Hit=90.1% (LA:+11.1%) | NVMe=494.5 MB/s (168777.27 MB) | RSS=13497.7 MB
-[LIVE-DECODE] 22/128 tok | Avg=0.33 tps | Hit=90.1% (LA:+11.1%) | NVMe=493.4 MB/s (171002.34 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 24/128 tok | Avg=0.34 tps | Hit=90.1% (LA:+11.2%) | NVMe=492.2 MB/s (173275.09 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 26/128 tok | Avg=0.34 tps | Hit=90.1% (LA:+11.2%) | NVMe=491.2 MB/s (175474.52 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 28/128 tok | Avg=0.34 tps | Hit=90.0% (LA:+11.3%) | NVMe=490.3 MB/s (177539.65 MB) | RSS=13497.5 MB
-[LIVE-DECODE] 30/128 tok | Avg=0.35 tps | Hit=90.0% (LA:+11.3%) | NVMe=489.7 MB/s (179410.09 MB) | RSS=13497.5 MB
-[LIVE-DECODE] 32/128 tok | Avg=0.35 tps | Hit=90.0% (LA:+11.3%) | NVMe=489.3 MB/s (181160.52 MB) | RSS=13497.5 MB
-[LIVE-DECODE] 34/128 tok | Avg=0.36 tps | Hit=90.0% (LA:+11.4%) | NVMe=488.5 MB/s (183219.27 MB) | RSS=13497.5 MB
-[LIVE-DECODE] 36/128 tok | Avg=0.36 tps | Hit=90.0% (LA:+11.4%) | NVMe=487.6 MB/s (185402.96 MB) | RSS=13497.5 MB
-[LIVE-DECODE] 38/128 tok | Avg=0.36 tps | Hit=90.0% (LA:+11.5%) | NVMe=486.7 MB/s (187619.52 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 40/128 tok | Avg=0.36 tps | Hit=89.9% (LA:+11.5%) | NVMe=486.0 MB/s (189600.34 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 42/128 tok | Avg=0.36 tps | Hit=89.9% (LA:+11.5%) | NVMe=485.2 MB/s (191721.40 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 44/128 tok | Avg=0.36 tps | Hit=89.9% (LA:+11.6%) | NVMe=484.2 MB/s (194119.34 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 46/128 tok | Avg=0.36 tps | Hit=89.9% (LA:+11.7%) | NVMe=483.3 MB/s (196408.15 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 48/128 tok | Avg=0.36 tps | Hit=89.8% (LA:+11.7%) | NVMe=482.6 MB/s (198518.71 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 50/128 tok | Avg=0.36 tps | Hit=89.8% (LA:+11.8%) | NVMe=481.8 MB/s (200712.84 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 52/128 tok | Avg=0.36 tps | Hit=89.8% (LA:+11.8%) | NVMe=481.2 MB/s (202668.52 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 54/128 tok | Avg=0.36 tps | Hit=89.8% (LA:+11.8%) | NVMe=480.8 MB/s (204536.71 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 56/128 tok | Avg=0.36 tps | Hit=89.8% (LA:+11.9%) | NVMe=479.9 MB/s (206972.52 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 58/128 tok | Avg=0.36 tps | Hit=89.7% (LA:+12.0%) | NVMe=479.2 MB/s (209217.15 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 60/128 tok | Avg=0.36 tps | Hit=89.7% (LA:+12.0%) | NVMe=478.7 MB/s (211126.15 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 62/128 tok | Avg=0.37 tps | Hit=89.7% (LA:+12.0%) | NVMe=478.1 MB/s (213078.96 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 64/128 tok | Avg=0.37 tps | Hit=89.7% (LA:+12.1%) | NVMe=477.7 MB/s (214950.02 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 66/128 tok | Avg=0.37 tps | Hit=89.7% (LA:+12.2%) | NVMe=477.1 MB/s (217120.71 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 68/128 tok | Avg=0.37 tps | Hit=89.7% (LA:+12.2%) | NVMe=476.8 MB/s (219203.59 MB) | RSS=13507.0 MB
-[LIVE-DECODE] 70/128 tok | Avg=0.37 tps | Hit=89.7% (LA:+12.2%) | NVMe=476.3 MB/s (221131.84 MB) | RSS=13507.0 MB
-[LIVE-DECODE] 72/128 tok | Avg=0.37 tps | Hit=89.6% (LA:+12.3%) | NVMe=475.8 MB/s (223088.84 MB) | RSS=13506.9 MB
-[LIVE-DECODE] 74/128 tok | Avg=0.37 tps | Hit=89.6% (LA:+12.3%) | NVMe=475.3 MB/s (225066.52 MB) | RSS=13507.0 MB
-[LIVE-DECODE] 76/128 tok | Avg=0.37 tps | Hit=89.6% (LA:+12.3%) | NVMe=474.8 MB/s (227095.21 MB) | RSS=13507.0 MB
-[LIVE-DECODE] 78/128 tok | Avg=0.37 tps | Hit=89.6% (LA:+12.4%) | NVMe=474.2 MB/s (229112.59 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 80/128 tok | Avg=0.37 tps | Hit=89.6% (LA:+12.4%) | NVMe=473.9 MB/s (230932.09 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 82/128 tok | Avg=0.38 tps | Hit=89.6% (LA:+12.4%) | NVMe=473.6 MB/s (232589.15 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 84/128 tok | Avg=0.38 tps | Hit=89.5% (LA:+12.4%) | NVMe=473.3 MB/s (234322.84 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 86/128 tok | Avg=0.38 tps | Hit=89.5% (LA:+12.5%) | NVMe=473.0 MB/s (236051.15 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 88/128 tok | Avg=0.38 tps | Hit=89.5% (LA:+12.5%) | NVMe=472.6 MB/s (237968.84 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 90/128 tok | Avg=0.38 tps | Hit=89.5% (LA:+12.5%) | NVMe=472.2 MB/s (239879.02 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 92/128 tok | Avg=0.38 tps | Hit=89.5% (LA:+12.5%) | NVMe=472.0 MB/s (241875.09 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 94/128 tok | Avg=0.38 tps | Hit=89.5% (LA:+12.6%) | NVMe=471.6 MB/s (243864.34 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 96/128 tok | Avg=0.38 tps | Hit=89.4% (LA:+12.6%) | NVMe=471.3 MB/s (245669.15 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 98/128 tok | Avg=0.39 tps | Hit=89.4% (LA:+12.6%) | NVMe=470.9 MB/s (247630.59 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 100/128 tok | Avg=0.39 tps | Hit=89.4% (LA:+12.6%) | NVMe=470.7 MB/s (249443.46 MB) | RSS=13491.6 MB
-[LIVE-DECODE] 102/128 tok | Avg=0.39 tps | Hit=89.4% (LA:+12.7%) | NVMe=470.3 MB/s (251289.21 MB) | RSS=13478.8 MB
-[LIVE-DECODE] 104/128 tok | Avg=0.39 tps | Hit=89.4% (LA:+12.7%) | NVMe=469.9 MB/s (253249.52 MB) | RSS=13478.8 MB
-[LIVE-DECODE] 106/128 tok | Avg=0.39 tps | Hit=89.4% (LA:+12.7%) | NVMe=469.7 MB/s (255233.15 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 108/128 tok | Avg=0.39 tps | Hit=89.3% (LA:+12.8%) | NVMe=469.3 MB/s (257254.21 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 110/128 tok | Avg=0.39 tps | Hit=89.3% (LA:+12.8%) | NVMe=468.9 MB/s (259203.65 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 112/128 tok | Avg=0.39 tps | Hit=89.3% (LA:+12.8%) | NVMe=468.6 MB/s (261099.90 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 114/128 tok | Avg=0.39 tps | Hit=89.3% (LA:+12.9%) | NVMe=468.3 MB/s (263146.46 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 116/128 tok | Avg=0.39 tps | Hit=89.3% (LA:+12.9%) | NVMe=468.0 MB/s (264962.59 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 118/128 tok | Avg=0.39 tps | Hit=89.3% (LA:+12.9%) | NVMe=467.7 MB/s (266796.96 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 120/128 tok | Avg=0.39 tps | Hit=89.2% (LA:+12.9%) | NVMe=467.4 MB/s (268768.84 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 122/128 tok | Avg=0.39 tps | Hit=89.2% (LA:+13.0%) | NVMe=467.1 MB/s (270828.84 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 124/128 tok | Avg=0.39 tps | Hit=89.2% (LA:+13.0%) | NVMe=466.8 MB/s (272657.90 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 126/128 tok | Avg=0.39 tps | Hit=89.2% (LA:+13.0%) | NVMe=466.5 MB/s (274385.59 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 128/128 tok | Avg=0.39 tps | Hit=89.2% (LA:+13.0%) | NVMe=466.4 MB/s (276203.84 MB) | RSS=13488.2 MB
+[LIVE-PREFILL] 256/512 tok | Chunk=3.25 tps | Avg=3.25 tps | Hit=95.5% | NVMe=912.9 MB/s (13596.60 MB, QD=64) | RSS=14257.9 MB
+[LIVE-PREFILL] 512/512 tok | Chunk=3.39 tps | Avg=3.32 tps | Hit=96.9% | NVMe=1027.8 MB/s (17151.58 MB, QD=64) | RSS=14255.2 MB
+[LIVE-DECODE] 8/128 tok | Avg=1.75 tps | Hit=96.9% (LA:+0.1%) | NVMe=1052.2 MB/s (18591.91 MB) | RSS=14209.3 MB
+[LIVE-DECODE] 16/128 tok | Avg=1.82 tps | Hit=97.0% (LA:+0.1%) | NVMe=1079.1 MB/s (19742.73 MB) | RSS=14179.8 MB
+[LIVE-DECODE] 24/128 tok | Avg=1.83 tps | Hit=97.0% (LA:+0.2%) | NVMe=1096.1 MB/s (20841.93 MB) | RSS=14164.8 MB
+[LIVE-DECODE] 32/128 tok | Avg=1.86 tps | Hit=97.1% (LA:+0.2%) | NVMe=1125.1 MB/s (21969.92 MB) | RSS=14163.1 MB
+[LIVE-DECODE] 40/128 tok | Avg=1.87 tps | Hit=97.1% (LA:+0.2%) | NVMe=1148.9 MB/s (23058.13 MB) | RSS=14152.8 MB
+[LIVE-DECODE] 48/128 tok | Avg=1.88 tps | Hit=97.2% (LA:+0.2%) | NVMe=1169.6 MB/s (24122.65 MB) | RSS=14154.4 MB
+[LIVE-DECODE] 56/128 tok | Avg=1.89 tps | Hit=97.2% (LA:+0.2%) | NVMe=1195.6 MB/s (25166.91 MB) | RSS=14152.4 MB
+[LIVE-DECODE] 64/128 tok | Avg=1.89 tps | Hit=97.2% (LA:+0.2%) | NVMe=1218.8 MB/s (26282.04 MB) | RSS=14152.4 MB
+[LIVE-DECODE] 72/128 tok | Avg=1.90 tps | Hit=97.3% (LA:+0.3%) | NVMe=1234.8 MB/s (27443.47 MB) | RSS=14151.1 MB
+[LIVE-DECODE] 80/128 tok | Avg=1.85 tps | Hit=97.3% (LA:+0.3%) | NVMe=1240.2 MB/s (28552.29 MB) | RSS=14149.0 MB
+[LIVE-DECODE] 88/128 tok | Avg=1.83 tps | Hit=97.3% (LA:+0.3%) | NVMe=1247.3 MB/s (29619.65 MB) | RSS=14151.1 MB
+[LIVE-DECODE] 96/128 tok | Avg=1.83 tps | Hit=97.4% (LA:+0.3%) | NVMe=1260.8 MB/s (30774.35 MB) | RSS=14150.7 MB
+[LIVE-DECODE] 104/128 tok | Avg=1.83 tps | Hit=97.4% (LA:+0.3%) | NVMe=1267.2 MB/s (31927.50 MB) | RSS=14163.5 MB
+[LIVE-DECODE] 112/128 tok | Avg=1.83 tps | Hit=97.4% (LA:+0.3%) | NVMe=1278.5 MB/s (32917.93 MB) | RSS=14151.1 MB
+[LIVE-DECODE] 120/128 tok | Avg=1.84 tps | Hit=97.5% (LA:+0.3%) | NVMe=1288.9 MB/s (34056.09 MB) | RSS=14151.1 MB
+[LIVE-DECODE] 127/128 tok | Avg=1.84 tps | Hit=97.5% (LA:+0.4%) | NVMe=1293.5 MB/s (35098.77 MB) | RSS=14156.5 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=OFF
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5606.25 MB (598/12384 exp = 4.83% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.79 MB | End=13488.16 MB | Peak=14184.51 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 8421.14 MB (4058/25088 exp = 16.18% pinned) | Staging=66.41 MB
+   Process RSS (Start/End/Peak) : Start=4.86 MB | End=14156.54 MB | Peak=14479.07 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (512 tok)   : "[512-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequenc..."
-   RESPONSE (128 tok) : " single coal LBA-sorting coalesced QED LBA-sorted QD32 NVMe read and pass and register-blocked-blocked-blocked multi-blocked multi-row Q8_K GE pass. Explain why elimination PCIe amplification derive asymptotic throughput decode throughput.</think>In high-throughput Mixt-of- (Mo) model inference with NVMe offloading achieving token generation requires overlapping Gen PCIe Gen DMA transfers AVX compute pinned attention state recurrent state trunk cache pinned RAM expert cache locked RAM horizon router co prefetching over activations directly decode prefill long context tokens inverted expert gro..."
+   RESPONSE (127 tok) : "2709
+7222221222277222202022222022202272222221222222222222222222222232232223222223332223922222222221
+27922722232331222322j222212p"
 --------------------------------------------------------------------------------
- [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 129 Steps)]
-   Logit Summary: AvgTop1Prob=48.0% | AvgMargin=1.558 | MinMargin=0.009
+ [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 128 Steps)]
+   Logit Summary: AvgTop1Prob=14.4% | AvgMargin=0.598 | MinMargin=0.006
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |    3175 |  single        |   26.48 | 100.0% |   15326 |   16.87 | 619707.82 |  0 |  0 |  0 |     0.0 |
-   |    2 |   11492 |  coal          |   24.96 | 100.0% |    1062 |   16.43 | 4516.12 | 35 |173 |128 | 1761920.0 |
-   |    3 |   39929 |  LB            |   17.75 |  78.0% |   33903 |   16.24 | 4516.12 |  0 |  0 |  0 | 1761920.0 |
-   |    4 |      32 | A              |   14.08 |  30.6% |    1911 |   13.59 | 3691.18 | 71 |173 | 92 | 1405024.0 |
-   |    5 |   46254 | -sort          |   18.02 |  42.5% |    1331 |   17.61 | 3691.18 |  0 |  0 |  0 | 1405024.0 |
-   |    6 |     287 | ing            |   14.36 |  38.6% |   11492 |   11.93 | 3182.19 |111 |152 | 73 | 1233312.0 |
-   |    7 |   11492 |  coal          |   16.09 |  54.1% |    1207 |   14.51 | 3182.19 |  0 |  0 |  0 | 1233312.0 |
-   |    8 |    3300 | esc            |   18.05 |  93.7% |     642 |   13.98 | 3006.86 |123 |138 | 75 | 1167808.0 |
-   |   56 |  154842 | </think>       |   14.32 |  56.1% |     641 |   13.02 | 3066.43 | 90 |167 | 79 | 1247136.0 |
-   |   57 |     641 | In             |   15.30 |  41.7% |     565 |   13.90 | 3066.43 |  0 |  0 |  0 | 1247136.0 |
-   |    9 |     291 | ed             |   20.63 |  75.1% |     287 |   19.27 | 3006.86 |  0 |  0 |  0 | 1167808.0 |
-   |   44 |    3170 |  why           |   17.45 |  85.5% |     419 |   13.32 | 2990.48 |114 |136 | 86 | 1227744.0 |
-   |  126 |     291 | ed             |   14.96 |  32.3% |    1207 |   14.08 | 2137.12 |190 | 85 | 61 | 884576.0 |
-   |  127 |    9421 | -block         |   17.23 |  54.2% |    7299 |   15.51 | 2137.12 |  0 |  0 |  0 | 884576.0 |
-   |  128 |    9421 | -block         |   14.61 |  29.9% |    1207 |   13.52 | 2146.75 |189 | 94 | 53 | 930944.0 |
-   |  129 |     291 | ed             |   20.50 |  98.5% |   29819 |   14.11 | 2146.75 |  0 |  0 |  0 | 930944.0 |
+   |    1 |      17 | 2              |   11.54 |   5.6% |      22 |   11.02 | 154166.66 |  0 |  0 |  0 |     0.0 |
+   |    2 |      22 | 7              |   12.22 |   9.7% |      17 |   11.35 |  627.11 |899 | 61 |  0 | 208239.0 |
+   |    3 |      15 | 0              |   12.04 |  16.2% |      18 |   11.66 |  627.11 |  0 |  0 |  0 | 208239.0 |
+   |    4 |      24 | 9              |    9.76 |   3.6% |      18 |    9.46 |  573.35 |440 | 40 |  0 | 217818.0 |
+   |    5 |     198 | \n             |   10.19 |  12.1% |      17 |    8.96 |  571.46 |466 | 14 |  0 | 150193.0 |
+   |    6 |      22 | 7              |    9.69 |   4.0% |      17 |    9.42 |  554.87 |440 | 40 |  0 | 177789.0 |
+   |    7 |      17 | 2              |    8.00 |   1.2% |      16 |    7.73 |  545.34 |444 | 36 |  0 | 193914.0 |
+   |    8 |      17 | 2              |   10.11 |   6.0% |      18 |    9.42 |  546.00 |468 | 12 |  0 | 153643.0 |
+   |   78 |      17 | 2              |   13.61 |  31.2% |      18 |   12.89 |  844.78 |478 |  2 |  0 | 122468.0 |
+   |   81 |      18 | 3              |   12.27 |  27.1% |      17 |   12.04 |  810.86 |477 |  3 |  0 | 145118.0 |
+   |   82 |      18 | 3              |   11.59 |  16.7% |      17 |   10.59 |  761.78 |474 |  6 |  0 | 139589.0 |
+   |   79 |      17 | 2              |   14.75 |  33.9% |      18 |   13.95 |  759.07 |476 |  4 |  0 | 139543.0 |
+   |  125 |      17 | 2              |    9.93 |   5.5% |      19 |    9.22 |  518.16 |477 |  3 |  0 | 141793.0 |
+   |  126 |      16 | 1              |   10.55 |  10.3% |      15 |   10.48 |  523.64 |474 |  6 |  0 | 122743.0 |
+   |  127 |      17 | 2              |   11.23 |   8.7% |      15 |   11.04 |  534.34 |467 | 13 |  0 | 143139.0 |
+   |  128 |      79 | p              |    8.80 |   1.3% |      18 |    8.34 |  609.13 |473 |  7 |  0 | 151293.0 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (512 tok, 619.708s, TTFT=619707.82ms): Avg=0.83 | Min=0.82 | Max=0.83 tps
-   Prefill Chunks (2): C1:256t/0.8tps/91% | C2:256t/0.8tps/90%
-   Decode  (128 tok, 324.324s): Avg=0.39 | Min=0.22 | Max=0.49 tps
-   Latency (ms) : Min=2042.43 | P10=2156.46 | P25=2314.79 | P50=2471.21 | P75=2683.51 | P90=2840.40 | P95=3066.43 | P99=4516.12 | Max=4516.12
-   Mean/SD/Jitt : Mean=2533.78ms | StdDev=380.77ms | Jitter=91.10ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/128
-   MTP Head     : 64/64 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
+   Prefill (512 tok, 154.167s, TTFT=154166.66ms): Avg=3.32 | Min=3.25 | Max=3.39 tps
+   Prefill Chunks (2): C1:256t/3.3tps/96% | C2:256t/3.4tps/97%
+   Decode  (127 tok, 69.085s): Avg=1.84 | Min=1.18 | Max=2.03 tps
+   Latency (ms) : Min=493.14 | P10=511.09 | P25=516.10 | P50=525.20 | P75=540.58 | P90=602.04 | P95=696.99 | P99=810.86 | Max=844.78
+   Mean/SD/Jitt : Mean=543.97ms | StdDev=58.91ms | Jitter=22.45ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/127
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (193536): RawRAM=147361 (76.14%) | Lookahead=25256 (+13.05%) | ColdMiss=20919 (10.81%) | EFF HIT=89.19%
-   Lookahead    : 15757 prefetched -> 9727 consumed (61.7% util) | Warmup >=75%:1t, >=85%:1t
-   Trajectory   : @16= 90.2% | @64= 89.7% | @128= 89.2% | @256=  N/A | @512=  N/A
+   Activations (306720): RawRAM=297949 (97.14%) | Lookahead=1117 (+0.36%) | ColdMiss=7654 (2.50%) | EFF HIT=97.50%
+   Lookahead    : 10918 prefetched -> 1127 consumed (10.3% util) | Warmup >=75%:1t, >=85%:1t
+   Trajectory   : @16= 97.0% | @64= 97.2% | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 | 4608 | 3154 | 741 | 713 | 84.5%|9228.75 | | L24 | 4608 | 3590 | 559 | 459 | 90.0%|5426.56 |
-   | L04 | 4608 | 3238 | 676 | 694 | 84.9%|8826.25 | | L25 | 4608 | 3654 | 484 | 470 | 89.8%|6087.81 |
-   | L05 | 4608 | 3184 | 797 | 627 | 86.4%|8244.06 | | L26 | 4608 | 3657 | 509 | 442 | 90.4%|5455.31 |
-   | L06 | 4608 | 3253 | 787 | 568 | 87.7%|7755.31 | | L27 | 4608 | 3534 | 530 | 544 | 88.2%|7086.88 |
-   | L07 | 4608 | 3369 | 755 | 484 | 89.5%|6504.69 | | L28 | 4608 | 3516 | 589 | 503 | 89.1%|6130.94 |
-   | L08 | 4608 | 3455 | 629 | 524 | 88.6%|6907.19 | | L29 | 4608 | 3425 | 704 | 479 | 89.6%|6066.25 |
-   | L09 | 4608 | 3308 | 724 | 576 | 87.5%|7065.31 | | L30 | 4608 | 3519 | 610 | 479 | 89.6%|5750.00 |
-   | L10 | 4608 | 3264 | 757 | 587 | 87.3%|7424.69 | | L31 | 4608 | 3371 | 644 | 593 | 87.1%|7288.12 |
-   | L11 | 4608 | 3486 | 596 | 526 | 88.6%|8568.75 | | L32 | 4608 | 3289 | 759 | 560 | 87.8%|6792.19 |
-   | L12 | 4608 | 3449 | 665 | 494 | 89.3%|7152.25 | | L33 | 4608 | 3375 | 736 | 497 | 89.2%|6619.69 |
-   | L13 | 4608 | 3596 | 543 | 469 | 89.8%|5764.38 | | L34 | 4608 | 3661 | 507 | 440 | 90.5%|5742.81 |
-   | L14 | 4608 | 3625 | 487 | 496 | 89.2%|6210.00 | | L35 | 4608 | 3465 | 668 | 475 | 89.7%|6066.25 |
-   | L15 | 4608 | 3618 | 500 | 490 | 89.4%|6008.75 | | L36 | 4608 | 3313 | 830 | 465 | 89.9%|6145.31 |
-   | L16 | 4608 | 3638 | 498 | 472 | 89.8%|5994.38 | | L37 | 4608 | 3609 | 534 | 465 | 89.9%|5750.00 |
-   | L17 | 4608 | 3739 | 394 | 475 | 89.7%|5771.56 | | L38 | 4608 | 3601 | 539 | 468 | 89.8%|5972.81 |
-   | L18 | 4608 | 3814 | 345 | 449 | 90.3%|5498.44 | | L39 | 4608 | 3586 | 538 | 484 | 89.5%|5764.38 |
-   | L19 | 4608 | 3742 | 455 | 411 | 91.1%|5124.69 | | L40 | 4608 | 3623 | 525 | 460 | 90.0%|5656.56 |
-   | L20 | 4608 | 3636 | 535 | 437 | 90.5%|5354.69 | | L41 | 4608 | 3518 | 623 | 467 | 89.9%|6087.81 |
-   | L21 | 4608 | 3727 | 438 | 443 | 90.4%|5383.44 | | L42 | 4608 | 3387 | 766 | 455 | 90.1%|5469.69 |
-   | L22 | 4608 | 3689 | 496 | 423 | 90.8%|5232.50 | | L43 | 4608 | 3575 | 614 | 419 | 90.9%|5354.69 |
-   | L23 | 4608 | 3589 | 585 | 434 | 90.6%|5282.81 | | L44 | 4608 | 3520 | 585 | 503 | 89.1%|7696.62 |
+   | L00 | 6390 | 5769 |  86 | 535 | 91.6%|1046.12 | | L24 | 6390 | 6294 |   3 |  93 | 98.5%| 250.02 |
+   | L01 | 6390 | 6167 |  42 | 181 | 97.2%|1451.81 | | L25 | 6390 | 6293 |  10 |  87 | 98.6%| 257.54 |
+   | L02 | 6390 | 6154 |  15 | 221 | 96.5%|1821.02 | | L26 | 6390 | 6199 |  26 | 165 | 97.4%| 511.33 |
+   | L03 | 6390 | 6315 |   2 |  73 | 98.9%|2372.41 | | L27 | 6390 | 6272 |  14 | 104 | 98.4%| 485.01 |
+   | L04 | 6390 | 6288 |   2 | 100 | 98.4%| 722.17 | | L28 | 6390 | 6161 |  32 | 197 | 96.9%| 618.48 |
+   | L05 | 6390 | 6252 |  12 | 126 | 98.0%|1107.25 | | L29 | 6390 | 6200 |  31 | 159 | 97.5%| 403.32 |
+   | L06 | 6390 | 6261 |  11 | 118 | 98.2%| 661.72 | | L30 | 6390 | 6112 |  58 | 220 | 96.6%| 577.61 |
+   | L07 | 6390 | 6256 |  10 | 124 | 98.1%| 560.96 | | L31 | 6390 | 6127 |  48 | 215 | 96.6%| 518.55 |
+   | L08 | 6390 | 6320 |   3 |  67 | 99.0%| 276.42 | | L32 | 6390 | 6203 |  28 | 159 | 97.5%| 678.64 |
+   | L09 | 6390 | 6320 |   2 |  68 | 98.9%|  95.87 | | L33 | 6390 | 6171 |  39 | 180 | 97.2%| 422.05 |
+   | L10 | 6390 | 6294 |   4 |  92 | 98.6%| 141.94 | | L34 | 6390 | 6083 |  67 | 240 | 96.2%| 579.05 |
+   | L11 | 6390 | 6319 |   3 |  68 | 98.9%| 179.30 | | L35 | 6390 | 6215 |  19 | 156 | 97.6%| 373.07 |
+   | L12 | 6390 | 6283 |   3 | 104 | 98.4%| 603.44 | | L36 | 6390 | 6197 |  23 | 170 | 97.3%| 458.06 |
+   | L13 | 6390 | 6261 |  14 | 115 | 98.2%| 282.32 | | L37 | 6390 | 6206 |  26 | 158 | 97.5%| 464.33 |
+   | L14 | 6390 | 6249 |  24 | 117 | 98.2%| 501.27 | | L38 | 6390 | 6266 |   9 | 115 | 98.2%| 761.35 |
+   | L15 | 6390 | 6211 |  18 | 161 | 97.5%| 428.61 | | L39 | 6390 | 6216 |  11 | 163 | 97.4%| 701.20 |
+   | L16 | 6390 | 6207 |   8 | 175 | 97.3%| 406.05 | | L40 | 6390 | 6218 |  33 | 139 | 97.8%| 729.39 |
+   | L17 | 6390 | 6187 |  11 | 192 | 97.0%| 479.37 | | L41 | 6390 | 6224 |  16 | 150 | 97.7%| 290.97 |
+   | L18 | 6390 | 6205 |  16 | 169 | 97.4%| 406.05 | | L42 | 6390 | 6106 |  56 | 228 | 96.4%| 737.50 |
+   | L19 | 6390 | 6248 |  10 | 132 | 97.9%| 344.26 | | L43 | 6390 | 6123 |  42 | 225 | 96.5%| 617.94 |
+   | L20 | 6390 | 6138 |  15 | 237 | 96.3%| 956.45 | | L44 | 6390 | 6121 |  51 | 218 | 96.6%| 600.66 |
+   | L21 | 6390 | 6168 |  17 | 205 | 96.8%|1158.01 | | L45 | 6390 | 6065 |  93 | 232 | 96.4%| 858.50 |
+   | L22 | 6390 | 6293 |   4 |  93 | 98.5%| 434.25 | | L46 | 6390 | 6267 |  22 | 101 | 98.4%| 962.21 |
+   | L23 | 6390 | 6212 |  19 | 159 | 97.5%| 604.98 | | L47 | 6390 | 6233 |   9 | 148 | 97.7%| 494.41 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 276203.84 MB (Load=6361.84 | Prefill=138933.69 | Warmup=0.00 | Decode=130908.31 MB)
-   SSD Data/Token (Decode)      : Avg=1022.721 MB/tok (Min=828.531 | P50=998.031 | P95=1204.406 | Max=1720.625 MB) | Prefill=271.355 MB/tok
-   NVMe Batches / Requests      : 5639 Batches | 112046 Raw -> 110485 Merged (1561 LBA Merges, Avg 2559.9 KB/io)
-   SSD I/O Size Histogram       : <64K=481 | 64K-512K=226 | 512K-2M=172 | >2M=109606
-   SSD Read Bandwidth (Active)  : Min=0.46 | Avg=466.38 | Peak=4145.40 MB/s | WallAmort=292.58 MB/s
-   OS Kernel I/O Verification   : Read=276212.87 MB | Write=0.01 MB | Syscalls=114570
-   Sync Stall vs Async DMA      : SyncStall=300755.51 ms | AsyncOverlapped=577350.17 ms (65.7% Overlapped)
-   RAM Traffic & Active BW      : 2783.29 GB moved | Active=5.72 GB/s | WallAmort=2.95 GB/s
-   Stage Breakdown (Pref/Dec)   : Prefill=619.71s (65.6%, 138933.69 MB SSD) | Decode=324.32s (34.4%, 130908.31 MB SSD)
-   CPU Time & Utilization       : User=1623.750s + Sys=28.141s (Wall=963.487s) | SysUtil=42.9% | ThrUtil=42.9% | 39.65 GFLOPS
+   Engine SSD Transfer Total    : 35098.77 MB (Load=4614.69 | Prefill=12536.88 | Warmup=0.00 | Decode=17947.19 MB)
+   SSD Data/Token (Decode)      : Avg=141.316 MB/tok (Min=99.188 | P50=138.222 | P95=175.014 | Max=212.713 MB) | Prefill=24.486 MB/tok
+   NVMe Batches / Requests      : 5059 Batches | 67048 Raw -> 65368 Merged (1680 LBA Merges, Avg 549.8 KB/io)
+   SSD I/O Size Histogram       : <64K=10481 | 64K-512K=15396 | 512K-2M=39049 | >2M=442
+   SSD Read Bandwidth (Active)  : Min=1.21 | Avg=1293.51 | Peak=9657.59 MB/s | WallAmort=157.22 MB/s
+   OS Kernel I/O Verification   : Read=35114.32 MB | Write=0.00 MB | Syscalls=74883
+   Sync Stall vs Async DMA      : SyncStall=5450.29 ms | AsyncOverlapped=16336.65 ms (75.0% Overlapped)
+   RAM Traffic & Active BW      : 2226.07 GB moved | Active=10.69 GB/s | WallAmort=9.97 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=154.17s (69.1%, 12536.88 MB SSD) | Decode=69.08s (30.9%, 17947.19 MB SSD)
+   CPU Time & Utilization       : User=696.781s + Sys=28.797s (Wall=239.205s) | SysUtil=75.8% | ThrUtil=75.8% | 70.14 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM : 213954.51 ms (334303.9 us/tok | 22.66%)
-   MoE AVX2 Q8 Expert Compute   : 268963.97 ms (420256.2 us/tok | 28.49%)
-   Router + Lookahead Dispatch  :   4316.26 ms ( 6744.2 us/tok |  0.46%)
-   LM Head Output Projection    :   3388.67 ms ( 5294.8 us/tok |  0.36%)
-   Foreground NVMe Sync Stall   : 300755.51 ms (469930.5 us/tok | 31.86%)
-   Unaccounted / OMP & Sampling : 152652.84 ms (238520.1 us/tok | 16.17%) | Total Wall=944031.75 ms
+   Dense + Attention/Linear SSM : 104440.44 ms (163443.6 us/tok | 46.78%)
+   MoE AVX2 Q8 Expert Compute   :  98796.51 ms (154611.1 us/tok | 44.25%)
+   Router + Lookahead Dispatch  :   5846.60 ms ( 9149.6 us/tok |  2.62%)
+   LM Head Output Projection    :   4964.00 ms ( 7768.4 us/tok |  2.22%)
+   Foreground NVMe Sync Stall   :   5450.29 ms ( 8529.4 us/tok |  2.44%)
+   Unaccounted / OMP & Sampling :   3753.50 ms ( 5874.0 us/tok |  1.68%) | Total Wall=223251.35 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    54.88%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |    17.50%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    16.55%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     9.01%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.06%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    76.48%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     1.53%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     2.17%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    13.88%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     5.94%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -1096,169 +1049,149 @@ Let me user this question is a question about the user asks about "Explain why t
 --------------------------------------------------------------------------------
  [Stage 3] Live OpenAI HTTP/SSE/Tool-Calling/Concurrent Stress Test on Real Shards
 --------------------------------------------------------------------------------
-[Stage 3] /v1/models: {"object": "list", "data": [{"id": "glm-5.3-flash-ud-iq2_xxs", "object": "model", "created": 1770000000, "owned_by": "apex-inference-v1", "architecture": "glm5-next (GLM-5.3-Flash)"}]}
-[Stage 3] /v1/chat/completions (stream=false) 138347.3ms | usage={'prompt_tokens': 19, 'completion_tokens': 16, 'total_tokens': 35} | text='\nSummarize LBACoalesce in one sentence.\nSummarize LB'
-[Stage 3] /v1/chat/completions (stream=true SSE) 56553.2ms | chunks=3 | DONE=True
+[Stage 3] /v1/models: {"object": "list", "data": [{"id": "qwen-3.8-flash-next-ud-iq2_xs", "object": "model", "created": 1770000000, "owned_by": "apex-inference-v1", "architecture": "qwen4exp (Qwen-3.8-Flash-Next)"}]}
+[Stage 3] /v1/chat/completions (stream=false) 17975.8ms | usage={'prompt_tokens': 18, 'completion_tokens': 16, 'total_tokens': 34} | text='\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n'
+[Stage 3] /v1/chat/completions (stream=true SSE) 6332.2ms | chunks=3 | DONE=True
 [Stage 3] Tool Call Response: finish_reason=tool_calls | fn=get_nvme_telemetry
 [Stage 3] Full OpenAI + llama.cpp API parity (/responses, /completions, /tokenize, /detokenize, /props) PASSED!
 --------------------------------------------------------------------------------
  [Stage 4] Massive 2,048-Token Prompt (High KV Load) + MTP Always ON
 --------------------------------------------------------------------------------
-[Apex-Init] Model Loaded: GLM 5.3 Flash | Layers=45 | Hidden=4096 | Experts=288 (Top-8) | Pinned Trunk=6460.98 MB | Expert Cache=5437.50 MB (580 slots)
+[Apex-Init] Model Loaded: Qwen3.8 Flash Next | Layers=48 | Hidden=2560 | Experts=512 (Top-10) | Pinned Trunk=4614.77 MB | Expert Cache=7458.25 MB (3594 slots)
 [Apex-Prompt] Input (2048 tokens): "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/2048 tok | Chunk=0.84 tps | Avg=0.84 tps | Hit=90.6% | NVMe=505.1 MB/s (74277.59 MB, QD=64) | RSS=13925.4 MB
-[LIVE-PREFILL] 512/2048 tok | Chunk=0.82 tps | Avg=0.83 tps | Hit=90.4% | NVMe=511.1 MB/s (145295.52 MB, QD=64) | RSS=13924.9 MB
-[LIVE-PREFILL] 768/2048 tok | Chunk=0.82 tps | Avg=0.83 tps | Hit=90.4% | NVMe=513.1 MB/s (214799.34 MB, QD=64) | RSS=13925.0 MB
-[LIVE-PREFILL] 1024/2048 tok | Chunk=0.76 tps | Avg=0.81 tps | Hit=90.4% | NVMe=514.8 MB/s (283922.65 MB, QD=64) | RSS=13925.0 MB
-[LIVE-PREFILL] 1280/2048 tok | Chunk=0.82 tps | Avg=0.81 tps | Hit=90.5% | NVMe=516.4 MB/s (352711.65 MB, QD=64) | RSS=13925.0 MB
-[LIVE-PREFILL] 1536/2048 tok | Chunk=0.81 tps | Avg=0.81 tps | Hit=90.5% | NVMe=518.1 MB/s (420869.27 MB, QD=64) | RSS=13925.0 MB
-[LIVE-PREFILL] 1792/2048 tok | Chunk=0.81 tps | Avg=0.81 tps | Hit=90.5% | NVMe=518.5 MB/s (488245.34 MB, QD=64) | RSS=13925.0 MB
-[LIVE-PREFILL] 2048/2048 tok | Chunk=0.82 tps | Avg=0.81 tps | Hit=90.6% | NVMe=519.5 MB/s (554073.90 MB, QD=64) | RSS=13925.7 MB
-[LIVE-DECODE] 2/64 tok | Avg=0.33 tps | Hit=90.6% (LA:+10.0%) | NVMe=519.0 MB/s (556515.84 MB) | RSS=13927.3 MB
-[LIVE-DECODE] 4/64 tok | Avg=0.28 tps | Hit=90.6% (LA:+10.1%) | NVMe=518.1 MB/s (559451.09 MB) | RSS=13724.1 MB
-[LIVE-DECODE] 6/64 tok | Avg=0.29 tps | Hit=90.5% (LA:+10.1%) | NVMe=517.5 MB/s (561876.02 MB) | RSS=13611.9 MB
-[LIVE-DECODE] 8/64 tok | Avg=0.30 tps | Hit=90.5% (LA:+10.1%) | NVMe=516.8 MB/s (564281.71 MB) | RSS=13528.3 MB
-[LIVE-DECODE] 10/64 tok | Avg=0.31 tps | Hit=90.5% (LA:+10.1%) | NVMe=516.3 MB/s (566481.52 MB) | RSS=13457.6 MB
-[LIVE-DECODE] 12/64 tok | Avg=0.31 tps | Hit=90.5% (LA:+10.1%) | NVMe=515.8 MB/s (568721.90 MB) | RSS=13407.2 MB
-[LIVE-DECODE] 14/64 tok | Avg=0.32 tps | Hit=90.5% (LA:+10.1%) | NVMe=515.3 MB/s (570885.27 MB) | RSS=13371.5 MB
-[LIVE-DECODE] 16/64 tok | Avg=0.32 tps | Hit=90.5% (LA:+10.1%) | NVMe=514.9 MB/s (573146.27 MB) | RSS=13348.4 MB
-[LIVE-DECODE] 18/64 tok | Avg=0.33 tps | Hit=90.5% (LA:+10.2%) | NVMe=514.5 MB/s (575463.46 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 20/64 tok | Avg=0.33 tps | Hit=90.5% (LA:+10.2%) | NVMe=514.1 MB/s (577730.59 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 22/64 tok | Avg=0.34 tps | Hit=90.5% (LA:+10.2%) | NVMe=513.8 MB/s (579842.52 MB) | RSS=13339.0 MB
-[LIVE-DECODE] 24/64 tok | Avg=0.34 tps | Hit=90.5% (LA:+10.2%) | NVMe=513.4 MB/s (582107.34 MB) | RSS=13339.0 MB
-[LIVE-DECODE] 26/64 tok | Avg=0.34 tps | Hit=90.5% (LA:+10.2%) | NVMe=512.9 MB/s (584416.27 MB) | RSS=13339.0 MB
-[LIVE-DECODE] 28/64 tok | Avg=0.34 tps | Hit=90.5% (LA:+10.2%) | NVMe=512.6 MB/s (586716.15 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 30/64 tok | Avg=0.34 tps | Hit=90.5% (LA:+10.2%) | NVMe=512.2 MB/s (588846.90 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 32/64 tok | Avg=0.35 tps | Hit=90.5% (LA:+10.2%) | NVMe=511.8 MB/s (590979.15 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 34/64 tok | Avg=0.35 tps | Hit=90.5% (LA:+10.3%) | NVMe=511.5 MB/s (592939.77 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 36/64 tok | Avg=0.35 tps | Hit=90.5% (LA:+10.3%) | NVMe=511.2 MB/s (595126.65 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 38/64 tok | Avg=0.35 tps | Hit=90.5% (LA:+10.3%) | NVMe=510.9 MB/s (597077.15 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 40/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.3%) | NVMe=510.6 MB/s (599033.21 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 42/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.3%) | NVMe=510.3 MB/s (601050.59 MB) | RSS=13323.8 MB
-[LIVE-DECODE] 44/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.3%) | NVMe=510.1 MB/s (602953.52 MB) | RSS=13329.6 MB
-[LIVE-DECODE] 46/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.3%) | NVMe=509.8 MB/s (604945.96 MB) | RSS=13329.5 MB
-[LIVE-DECODE] 48/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.3%) | NVMe=509.4 MB/s (607197.40 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 50/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.3%) | NVMe=509.2 MB/s (609246.02 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 52/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.4%) | NVMe=508.8 MB/s (611688.52 MB) | RSS=13339.0 MB
-[LIVE-DECODE] 54/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.4%) | NVMe=508.5 MB/s (613804.15 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 56/64 tok | Avg=0.37 tps | Hit=90.4% (LA:+10.4%) | NVMe=508.2 MB/s (615731.02 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 58/64 tok | Avg=0.37 tps | Hit=90.4% (LA:+10.4%) | NVMe=507.9 MB/s (617751.59 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 60/64 tok | Avg=0.37 tps | Hit=90.4% (LA:+10.4%) | NVMe=507.6 MB/s (619804.09 MB) | RSS=13326.1 MB
-[LIVE-DECODE] 62/64 tok | Avg=0.37 tps | Hit=90.4% (LA:+10.4%) | NVMe=507.3 MB/s (621916.21 MB) | RSS=13326.1 MB
-[LIVE-DECODE] 64/64 tok | Avg=0.37 tps | Hit=90.4% (LA:+10.4%) | NVMe=507.0 MB/s (623873.90 MB) | RSS=13326.1 MB
+[LIVE-PREFILL] 256/2048 tok | Chunk=3.32 tps | Avg=3.32 tps | Hit=95.4% | NVMe=969.1 MB/s (13785.34 MB, QD=64) | RSS=13296.5 MB
+[LIVE-PREFILL] 512/2048 tok | Chunk=3.40 tps | Avg=3.36 tps | Hit=96.6% | NVMe=1123.3 MB/s (18190.57 MB, QD=64) | RSS=13296.5 MB
+[LIVE-PREFILL] 768/2048 tok | Chunk=3.38 tps | Avg=3.36 tps | Hit=97.1% | NVMe=1240.6 MB/s (22243.29 MB, QD=64) | RSS=13296.6 MB
+[LIVE-PREFILL] 1024/2048 tok | Chunk=3.35 tps | Avg=3.36 tps | Hit=97.3% | NVMe=1336.4 MB/s (26270.16 MB, QD=64) | RSS=13297.0 MB
+[LIVE-PREFILL] 1280/2048 tok | Chunk=3.33 tps | Avg=3.36 tps | Hit=97.5% | NVMe=1419.1 MB/s (30169.43 MB, QD=64) | RSS=13296.6 MB
+[LIVE-PREFILL] 1536/2048 tok | Chunk=3.31 tps | Avg=3.35 tps | Hit=97.6% | NVMe=1493.1 MB/s (34071.32 MB, QD=64) | RSS=13297.0 MB
+[LIVE-PREFILL] 1792/2048 tok | Chunk=3.29 tps | Avg=3.34 tps | Hit=97.6% | NVMe=1554.0 MB/s (37985.28 MB, QD=64) | RSS=13296.7 MB
+[LIVE-PREFILL] 2048/2048 tok | Chunk=3.26 tps | Avg=3.33 tps | Hit=97.7% | NVMe=1603.3 MB/s (41748.61 MB, QD=64) | RSS=13297.9 MB
+[LIVE-DECODE] 8/64 tok | Avg=1.65 tps | Hit=97.7% (LA:+0.0%) | NVMe=1603.4 MB/s (43411.55 MB) | RSS=13304.9 MB
+[LIVE-DECODE] 16/64 tok | Avg=1.70 tps | Hit=97.7% (LA:+0.0%) | NVMe=1606.9 MB/s (44820.37 MB) | RSS=13304.9 MB
+[LIVE-DECODE] 24/64 tok | Avg=1.73 tps | Hit=97.7% (LA:+0.1%) | NVMe=1612.4 MB/s (46139.48 MB) | RSS=13302.8 MB
+[LIVE-DECODE] 32/64 tok | Avg=1.74 tps | Hit=97.7% (LA:+0.1%) | NVMe=1617.0 MB/s (47382.70 MB) | RSS=13302.6 MB
+[LIVE-DECODE] 40/64 tok | Avg=1.75 tps | Hit=97.7% (LA:+0.1%) | NVMe=1621.2 MB/s (48669.10 MB) | RSS=13295.1 MB
+[LIVE-DECODE] 48/64 tok | Avg=1.75 tps | Hit=97.7% (LA:+0.1%) | NVMe=1628.1 MB/s (49922.31 MB) | RSS=13281.8 MB
+[LIVE-DECODE] 56/64 tok | Avg=1.76 tps | Hit=97.8% (LA:+0.1%) | NVMe=1631.1 MB/s (51276.47 MB) | RSS=13267.9 MB
+[LIVE-DECODE] 63/64 tok | Avg=1.76 tps | Hit=97.8% (LA:+0.1%) | NVMe=1632.6 MB/s (52637.35 MB) | RSS=13262.1 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=OFF
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5437.50 MB (580/12384 exp = 4.68% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.77 MB | End=13326.07 MB | Peak=14016.58 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 7458.25 MB (3594/25088 exp = 14.33% pinned) | Staging=66.41 MB
+   Process RSS (Start/End/Peak) : Start=4.75 MB | End=13262.09 MB | Peak=13533.90 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (2048 tok)   : "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequen..."
-   RESPONSE (64 tok) : " high-throughput Mixtures of Mixtures-of-Expert (MoE) language inference with NVMe offloading achieving low-lat token generation requires overlapping Genie DMAand compute DMA transfers AVX compute attention dense recurrent attention recurrent state trunking Window cachehoriz dual lookahead coactivation preching% of activations direct RAM without CPU execution"
+   RESPONSE (63 tok) : "
+221221121221
+2223722212221722120722212222272227121222272777d77a"
 --------------------------------------------------------------------------------
- [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 65 Steps)]
-   Logit Summary: AvgTop1Prob=43.9% | AvgMargin=1.572 | MinMargin=0.007
+ [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 64 Steps)]
+   Logit Summary: AvgTop1Prob=11.7% | AvgMargin=0.454 | MinMargin=0.008
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |    1550 |  high          |   25.48 | 100.0% |     279 |   13.45 | 2525827.05 |  0 |  0 |  0 |     0.0 |
-   |    2 |   42503 | -through       |   27.04 | 100.0% |   63308 |   16.24 | 3074.62 |130 |110 | 96 | 1250272.0 |
-   |    3 |     628 | put            |   23.73 |  99.6% |   19183 |   17.58 | 3074.62 |  0 |  0 |  0 | 1250272.0 |
-   |    4 |   19183 |  Mix           |   17.39 |  84.5% |   19705 |   14.33 | 4061.76 | 39 |215 | 82 | 1502848.0 |
-   |    5 |   18482 | tures          |   16.37 |  54.3% |      68 |   15.04 | 4061.76 |  0 |  0 |  0 | 1502848.0 |
-   |    6 |     315 |  of            |   13.92 |  18.4% |    8667 |   13.83 | 3143.48 |107 |148 | 81 | 1241568.0 |
-   |    7 |   19183 |  Mix           |   18.45 |  89.7% |   57687 |   15.44 | 3143.48 |  0 |  0 |  0 | 1241568.0 |
-   |    8 |   18482 | tures          |   16.65 |  62.5% |    4974 |   14.96 | 3100.41 |119 |137 | 80 | 1231712.0 |
-   |    9 |    8667 | -of            |   17.27 |  47.5% |     315 |   17.04 | 3100.41 |  0 |  0 |  0 | 1231712.0 |
-   |   52 |   18547 |  dual          |   14.99 |  20.4% |   86025 |   14.43 | 2999.66 |106 |150 | 80 | 1250560.0 |
-   |   53 |   86025 |  lookahead     |   13.07 |   7.8% |    9270 |   12.69 | 2999.66 |  0 |  0 |  0 | 1250560.0 |
-   |   16 |    4128 |  language      |   16.00 |  39.8% |   81623 |   15.32 | 2906.31 |133 |135 | 68 | 1157632.0 |
-   |   62 |   21984 |  RAM           |   16.11 |  41.3% |   33742 |   15.25 | 2586.77 |142 |117 | 77 | 1081408.0 |
-   |   63 |    2041 |  without       |   15.58 |  48.8% |   28891 |   13.67 | 2586.77 |  0 |  0 |  0 | 1081408.0 |
-   |   64 |   13931 |  CPU           |   16.17 |  32.7% |   11315 |   14.94 | 2417.90 |141 |143 | 52 | 1002336.0 |
-   |   65 |   11315 |  execution     |   14.77 |  16.3% |   15289 |   14.61 | 2417.90 |  0 |  0 |  0 | 1002336.0 |
+   |    1 |     198 | \n             |    7.38 |   0.7% |      17 |    7.24 | 615230.27 |  0 |  0 |  0 |     0.0 |
+   |    2 |      17 | 2              |    8.65 |   1.9% |      22 |    8.24 |  666.44 |852 |108 |  0 | 263714.0 |
+   |    3 |      17 | 2              |   12.45 |  20.9% |      18 |   11.82 |  666.44 |  0 |  0 |  0 | 263714.0 |
+   |    4 |      16 | 1              |   10.53 |   8.3% |      17 |   10.14 |  615.14 |448 | 32 |  0 | 205068.0 |
+   |    5 |      17 | 2              |   11.00 |   7.6% |      15 |   10.61 |  590.20 |437 | 43 |  0 | 207814.0 |
+   |    6 |      17 | 2              |   10.56 |  11.0% |      16 |   10.50 |  592.28 |445 | 35 |  0 | 209668.0 |
+   |    7 |      16 | 1              |    8.55 |   2.2% |      15 |    8.11 |  580.67 |464 | 16 |  0 | 165718.0 |
+   |    8 |      16 | 1              |   10.85 |  16.6% |      17 |   10.31 |  575.24 |447 | 33 |  0 | 186664.0 |
+   |   10 |      16 | 1              |   10.43 |   9.8% |      17 |   10.35 |  612.18 |458 | 22 |  0 | 178089.0 |
+   |   15 |      17 | 2              |    9.13 |   5.3% |     198 |    8.72 |  586.01 |426 | 54 |  0 | 226664.0 |
+   |   44 |      22 | 7              |   10.66 |  11.5% |      17 |    9.77 |  585.12 |466 | 14 |  0 | 167593.0 |
+   |   60 |      22 | 7              |   13.90 |  27.1% |      18 |   13.41 |  584.93 |450 | 30 |  0 | 205764.0 |
+   |   61 |      67 | d              |   12.02 |   7.7% |      64 |   11.63 |  579.06 |448 | 32 |  0 | 221039.0 |
+   |   62 |      22 | 7              |   13.02 |  18.4% |      20 |   12.37 |  576.33 |462 | 18 |  0 | 174414.0 |
+   |   63 |      22 | 7              |   16.44 |  44.2% |      20 |   15.12 |  559.67 |463 | 17 |  0 | 173039.0 |
+   |   64 |      64 | a              |   10.35 |   4.4% |      77 |   10.10 |  573.64 |451 | 29 |  0 | 227139.0 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (2048 tok, 2525.827s, TTFT=2525827.05ms): Avg=0.81 | Min=0.76 | Max=0.84 tps
-   Prefill Chunks (8): C1:256t/0.8tps/91% | C2:256t/0.8tps/90% | C3:256t/0.8tps/90% | C4:256t/0.8tps/90%
-                       C5:256t/0.8tps/90% | C6:256t/0.8tps/90% | C7:256t/0.8tps/91% | C8:256t/0.8tps/91%
-   Decode  (64 tok, 173.000s): Avg=0.37 | Min=0.25 | Max=0.43 tps
-   Latency (ms) : Min=2303.94 | P10=2364.77 | P25=2469.35 | P50=2660.03 | P75=2826.64 | P90=3074.62 | P95=3143.48 | P99=4061.76 | Max=4061.76
-   Mean/SD/Jitt : Mean=2703.13ms | StdDev=336.29ms | Jitter=110.87ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/64
-   MTP Head     : 32/32 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
+   Prefill (2048 tok, 615.230s, TTFT=615230.27ms): Avg=3.33 | Min=3.26 | Max=3.40 tps
+   Prefill Chunks (8): C1:256t/3.3tps/95% | C2:256t/3.4tps/97% | C3:256t/3.4tps/97% | C4:256t/3.4tps/97%
+                       C5:256t/3.3tps/97% | C6:256t/3.3tps/98% | C7:256t/3.3tps/98% | C8:256t/3.3tps/98%
+   Decode  (63 tok, 35.836s): Avg=1.76 | Min=1.50 | Max=1.83 tps
+   Latency (ms) : Min=546.81 | P10=551.98 | P25=556.12 | P50=562.88 | P75=573.64 | P90=586.01 | P95=612.18 | P99=666.44 | Max=666.44
+   Mean/SD/Jitt : Mean=568.83ms | StdDev=22.40ms | Jitter=10.81ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/63
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (698880): RawRAM=558754 (79.95%) | Lookahead=72975 (+10.44%) | ColdMiss=67151 (9.61%) | EFF HIT=90.39%
-   Lookahead    : 17281 prefetched -> 14258 consumed (82.5% util) | Warmup >=75%:1t, >=85%:1t
-   Trajectory   : @16= 90.5% | @64= 90.4% | @128=  N/A | @256=  N/A | @512=  N/A
+   Activations (1013280): RawRAM=989335 (97.64%) | Lookahead=1245 (+0.12%) | ColdMiss=22700 (2.24%) | EFF HIT=97.76%
+   Lookahead    : 6593 prefetched -> 1255 consumed (19.0% util) | Warmup >=75%:1t, >=85%:1t
+   Trajectory   : @16= 97.7% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 |16640 |12360 |2282 |1998 | 88.0%|18723.44 | | L24 |16640 |13262 |1869 |1509 | 90.9%|13419.06 |
-   | L04 |16640 |12490 |2193 |1957 | 88.2%|18033.44 | | L25 |16640 |13525 |1616 |1499 | 91.0%|13735.31 |
-   | L05 |16640 |12598 |2103 |1939 | 88.3%|17882.50 | | L26 |16640 |13417 |1703 |1520 | 90.9%|13605.94 |
-   | L06 |16640 |12668 |2071 |1901 | 88.6%|17710.00 | | L27 |16640 |13394 |1640 |1606 | 90.3%|14633.75 |
-   | L07 |16640 |12979 |1926 |1735 | 89.6%|15755.00 | | L28 |16640 |13263 |1772 |1605 | 90.4%|14439.69 |
-   | L08 |16640 |13223 |1627 |1790 | 89.2%|16143.12 | | L29 |16640 |13165 |1969 |1506 | 90.9%|13685.00 |
-   | L09 |16640 |12982 |1874 |1784 | 89.3%|16121.56 | | L30 |16640 |13053 |1994 |1593 | 90.4%|14224.06 |
-   | L10 |16640 |12738 |2046 |1856 | 88.8%|16905.00 | | L31 |16640 |13512 |1518 |1610 | 90.3%|14583.44 |
-   | L11 |16640 |13148 |1915 |1577 | 90.5%|19031.25 | | L32 |16640 |13026 |1988 |1626 | 90.2%|14727.19 |
-   | L12 |16640 |13202 |1886 |1552 | 90.7%|16582.50 | | L33 |16640 |13444 |1736 |1460 | 91.2%|13591.56 |
-   | L13 |16640 |13535 |1667 |1438 | 91.4%|12908.75 | | L34 |16640 |13616 |1501 |1523 | 90.8%|13720.94 |
-   | L14 |16640 |14198 |1091 |1351 | 91.9%|12276.25 | | L35 |16640 |13671 |1391 |1578 | 90.5%|14245.62 |
-   | L15 |16640 |14341 |1049 |1250 | 92.5%|11500.00 | | L36 |16640 |13309 |1719 |1612 | 90.3%|14461.25 |
-   | L16 |16640 |13860 |1376 |1404 | 91.6%|12700.31 | | L37 |16640 |13515 |1517 |1608 | 90.3%|14195.31 |
-   | L17 |16640 |13570 |1526 |1544 | 90.7%|13792.81 | | L38 |16640 |13452 |1575 |1613 | 90.3%|14310.31 |
-   | L18 |16640 |13785 |1408 |1447 | 91.3%|13002.19 | | L39 |16640 |13182 |1777 |1681 | 89.9%|14856.56 |
-   | L19 |16640 |13542 |1609 |1489 | 91.1%|13059.69 | | L40 |16640 |13442 |1564 |1634 | 90.2%|14389.38 |
-   | L20 |16640 |13304 |1818 |1518 | 90.9%|13526.88 | | L41 |16640 |13193 |1802 |1645 | 90.1%|14763.12 |
-   | L21 |16640 |13667 |1546 |1427 | 91.4%|12880.00 | | L42 |16640 |13089 |1989 |1562 | 90.6%|13879.06 |
-   | L22 |16640 |13245 |1943 |1452 | 91.3%|13088.44 | | L43 |16640 |13288 |1817 |1535 | 90.8%|13814.38 |
-   | L23 |16640 |13377 |1738 |1525 | 90.8%|13656.25 | | L44 |16640 |13124 |1824 |1692 | 89.8%|17579.12 |
+   | L00 |21110 |19023 |  97 |1990 | 90.6%|3515.70 | | L24 |21110 |20928 |   6 | 176 | 99.2%| 396.66 |
+   | L01 |21110 |20546 |  38 | 526 | 97.5%|1257.57 | | L25 |21110 |20927 |   7 | 176 | 99.2%| 359.06 |
+   | L02 |21110 |20501 |  14 | 595 | 97.2%|1682.89 | | L26 |21110 |20575 |  24 | 511 | 97.6%|1221.92 |
+   | L03 |21110 |21032 |   1 |  77 | 99.6%|1035.82 | | L27 |21110 |20824 |  18 | 268 | 98.7%| 635.40 |
+   | L04 |21110 |20881 |   7 | 222 | 98.9%| 774.05 | | L28 |21110 |20473 |  25 | 612 | 97.1%|1355.40 |
+   | L05 |21110 |20801 |  19 | 290 | 98.6%|1017.02 | | L29 |21110 |20643 |  21 | 446 | 97.9%| 754.79 |
+   | L06 |21110 |20817 |  30 | 263 | 98.8%| 838.43 | | L30 |21110 |20239 |  51 | 820 | 96.1%|1342.48 |
+   | L07 |21110 |20818 |  22 | 270 | 98.7%| 534.01 | | L31 |21110 |20348 |  42 | 720 | 96.6%|1209.96 |
+   | L08 |21110 |21038 |   1 |  71 | 99.7%| 155.64 | | L32 |21110 |20569 |  21 | 520 | 97.5%|1205.00 |
+   | L09 |21110 |21035 |   0 |  75 | 99.6%|  95.87 | | L33 |21110 |20444 |  39 | 627 | 97.0%|1052.95 |
+   | L10 |21110 |20935 |   4 | 171 | 99.2%| 232.84 | | L34 |21110 |20190 |  55 | 865 | 95.9%|1414.50 |
+   | L11 |21110 |21036 |   1 |  73 | 99.7%| 120.78 | | L35 |21110 |20616 |  33 | 461 | 97.8%| 815.28 |
+   | L12 |21110 |20975 |   2 | 133 | 99.4%| 443.65 | | L36 |21110 |20556 |  41 | 513 | 97.6%| 917.55 |
+   | L13 |21110 |20877 |   6 | 227 | 98.9%| 394.68 | | L37 |21110 |20512 |  24 | 574 | 97.3%|1197.49 |
+   | L14 |21110 |20779 |  44 | 287 | 98.6%| 701.49 | | L38 |21110 |20750 |  13 | 347 | 98.4%| 894.82 |
+   | L15 |21110 |20631 |  43 | 436 | 97.9%|1009.50 | | L39 |21110 |20565 |  30 | 515 | 97.6%|1255.76 |
+   | L16 |21110 |20563 |  20 | 527 | 97.5%|1099.73 | | L40 |21110 |20673 |  29 | 408 | 98.1%|1035.82 |
+   | L17 |21110 |20407 |  22 | 681 | 96.8%|1479.47 | | L41 |21110 |20656 |  15 | 439 | 97.9%| 741.82 |
+   | L18 |21110 |20456 |  37 | 617 | 97.1%|1306.52 | | L42 |21110 |20358 |  38 | 714 | 96.6%|1271.90 |
+   | L19 |21110 |20661 |  36 | 413 | 98.0%| 711.57 | | L43 |21110 |20261 |  33 | 816 | 96.1%|1424.58 |
+   | L20 |21110 |20295 |  44 | 771 | 96.3%|1426.03 | | L44 |21110 |20264 |  40 | 806 | 96.2%|1325.20 |
+   | L21 |21110 |20427 |  37 | 646 | 96.9%|1812.21 | | L45 |21110 |20321 |  54 | 735 | 96.5%|1387.13 |
+   | L22 |21110 |20907 |  10 | 193 | 99.1%| 496.29 | | L46 |21110 |20882 |  10 | 218 | 99.0%| 620.83 |
+   | L23 |21110 |20550 |  28 | 532 | 97.5%|1070.24 | | L47 |21110 |20770 |  13 | 327 | 98.5%| 789.55 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 623873.90 MB (Load=6361.84 | Prefill=547712.06 | Warmup=0.00 | Decode=69800.00 MB)
-   SSD Data/Token (Decode)      : Avg=1090.625 MB/tok (Min=951.469 | P50=1081.688 | P95=1221.250 | Max=1467.625 MB) | Prefill=267.438 MB/tok
-   NVMe Batches / Requests      : 4908 Batches | 255053 Raw -> 251075 Merged (3978 LBA Merges, Avg 2544.4 KB/io)
-   SSD I/O Size Histogram       : <64K=481 | 64K-512K=226 | 512K-2M=172 | >2M=250196
-   SSD Read Bandwidth (Active)  : Min=0.46 | Avg=506.97 | Peak=3899.26 MB/s | WallAmort=231.16 MB/s
-   OS Kernel I/O Verification   : Read=623882.93 MB | Write=0.01 MB | Syscalls=255134
-   Sync Stall vs Async DMA      : SyncStall=894619.00 ms | AsyncOverlapped=1215680.46 ms (57.6% Overlapped)
-   RAM Traffic & Active BW      : 7358.13 GB moved | Active=4.33 GB/s | WallAmort=2.73 GB/s
-   Stage Breakdown (Pref/Dec)   : Prefill=2525.83s (93.6%, 547712.06 MB SSD) | Decode=173.00s (6.4%, 69800.00 MB SSD)
-   CPU Time & Utilization       : User=5863.281s + Sys=64.938s (Wall=2717.798s) | SysUtil=54.5% | ThrUtil=54.5% | 50.44 GFLOPS
+   Engine SSD Transfer Total    : 52637.35 MB (Load=4614.69 | Prefill=37133.91 | Warmup=0.00 | Decode=10888.75 MB)
+   SSD Data/Token (Decode)      : Avg=172.837 MB/tok (Min=130.336 | P50=168.983 | P95=216.347 | Max=257.533 MB) | Prefill=18.132 MB/tok
+   NVMe Batches / Requests      : 3779 Batches | 122763 Raw -> 118378 Merged (4385 LBA Merges, Avg 455.3 KB/io)
+   SSD I/O Size Histogram       : <64K=33825 | 64K-512K=21873 | 512K-2M=62189 | >2M=491
+   SSD Read Bandwidth (Active)  : Min=0.85 | Avg=1632.62 | Peak=9620.69 MB/s | WallAmort=80.85 MB/s
+   OS Kernel I/O Verification   : Read=52657.89 MB | Write=0.00 MB | Syscalls=127891
+   Sync Stall vs Async DMA      : SyncStall=14042.00 ms | AsyncOverlapped=21540.58 ms (60.5% Overlapped)
+   RAM Traffic & Active BW      : 5635.43 GB moved | Active=9.20 GB/s | WallAmort=8.66 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=615.23s (94.5%, 37133.91 MB SSD) | Decode=35.84s (5.5%, 10888.75 MB SSD)
+   CPU Time & Utilization       : User=2244.953s + Sys=39.500s (Wall=666.329s) | SysUtil=85.7% | ThrUtil=85.7% | 79.28 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM : 801347.95 ms (379426.1 us/tok | 29.69%)
-   MoE AVX2 Q8 Expert Compute   : 894387.40 ms (423478.9 us/tok | 33.14%)
-   Router + Lookahead Dispatch  :  15382.17 ms ( 7283.2 us/tok |  0.57%)
-   LM Head Output Projection    :   1716.59 ms (  812.8 us/tok |  0.06%)
-   Foreground NVMe Sync Stall   : 894619.00 ms (423588.5 us/tok | 33.15%)
-   Unaccounted / OMP & Sampling :  91374.14 ms (43264.3 us/tok |  3.39%) | Total Wall=2698827.26 ms
+   Dense + Attention/Linear SSM : 300570.55 ms (142383.0 us/tok | 46.17%)
+   MoE AVX2 Q8 Expert Compute   : 309593.00 ms (146657.0 us/tok | 47.55%)
+   Router + Lookahead Dispatch  :  18604.02 ms ( 8812.9 us/tok |  2.86%)
+   LM Head Output Projection    :   2412.17 ms ( 1142.7 us/tok |  0.37%)
+   Foreground NVMe Sync Stall   :  14042.00 ms ( 6651.8 us/tok |  2.16%)
+   Unaccounted / OMP & Sampling :   5844.87 ms ( 2768.8 us/tok |  0.90%) | Total Wall=651066.61 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    62.05%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |    13.23%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    12.76%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    10.19%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     1.77%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    76.54%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     1.04%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     1.17%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    15.53%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     5.72%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -1268,49 +1201,53 @@ Let me user this question is a question about the user asks about "Explain why t
 --------------------------------------------------------------------------------
  [Stage 5] Fair Head-to-Head Competitor Suite (Exact 64p / 32g / 4-Thread Parity)
 --------------------------------------------------------------------------------
-[Fair-Runner] Apex 64p/32g wall=239.0s | Competitor drastic-underperform cutoff=1195.0s (5x Apex)
-=== [Colibri-GLM53] CMD: ./baselines/colibri/c/glm53.exe --model D:/apex_d_drive/models/glm53 --ids 1,8,15,22,29,36,43,50,57,64,71,78,85,92,99,106,113,120,127,134,141,148,155,162,169,176,183,190,197,204,211,218,225,232,239,246,253,260,267,274,281,288,295,302,309,316,323,330,337,344,351,358,365,372,379,386,393,400,407,414,421,428,435,442 --greedy 64 32 (5x cutoff=1195.0s) ===
-  [Colibri-GLM53] [gguf] D:\apex_d_drive\models\glm53\GLM-5.3-Flash-UD-IQ2_XXS-00001-of-00004.gguf: glm5-next, 4 part(s), 38435 tensors under the checkpoint's names (1283 renamed, 129 fused expert tensors split per expert, 0 kept as named), read in place
-  [Colibri-GLM53] glm53: GGUF experts interleaved by 16 rows on 3 of 42 layers (G53_ILV16=0: the file's rows)
-  [COMP-LIVE] Colibri-GLM53: elapsed=15.0s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=30.1s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=45.1s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=60.1s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=75.2s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=90.4s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=105.5s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=120.6s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=135.7s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=150.8s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=165.8s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=181.0s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=196.1s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=211.2s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=226.2s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=241.3s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=256.8s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=271.9s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=287.0s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=302.1s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=317.6s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=333.1s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=348.2s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=363.5s / cutoff=1195.0s
-  [Colibri-GLM53] [STATS] 43008 selections across 6945 distinct experts -> D:/apex_d_drive/models/glm53/.coli_usage
-  [Colibri-GLM53] teacher_forcing 5556 335 11 15 15 22 22 22 22 36 57 22 36 64 9 154850 154850 154850 123 121 127967 127501 243 104 253 237 154842 1986 197 220 220 0 220 154827 154827 154827 154827 220 83 220 274 220 220 274 295 83 279 8 220 1 1 2776 72 83 84 365 13 220 220 220 320 83 220 220
-  [Colibri-GLM53] greedy 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330
-  [Colibri-GLM53] decode 64 token in 246.0s = 0.260 tok/s (3.8 s/token)
-  [Colibri-GLM53] experts hits 15425 miss 11249 bytes 111319384064
-=== [Colibri-GLM53] Finished rc=0 elapsed=378.15s cancelled=False ===
+[Fair-Runner] Apex 64p/32g wall=57.0s | Competitor drastic-underperform cutoff=285.0s (5x Apex)
+=== [Colibri-Qwen38] CMD: ./baselines/colibri/c/qwen38.exe 72 2 D:/apex_d_drive/models/qwen38\ref.json (5x cutoff=285.0s) ===
+  [Colibri-Qwen38] [gguf] MTP head C:\apex_c_drive\models\qwen38\mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf: 32 tensors
+  [Colibri-Qwen38] [gguf] D:\apex_d_drive\models\qwen38\Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf: 3 file(s), 1224 tensors, read in place (native ggml types, no conversion)
+  [Colibri-Qwen38] == Qwen3.8-Flash-Next native text engine | cache=72/layer | CPU ==
+  [Colibri-Qwen38] [tok] loaded 248320 base pieces + 33 added tokens (max id 248319) from D:/apex_d_drive/models/qwen38/tokenizer.json
+  [Colibri-Qwen38] [qwen38] native text weights: prefix=model, 48 layers, PLE=1, cache=72/layer, FP8=native, BF16=native (resident matrices 4.40 GiB)
+  [Colibri-Qwen38] [qwen38] MTP head mtp.*: wiring b (a norm per stream, fc_hidden per stream), RoPE base 1e+07, 96.86 MiB resident; routed experts Q8_0 from the snapshot (its own GGUF), cache 72 (Q38_MTP_CAP) x 4.98 MiB = 0.35 GiB full
+  [Colibri-Qwen38] [qwen38] MTP norm weights, mean: embedding -0.7642, hidden -0.3284, mixer 3.7881 (q38_rms0 scales by 1+w; a plain norm's weights would sit near 1)
+  [Colibri-Qwen38] [qwen38] trunk: 62 matrices int8 on the CPU (0.08 GiB, 0.28 GiB of BF16 released) in 0.3s; Q38_TRUNK_CPU_INT8=0 keeps BF16
+  [Colibri-Qwen38] [qwen38 MTP] draft vocabulary: the lm_head has no int8 rows on the host, so the head scores the whole vocabulary (Q38_MTP_VOCAB=0 silences this)
+  [Colibri-Qwen38] [qwen38] routed experts: GGUF IQ2_XXS/IQ2_XXS/IQ4_NL (layer 0), 1.68 MiB per expert; cache 72/layer
+  [Colibri-Qwen38] [qwen38] trunk: 62 int8 matrices interleaved by 16 for the CPU in 0.02s (Q38_ILV16=0 keeps the rows)
+  [Colibri-Qwen38] resident weights loaded in 11.4s | RSS after load: 4.60 GB
+  [Colibri-Qwen38] [qwen38] decode rows' routed experts grouped by expert, one parallel region a layer (Q38_MOE_GROUPED=0: one expert at a time)
+  [COMP-LIVE] Colibri-Qwen38: elapsed=15.0s / cutoff=285.0s
+  [COMP-LIVE] Colibri-Qwen38: elapsed=30.1s / cutoff=285.0s
+  [COMP-LIVE] Colibri-Qwen38: elapsed=45.1s / cutoff=285.0s
+  [Colibri-Qwen38] TTFT: 22.32 s (time to first token)
+  [Colibri-Qwen38] [qwen38 MTP] run: 2.58 tokens/forward (12 forwards per 31 tokens) | acceptance 82.6% (19/23 drafts) | wiring b | fixed depth, by position: 1 91.7% (11/12) 2 72.7% (8/11) 3 0.0% (0/0)
+  [Colibri-Qwen38] [qwen38 spec gate] run: T(1) 0.0 ms, rows 2:1.50 3:2.00, rho 0.50, acceptance by position 0.50 0.50 0.50 0.50 0.50
+  [Colibri-Qwen38] [qwen38 lookup] run: 2.58 tokens/forward (12 forwards per 31 tokens) | acceptance 0.0% (0/0 drafts in 0 verifies) | gate on, 0 declined, 0 probes
+  [Colibri-Qwen38] 
+  [Colibri-Qwen38] PEAK RSS: 10.72 GB
+  [Colibri-Qwen38] Expert cache hit rate: 62.0% (hit=15849 miss=9733)
+  [Colibri-Qwen38] Speed: 0.74 tok/s (43.2s for 32 tokens)
+  [Colibri-Qwen38] [STATS] 48560 selections across 8462 distinct experts -> D:/apex_d_drive/models/qwen38/.coli_usage
+  [Colibri-Qwen38] 
+  [Colibri-Qwen38] Reference: 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 
+  [Colibri-Qwen38] C engine : 220 248046 198 248045 74455 198 248068 198 760 1156 682 3106 1092 7701 310 381 264 7132 36412 2805 269 82987 886 314 5587 13 6558 728 22903 411 25 271 Text      :  <|im_end|>
+  [Colibri-Qwen38] <|im_start|>assistant
+  [Colibri-Qwen38] <think>
+  [Colibri-Qwen38] The user has sent what appears to be a garbled/corrupted string of characters. Let me analyze this:
+  [Colibri-Qwen38] 
+  [Colibri-Qwen38] 
+  [Colibri-Qwen38] 
+  [Colibri-Qwen38] Matching tokens: 0/32
+=== [Colibri-Qwen38] Finished rc=1 elapsed=57.66s cancelled=False ===
 ================================================================================
- [Stage 5 Summary] GLM53 Fair Head-to-Head Comparison vs Colibri (4T)
+ [Stage 5 Summary] QWEN38 Fair Head-to-Head Comparison vs Colibri (4T)
 ================================================================================
 | Engine / Stage | Prefill (tps) | Decode (tps) | P50 (ms) | Eff Hit% | SSD Avg (MB/s) | Peak RSS | Notes |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Apex v1 (Fair 64p/32g)** | 0.49 | 0.37 | 2697.57 | 77.60% | 456.57 | 13844.00 MB | Native GGUF + MTP ON |
-| **Apex v1 (512p/128g)** | 0.83 | 0.39 | 2471.21 | 89.19% | 466.38 | 14184.51 MB | Native GGUF + MTP ON |
-| **Apex v1 (2048p/64g)** | 0.81 | 0.37 | 2660.03 | 90.39% | 506.97 | 14016.58 MB | Native GGUF + MTP ON |
-| **JustVugg/colibri (64p/32g)** | - | 0.260 | - | 57.8% | - | - | `Q38_MTP=1` / Native |
+| **Apex v1 (Fair 64p/32g)** | 2.75 | 1.85 | 521.68 | 92.00% | 942.82 | 14033.30 MB | Native GGUF + MTP ON |
+| **Apex v1 (512p/128g)** | 3.32 | 1.84 | 525.20 | 97.50% | 1293.51 | 14479.07 MB | Native GGUF + MTP ON |
+| **Apex v1 (2048p/64g)** | 3.33 | 1.76 | 562.88 | 97.76% | 1632.62 | 13533.90 MB | Native GGUF + MTP ON |
+| **JustVugg/colibri (64p/32g)** | - | 0.74 | - | 62.0% | - | - | `Q38_MTP=1` / Native |
 ================================================================================
 ```
 
@@ -1321,8 +1258,8 @@ Let me user this question is a question about the user asks about "Explain why t
 ================================================================================
 Cloning into 'Apex-Inference-v1'...
  [Step 2] Compiling Apex Inference v1 (C++17 AVX2+FMA+F16C+OpenMP)...
--rwxr-xr-x 1 runneradmin 197121 880K Nov 14 06:46 ./apex.exe
--rwxr-xr-x 1 runneradmin 197121 880K Nov 14 06:46 build/apex.exe
+-rwxr-xr-x 1 runneradmin 197121 880K Nov 14 09:19 ./apex.exe
+-rwxr-xr-x 1 runneradmin 197121 880K Nov 14 09:19 build/apex.exe
  [Step 2] Running Pre-Flight Unit, Greedy Parity & OpenAI API Stress Verification...
 [gen_synthetic_gguf] Wrote tests/synth_glm53_ud_iq2_xxs.gguf (6748.6 KB)
 [gen_synthetic_gguf] Wrote tests/synth_qwen38_ud_iq2_xs.gguf (9282.8 KB)
@@ -1338,27 +1275,27 @@ Cloning into 'Apex-Inference-v1'...
    CPU Model          : AMD EPYC 7763 64-Core Processor                
    Cores / Threads    : 2 Physical / 4 Logical
    SIMD ISA Support   : AVX2=YES | FMA=YES | F16C=YES | AVX-VNNI=NO | AVX512-VNNI=NO
-   System Memory (RAM): 15.99 GB Total / 13.48 GB Available
+   System Memory (RAM): 15.99 GB Total / 13.46 GB Available
    Active Drive Space : 150.00 GB Total / 147.00 GB Free
 --------------------------------------------------------------------------------
  [CrystalDiskMark-Style NVMe SSD Storage Benchmark]
-   SEQ1M Direct Uncached NVMe Read    :    479.15 MB/s (Hardware Floor)
-   SEQ1M Q8T1  Read (OS-Cached Max)   :   1476.37 MB/s
-   SEQ1M Q1T1  Read (Single Queue)    :   8003.60 MB/s
-   SEQ128K Q32T1 Expert-Stripe Read   :  10871.09 MB/s
-   RND4K Q32T16 Read                  :    493.57 MB/s (  126353 IOPS)
-   RND4K Q1T1  Read                   :    708.52 MB/s (Latency: 5.51 us)
+   SEQ1M Direct Uncached NVMe Read    :    430.00 MB/s (Hardware Floor)
+   SEQ1M Q8T1  Read (OS-Cached Max)   :   1623.86 MB/s
+   SEQ1M Q1T1  Read (Single Queue)    :   7844.96 MB/s
+   SEQ128K Q32T1 Expert-Stripe Read   :  10492.75 MB/s
+   RND4K Q32T16 Read                  :    484.50 MB/s (  124033 IOPS)
+   RND4K Q1T1  Read                   :    664.32 MB/s (Latency: 5.88 us)
 --------------------------------------------------------------------------------
  [PassMark / STREAM System RAM Bandwidth & Latency Benchmark]
-   AVX2 256-bit Sequential Read BW    :     57.45 GB/s
-   AVX2 256-bit Sequential Write BW   :     46.77 GB/s
-   STREAM Triad (A = B + s*C) BW      :     31.51 GB/s
-   Random Pointer-Chase Latency       :     93.22 ns
+   AVX2 256-bit Sequential Read BW    :     58.30 GB/s
+   AVX2 256-bit Sequential Write BW   :     40.06 GB/s
+   STREAM Triad (A = B + s*C) BW      :     34.95 GB/s
+   Random Pointer-Chase Latency       :     51.85 ns
 --------------------------------------------------------------------------------
  [PassMark-Style CPU AVX2+FMA Compute & IQ2 Kernel Benchmark]
-   Single-Core AVX2+FMA Throughput    :     51.38 GFLOPS
-   Multi-Core  AVX2+FMA Throughput    :    197.06 GFLOPS
-   IQ2_XXS/XS Fused Dot Effective BW  :     22.16 GB/s (FP32 Equiv)
+   Single-Core AVX2+FMA Throughput    :     50.96 GFLOPS
+   Multi-Core  AVX2+FMA Throughput    :    101.03 GFLOPS
+   IQ2_XXS/XS Fused Dot Effective BW  :     18.95 GB/s (FP32 Equiv)
 ================================================================================
 
 
@@ -1384,18 +1321,18 @@ Cloning into 'Apex-Inference-v1'...
 === [TEST] GLM-5.3-Flash 2048-Token Prefill & Decode + MTP Off/On A/B Benchmark: ./apex.exe bench --model tests/synth_glm53_ud_iq2_xxs.gguf --prompt-tokens 2048 --gen-tokens 32 --mtp on --no-hwtest ===
 [Apex-Init] Model Loaded: GLM-5.3-Flash-UD-IQ2_XXS-Synthetic | Layers=4 | Hidden=256 | Experts=16 (Top-4) | Pinned Trunk=3.48 MB | Expert Cache=3.24 MB (67 slots)
 [Apex-Prompt] Input (2048 tokens): "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/2048 tok | Chunk=1380.69 tps | Avg=1380.69 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=73.7 MB
-[LIVE-PREFILL] 512/2048 tok | Chunk=1215.56 tps | Avg=1292.87 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=73.9 MB
-[LIVE-PREFILL] 768/2048 tok | Chunk=1096.67 tps | Avg=1220.11 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=74.2 MB
-[LIVE-PREFILL] 1024/2048 tok | Chunk=972.88 tps | Avg=1147.23 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=74.5 MB
-[LIVE-PREFILL] 1280/2048 tok | Chunk=886.85 tps | Avg=1083.60 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=74.8 MB
-[LIVE-PREFILL] 1536/2048 tok | Chunk=804.62 tps | Avg=1024.40 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=75.0 MB
-[LIVE-PREFILL] 1792/2048 tok | Chunk=749.70 tps | Avg=973.45 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=75.3 MB
-[LIVE-PREFILL] 2048/2048 tok | Chunk=697.13 tps | Avg=927.49 tps | Hit=100.0% | NVMe=2633.5 MB/s (6.58 MB, QD=64) | RSS=75.5 MB
-[LIVE-DECODE] 8/32 tok | Avg=198.03 tps | Hit=100.0% (LA:+0.0%) | NVMe=2633.5 MB/s (6.58 MB) | RSS=75.6 MB
-[LIVE-DECODE] 16/32 tok | Avg=196.89 tps | Hit=100.0% (LA:+0.0%) | NVMe=2633.5 MB/s (6.58 MB) | RSS=75.6 MB
-[LIVE-DECODE] 24/32 tok | Avg=194.74 tps | Hit=100.0% (LA:+0.0%) | NVMe=2633.5 MB/s (6.58 MB) | RSS=75.6 MB
-[LIVE-DECODE] 32/32 tok | Avg=195.57 tps | Hit=100.0% (LA:+0.0%) | NVMe=2633.5 MB/s (6.58 MB) | RSS=75.6 MB
+[LIVE-PREFILL] 256/2048 tok | Chunk=1423.48 tps | Avg=1423.48 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=60.5 MB
+[LIVE-PREFILL] 512/2048 tok | Chunk=1235.44 tps | Avg=1322.81 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=60.8 MB
+[LIVE-PREFILL] 768/2048 tok | Chunk=1116.87 tps | Avg=1246.22 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=61.1 MB
+[LIVE-PREFILL] 1024/2048 tok | Chunk=964.12 tps | Avg=1161.27 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=61.3 MB
+[LIVE-PREFILL] 1280/2048 tok | Chunk=900.95 tps | Avg=1097.83 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=61.6 MB
+[LIVE-PREFILL] 1536/2048 tok | Chunk=806.78 tps | Avg=1035.57 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=61.9 MB
+[LIVE-PREFILL] 1792/2048 tok | Chunk=755.78 tps | Avg=983.55 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=62.1 MB
+[LIVE-PREFILL] 2048/2048 tok | Chunk=691.58 tps | Avg=934.25 tps | Hit=100.0% | NVMe=2558.3 MB/s (6.58 MB, QD=64) | RSS=62.4 MB
+[LIVE-DECODE] 8/32 tok | Avg=196.08 tps | Hit=100.0% (LA:+0.0%) | NVMe=2558.3 MB/s (6.58 MB) | RSS=62.4 MB
+[LIVE-DECODE] 16/32 tok | Avg=196.73 tps | Hit=100.0% (LA:+0.0%) | NVMe=2558.3 MB/s (6.58 MB) | RSS=62.4 MB
+[LIVE-DECODE] 24/32 tok | Avg=197.15 tps | Hit=100.0% (LA:+0.0%) | NVMe=2558.3 MB/s (6.58 MB) | RSS=62.4 MB
+[LIVE-DECODE] 32/32 tok | Avg=197.00 tps | Hit=100.0% (LA:+0.0%) | NVMe=2558.3 MB/s (6.58 MB) | RSS=62.4 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
@@ -1407,9 +1344,9 @@ Cloning into 'Apex-Inference-v1'...
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
    GGUF Total / SSD Pool        : 0.01 GB GGUF | 0.00 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=3.48 MB | KV/State=25.37 MB (14080 B/tok)
-   LRFU Cache / Staging Ring    : 3.24 MB (67/64 exp = 104.69% pinned) | Staging=3.09 MB
-   Process RSS (Start/End/Peak) : Start=4.87 MB | End=75.55 MB | Peak=75.55 MB
+   Pinned Dense / KV+State RAM  : Dense=3.48 MB | KV/State=15.37 MB (3840 B/tok)
+   LRFU Cache / Staging Ring    : 3.24 MB (67/64 exp = 104.69% pinned) | Staging=1.55 MB
+   Process RSS (Start/End/Peak) : Start=4.88 MB | End=62.41 MB | Peak=62.41 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (2048 tok)   : "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequen..."
@@ -1420,31 +1357,31 @@ Cloning into 'Apex-Inference-v1'...
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |      55 | tok_55         |  190.69 |  99.3% |     246 |  185.76 | 2208.10 |  0 |  0 |  0 |     0.0 |
-   |    2 |      55 | tok_55         |  179.98 | 100.0% |     246 |  150.29 |    5.06 | 12 |  0 |  0 |     0.0 |
-   |    3 |     175 | tok_175        |   77.47 |  67.6% |     179 |   76.74 |    5.06 |  0 |  0 |  0 |     0.0 |
-   |    4 |      55 | tok_55         |  178.88 | 100.0% |     119 |  162.42 |    5.01 | 12 |  0 |  0 |     0.0 |
-   |    5 |      39 | tok_39         |  158.03 | 100.0% |     246 |  148.54 |    5.01 |  0 |  0 |  0 |     0.0 |
-   |    6 |      55 | tok_55         |  191.28 |  98.6% |     119 |  187.05 |    5.06 | 12 |  0 |  0 |     0.0 |
-   |    7 |      36 | tok_36         |   70.07 | 100.0% |     145 |   61.63 |    5.06 |  0 |  0 |  0 |     0.0 |
-   |    8 |     246 | tok_246        |  205.36 | 100.0% |      86 |  185.83 |    5.06 | 12 |  0 |  0 |     0.0 |
-   |   18 |     246 | tok_246        |  185.81 | 100.0% |      55 |  160.85 |    5.35 | 12 |  0 |  0 |     0.0 |
-   |   19 |     228 | tok_228        |   93.10 |  98.4% |      40 |   88.99 |    5.35 |  0 |  0 |  0 |     0.0 |
-   |   20 |      86 | tok_86         |  167.81 |  99.1% |     246 |  163.11 |    5.28 | 12 |  0 |  0 |     0.0 |
-   |   21 |      68 | tok_68         |  177.01 | 100.0% |     246 |  152.23 |    5.28 |  0 |  0 |  0 |     0.0 |
-   |   30 |     246 | tok_246        |  176.20 | 100.0% |     124 |  160.53 |    5.06 | 12 |  0 |  0 |     0.0 |
-   |   31 |     229 | tok_229        |  171.33 | 100.0% |      70 |  153.29 |    5.06 |  0 |  0 |  0 |     0.0 |
-   |   32 |      21 | tok_21         |  222.52 |  97.9% |      86 |  218.66 |    5.00 | 12 |  0 |  0 |     0.0 |
-   |   33 |     246 | tok_246        |  115.62 | 100.0% |     232 |   96.08 |    5.00 |  0 |  0 |  0 |     0.0 |
+   |    1 |      55 | tok_55         |  190.69 |  99.3% |     246 |  185.76 | 2192.14 |  0 |  0 |  0 |     0.0 |
+   |    2 |      55 | tok_55         |  179.98 | 100.0% |     246 |  150.29 |    5.08 | 12 |  0 |  0 |     0.0 |
+   |    3 |     175 | tok_175        |   77.47 |  67.6% |     179 |   76.74 |    5.08 |  0 |  0 |  0 |     0.0 |
+   |    4 |      55 | tok_55         |  178.88 | 100.0% |     119 |  162.42 |    5.05 | 12 |  0 |  0 |     0.0 |
+   |    5 |      39 | tok_39         |  158.03 | 100.0% |     246 |  148.54 |    5.05 |  0 |  0 |  0 |     0.0 |
+   |    6 |      55 | tok_55         |  191.28 |  98.6% |     119 |  187.05 |    5.16 | 12 |  0 |  0 |     0.0 |
+   |    7 |      36 | tok_36         |   70.07 | 100.0% |     145 |   61.63 |    5.16 |  0 |  0 |  0 |     0.0 |
+   |    8 |     246 | tok_246        |  205.36 | 100.0% |      86 |  185.83 |    5.10 | 12 |  0 |  0 |     0.0 |
+   |   28 |     246 | tok_246        |  194.87 | 100.0% |      54 |  173.43 |    5.13 | 12 |  0 |  0 |     0.0 |
+   |   29 |     229 | tok_229        |  172.54 | 100.0% |      70 |  154.16 |    5.13 |  0 |  0 |  0 |     0.0 |
+   |   12 |      86 | tok_86         |  168.49 |  89.7% |     246 |  166.31 |    5.10 | 12 |  0 |  0 |     0.0 |
+   |   13 |      68 | tok_68         |  148.39 | 100.0% |     104 |  119.46 |    5.10 |  0 |  0 |  0 |     0.0 |
+   |   30 |     246 | tok_246        |  176.20 | 100.0% |     124 |  160.53 |    5.08 | 12 |  0 |  0 |     0.0 |
+   |   31 |     229 | tok_229        |  171.33 | 100.0% |      70 |  153.29 |    5.08 |  0 |  0 |  0 |     0.0 |
+   |   32 |      21 | tok_21         |  222.52 |  97.9% |      86 |  218.66 |    5.06 | 12 |  0 |  0 |     0.0 |
+   |   33 |     246 | tok_246        |  115.62 | 100.0% |     232 |   96.08 |    5.06 |  0 |  0 |  0 |     0.0 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (2048 tok, 2.208s, TTFT=2208.10ms): Avg=927.49 | Min=697.13 | Max=1380.69 tps
-   Prefill Chunks (8): C1:256t/1380.7tps/100% | C2:256t/1215.6tps/100% | C3:256t/1096.7tps/100% | C4:256t/972.9tps/100%
-                       C5:256t/886.9tps/100% | C6:256t/804.6tps/100% | C7:256t/749.7tps/100% | C8:256t/697.1tps/100%
-   Decode  (32 tok, 0.164s): Avg=195.57 | Min=187.02 | Max=199.99 tps
-   Latency (ms) : Min=5.00 | P10=5.00 | P25=5.04 | P50=5.06 | P75=5.22 | P90=5.28 | P95=5.35 | P99=5.35 | Max=5.35
-   Mean/SD/Jitt : Mean=5.11ms | StdDev=0.11ms | Jitter=0.03ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
+   Prefill (2048 tok, 2.192s, TTFT=2192.14ms): Avg=934.25 | Min=691.58 | Max=1423.48 tps
+   Prefill Chunks (8): C1:256t/1423.5tps/100% | C2:256t/1235.4tps/100% | C3:256t/1116.9tps/100% | C4:256t/964.1tps/100%
+                       C5:256t/901.0tps/100% | C6:256t/806.8tps/100% | C7:256t/755.8tps/100% | C8:256t/691.6tps/100%
+   Decode  (32 tok, 0.162s): Avg=197.00 | Min=193.72 | Max=198.98 tps
+   Latency (ms) : Min=5.03 | P10=5.04 | P25=5.05 | P50=5.08 | P75=5.10 | P90=5.13 | P95=5.16 | P99=5.16 | Max=5.16
+   Mean/SD/Jitt : Mean=5.08ms | StdDev=0.03ms | Jitter=0.02ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
    MTP Head     : 16/16 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
@@ -1466,30 +1403,30 @@ Cloning into 'Apex-Inference-v1'...
    SSD Data/Token (Decode)      : Avg=0.000 MB/tok (Min=0.000 | P50=0.000 | P95=0.000 | Max=0.000 MB) | Prefill=0.000 MB/tok
    NVMe Batches / Requests      : 1 Batches | 331 Raw -> 143 Merged (188 LBA Merges, Avg 47.1 KB/io)
    SSD I/O Size Histogram       : <64K=107 | 64K-512K=32 | 512K-2M=4 | >2M=0
-   SSD Read Bandwidth (Active)  : Min=300.62 | Avg=2633.47 | Peak=6578.95 MB/s | WallAmort=2.77 MB/s
+   SSD Read Bandwidth (Active)  : Min=247.52 | Avg=2558.28 | Peak=6443.30 MB/s | WallAmort=2.79 MB/s
    OS Kernel I/O Verification   : Read=6.59 MB | Write=0.00 MB | Syscalls=160
-   Sync Stall vs Async DMA      : SyncStall=0.00 ms | AsyncOverlapped=1.11 ms (100.0% Overlapped)
-   RAM Traffic & Active BW      : 1.43 GB moved | Active=0.64 GB/s | WallAmort=0.60 GB/s
-   Stage Breakdown (Pref/Dec)   : Prefill=2.21s (93.1%, 0.00 MB SSD) | Decode=0.16s (6.9%, 0.00 MB SSD)
-   CPU Time & Utilization       : User=2.906s + Sys=0.750s (Wall=2.390s) | SysUtil=38.2% | ThrUtil=38.2% | 35.37 GFLOPS
+   Sync Stall vs Async DMA      : SyncStall=0.00 ms | AsyncOverlapped=1.22 ms (100.0% Overlapped)
+   RAM Traffic & Active BW      : 1.41 GB moved | Active=0.63 GB/s | WallAmort=0.60 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=2.19s (93.1%, 0.00 MB SSD) | Decode=0.16s (6.9%, 0.00 MB SSD)
+   CPU Time & Utilization       : User=2.938s + Sys=0.734s (Wall=2.371s) | SysUtil=38.7% | ThrUtil=38.7% | 35.82 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :   1995.53 ms (  959.4 us/tok | 84.14%)
-   MoE AVX2 Q8 Expert Compute   :    251.09 ms (  120.7 us/tok | 10.59%)
-   Router + Lookahead Dispatch  :     59.07 ms (   28.4 us/tok |  2.49%)
-   LM Head Output Projection    :      5.98 ms (    2.9 us/tok |  0.25%)
+   Dense + Attention/Linear SSM :   1983.01 ms (  953.4 us/tok | 84.22%)
+   MoE AVX2 Q8 Expert Compute   :    249.12 ms (  119.8 us/tok | 10.58%)
+   Router + Lookahead Dispatch  :     59.48 ms (   28.6 us/tok |  2.53%)
+   LM Head Output Projection    :      5.71 ms (    2.7 us/tok |  0.24%)
    Foreground NVMe Sync Stall   :      0.00 ms (    0.0 us/tok |  0.00%)
-   Unaccounted / OMP & Sampling :     60.06 ms (   28.9 us/tok |  2.53%) | Total Wall=2371.73 ms
+   Unaccounted / OMP & Sampling :     57.26 ms (   27.5 us/tok |  2.43%) | Total Wall=2354.58 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    16.08%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     2.13%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    16.56%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     2.15%  |
    | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     0.09%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    79.68%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.02%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    79.20%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.00%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -1501,18 +1438,18 @@ Cloning into 'Apex-Inference-v1'...
 === [TEST] Qwen-3.8-Flash-Next 2048-Token Prefill & Decode + MTP Off/On A/B Benchmark: ./apex.exe bench --model tests/synth_qwen38_ud_iq2_xs.gguf --prompt-tokens 2048 --gen-tokens 32 --mtp on --no-hwtest ===
 [Apex-Init] Model Loaded: Qwen3.8-Flash-Next-UD-IQ2_XS-Synthetic | Layers=4 | Hidden=256 | Experts=16 (Top-4) | Pinned Trunk=4.70 MB | Expert Cache=2.17 MB (40 slots)
 [Apex-Prompt] Input (2048 tokens): "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/2048 tok | Chunk=1969.71 tps | Avg=1969.71 tps | Hit=99.2% | NVMe=2663.2 MB/s (24.91 MB, QD=64) | RSS=89.2 MB
-[LIVE-PREFILL] 512/2048 tok | Chunk=1845.16 tps | Avg=1905.40 tps | Hit=99.2% | NVMe=3599.5 MB/s (42.92 MB, QD=64) | RSS=89.4 MB
-[LIVE-PREFILL] 768/2048 tok | Chunk=1726.69 tps | Avg=1841.86 tps | Hit=99.2% | NVMe=4158.8 MB/s (61.04 MB, QD=64) | RSS=89.8 MB
-[LIVE-PREFILL] 1024/2048 tok | Chunk=1582.15 tps | Avg=1769.25 tps | Hit=99.2% | NVMe=4623.7 MB/s (79.10 MB, QD=64) | RSS=90.1 MB
-[LIVE-PREFILL] 1280/2048 tok | Chunk=1553.52 tps | Avg=1721.44 tps | Hit=99.2% | NVMe=4957.5 MB/s (97.14 MB, QD=64) | RSS=90.5 MB
-[LIVE-PREFILL] 1536/2048 tok | Chunk=1425.97 tps | Avg=1663.98 tps | Hit=99.2% | NVMe=5192.9 MB/s (115.20 MB, QD=64) | RSS=91.0 MB
-[LIVE-PREFILL] 1792/2048 tok | Chunk=1292.10 tps | Avg=1598.26 tps | Hit=99.2% | NVMe=5384.6 MB/s (133.27 MB, QD=64) | RSS=91.5 MB
-[LIVE-PREFILL] 2048/2048 tok | Chunk=1281.33 tps | Avg=1550.33 tps | Hit=99.2% | NVMe=5559.7 MB/s (151.30 MB, QD=64) | RSS=91.8 MB
-[LIVE-DECODE] 8/32 tok | Avg=178.69 tps | Hit=99.2% (LA:+0.0%) | NVMe=5460.8 MB/s (152.70 MB) | RSS=91.8 MB
-[LIVE-DECODE] 16/32 tok | Avg=179.25 tps | Hit=99.2% (LA:+0.1%) | NVMe=5406.6 MB/s (153.28 MB) | RSS=91.8 MB
-[LIVE-DECODE] 24/32 tok | Avg=179.06 tps | Hit=99.2% (LA:+0.1%) | NVMe=5308.4 MB/s (154.23 MB) | RSS=91.8 MB
-[LIVE-DECODE] 32/32 tok | Avg=179.23 tps | Hit=99.2% (LA:+0.1%) | NVMe=5228.4 MB/s (155.14 MB) | RSS=91.8 MB
+[LIVE-PREFILL] 256/2048 tok | Chunk=1881.55 tps | Avg=1881.55 tps | Hit=99.2% | NVMe=2630.7 MB/s (24.91 MB, QD=64) | RSS=85.7 MB
+[LIVE-PREFILL] 512/2048 tok | Chunk=1839.90 tps | Avg=1860.49 tps | Hit=99.2% | NVMe=3642.9 MB/s (42.92 MB, QD=64) | RSS=85.9 MB
+[LIVE-PREFILL] 768/2048 tok | Chunk=1698.00 tps | Avg=1802.98 tps | Hit=99.2% | NVMe=4227.4 MB/s (61.04 MB, QD=64) | RSS=86.2 MB
+[LIVE-PREFILL] 1024/2048 tok | Chunk=1583.47 tps | Avg=1742.59 tps | Hit=99.2% | NVMe=4672.8 MB/s (79.10 MB, QD=64) | RSS=86.5 MB
+[LIVE-PREFILL] 1280/2048 tok | Chunk=1532.98 tps | Avg=1696.20 tps | Hit=99.2% | NVMe=5003.8 MB/s (97.14 MB, QD=64) | RSS=87.0 MB
+[LIVE-PREFILL] 1536/2048 tok | Chunk=1437.07 tps | Avg=1646.71 tps | Hit=99.2% | NVMe=5240.8 MB/s (115.20 MB, QD=64) | RSS=87.5 MB
+[LIVE-PREFILL] 1792/2048 tok | Chunk=1319.63 tps | Avg=1590.40 tps | Hit=99.2% | NVMe=5455.6 MB/s (133.27 MB, QD=64) | RSS=87.9 MB
+[LIVE-PREFILL] 2048/2048 tok | Chunk=1284.94 tps | Avg=1544.50 tps | Hit=99.2% | NVMe=5675.4 MB/s (151.30 MB, QD=64) | RSS=88.2 MB
+[LIVE-DECODE] 8/32 tok | Avg=177.42 tps | Hit=99.2% (LA:+0.0%) | NVMe=5570.0 MB/s (152.70 MB) | RSS=88.3 MB
+[LIVE-DECODE] 16/32 tok | Avg=178.05 tps | Hit=99.2% (LA:+0.1%) | NVMe=5518.3 MB/s (153.28 MB) | RSS=88.3 MB
+[LIVE-DECODE] 24/32 tok | Avg=178.14 tps | Hit=99.2% (LA:+0.1%) | NVMe=5423.9 MB/s (154.23 MB) | RSS=88.3 MB
+[LIVE-DECODE] 32/32 tok | Avg=178.43 tps | Hit=99.2% (LA:+0.1%) | NVMe=5333.8 MB/s (155.30 MB) | RSS=88.3 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
@@ -1525,8 +1462,8 @@ Cloning into 'Apex-Inference-v1'...
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
    GGUF Total / SSD Pool        : 0.01 GB GGUF | 0.00 GB Routed Experts on NVMe
    Pinned Dense / KV+State RAM  : Dense=4.70 MB | KV/State=22.85 MB (13824 B/tok)
-   LRFU Cache / Staging Ring    : 2.17 MB (40/80 exp = 50.00% pinned) | Staging=3.47 MB
-   Process RSS (Start/End/Peak) : Start=4.86 MB | End=91.78 MB | Peak=91.78 MB
+   LRFU Cache / Staging Ring    : 2.17 MB (40/80 exp = 50.00% pinned) | Staging=1.73 MB
+   Process RSS (Start/End/Peak) : Start=4.87 MB | End=88.26 MB | Peak=88.26 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (2048 tok)   : "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequen..."
@@ -1537,75 +1474,75 @@ Cloning into 'Apex-Inference-v1'...
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |      49 | qtok_49        |   63.71 |  97.6% |     254 |   59.93 | 1321.01 |  0 |  0 |  0 |     0.0 |
-   |    2 |     254 | qtok_254       |   63.01 | 100.0% |       2 |   54.14 |    5.64 |  6 | 10 |  0 |   535.5 |
-   |    3 |      49 | qtok_49        |   93.73 | 100.0% |     177 |   84.12 |    5.64 |  0 |  0 |  0 |   535.5 |
-   |    4 |     254 | qtok_254       |   65.57 | 100.0% |       2 |   56.25 |    5.61 | 15 |  1 |  0 |    59.8 |
-   |    5 |      49 | qtok_49        |   84.71 |  99.7% |     177 |   78.29 |    5.61 |  0 |  0 |  0 |    59.8 |
-   |    6 |     254 | qtok_254       |   70.80 | 100.0% |       2 |   58.38 |    5.62 | 15 |  1 |  0 |    87.5 |
-   |    7 |      49 | qtok_49        |   83.85 |  99.9% |     129 |   77.09 |    5.62 |  0 |  0 |  0 |    87.5 |
-   |    8 |     254 | qtok_254       |   72.14 | 100.0% |      66 |   61.47 |    5.51 | 16 |  0 |  0 |    32.0 |
+   |    1 |      49 | qtok_49        |   63.71 |  97.6% |     254 |   59.93 | 1325.99 |  0 |  0 |  0 |     0.0 |
+   |    2 |     254 | qtok_254       |   63.01 | 100.0% |       2 |   54.14 |    5.69 |  6 | 10 |  0 |   535.5 |
+   |    3 |      49 | qtok_49        |   93.73 | 100.0% |     177 |   84.12 |    5.69 |  0 |  0 |  0 |   535.5 |
+   |    4 |     254 | qtok_254       |   65.57 | 100.0% |       2 |   56.25 |    5.58 | 15 |  1 |  0 |    59.8 |
+   |    5 |      49 | qtok_49        |   84.71 |  99.7% |     177 |   78.29 |    5.58 |  0 |  0 |  0 |    59.8 |
+   |    6 |     254 | qtok_254       |   70.80 | 100.0% |       2 |   58.38 |    5.63 | 15 |  1 |  0 |    87.5 |
+   |    7 |      49 | qtok_49        |   83.85 |  99.9% |     129 |   77.09 |    5.63 |  0 |  0 |  0 |    87.5 |
+   |    8 |     254 | qtok_254       |   72.14 | 100.0% |      66 |   61.47 |    5.66 | 16 |  0 |  0 |    32.0 |
+   |   28 |      49 | qtok_49        |   65.10 | 100.0% |      18 |   55.78 |    5.66 | 10 |  6 |  0 |   198.5 |
+   |   29 |     148 | qtok_148       |   77.89 | 100.0% |     127 |   51.09 |    5.66 |  0 |  0 |  0 |   198.5 |
+   |    9 |      49 | qtok_49        |   84.72 | 100.0% |     129 |   76.64 |    5.66 |  0 |  0 |  0 |    32.0 |
    |   10 |     254 | qtok_254       |   70.81 |  99.7% |      66 |   64.77 |    5.64 | 15 |  1 |  0 |    59.8 |
-   |   11 |      49 | qtok_49        |   84.60 |  79.6% |     129 |   83.23 |    5.64 |  0 |  0 |  0 |    59.8 |
-   |   20 |     193 | qtok_193       |   68.95 | 100.0% |      17 |   58.95 |    5.63 | 14 |  2 |  0 |    87.5 |
-   |   21 |      63 | qtok_63        |   75.06 |  99.9% |     193 |   67.57 |    5.63 |  0 |  0 |  0 |    87.5 |
-   |   30 |     254 | qtok_254       |   59.08 |  96.0% |      49 |   55.91 |    5.49 | 14 |  2 |  0 |   115.2 |
-   |   31 |      48 | qtok_48        |  139.73 | 100.0% |      49 |  108.61 |    5.49 |  0 |  0 |  0 |   115.2 |
-   |   32 |     254 | qtok_254       |   53.74 |  72.9% |     194 |   52.16 |    5.59 | 14 |  2 |  0 |    87.5 |
-   |   33 |      49 | qtok_49        |  132.17 | 100.0% |      48 |  102.59 |    5.59 |  0 |  0 |  0 |    87.5 |
+   |   30 |     254 | qtok_254       |   59.08 |  96.0% |      49 |   55.91 |    5.55 | 14 |  2 |  0 |   115.2 |
+   |   31 |      48 | qtok_48        |  139.73 | 100.0% |      49 |  108.61 |    5.55 |  0 |  0 |  0 |   115.2 |
+   |   32 |     254 | qtok_254       |   53.74 |  72.9% |     194 |   52.16 |    5.56 | 14 |  2 |  0 |    87.5 |
+   |   33 |      49 | qtok_49        |  132.17 | 100.0% |      48 |  102.59 |    5.56 |  0 |  0 |  0 |    87.5 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (2048 tok, 1.321s, TTFT=1321.01ms): Avg=1550.33 | Min=1281.33 | Max=1969.71 tps
-   Prefill Chunks (8): C1:256t/1969.7tps/99% | C2:256t/1845.2tps/99% | C3:256t/1726.7tps/99% | C4:256t/1582.2tps/99%
-                       C5:256t/1553.5tps/99% | C6:256t/1426.0tps/99% | C7:256t/1292.1tps/99% | C8:256t/1281.3tps/99%
-   Decode  (32 tok, 0.179s): Avg=179.23 | Min=177.21 | Max=182.26 tps
-   Latency (ms) : Min=5.49 | P10=5.51 | P25=5.55 | P50=5.59 | P75=5.62 | P90=5.64 | P95=5.64 | P99=5.64 | Max=5.64
-   Mean/SD/Jitt : Mean=5.58ms | StdDev=0.05ms | Jitter=0.03ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
+   Prefill (2048 tok, 1.326s, TTFT=1325.99ms): Avg=1544.50 | Min=1284.94 | Max=1881.55 tps
+   Prefill Chunks (8): C1:256t/1881.5tps/99% | C2:256t/1839.9tps/99% | C3:256t/1698.0tps/99% | C4:256t/1583.5tps/99%
+                       C5:256t/1533.0tps/99% | C6:256t/1437.1tps/99% | C7:256t/1319.6tps/99% | C8:256t/1284.9tps/99%
+   Decode  (32 tok, 0.179s): Avg=178.43 | Min=175.87 | Max=180.68 tps
+   Latency (ms) : Min=5.53 | P10=5.55 | P25=5.57 | P50=5.62 | P75=5.64 | P90=5.66 | P95=5.69 | P99=5.69 | Max=5.69
+   Mean/SD/Jitt : Mean=5.60ms | StdDev=0.04ms | Jitter=0.03ms | Hist(<25/50/100/200/>200ms): 32/0/0/0/0
    MTP Head     : 16/16 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
    Activations (33024): RawRAM=32726 (99.10%) | Lookahead=42 (+0.13%) | ColdMiss=256 (0.78%) | EFF HIT=99.22%
-   Lookahead    : 52 prefetched -> 46 consumed (88.5% util) | Warmup >=75%:1t, >=85%:1t
+   Lookahead    : 55 prefetched -> 46 consumed (83.6% util) | Warmup >=75%:1t, >=85%:1t
    Trajectory   : @16= 99.2% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L00 | 8256 | 8190 |   2 |  64 | 99.2%|   3.58 | | L02 | 8256 | 8171 |  21 |  64 | 99.2%|   4.82 |
+   | L00 | 8256 | 8190 |   2 |  64 | 99.2%|   3.58 | | L02 | 8256 | 8171 |  21 |  64 | 99.2%|   4.99 |
    | L01 | 8256 | 8179 |  13 |  64 | 99.2%|   4.23 | | L03 | 8256 | 8186 |   6 |  64 | 99.2%|   3.85 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 155.14 MB (Load=6.87 | Prefill=144.44 | Warmup=0.00 | Decode=3.83 MB)
-   SSD Data/Token (Decode)      : Avg=0.120 MB/tok (Min=0.031 | P50=0.113 | P95=0.523 | Max=0.523 MB) | Prefill=0.071 MB/tok
-   NVMe Batches / Requests      : 92 Batches | 34197 Raw -> 371 Merged (33826 LBA Merges, Avg 428.2 KB/io)
-   SSD I/O Size Histogram       : <64K=217 | 64K-512K=154 | 512K-2M=0 | >2M=0
-   SSD Read Bandwidth (Active)  : Min=438.51 | Avg=5228.36 | Peak=10603.91 MB/s | WallAmort=103.46 MB/s
-   OS Kernel I/O Verification   : Read=24.31 MB | Write=0.00 MB | Syscalls=388
-   Sync Stall vs Async DMA      : SyncStall=6.34 ms | AsyncOverlapped=27.79 ms (81.4% Overlapped)
-   RAM Traffic & Active BW      : 2.10 GB moved | Active=1.61 GB/s | WallAmort=1.40 GB/s
-   Stage Breakdown (Pref/Dec)   : Prefill=1.32s (88.1%, 144.44 MB SSD) | Decode=0.18s (11.9%, 3.83 MB SSD)
-   CPU Time & Utilization       : User=2.719s + Sys=0.469s (Wall=1.530s) | SysUtil=52.1% | ThrUtil=52.1% | 48.19 GFLOPS
+   Engine SSD Transfer Total    : 155.30 MB (Load=6.87 | Prefill=144.44 | Warmup=0.00 | Decode=4.00 MB)
+   SSD Data/Token (Decode)      : Avg=0.125 MB/tok (Min=0.031 | P50=0.113 | P95=0.523 | Max=0.523 MB) | Prefill=0.071 MB/tok
+   NVMe Batches / Requests      : 93 Batches | 34206 Raw -> 374 Merged (33832 LBA Merges, Avg 425.2 KB/io)
+   SSD I/O Size Histogram       : <64K=220 | 64K-512K=154 | 512K-2M=0 | >2M=0
+   SSD Read Bandwidth (Active)  : Min=453.93 | Avg=5333.82 | Peak=11397.55 MB/s | WallAmort=103.17 MB/s
+   OS Kernel I/O Verification   : Read=24.47 MB | Write=0.00 MB | Syscalls=391
+   Sync Stall vs Async DMA      : SyncStall=5.80 ms | AsyncOverlapped=27.10 ms (82.4% Overlapped)
+   RAM Traffic & Active BW      : 2.10 GB moved | Active=1.60 GB/s | WallAmort=1.40 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=1.33s (88.1%, 144.44 MB SSD) | Decode=0.18s (11.9%, 4.00 MB SSD)
+   CPU Time & Utilization       : User=2.812s + Sys=0.500s (Wall=1.538s) | SysUtil=53.9% | ThrUtil=53.9% | 49.81 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :    927.15 ms (  445.7 us/tok | 61.83%)
-   MoE AVX2 Q8 Expert Compute   :    375.58 ms (  180.6 us/tok | 25.05%)
-   Router + Lookahead Dispatch  :     81.43 ms (   39.1 us/tok |  5.43%)
-   LM Head Output Projection    :      5.82 ms (    2.8 us/tok |  0.39%)
-   Foreground NVMe Sync Stall   :      6.34 ms (    3.0 us/tok |  0.42%)
-   Unaccounted / OMP & Sampling :    103.23 ms (   49.6 us/tok |  6.88%) | Total Wall=1499.55 ms
+   Dense + Attention/Linear SSM :    933.76 ms (  448.9 us/tok | 62.03%)
+   MoE AVX2 Q8 Expert Compute   :    375.65 ms (  180.6 us/tok | 24.95%)
+   Router + Lookahead Dispatch  :     81.78 ms (   39.3 us/tok |  5.43%)
+   LM Head Output Projection    :      5.86 ms (    2.8 us/tok |  0.39%)
+   Foreground NVMe Sync Stall   :      5.80 ms (    2.8 us/tok |  0.39%)
+   Unaccounted / OMP & Sampling :    102.48 ms (   49.3 us/tok |  6.81%) | Total Wall=1505.34 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    18.06%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     5.87%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     1.92%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    69.67%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    17.72%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     5.85%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     1.86%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    70.09%  |
    | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     4.48%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
@@ -1630,27 +1567,27 @@ Cloning into 'Apex-Inference-v1'...
   "quantization": "Unsloth UD-IQ2_XXS",
   "mtp_enabled": false,
   "dense_pinned_ram_bytes": 3037760,
-  "kv_cache_ram_bytes": 21282816,
-  "kv_bytes_per_token": 14080,
+  "kv_cache_ram_bytes": 10797056,
+  "kv_bytes_per_token": 2560,
   "expert_cache_ram_bytes": 2534400,
   "ssd_offloaded_expert_bytes": 2433024,
   "prefill": {
     "tokens": 164,
-    "ttft_ms": 238.43,
-    "avg_tps": 687.82,
-    "min_tps": 567.72,
-    "max_tps": 796.7
+    "ttft_ms": 237.77,
+    "avg_tps": 689.75,
+    "min_tps": 564.19,
+    "max_tps": 784.91
   },
   "decode": {
     "tokens": 39,
-    "avg_tps": 141.26,
-    "min_tps": 116.99,
-    "max_tps": 150.78,
-    "p50_ms": 6.84,
-    "p90_ms": 8.29,
-    "p99_ms": 8.55,
-    "mean_ms": 7.08,
-    "jitter_ms": 0.23
+    "avg_tps": 143.26,
+    "min_tps": 129.12,
+    "max_tps": 146.89,
+    "p50_ms": 6.91,
+    "p90_ms": 7.26,
+    "p99_ms": 7.74,
+    "mean_ms": 6.98,
+    "jitter_ms": 0.16
   },
   "cache": {
     "raw_hit_rate_pct": 100.0,
@@ -1663,10 +1600,10 @@ Cloning into 'Apex-Inference-v1'...
     "warmup_bytes": 0,
     "decode_bytes": 0,
     "bytes_per_token": 26949.67,
-    "avg_mbs": 2370.23,
-    "peak_mbs": 6127.45,
+    "avg_mbs": 2606.72,
+    "peak_mbs": 5813.95,
     "sync_wait_ms": 0.0,
-    "async_overlap_ms": 0.83
+    "async_overlap_ms": 0.86
   },
   "os_verification": {
     "io_read_bytes": 0,
@@ -1674,21 +1611,21 @@ Cloning into 'Apex-Inference-v1'...
     "io_syscalls": 0,
     "cpu_user_sec": 0.0,
     "cpu_sys_sec": 0.0,
-    "ram_bytes_moved": 272146688
+    "ram_bytes_moved": 269808128
   },
   "kernel_attribution_ms": {
-    "dense_attention": 386.75,
-    "moe_compute": 105.1,
-    "router_lookahead": 7.23,
-    "lm_head": 8.86,
-    "unaccounted": 6.58
+    "dense_attention": 381.3,
+    "moe_compute": 106.07,
+    "router_lookahead": 7.25,
+    "lm_head": 8.97,
+    "unaccounted": 6.41
   },
   "resource_contribution_pct": {
-    "cpu_avx2_fma": 87.61,
-    "ram_bandwidth_pinning": 1.9,
-    "expert_cache_lrfu": 8.69,
-    "lookahead_parallel_overlap": 1.41,
-    "ssd_nvme_throughput": 0.39,
+    "cpu_avx2_fma": 88.25,
+    "ram_bandwidth_pinning": 1.92,
+    "expert_cache_lrfu": 8.03,
+    "lookahead_parallel_overlap": 1.44,
+    "ssd_nvme_throughput": 0.36,
     "total": 100.0
   }
 }
@@ -1714,21 +1651,21 @@ Cloning into 'Apex-Inference-v1'...
   "ssd_offloaded_expert_bytes": 3653632,
   "prefill": {
     "tokens": 164,
-    "ttft_ms": 302.44,
-    "avg_tps": 542.25,
-    "min_tps": 383.62,
-    "max_tps": 613.24
+    "ttft_ms": 307.15,
+    "avg_tps": 533.95,
+    "min_tps": 378.06,
+    "max_tps": 613.33
   },
   "decode": {
     "tokens": 39,
-    "avg_tps": 126.91,
-    "min_tps": 115.19,
-    "max_tps": 130.66,
-    "p50_ms": 7.83,
-    "p90_ms": 8.14,
-    "p99_ms": 8.68,
-    "mean_ms": 7.88,
-    "jitter_ms": 0.2
+    "avg_tps": 123.08,
+    "min_tps": 98.61,
+    "max_tps": 129.4,
+    "p50_ms": 7.89,
+    "p90_ms": 9.0,
+    "p99_ms": 10.14,
+    "mean_ms": 8.12,
+    "jitter_ms": 0.25
   },
   "cache": {
     "raw_hit_rate_pct": 85.44,
@@ -1736,15 +1673,15 @@ Cloning into 'Apex-Inference-v1'...
     "warmup_tokens_to_75pct": 1
   },
   "ssd": {
-    "total_bytes_transferred": 37925472,
+    "total_bytes_transferred": 37982304,
     "prefill_bytes": 20240384,
     "warmup_bytes": 0,
-    "decode_bytes": 12128256,
-    "bytes_per_token": 186824.99,
-    "avg_mbs": 2444.13,
-    "peak_mbs": 8680.56,
-    "sync_wait_ms": 4.73,
-    "async_overlap_ms": 13.49
+    "decode_bytes": 12185088,
+    "bytes_per_token": 187104.95,
+    "avg_mbs": 2682.39,
+    "peak_mbs": 9432.87,
+    "sync_wait_ms": 4.57,
+    "async_overlap_ms": 12.34
   },
   "os_verification": {
     "io_read_bytes": 0,
@@ -1755,18 +1692,18 @@ Cloning into 'Apex-Inference-v1'...
     "ram_bytes_moved": 366830592
   },
   "kernel_attribution_ms": {
-    "dense_attention": 344.83,
-    "moe_compute": 200.36,
-    "router_lookahead": 9.13,
-    "lm_head": 8.4,
-    "unaccounted": 42.29
+    "dense_attention": 355.28,
+    "moe_compute": 203.06,
+    "router_lookahead": 9.2,
+    "lm_head": 8.94,
+    "unaccounted": 42.96
   },
   "resource_contribution_pct": {
-    "cpu_avx2_fma": 81.31,
-    "ram_bandwidth_pinning": 2.16,
-    "expert_cache_lrfu": 9.04,
-    "lookahead_parallel_overlap": 4.63,
-    "ssd_nvme_throughput": 2.86,
+    "cpu_avx2_fma": 82.66,
+    "ram_bandwidth_pinning": 2.14,
+    "expert_cache_lrfu": 8.17,
+    "lookahead_parallel_overlap": 4.39,
+    "ssd_nvme_throughput": 2.64,
     "total": 100.0
   }
 }
@@ -1797,41 +1734,41 @@ Host CPU: AMD EPYC 7763 64-Core Processor | Cores=2 Threads=4 | RAM=15.99 GB
    CPU Model          : AMD EPYC 7763 64-Core Processor                
    Cores / Threads    : 2 Physical / 4 Logical
    SIMD ISA Support   : AVX2=YES | FMA=YES | F16C=YES | AVX-VNNI=NO | AVX512-VNNI=NO
-   System Memory (RAM): 15.99 GB Total / 13.47 GB Available
+   System Memory (RAM): 15.99 GB Total / 13.45 GB Available
    Active Drive Space : 150.00 GB Total / 146.95 GB Free
 --------------------------------------------------------------------------------
  [CrystalDiskMark-Style NVMe SSD Storage Benchmark]
-   SEQ1M Direct Uncached NVMe Read    :    510.04 MB/s (Hardware Floor)
-   SEQ1M Q8T1  Read (OS-Cached Max)   :   1467.63 MB/s
-   SEQ1M Q1T1  Read (Single Queue)    :   8015.68 MB/s
-   SEQ128K Q32T1 Expert-Stripe Read   :  10515.33 MB/s
-   RND4K Q32T16 Read                  :    499.72 MB/s (  127928 IOPS)
-   RND4K Q1T1  Read                   :    736.21 MB/s (Latency: 5.31 us)
+   SEQ1M Direct Uncached NVMe Read    :    495.52 MB/s (Hardware Floor)
+   SEQ1M Q8T1  Read (OS-Cached Max)   :   1469.92 MB/s
+   SEQ1M Q1T1  Read (Single Queue)    :   8190.95 MB/s
+   SEQ128K Q32T1 Expert-Stripe Read   :  10639.14 MB/s
+   RND4K Q32T16 Read                  :    481.64 MB/s (  123300 IOPS)
+   RND4K Q1T1  Read                   :    742.78 MB/s (Latency: 5.26 us)
 --------------------------------------------------------------------------------
  [PassMark / STREAM System RAM Bandwidth & Latency Benchmark]
-   AVX2 256-bit Sequential Read BW    :     59.02 GB/s
-   AVX2 256-bit Sequential Write BW   :     38.52 GB/s
-   STREAM Triad (A = B + s*C) BW      :     41.90 GB/s
-   Random Pointer-Chase Latency       :     56.58 ns
+   AVX2 256-bit Sequential Read BW    :     60.72 GB/s
+   AVX2 256-bit Sequential Write BW   :     49.87 GB/s
+   STREAM Triad (A = B + s*C) BW      :     41.33 GB/s
+   Random Pointer-Chase Latency       :     51.89 ns
 --------------------------------------------------------------------------------
  [PassMark-Style CPU AVX2+FMA Compute & IQ2 Kernel Benchmark]
-   Single-Core AVX2+FMA Throughput    :     51.29 GFLOPS
-   Multi-Core  AVX2+FMA Throughput    :    190.98 GFLOPS
-   IQ2_XXS/XS Fused Dot Effective BW  :     22.97 GB/s (FP32 Equiv)
+   Single-Core AVX2+FMA Throughput    :     51.03 GFLOPS
+   Multi-Core  AVX2+FMA Throughput    :    183.09 GFLOPS
+   IQ2_XXS/XS Fused Dot Effective BW  :     21.47 GB/s (FP32 Equiv)
 ================================================================================
 
 
 ================================================================================
  [Disk Throttle Probe] 1024 MB Uncached Direct I/O Test on C:/apex_c_drive
-   Drive Free: 30.98 GB / 149.89 GB | Bypassing OS Page Cache (Direct/Unbuffered)
+   Drive Free: 31.00 GB / 149.89 GB | Bypassing OS Page Cache (Direct/Unbuffered)
 --------------------------------------------------------------------------------
-   Uncached Write (1024 MB)      : 165.50 MB/s (6.19s)
-   Window #01 (300.0 MB in 0.51s):   593.82 MB/s (Uncached Direct Read)
-   Window #02 (196.0 MB in 0.50s):   391.64 MB/s (Uncached Direct Read)
-   Window #03 (196.0 MB in 0.50s):   388.70 MB/s (Uncached Direct Read)
-   Window #04 (216.0 MB in 0.54s):   403.41 MB/s (Uncached Direct Read)
-   Window #05 (116.0 MB in 0.27s):   432.17 MB/s (Uncached Direct Read)
-   Sustained Uncached Read Avg  :   442.56 MB/s (Min=388.70 | Max=593.82 MB/s)
+   Uncached Write (1024 MB)      : 133.65 MB/s (7.66s)
+   Window #01 (256.0 MB in 0.50s):   511.38 MB/s (Uncached Direct Read)
+   Window #02 (244.0 MB in 0.53s):   458.53 MB/s (Uncached Direct Read)
+   Window #03 (196.0 MB in 0.51s):   386.85 MB/s (Uncached Direct Read)
+   Window #04 (216.0 MB in 0.55s):   390.73 MB/s (Uncached Direct Read)
+   Window #05 (112.0 MB in 0.24s):   457.54 MB/s (Uncached Direct Read)
+   Sustained Uncached Read Avg  :   438.16 MB/s (Min=386.85 | Max=511.38 MB/s)
 ================================================================================
 
 
@@ -1839,27 +1776,36 @@ Host CPU: AMD EPYC 7763 64-Core Processor | Cores=2 Threads=4 | RAM=15.99 GB
  [Disk Throttle Probe] 1024 MB Uncached Direct I/O Test on D:/apex_d_drive
    Drive Free: 146.95 GB / 150.00 GB | Bypassing OS Page Cache (Direct/Unbuffered)
 --------------------------------------------------------------------------------
-   Uncached Write (1024 MB)      : 391.46 MB/s (2.62s)
-   Window #01 (200.0 MB in 0.51s):   395.56 MB/s (Uncached Direct Read)
-   Window #02 (216.0 MB in 0.55s):   391.69 MB/s (Uncached Direct Read)
-   Window #03 (216.0 MB in 0.54s):   403.14 MB/s (Uncached Direct Read)
-   Window #04 (196.0 MB in 0.50s):   389.10 MB/s (Uncached Direct Read)
-   Window #05 (196.0 MB in 0.46s):   424.31 MB/s (Uncached Direct Read)
-   Sustained Uncached Read Avg  :   400.22 MB/s (Min=389.10 | Max=424.31 MB/s)
+   Uncached Write (1024 MB)      : 397.55 MB/s (2.58s)
+   Window #01 (184.0 MB in 0.50s):   366.73 MB/s (Uncached Direct Read)
+   Window #02 (196.0 MB in 0.50s):   389.35 MB/s (Uncached Direct Read)
+   Window #03 (216.0 MB in 0.55s):   392.32 MB/s (Uncached Direct Read)
+   Window #04 (220.0 MB in 0.54s):   408.96 MB/s (Uncached Direct Read)
+   Window #05 (196.0 MB in 0.50s):   388.26 MB/s (Uncached Direct Read)
+   Window #06 ( 12.0 MB in 0.00s):  2649.24 MB/s (Uncached Direct Read)
+   Sustained Uncached Read Avg  :   393.39 MB/s (Min=366.73 | Max=2649.24 MB/s)
 ================================================================================
 ```
 
-### 📄 `04_glm53_stage1_parity.log`
+### 📄 `04_qwen38_stage1_parity.log`
 ```text
 [Apex-Parity] Verifying 100.00% Greedy Token & Batched-vs-Serial Bit Parity...
-[Apex-Parity] Serial  Tokens (4) : [19, 13, 17, 5] -> "4.2&"
-[Apex-Parity] Batched Tokens (4) : [19, 13, 17, 5] -> "4.2&"
-[Apex-Parity] Model Architecture : glm5-next (GLM-5.3-Flash)
+[Apex-Parity] Serial  Tokens (4) : [198, 198, 198, 198] -> "
+
+
+
+"
+[Apex-Parity] Batched Tokens (4) : [198, 198, 198, 198] -> "
+
+
+
+"
+[Apex-Parity] Model Architecture : qwen4exp (Qwen-3.8-Flash-Next)
 [Apex-Parity] Max Logit ULP Diff : 0.000000000e+00
 [Apex-Parity] Greedy Token Match : 4 / 4 (100.00% Parity)
 ```
 
-### 📄 `05_glm53_stage1_prompt_response.log`
+### 📄 `05_qwen38_stage1_prompt_response.log`
 ```text
 ================================================================================
    APEX INFERENCE v1 — PRE-FLIGHT HOST HARDWARE TELEMETRY & BENCHMARK REPORT
@@ -1870,27 +1816,27 @@ Host CPU: AMD EPYC 7763 64-Core Processor | Cores=2 Threads=4 | RAM=15.99 GB
    CPU Model          : AMD EPYC 7763 64-Core Processor                
    Cores / Threads    : 2 Physical / 4 Logical
    SIMD ISA Support   : AVX2=YES | FMA=YES | F16C=YES | AVX-VNNI=NO | AVX512-VNNI=NO
-   System Memory (RAM): 15.99 GB Total / 13.55 GB Available
-   Active Drive Space : 150.00 GB Total / 54.59 GB Free
+   System Memory (RAM): 15.99 GB Total / 14.74 GB Available
+   Active Drive Space : 150.00 GB Total / 76.31 GB Free
 --------------------------------------------------------------------------------
  [CrystalDiskMark-Style NVMe SSD Storage Benchmark]
-   SEQ1M Direct Uncached NVMe Read    :    454.49 MB/s (Hardware Floor)
-   SEQ1M Q8T1  Read (OS-Cached Max)   :   1469.24 MB/s
-   SEQ1M Q1T1  Read (Single Queue)    :   7917.90 MB/s
-   SEQ128K Q32T1 Expert-Stripe Read   :  10565.37 MB/s
-   RND4K Q32T16 Read                  :    495.71 MB/s (  126901 IOPS)
-   RND4K Q1T1  Read                   :    697.67 MB/s (Latency: 5.60 us)
+   SEQ1M Direct Uncached NVMe Read    :    447.53 MB/s (Hardware Floor)
+   SEQ1M Q8T1  Read (OS-Cached Max)   :   1515.50 MB/s
+   SEQ1M Q1T1  Read (Single Queue)    :   7953.47 MB/s
+   SEQ128K Q32T1 Expert-Stripe Read   :  10172.58 MB/s
+   RND4K Q32T16 Read                  :    420.33 MB/s (  107603 IOPS)
+   RND4K Q1T1  Read                   :    439.30 MB/s (Latency: 8.89 us)
 --------------------------------------------------------------------------------
  [PassMark / STREAM System RAM Bandwidth & Latency Benchmark]
-   AVX2 256-bit Sequential Read BW    :     56.13 GB/s
-   AVX2 256-bit Sequential Write BW   :     41.82 GB/s
-   STREAM Triad (A = B + s*C) BW      :     38.93 GB/s
-   Random Pointer-Chase Latency       :     85.77 ns
+   AVX2 256-bit Sequential Read BW    :     62.67 GB/s
+   AVX2 256-bit Sequential Write BW   :     51.77 GB/s
+   STREAM Triad (A = B + s*C) BW      :     44.13 GB/s
+   Random Pointer-Chase Latency       :     47.84 ns
 --------------------------------------------------------------------------------
  [PassMark-Style CPU AVX2+FMA Compute & IQ2 Kernel Benchmark]
-   Single-Core AVX2+FMA Throughput    :     51.42 GFLOPS
-   Multi-Core  AVX2+FMA Throughput    :    196.58 GFLOPS
-   IQ2_XXS/XS Fused Dot Effective BW  :     21.60 GB/s (FP32 Equiv)
+   Single-Core AVX2+FMA Throughput    :     51.39 GFLOPS
+   Multi-Core  AVX2+FMA Throughput    :    191.26 GFLOPS
+   IQ2_XXS/XS Fused Dot Effective BW  :     20.65 GB/s (FP32 Equiv)
 ================================================================================
 
 
@@ -1898,133 +1844,125 @@ Host CPU: AMD EPYC 7763 64-Core Processor | Cores=2 Threads=4 | RAM=15.99 GB
  [Apex-Run] Interactive Prompt & Streaming Model Generation
 ================================================================================
  >>> User Prompt   : "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:"
- >>> Chat Template : 70 tokenized input IDs
-[LIVE-PREFILL] 70/70 tok | Chunk=0.50 tps | Avg=0.50 tps | Hit=76.8% | NVMe=480.0 MB/s (51661.71 MB, QD=64) | RSS=13929.9 MB
+ >>> Chat Template : 91 tokenized input IDs
+[LIVE-PREFILL] 91/91 tok | Chunk=3.88 tps | Avg=3.88 tps | Hit=91.8% | NVMe=477.1 MB/s (5364.89 MB, QD=64) | RSS=14219.6 MB
 
- >>> [Apex-Model-Response] <think>
-<think>
-<th>
-<thinking>
-<thinking<th>
-Let me user this question is a question about the user asks about "Explain why the why hybrid Gate why Gate DeltaNet Gate Net attention Net with Net MoE and E LB co-eco and sequential KB-1 sequential MB NV sequential NV
+ >>> [Apex-Model-Response] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ================================================================================
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=OFF
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5521.88 MB (589/12384 exp = 4.76% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.83 MB | End=13393.82 MB | Peak=13999.27 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 8483.40 MB (4088/25088 exp = 16.29% pinned) | Staging=66.41 MB
+   Process RSS (Start/End/Peak) : Start=4.84 MB | End=14235.63 MB | Peak=14475.04 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
-   PROMPT (70 tok)   : "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:"
-   RESPONSE (64 tok) : "<think>
-<think>
-<th>
-<thinking>
-<thinking<th>
-Let me user this question is a question about the user asks about "Explain why the why hybrid Gate why Gate DeltaNet Gate Net attention Net with Net MoE and E LB co-eco and sequential KB-1 sequential MB NV sequential NV DMA"
+   PROMPT (91 tok)   : "Explain why hybrid Gated DeltaNet + Kimi Delta Attention with 512 Mixture-of-Experts and LBA-coalesced 128KB-1MB sequential NVMe DMA achieves high token generation throughput on 16GB RAM:"
+   RESPONSE (63 tok) : "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 --------------------------------------------------------------------------------
- [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 65 Steps)]
-   Logit Summary: AvgTop1Prob=42.9% | AvgMargin=1.279 | MinMargin=0.023
+ [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 64 Steps)]
+   Logit Summary: AvgTop1Prob=100.0% | AvgMargin=0.000 | MinMargin=1000000000.000
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |   13699 | <th            |   17.30 |  47.4% |   32169 |   16.35 | 139720.40 |  0 |  0 |  0 |     0.0 |
-   |    2 |     766 | ink            |   18.90 |  53.4% |   15724 |   18.74 | 4010.77 | 20 |233 | 83 | 1565280.0 |
-   |    3 |     397 | >\n            |   12.80 |   6.2% |     318 |   12.73 | 4010.77 |  0 |  0 |  0 | 1565280.0 |
-   |    4 |   13699 | <th            |   14.70 |  18.4% |     334 |   14.61 | 2690.52 |148 |120 | 68 | 1037568.0 |
-   |    5 |     766 | ink            |   22.04 |  99.6% |     307 |   14.17 | 2690.52 |  0 |  0 |  0 | 1037568.0 |
-   |    6 |     397 | >\n            |   12.54 |  13.7% |      29 |   12.50 | 2779.75 |137 |140 | 59 | 1056160.0 |
-   |    7 |   13699 | <th            |   16.29 |  41.2% |     522 |   16.02 | 2779.75 |  0 |  0 |  0 | 1056160.0 |
-   |    8 |     397 | >\n            |   17.08 |  39.3% |    1339 |   16.33 | 1970.26 |195 | 96 | 45 | 752064.0 |
-   |   36 |   29136 |  Gate          |   15.35 |  36.3% |     479 |   14.86 | 3196.04 | 84 |162 | 90 | 1315072.0 |
-   |   37 |    3170 |  why           |   16.44 |  65.8% |   34464 |   13.18 | 3196.04 |  0 |  0 |  0 | 1315072.0 |
-   |   20 |    3405 |  question      |   16.21 |  30.6% |     374 |   15.58 | 2854.31 |110 |165 | 61 | 1164032.0 |
-   |   21 |     374 |  is            |   15.85 |  19.4% |   15504 |   14.87 | 2854.31 |  0 |  0 |  0 | 1164032.0 |
-   |   62 |   24384 |  NV            |   15.58 |  36.6% |   50665 |   15.35 | 2336.31 |147 |130 | 59 | 996928.0 |
-   |   63 |   50665 |  sequential    |   14.36 |  20.5% |   25372 |   14.09 | 2336.31 |  0 |  0 |  0 | 996928.0 |
-   |   64 |   24384 |  NV            |   17.08 |  41.8% |   25372 |   17.00 | 2254.36 |165 |111 | 60 | 939264.0 |
-   |   65 |   25372 |  DMA           |   17.65 |  62.3% |   81911 |   16.44 | 2254.36 |  0 |  0 |  0 | 939264.0 |
+   |    1 |       0 | !              |     nan | 100.0% |       1 |     nan | 23434.55 |  0 |  0 |  0 |     0.0 |
+   |    2 |       0 | !              |     nan | 100.0% |       1 |     nan |  817.94 |952 |  8 |  0 | 39476.5 |
+   |    3 |       0 | !              |     nan | 100.0% |       1 |     nan |  817.94 |  0 |  0 |  0 | 39476.5 |
+   |    4 |       0 | !              |     nan | 100.0% |       1 |     nan |  656.28 |480 |  0 |  0 |    64.0 |
+   |    5 |       0 | !              |     nan | 100.0% |       1 |     nan |  687.62 |479 |  1 |  0 |  3064.0 |
+   |    6 |       0 | !              |     nan | 100.0% |       1 |     nan |  656.55 |480 |  0 |  0 |  1339.0 |
+   |    7 |       0 | !              |     nan | 100.0% |       1 |     nan |  670.73 |480 |  0 |  0 |    64.0 |
+   |    8 |       0 | !              |     nan | 100.0% |       1 |     nan |  666.56 |480 |  0 |  0 |    64.0 |
+   |   23 |       0 | !              |     nan | 100.0% |       1 |     nan |  689.06 |480 |  0 |  0 |    64.0 |
+   |   32 |       0 | !              |     nan | 100.0% |       1 |     nan |  688.00 |480 |  0 |  0 |    64.0 |
+   |   27 |       0 | !              |     nan | 100.0% |       1 |     nan |  686.62 |480 |  0 |  0 |    64.0 |
+   |   30 |       0 | !              |     nan | 100.0% |       1 |     nan |  686.03 |480 |  0 |  0 |    64.0 |
+   |   61 |       0 | !              |     nan | 100.0% |       1 |     nan |  483.38 |480 |  0 |  0 |    64.0 |
+   |   62 |       0 | !              |     nan | 100.0% |       1 |     nan |  484.15 |480 |  0 |  0 |    64.0 |
+   |   63 |       0 | !              |     nan | 100.0% |       1 |     nan |  481.59 |480 |  0 |  0 |    64.0 |
+   |   64 |       0 | !              |     nan | 100.0% |       1 |     nan |  482.12 |480 |  0 |  0 |    64.0 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (70 tok, 139.720s, TTFT=139720.40ms): Avg=0.50 | Min=0.50 | Max=0.50 tps
-   Prefill Chunks (1): C1:70t/0.5tps/77%
-   Decode  (64 tok, 166.574s): Avg=0.38 | Min=0.25 | Max=0.53 tps
-   Latency (ms) : Min=1890.51 | P10=2027.10 | P25=2515.37 | P50=2641.09 | P75=2694.12 | P90=2819.34 | P95=3196.04 | P99=4010.77 | Max=4010.77
-   Mean/SD/Jitt : Mean=2602.72ms | StdDev=375.05ms | Jitter=119.14ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/64
-   MTP Head     : 32/32 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
+   Prefill (91 tok, 23.435s, TTFT=23434.55ms): Avg=3.88 | Min=3.88 | Max=3.88 tps
+   Prefill Chunks (1): C1:91t/3.9tps/92%
+   Decode  (63 tok, 39.373s): Avg=1.60 | Min=1.22 | Max=2.13 tps
+   Latency (ms) : Min=470.46 | P10=483.76 | P25=549.24 | P50=659.82 | P75=675.34 | P90=686.03 | P95=688.00 | P99=817.94 | Max=817.94
+   Mean/SD/Jitt : Mean=624.98ms | StdDev=85.80ms | Jitter=17.08ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/63
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (34272): RawRAM=20241 (59.06%) | Lookahead=6547 (+19.10%) | ColdMiss=7484 (21.84%) | EFF HIT=78.16%
-   Lookahead    : 7717 prefetched -> 5083 consumed (65.9% util) | Warmup >=75%:1t, >=85%:-1t
-   Trajectory   : @16= 77.4% | @64= 78.2% | @128=  N/A | @256=  N/A | @512=  N/A
+   Activations (35877): RawRAM=35404 (98.68%) | Lookahead=9 (+0.03%) | ColdMiss=464 (1.29%) | EFF HIT=98.71%
+   Lookahead    : 23 prefetched -> 10 consumed (43.5% util) | Warmup >=75%:1t, >=85%:1t
+   Trajectory   : @16= 96.5% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 |  816 |  347 | 149 | 320 | 60.8%|4348.44 | | L24 |  816 |  477 | 196 | 143 | 82.5%|2084.38 |
-   | L04 |  816 |  335 | 187 | 294 | 64.0%|4010.62 | | L25 |  816 |  544 | 121 | 151 | 81.5%|2264.06 |
-   | L05 |  816 |  341 | 215 | 260 | 68.1%|3687.19 | | L26 |  816 |  508 | 157 | 151 | 81.5%|2048.44 |
-   | L06 |  816 |  370 | 220 | 226 | 72.3%|3435.62 | | L27 |  816 |  527 | 113 | 176 | 78.4%|2522.81 |
-   | L07 |  816 |  419 | 205 | 192 | 76.5%|2918.12 | | L28 |  816 |  464 | 168 | 184 | 77.5%|2680.94 |
-   | L08 |  816 |  398 | 196 | 222 | 72.8%|3320.62 | | L29 |  816 |  499 | 156 | 161 | 80.3%|2314.38 |
-   | L09 |  816 |  399 | 185 | 232 | 71.6%|3234.38 | | L30 |  816 |  471 | 168 | 177 | 78.3%|2494.06 |
-   | L10 |  816 |  365 | 231 | 220 | 73.0%|3234.38 | | L31 |  816 |  499 | 137 | 180 | 77.9%|2609.06 |
-   | L11 |  816 |  458 | 164 | 194 | 76.2%|3618.75 | | L32 |  816 |  497 | 140 | 179 | 78.1%|2688.12 |
-   | L12 |  816 |  477 | 162 | 177 | 78.3%|3199.25 | | L33 |  816 |  514 | 143 | 159 | 80.5%|2443.75 |
-   | L13 |  816 |  522 | 113 | 181 | 77.8%|2508.44 | | L34 |  816 |  518 | 144 | 154 | 81.1%|2400.62 |
-   | L14 |  816 |  473 | 153 | 190 | 76.7%|2839.06 | | L35 |  816 |  508 | 159 | 149 | 81.7%|2343.12 |
-   | L15 |  816 |  516 | 123 | 177 | 78.3%|2515.62 | | L36 |  816 |  500 | 167 | 149 | 81.7%|2379.06 |
-   | L16 |  816 |  458 | 173 | 185 | 77.3%|2637.81 | | L37 |  816 |  481 | 179 | 156 | 80.9%|2364.69 |
-   | L17 |  816 |  463 | 175 | 178 | 78.2%|2666.56 | | L38 |  816 |  548 | 125 | 143 | 82.5%|2141.88 |
-   | L18 |  816 |  567 |  96 | 153 | 81.2%|1983.75 | | L39 |  816 |  513 | 156 | 147 | 82.0%|2264.06 |
-   | L19 |  816 |  547 | 112 | 157 | 80.8%|2098.75 | | L40 |  816 |  485 | 167 | 164 | 79.9%|2515.62 |
-   | L20 |  816 |  590 |  91 | 135 | 83.5%|1897.50 | | L41 |  816 |  466 | 188 | 162 | 80.1%|2515.62 |
-   | L21 |  816 |  565 | 100 | 151 | 81.5%|2134.69 | | L42 |  816 |  517 | 149 | 150 | 81.6%|2256.88 |
-   | L22 |  816 |  549 | 129 | 138 | 83.1%|1976.56 | | L43 |  816 |  522 | 149 | 145 | 82.2%|2105.94 |
-   | L23 |  816 |  550 | 116 | 150 | 81.6%|2070.00 | | L44 |  816 |  474 | 170 | 172 | 78.9%|3241.12 |
+   | L00 | 1540 | 1266 |   9 | 265 | 82.8%| 461.57 | | L24 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L01 |  946 |  865 |   0 |  81 | 91.4%| 117.04 | | L25 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L02 |  946 |  873 |   0 |  73 | 92.3%| 122.97 | | L26 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L03 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L27 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L04 |  721 |  720 |   0 |   1 | 99.9%|   2.08 | | L28 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L05 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L29 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L06 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L30 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L07 |  721 |  720 |   0 |   1 | 99.9%|   1.68 | | L31 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L08 |  721 |  720 |   0 |   1 | 99.9%|   1.25 | | L32 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L09 |  721 |  720 |   0 |   1 | 99.9%|   1.25 | | L33 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L10 |  721 |  720 |   0 |   1 | 99.9%|   1.25 | | L34 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L11 |  721 |  720 |   0 |   1 | 99.9%|   1.25 | | L35 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L12 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L36 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L13 |  721 |  720 |   0 |   1 | 99.9%|   1.44 | | L37 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L14 |  721 |  720 |   0 |   1 | 99.9%|   1.44 | | L38 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L15 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L39 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L16 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L40 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
+   | L17 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L41 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L18 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L42 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L19 |  721 |  720 |   0 |   1 | 99.9%|   1.44 | | L43 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L20 |  721 |  720 |   0 |   1 | 99.9%|   1.44 | | L44 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L21 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L45 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L22 |  721 |  720 |   0 |   1 | 99.9%|   1.88 | | L46 |  721 |  720 |   0 |   1 | 99.9%|   1.44 |
+   | L23 |  721 |  720 |   0 |   1 | 99.9%|   1.44 | | L47 |  721 |  720 |   0 |   1 | 99.9%|   1.88 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 118497.27 MB (Load=6361.84 | Prefill=45299.88 | Warmup=0.00 | Decode=66835.56 MB)
-   SSD Data/Token (Decode)      : Avg=1044.306 MB/tok (Min=734.438 | P50=1072.312 | P95=1284.250 | Max=1528.594 MB) | Prefill=647.141 MB/tok
-   NVMe Batches / Requests      : 2669 Batches | 47273 Raw -> 46653 Merged (620 LBA Merges, Avg 2600.9 KB/io)
-   SSD I/O Size Histogram       : <64K=481 | 64K-512K=226 | 512K-2M=172 | >2M=45774
-   SSD Read Bandwidth (Active)  : Min=0.30 | Avg=447.64 | Peak=3876.13 MB/s | WallAmort=386.87 MB/s (100.0% of 454.5 MB/s Direct NVMe)
-   OS Kernel I/O Verification   : Read=119484.31 MB | Write=128.00 MB | Syscalls=58227
-   Sync Stall vs Async DMA      : SyncStall=116383.99 ms | AsyncOverlapped=249811.52 ms (68.2% Overlapped)
-   RAM Traffic & Active BW      : 777.28 GB moved | Active=7.35 GB/s (18.9% STREAM) | WallAmort=2.54 GB/s (Max=38.93 GB/s)
-   Stage Breakdown (Pref/Dec)   : Prefill=139.72s (45.6%, 45299.88 MB SSD) | Decode=166.57s (54.4%, 66835.56 MB SSD)
-   CPU Time & Utilization       : User=314.516s + Sys=12.109s (Wall=326.048s) | SysUtil=25.0% | ThrUtil=25.0% | 49.23 GFLOPS
+   Engine SSD Transfer Total    : 5449.98 MB (Load=4614.69 | Prefill=750.20 | Warmup=0.00 | Decode=85.09 MB)
+   SSD Data/Token (Decode)      : Avg=1.351 MB/tok (Min=0.062 | P50=0.062 | P95=0.062 | Max=38.551 MB) | Prefill=8.244 MB/tok
+   NVMe Batches / Requests      : 127 Batches | 5060 Raw -> 4853 Merged (207 LBA Merges, Avg 1150.0 KB/io)
+   SSD I/O Size Histogram       : <64K=2674 | 64K-512K=1137 | 512K-2M=636 | >2M=406
+   SSD Read Bandwidth (Active)  : Min=0.81 | Avg=477.57 | Peak=3911.27 MB/s | WallAmort=86.77 MB/s (100.0% of 447.5 MB/s Direct NVMe)
+   OS Kernel I/O Verification   : Read=6288.31 MB | Write=128.00 MB | Syscalls=21905
+   Sync Stall vs Async DMA      : SyncStall=604.28 ms | AsyncOverlapped=703.38 ms (53.8% Overlapped)
+   RAM Traffic & Active BW      : 497.06 GB moved | Active=8.37 GB/s (19.0% STREAM) | WallAmort=7.91 GB/s (Max=44.13 GB/s)
+   Stage Breakdown (Pref/Dec)   : Prefill=23.43s (37.3%, 750.20 MB SSD) | Decode=39.37s (62.7%, 85.09 MB SSD)
+   CPU Time & Utilization       : User=128.703s + Sys=12.172s (Wall=79.096s) | SysUtil=44.5% | ThrUtil=44.5% | 85.16 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :  41063.26 ms (306442.2 us/tok | 13.41%)
-   MoE AVX2 Q8 Expert Compute   :  62929.67 ms (469624.4 us/tok | 20.55%)
-   Router + Lookahead Dispatch  :    842.00 ms ( 6283.6 us/tok |  0.27%)
-   LM Head Output Projection    :   1690.05 ms (12612.3 us/tok |  0.55%)
-   Foreground NVMe Sync Stall   : 116383.99 ms (868537.2 us/tok | 38.00%)
-   Unaccounted / OMP & Sampling :  83385.75 ms (622281.7 us/tok | 27.22%) | Total Wall=306294.71 ms
+   Dense + Attention/Linear SSM :  40117.40 ms (260502.6 us/tok | 63.87%)
+   MoE AVX2 Q8 Expert Compute   :  16076.96 ms (104395.8 us/tok | 25.60%)
+   Router + Lookahead Dispatch  :   1622.80 ms (10537.7 us/tok |  2.58%)
+   LM Head Output Projection    :   3186.01 ms (20688.4 us/tok |  5.07%)
+   Foreground NVMe Sync Stall   :    604.28 ms ( 3923.9 us/tok |  0.96%)
+   Unaccounted / OMP & Sampling :   1200.53 ms ( 7795.6 us/tok |  1.91%) | Total Wall=62807.99 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    33.04%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |    27.47%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    29.69%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     8.24%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     1.56%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    81.29%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     0.51%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     2.65%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    13.07%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.48%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -2032,142 +1970,142 @@ Let me user this question is a question about the user asks about "Explain why t
 ================================================================================
 ```
 
-### 📄 `05a_glm53_stage1_fair_64p_32g.log`
+### 📄 `05a_qwen38_stage1_fair_64p_32g.log`
 ```text
-[Apex-Init] Model Loaded: GLM 5.3 Flash | Layers=45 | Hidden=4096 | Experts=288 (Top-8) | Pinned Trunk=6460.98 MB | Expert Cache=5371.88 MB (573 slots)
+[Apex-Init] Model Loaded: Qwen3.8 Flash Next | Layers=48 | Hidden=2560 | Experts=512 (Top-10) | Pinned Trunk=4614.77 MB | Expert Cache=7999.88 MB (3855 slots)
 [Apex-Prompt] Input (64 tokens): "[64-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 64/64 tok | Chunk=0.49 tps | Avg=0.49 tps | Hit=76.5% | NVMe=487.3 MB/s (47437.59 MB, QD=64) | RSS=13770.9 MB
-[LIVE-DECODE] 2/32 tok | Avg=0.25 tps | Hit=76.5% (LA:+10.1%) | NVMe=482.6 MB/s (50529.52 MB) | RSS=13728.8 MB
-[LIVE-DECODE] 4/32 tok | Avg=0.28 tps | Hit=76.5% (LA:+10.8%) | NVMe=478.2 MB/s (52885.40 MB) | RSS=13651.4 MB
-[LIVE-DECODE] 6/32 tok | Avg=0.29 tps | Hit=76.6% (LA:+11.5%) | NVMe=473.8 MB/s (55352.59 MB) | RSS=13522.0 MB
-[LIVE-DECODE] 8/32 tok | Avg=0.31 tps | Hit=76.7% (LA:+12.0%) | NVMe=471.8 MB/s (57341.15 MB) | RSS=13502.4 MB
-[LIVE-DECODE] 10/32 tok | Avg=0.33 tps | Hit=76.9% (LA:+12.6%) | NVMe=469.8 MB/s (59420.34 MB) | RSS=13468.9 MB
-[LIVE-DECODE] 12/32 tok | Avg=0.33 tps | Hit=77.0% (LA:+13.2%) | NVMe=467.4 MB/s (61661.65 MB) | RSS=13409.7 MB
-[LIVE-DECODE] 14/32 tok | Avg=0.34 tps | Hit=77.1% (LA:+13.7%) | NVMe=466.5 MB/s (63635.77 MB) | RSS=13406.9 MB
-[LIVE-DECODE] 16/32 tok | Avg=0.36 tps | Hit=77.3% (LA:+13.9%) | NVMe=465.8 MB/s (65208.09 MB) | RSS=13406.8 MB
-[LIVE-DECODE] 18/32 tok | Avg=0.35 tps | Hit=77.3% (LA:+14.5%) | NVMe=463.9 MB/s (67659.02 MB) | RSS=13406.8 MB
-[LIVE-DECODE] 20/32 tok | Avg=0.35 tps | Hit=77.4% (LA:+14.9%) | NVMe=462.2 MB/s (69754.71 MB) | RSS=13337.1 MB
-[LIVE-DECODE] 22/32 tok | Avg=0.36 tps | Hit=77.5% (LA:+15.4%) | NVMe=460.9 MB/s (71761.77 MB) | RSS=13283.2 MB
-[LIVE-DECODE] 24/32 tok | Avg=0.36 tps | Hit=77.5% (LA:+15.8%) | NVMe=459.7 MB/s (74033.34 MB) | RSS=13272.6 MB
-[LIVE-DECODE] 26/32 tok | Avg=0.36 tps | Hit=77.5% (LA:+16.1%) | NVMe=458.7 MB/s (76170.52 MB) | RSS=13272.5 MB
-[LIVE-DECODE] 28/32 tok | Avg=0.36 tps | Hit=77.6% (LA:+16.4%) | NVMe=457.8 MB/s (78374.77 MB) | RSS=13272.5 MB
-[LIVE-DECODE] 30/32 tok | Avg=0.36 tps | Hit=77.6% (LA:+16.7%) | NVMe=456.9 MB/s (80399.84 MB) | RSS=13272.5 MB
-[LIVE-DECODE] 32/32 tok | Avg=0.37 tps | Hit=77.6% (LA:+16.8%) | NVMe=456.6 MB/s (82344.15 MB) | RSS=13272.5 MB
+[LIVE-PREFILL] 64/64 tok | Chunk=2.75 tps | Avg=2.75 tps | Hit=88.1% | NVMe=780.1 MB/s (10578.12 MB, QD=64) | RSS=13794.6 MB
+[LIVE-DECODE] 8/32 tok | Avg=1.72 tps | Hit=89.4% (LA:+0.9%) | NVMe=829.8 MB/s (12068.83 MB) | RSS=13771.4 MB
+[LIVE-DECODE] 16/32 tok | Avg=1.80 tps | Hit=90.5% (LA:+1.2%) | NVMe=873.2 MB/s (13291.94 MB) | RSS=13743.2 MB
+[LIVE-DECODE] 24/32 tok | Avg=1.83 tps | Hit=91.4% (LA:+1.3%) | NVMe=914.1 MB/s (14367.80 MB) | RSS=13736.1 MB
+[LIVE-DECODE] 31/32 tok | Avg=1.85 tps | Hit=92.0% (LA:+1.5%) | NVMe=942.8 MB/s (15318.39 MB) | RSS=13735.4 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=OFF
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5371.88 MB (573/12384 exp = 4.63% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.86 MB | End=13272.52 MB | Peak=13844.00 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 7999.88 MB (3855/25088 exp = 15.37% pinned) | Staging=66.41 MB
+   Process RSS (Start/End/Peak) : Start=4.86 MB | End=13735.40 MB | Peak=14033.30 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (64 tok)   : "[64-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency..."
-   RESPONSE (32 tok) : " a 1-bit... More
-[1. More highlights…
-In
-In a1-bit quantized 1-bit quantized 1-bitized 1-bit"
+   RESPONSE (31 tok) : " a2
+
+as
+2:
+2u
+ar
+22
+22
+0
+2223
+
+<|im_start|>
+
+u"
 --------------------------------------------------------------------------------
- [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 33 Steps)]
-   Logit Summary: AvgTop1Prob=36.8% | AvgMargin=1.757 | MinMargin=0.015
+ [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 32 Steps)]
+   Logit Summary: AvgTop1Prob=10.8% | AvgMargin=1.072 | MinMargin=0.004
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |     264 |  a             |   13.92 |  10.6% |   47414 |   13.42 | 129827.96 |  0 |  0 |  0 |     0.0 |
-   |    2 |     220 |                |   14.20 |   9.2% |   24923 |   14.18 | 3989.04 | 21 |227 | 88 | 1583072.0 |
-   |    3 |      16 | 1              |   18.33 |  26.6% |      19 |   17.27 | 3989.04 |  0 |  0 |  0 | 1583072.0 |
-   |    4 |   15245 | -bit           |   13.67 |  13.4% |      13 |   13.56 | 3067.80 | 84 |190 | 62 | 1206208.0 |
-   |    5 |    1112 | ...            |   13.59 |   8.9% |    1565 |   13.29 | 3067.80 |  0 |  0 |  0 | 1206208.0 |
-   |    6 |    4398 |  More          |   11.74 |   8.2% |     508 |   10.90 | 3227.65 | 77 |196 | 63 | 1263200.0 |
-   |    7 |     198 | \n             |   11.62 |   6.7% |     271 |   11.49 | 3227.65 |  0 |  0 |  0 | 1263200.0 |
-   |    8 |      58 | [              |   13.68 |   7.4% |     785 |   13.10 | 2472.06 |125 |162 | 49 | 1018144.0 |
-   |   18 |      16 | 1              |   14.79 |  37.1% |       8 |   12.48 | 3053.33 | 88 |179 | 69 | 1254880.0 |
-   |   19 |   15245 | -bit           |   24.00 |  99.8% |    1455 |   16.07 | 3053.33 |  0 |  0 |  0 | 1254880.0 |
-   |   12 |   21265 |  highlights    |   11.86 |  14.3% |    7998 |   11.70 | 2853.89 | 96 |194 | 46 | 1147552.0 |
-   |   13 |   88737 | ???\n          |   14.28 |  12.8% |    9335 |   14.26 | 2853.89 |  0 |  0 |  0 | 1147552.0 |
-   |   30 |    1506 | ized           |   16.47 |  78.5% |   10267 |   12.96 | 2495.31 |141 |124 | 71 | 1036832.0 |
-   |   31 |     220 |                |   19.68 |  90.4% |      16 |   16.01 | 2495.31 |  0 |  0 |  0 | 1036832.0 |
-   |   32 |      16 | 1              |   15.37 |  33.8% |      19 |   14.89 | 2328.55 |161 |107 | 68 | 995488.0 |
-   |   33 |   15245 | -bit           |   25.55 | 100.0% |    1455 |   16.54 | 2328.55 |  0 |  0 |  0 | 995488.0 |
+   |    1 |     264 |  a             |   13.79 |  18.1% |     303 |   13.43 | 23272.16 |  0 |  0 |  0 |     0.0 |
+   |    2 |      17 | 2              |    8.52 |   0.6% |     286 |    8.17 |  648.94 |889 | 71 |  0 | 237101.5 |
+   |    3 |     198 | \n             |   14.17 |  53.5% |      11 |   12.36 |  648.94 |  0 |  0 |  0 | 237101.5 |
+   |    4 |     198 | \n             |    9.66 |   5.1% |     350 |    7.90 |  694.00 |418 | 61 |  1 | 227289.0 |
+   |    5 |     299 | as             |    8.80 |   1.5% |      64 |    8.72 |  519.67 |456 | 24 |  0 | 131518.0 |
+   |    6 |     198 | \n             |   10.44 |  11.5% |      25 |    9.21 |  566.27 |441 | 39 |  0 | 199143.0 |
+   |    7 |      17 | 2              |   10.14 |   5.4% |      18 |    9.57 |  514.26 |454 | 26 |  0 | 131872.0 |
+   |    8 |      25 | :              |    9.71 |   7.4% |     198 |    8.84 |  521.68 |448 | 32 |  0 | 159664.0 |
+   |   19 |      17 | 2              |    9.23 |   2.8% |      16 |    9.20 |  613.21 |472 |  8 |  0 | 143339.0 |
+   |   17 |     198 | \n             |    9.98 |   5.6% |      24 |    8.90 |  555.65 |441 | 39 |  0 | 213793.0 |
+   |   27 |     198 | \n             |   11.97 |  38.6% |      17 |    9.61 |  542.69 |442 | 38 |  0 | 194564.0 |
+   |   10 |      17 | 2              |    9.02 |   2.6% |     198 |    8.66 |  539.91 |463 | 17 |  0 | 126814.0 |
+   |   29 |  248045 | <|im_start|>   |    8.43 |   1.2% |      17 |    7.65 |  503.57 |467 | 13 |  0 | 108043.0 |
+   |   30 |     198 | \n             |   10.29 |   7.2% |      84 |    8.09 |  538.25 |449 | 31 |  0 | 160314.0 |
+   |   31 |     198 | \n             |    8.42 |   1.1% |      17 |    7.79 |  509.40 |471 |  9 |  0 | 104364.0 |
+   |   32 |      84 | u              |    8.39 |   0.9% |      17 |    7.95 |  507.41 |472 |  8 |  0 | 102693.0 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (64 tok, 129.828s, TTFT=129827.96ms): Avg=0.49 | Min=0.49 | Max=0.49 tps
-   Prefill Chunks (1): C1:64t/0.5tps/77%
-   Decode  (32 tok, 87.658s): Avg=0.37 | Min=0.25 | Max=0.53 tps
-   Latency (ms) : Min=1889.11 | P10=2328.55 | P25=2495.31 | P50=2697.57 | P75=3053.33 | P90=3227.65 | P95=3989.04 | P99=3989.04 | Max=3989.04
-   Mean/SD/Jitt : Mean=2739.31ms | StdDev=451.13ms | Jitter=184.95ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/32
-   MTP Head     : 16/16 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
+   Prefill (64 tok, 23.272s, TTFT=23272.16ms): Avg=2.75 | Min=2.75 | Max=2.75 tps
+   Prefill Chunks (1): C1:64t/2.8tps/88%
+   Decode  (31 tok, 16.713s): Avg=1.85 | Min=1.44 | Max=1.99 tps
+   Latency (ms) : Min=503.40 | P10=505.23 | P25=509.71 | P50=521.68 | P75=539.91 | P90=613.21 | P95=648.94 | P99=694.00 | Max=694.00
+   Mean/SD/Jitt : Mean=539.12ms | StdDev=46.78ms | Jitter=30.20ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/31
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (26880): RawRAM=16332 (60.76%) | Lookahead=4528 (+16.85%) | ColdMiss=6020 (22.40%) | EFF HIT=77.60%
-   Lookahead    : 4270 prefetched -> 3129 consumed (73.3% util) | Warmup >=75%:1t, >=85%:-1t
-   Trajectory   : @16= 77.3% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
+   Activations (45600): RawRAM=41269 (90.50%) | Lookahead=682 (+1.50%) | ColdMiss=3649 (8.00%) | EFF HIT=92.00%
+   Lookahead    : 2843 prefetched -> 692 consumed (24.3% util) | Warmup >=75%:1t, >=85%:1t
+   Trajectory   : @16= 90.5% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 |  640 |  291 |  98 | 251 | 60.8%|2903.75 | | L24 |  640 |  443 |  75 | 122 | 80.9%|1466.25 |
-   | L04 |  640 |  290 | 127 | 223 | 65.2%|2716.88 | | L25 |  640 |  409 |  97 | 134 | 79.1%|1681.88 |
-   | L05 |  640 |  267 | 158 | 215 | 66.4%|2623.44 | | L26 |  640 |  435 |  98 | 107 | 83.3%|1423.12 |
-   | L06 |  640 |  315 | 141 | 184 | 71.2%|2285.62 | | L27 |  640 |  414 |  97 | 129 | 79.8%|1581.25 |
-   | L07 |  640 |  354 | 136 | 150 | 76.6%|1976.56 | | L28 |  640 |  406 | 103 | 131 | 79.5%|1617.19 |
-   | L08 |  640 |  333 | 143 | 164 | 74.4%|2034.06 | | L29 |  640 |  385 | 114 | 141 | 78.0%|1753.75 |
-   | L09 |  640 |  289 | 164 | 187 | 70.8%|2213.75 | | L30 |  640 |  396 | 103 | 141 | 78.0%|1653.12 |
-   | L10 |  640 |  306 | 147 | 187 | 70.8%|2235.31 | | L31 |  640 |  383 | 116 | 141 | 78.0%|1725.00 |
-   | L11 |  640 |  394 |  93 | 153 | 76.1%|2437.50 | | L32 |  640 |  361 | 143 | 136 | 78.8%|1775.31 |
-   | L12 |  640 |  354 | 138 | 148 | 76.9%|2177.50 | | L33 |  640 |  376 | 133 | 131 | 79.5%|1581.25 |
-   | L13 |  640 |  402 |  90 | 148 | 76.9%|1753.75 | | L34 |  640 |  433 |  91 | 116 | 81.9%|1466.25 |
-   | L14 |  640 |  427 |  66 | 147 | 77.0%|1667.50 | | L35 |  640 |  374 | 139 | 127 | 80.2%|1595.62 |
-   | L15 |  640 |  428 |  71 | 141 | 78.0%|1638.75 | | L36 |  640 |  356 | 152 | 132 | 79.4%|1631.56 |
-   | L16 |  640 |  422 |  90 | 128 | 80.0%|1667.50 | | L37 |  640 |  385 | 115 | 140 | 78.1%|1840.00 |
-   | L17 |  640 |  430 |  77 | 133 | 79.2%|1624.38 | | L38 |  640 |  405 | 104 | 131 | 79.5%|1610.00 |
-   | L18 |  640 |  446 |  72 | 122 | 80.9%|1509.38 | | L39 |  640 |  404 | 108 | 128 | 80.0%|1588.44 |
-   | L19 |  640 |  447 |  76 | 117 | 81.7%|1480.62 | | L40 |  640 |  421 |  89 | 130 | 79.7%|1538.12 |
-   | L20 |  640 |  429 |  78 | 133 | 79.2%|1588.44 | | L41 |  640 |  408 |  92 | 140 | 78.1%|1674.69 |
-   | L21 |  640 |  451 |  73 | 116 | 81.9%|1437.50 | | L42 |  640 |  362 | 157 | 121 | 81.1%|1444.69 |
-   | L22 |  640 |  453 |  70 | 117 | 81.7%|1430.31 | | L43 |  640 |  424 | 105 | 111 | 82.7%|1509.38 |
-   | L23 |  640 |  422 |  82 | 136 | 78.8%|1602.81 | | L44 |  640 |  402 | 107 | 131 | 79.5%|1951.38 |
+   | L00 |  950 |  666 |  70 | 214 | 77.5%| 475.05 | | L24 |  950 |  894 |   9 |  47 | 95.1%| 116.55 |
+   | L01 |  950 |  815 |  41 |  94 | 90.1%| 393.46 | | L25 |  950 |  890 |   8 |  52 | 94.5%| 116.55 |
+   | L02 |  950 |  824 |  24 | 102 | 89.3%| 405.98 | | L26 |  950 |  866 |  17 |  67 | 92.9%| 191.75 |
+   | L03 |  950 |  892 |   3 |  55 | 94.2%| 552.69 | | L27 |  950 |  872 |  14 |  64 | 93.3%| 265.06 |
+   | L04 |  950 |  885 |   7 |  58 | 93.9%| 315.43 | | L28 |  950 |  850 |  22 |  78 | 91.8%| 233.11 |
+   | L05 |  950 |  870 |  10 |  70 | 92.6%| 317.70 | | L29 |  950 |  862 |  10 |  78 | 91.8%| 164.21 |
+   | L06 |  950 |  873 |  16 |  61 | 93.6%| 221.83 | | L30 |  950 |  836 |  15 |  99 | 89.6%| 200.22 |
+   | L07 |  950 |  874 |  16 |  60 | 93.7%| 165.09 | | L31 |  950 |  833 |  21 |  96 | 89.9%| 207.42 |
+   | L08 |  950 |  900 |  10 |  40 | 95.8%| 109.57 | | L32 |  950 |  863 |   8 |  79 | 91.7%| 193.63 |
+   | L09 |  950 |  894 |   3 |  53 | 94.4%|  98.36 | | L33 |  950 |  855 |  13 |  82 | 91.4%| 151.25 |
+   | L10 |  950 |  882 |  11 |  57 | 94.0%| 118.29 | | L34 |  950 |  863 |   6 |  81 | 91.5%| 162.77 |
+   | L11 |  950 |  895 |   5 |  50 | 94.7%| 144.43 | | L35 |  950 |  878 |   4 |  68 | 92.8%| 116.67 |
+   | L12 |  950 |  870 |  16 |  64 | 93.3%| 233.11 | | L36 |  950 |  856 |  14 |  80 | 91.6%| 241.99 |
+   | L13 |  950 |  861 |  17 |  72 | 92.4%| 146.92 | | L37 |  950 |  878 |   7 |  65 | 93.2%| 140.99 |
+   | L14 |  950 |  853 |  19 |  78 | 91.8%| 214.62 | | L38 |  950 |  874 |  12 |  64 | 93.3%| 246.26 |
+   | L15 |  950 |  857 |  12 |  81 | 91.5%| 233.11 | | L39 |  950 |  864 |  12 |  74 | 92.2%| 334.62 |
+   | L16 |  950 |  868 |  10 |  72 | 92.4%| 182.35 | | L40 |  950 |  855 |  11 |  84 | 91.2%| 255.66 |
+   | L17 |  950 |  868 |  13 |  69 | 92.7%| 187.99 | | L41 |  950 |  857 |   4 |  89 | 90.6%| 136.84 |
+   | L18 |  950 |  862 |  18 |  70 | 92.6%| 186.11 | | L42 |  950 |  824 |  17 | 109 | 88.5%| 259.28 |
+   | L19 |  950 |  872 |  10 |  68 | 92.8%| 159.89 | | L43 |  950 |  864 |   8 |  78 | 91.8%| 180.05 |
+   | L20 |  950 |  844 |  16 |  90 | 90.5%| 184.38 | | L44 |  950 |  853 |   9 |  88 | 90.7%| 164.21 |
+   | L21 |  950 |  831 |  31 |  88 | 90.7%| 404.17 | | L45 |  950 |  839 |  15 |  96 | 89.9%| 223.27 |
+   | L22 |  950 |  884 |  14 |  52 | 94.5%| 238.75 | | L46 |  950 |  876 |  10 |  64 | 93.3%| 218.95 |
+   | L23 |  950 |  876 |  10 |  64 | 93.3%| 162.77 | | L47 |  950 |  851 |  14 |  85 | 91.1%| 274.46 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 82344.15 MB (Load=6361.84 | Prefill=41075.75 | Warmup=0.00 | Decode=34906.56 MB)
-   SSD Data/Token (Decode)      : Avg=1090.830 MB/tok (Min=786.156 | P50=1068.594 | P95=1545.969 | Max=1545.969 MB) | Prefill=641.809 MB/tok
-   NVMe Batches / Requests      : 1386 Batches | 32453 Raw -> 31982 Merged (471 LBA Merges, Avg 2636.5 KB/io)
-   SSD I/O Size Histogram       : <64K=481 | 64K-512K=226 | 512K-2M=172 | >2M=31103
-   SSD Read Bandwidth (Active)  : Min=0.32 | Avg=456.57 | Peak=4122.14 MB/s | WallAmort=378.62 MB/s
-   OS Kernel I/O Verification   : Read=82353.18 MB | Write=0.00 MB | Syscalls=36018
-   Sync Stall vs Async DMA      : SyncStall=90310.30 ms | AsyncOverlapped=165203.24 ms (64.7% Overlapped)
-   RAM Traffic & Active BW      : 487.81 GB moved | Active=5.95 GB/s | WallAmort=2.24 GB/s
-   Stage Breakdown (Pref/Dec)   : Prefill=129.83s (59.7%, 41075.75 MB SSD) | Decode=87.66s (40.3%, 34906.56 MB SSD)
-   CPU Time & Utilization       : User=238.641s + Sys=9.750s (Wall=236.996s) | SysUtil=26.2% | ThrUtil=26.2% | 24.24 GFLOPS
+   Engine SSD Transfer Total    : 15318.39 MB (Load=4614.69 | Prefill=5963.42 | Warmup=0.00 | Decode=4740.28 MB)
+   SSD Data/Token (Decode)      : Avg=152.912 MB/tok (Min=100.286 | P50=143.666 | P95=221.962 | Max=231.544 MB) | Prefill=93.178 MB/tok
+   NVMe Batches / Requests      : 1446 Batches | 22104 Raw -> 21338 Merged (766 LBA Merges, Avg 735.1 KB/io)
+   SSD I/O Size Histogram       : <64K=1835 | 64K-512K=5284 | 512K-2M=13785 | >2M=434
+   SSD Read Bandwidth (Active)  : Min=2.33 | Avg=942.82 | Peak=9264.26 MB/s | WallAmort=383.11 MB/s
+   OS Kernel I/O Verification   : Read=15338.37 MB | Write=0.00 MB | Syscalls=30840
+   Sync Stall vs Async DMA      : SyncStall=2850.73 ms | AsyncOverlapped=5582.09 ms (66.2% Overlapped)
+   RAM Traffic & Active BW      : 392.99 GB moved | Active=11.21 GB/s | WallAmort=9.83 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=23.27s (58.2%, 5963.42 MB SSD) | Decode=16.71s (41.8%, 4740.28 MB SSD)
+   CPU Time & Utilization       : User=107.406s + Sys=8.609s (Wall=55.275s) | SysUtil=52.5% | ThrUtil=52.5% | 48.54 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM :  34067.03 ms (354864.9 us/tok | 15.66%)
-   MoE AVX2 Q8 Expert Compute   :  46864.71 ms (488174.1 us/tok | 21.55%)
-   Router + Lookahead Dispatch  :    686.70 ms ( 7153.1 us/tok |  0.32%)
-   LM Head Output Projection    :   1030.11 ms (10730.3 us/tok |  0.47%)
-   Foreground NVMe Sync Stall   :  90310.30 ms (940732.3 us/tok | 41.52%)
-   Unaccounted / OMP & Sampling :  44527.19 ms (463824.9 us/tok | 20.47%) | Total Wall=217486.03 ms
+   Dense + Attention/Linear SSM :  17615.16 ms (185422.8 us/tok | 44.05%)
+   MoE AVX2 Q8 Expert Compute   :  16245.92 ms (171009.7 us/tok | 40.63%)
+   Router + Lookahead Dispatch  :    991.14 ms (10433.0 us/tok |  2.48%)
+   LM Head Output Projection    :   1182.99 ms (12452.6 us/tok |  2.96%)
+   Foreground NVMe Sync Stall   :   2850.73 ms (30007.7 us/tok |  7.13%)
+   Unaccounted / OMP & Sampling :   1098.88 ms (11567.1 us/tok |  2.75%) | Total Wall=39984.83 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    35.63%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |    24.84%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    28.75%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     8.71%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.07%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    73.91%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     2.41%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     6.47%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    11.88%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     5.33%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -2175,188 +2113,144 @@ In a1-bit quantized 1-bit quantized 1-bitized 1-bit"
 ================================================================================
 ```
 
-### 📄 `06_glm53_stage2_512_warmup.log`
+### 📄 `06_qwen38_stage2_512_warmup.log`
 ```text
-[Apex-Init] Model Loaded: GLM 5.3 Flash | Layers=45 | Hidden=4096 | Experts=288 (Top-8) | Pinned Trunk=6460.98 MB | Expert Cache=5606.25 MB (598 slots)
+[Apex-Init] Model Loaded: Qwen3.8 Flash Next | Layers=48 | Hidden=2560 | Experts=512 (Top-10) | Pinned Trunk=4614.77 MB | Expert Cache=8421.14 MB (4058 slots)
 [Apex-Prompt] Input (512 tokens): "[512-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/512 tok | Chunk=0.83 tps | Avg=0.83 tps | Hit=90.6% | NVMe=504.3 MB/s (74277.59 MB, QD=64) | RSS=14093.6 MB
-[LIVE-PREFILL] 512/512 tok | Chunk=0.82 tps | Avg=0.83 tps | Hit=90.4% | NVMe=510.2 MB/s (145295.52 MB, QD=64) | RSS=14093.8 MB
-[LIVE-DECODE] 2/128 tok | Avg=0.22 tps | Hit=90.4% (LA:+10.6%) | NVMe=507.6 MB/s (148736.77 MB) | RSS=14007.1 MB
-[LIVE-DECODE] 4/128 tok | Avg=0.24 tps | Hit=90.3% (LA:+10.7%) | NVMe=504.7 MB/s (151480.96 MB) | RSS=13835.1 MB
-[LIVE-DECODE] 6/128 tok | Avg=0.26 tps | Hit=90.3% (LA:+10.7%) | NVMe=502.4 MB/s (153889.77 MB) | RSS=13680.2 MB
-[LIVE-DECODE] 8/128 tok | Avg=0.28 tps | Hit=90.3% (LA:+10.8%) | NVMe=501.0 MB/s (156170.65 MB) | RSS=13614.0 MB
-[LIVE-DECODE] 10/128 tok | Avg=0.29 tps | Hit=90.3% (LA:+10.8%) | NVMe=499.9 MB/s (158190.65 MB) | RSS=13562.2 MB
-[LIVE-DECODE] 12/128 tok | Avg=0.30 tps | Hit=90.2% (LA:+10.9%) | NVMe=498.7 MB/s (160325.34 MB) | RSS=13530.8 MB
-[LIVE-DECODE] 14/128 tok | Avg=0.31 tps | Hit=90.2% (LA:+10.9%) | NVMe=497.5 MB/s (162419.46 MB) | RSS=13504.6 MB
-[LIVE-DECODE] 16/128 tok | Avg=0.32 tps | Hit=90.2% (LA:+11.0%) | NVMe=496.5 MB/s (164537.59 MB) | RSS=13497.8 MB
-[LIVE-DECODE] 18/128 tok | Avg=0.33 tps | Hit=90.2% (LA:+11.0%) | NVMe=495.4 MB/s (166678.84 MB) | RSS=13497.8 MB
-[LIVE-DECODE] 20/128 tok | Avg=0.33 tps | Hit=90.1% (LA:+11.1%) | NVMe=494.5 MB/s (168777.27 MB) | RSS=13497.7 MB
-[LIVE-DECODE] 22/128 tok | Avg=0.33 tps | Hit=90.1% (LA:+11.1%) | NVMe=493.4 MB/s (171002.34 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 24/128 tok | Avg=0.34 tps | Hit=90.1% (LA:+11.2%) | NVMe=492.2 MB/s (173275.09 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 26/128 tok | Avg=0.34 tps | Hit=90.1% (LA:+11.2%) | NVMe=491.2 MB/s (175474.52 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 28/128 tok | Avg=0.34 tps | Hit=90.0% (LA:+11.3%) | NVMe=490.3 MB/s (177539.65 MB) | RSS=13497.5 MB
-[LIVE-DECODE] 30/128 tok | Avg=0.35 tps | Hit=90.0% (LA:+11.3%) | NVMe=489.7 MB/s (179410.09 MB) | RSS=13497.5 MB
-[LIVE-DECODE] 32/128 tok | Avg=0.35 tps | Hit=90.0% (LA:+11.3%) | NVMe=489.3 MB/s (181160.52 MB) | RSS=13497.5 MB
-[LIVE-DECODE] 34/128 tok | Avg=0.36 tps | Hit=90.0% (LA:+11.4%) | NVMe=488.5 MB/s (183219.27 MB) | RSS=13497.5 MB
-[LIVE-DECODE] 36/128 tok | Avg=0.36 tps | Hit=90.0% (LA:+11.4%) | NVMe=487.6 MB/s (185402.96 MB) | RSS=13497.5 MB
-[LIVE-DECODE] 38/128 tok | Avg=0.36 tps | Hit=90.0% (LA:+11.5%) | NVMe=486.7 MB/s (187619.52 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 40/128 tok | Avg=0.36 tps | Hit=89.9% (LA:+11.5%) | NVMe=486.0 MB/s (189600.34 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 42/128 tok | Avg=0.36 tps | Hit=89.9% (LA:+11.5%) | NVMe=485.2 MB/s (191721.40 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 44/128 tok | Avg=0.36 tps | Hit=89.9% (LA:+11.6%) | NVMe=484.2 MB/s (194119.34 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 46/128 tok | Avg=0.36 tps | Hit=89.9% (LA:+11.7%) | NVMe=483.3 MB/s (196408.15 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 48/128 tok | Avg=0.36 tps | Hit=89.8% (LA:+11.7%) | NVMe=482.6 MB/s (198518.71 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 50/128 tok | Avg=0.36 tps | Hit=89.8% (LA:+11.8%) | NVMe=481.8 MB/s (200712.84 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 52/128 tok | Avg=0.36 tps | Hit=89.8% (LA:+11.8%) | NVMe=481.2 MB/s (202668.52 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 54/128 tok | Avg=0.36 tps | Hit=89.8% (LA:+11.8%) | NVMe=480.8 MB/s (204536.71 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 56/128 tok | Avg=0.36 tps | Hit=89.8% (LA:+11.9%) | NVMe=479.9 MB/s (206972.52 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 58/128 tok | Avg=0.36 tps | Hit=89.7% (LA:+12.0%) | NVMe=479.2 MB/s (209217.15 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 60/128 tok | Avg=0.36 tps | Hit=89.7% (LA:+12.0%) | NVMe=478.7 MB/s (211126.15 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 62/128 tok | Avg=0.37 tps | Hit=89.7% (LA:+12.0%) | NVMe=478.1 MB/s (213078.96 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 64/128 tok | Avg=0.37 tps | Hit=89.7% (LA:+12.1%) | NVMe=477.7 MB/s (214950.02 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 66/128 tok | Avg=0.37 tps | Hit=89.7% (LA:+12.2%) | NVMe=477.1 MB/s (217120.71 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 68/128 tok | Avg=0.37 tps | Hit=89.7% (LA:+12.2%) | NVMe=476.8 MB/s (219203.59 MB) | RSS=13507.0 MB
-[LIVE-DECODE] 70/128 tok | Avg=0.37 tps | Hit=89.7% (LA:+12.2%) | NVMe=476.3 MB/s (221131.84 MB) | RSS=13507.0 MB
-[LIVE-DECODE] 72/128 tok | Avg=0.37 tps | Hit=89.6% (LA:+12.3%) | NVMe=475.8 MB/s (223088.84 MB) | RSS=13506.9 MB
-[LIVE-DECODE] 74/128 tok | Avg=0.37 tps | Hit=89.6% (LA:+12.3%) | NVMe=475.3 MB/s (225066.52 MB) | RSS=13507.0 MB
-[LIVE-DECODE] 76/128 tok | Avg=0.37 tps | Hit=89.6% (LA:+12.3%) | NVMe=474.8 MB/s (227095.21 MB) | RSS=13507.0 MB
-[LIVE-DECODE] 78/128 tok | Avg=0.37 tps | Hit=89.6% (LA:+12.4%) | NVMe=474.2 MB/s (229112.59 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 80/128 tok | Avg=0.37 tps | Hit=89.6% (LA:+12.4%) | NVMe=473.9 MB/s (230932.09 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 82/128 tok | Avg=0.38 tps | Hit=89.6% (LA:+12.4%) | NVMe=473.6 MB/s (232589.15 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 84/128 tok | Avg=0.38 tps | Hit=89.5% (LA:+12.4%) | NVMe=473.3 MB/s (234322.84 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 86/128 tok | Avg=0.38 tps | Hit=89.5% (LA:+12.5%) | NVMe=473.0 MB/s (236051.15 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 88/128 tok | Avg=0.38 tps | Hit=89.5% (LA:+12.5%) | NVMe=472.6 MB/s (237968.84 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 90/128 tok | Avg=0.38 tps | Hit=89.5% (LA:+12.5%) | NVMe=472.2 MB/s (239879.02 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 92/128 tok | Avg=0.38 tps | Hit=89.5% (LA:+12.5%) | NVMe=472.0 MB/s (241875.09 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 94/128 tok | Avg=0.38 tps | Hit=89.5% (LA:+12.6%) | NVMe=471.6 MB/s (243864.34 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 96/128 tok | Avg=0.38 tps | Hit=89.4% (LA:+12.6%) | NVMe=471.3 MB/s (245669.15 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 98/128 tok | Avg=0.39 tps | Hit=89.4% (LA:+12.6%) | NVMe=470.9 MB/s (247630.59 MB) | RSS=13497.6 MB
-[LIVE-DECODE] 100/128 tok | Avg=0.39 tps | Hit=89.4% (LA:+12.6%) | NVMe=470.7 MB/s (249443.46 MB) | RSS=13491.6 MB
-[LIVE-DECODE] 102/128 tok | Avg=0.39 tps | Hit=89.4% (LA:+12.7%) | NVMe=470.3 MB/s (251289.21 MB) | RSS=13478.8 MB
-[LIVE-DECODE] 104/128 tok | Avg=0.39 tps | Hit=89.4% (LA:+12.7%) | NVMe=469.9 MB/s (253249.52 MB) | RSS=13478.8 MB
-[LIVE-DECODE] 106/128 tok | Avg=0.39 tps | Hit=89.4% (LA:+12.7%) | NVMe=469.7 MB/s (255233.15 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 108/128 tok | Avg=0.39 tps | Hit=89.3% (LA:+12.8%) | NVMe=469.3 MB/s (257254.21 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 110/128 tok | Avg=0.39 tps | Hit=89.3% (LA:+12.8%) | NVMe=468.9 MB/s (259203.65 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 112/128 tok | Avg=0.39 tps | Hit=89.3% (LA:+12.8%) | NVMe=468.6 MB/s (261099.90 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 114/128 tok | Avg=0.39 tps | Hit=89.3% (LA:+12.9%) | NVMe=468.3 MB/s (263146.46 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 116/128 tok | Avg=0.39 tps | Hit=89.3% (LA:+12.9%) | NVMe=468.0 MB/s (264962.59 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 118/128 tok | Avg=0.39 tps | Hit=89.3% (LA:+12.9%) | NVMe=467.7 MB/s (266796.96 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 120/128 tok | Avg=0.39 tps | Hit=89.2% (LA:+12.9%) | NVMe=467.4 MB/s (268768.84 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 122/128 tok | Avg=0.39 tps | Hit=89.2% (LA:+13.0%) | NVMe=467.1 MB/s (270828.84 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 124/128 tok | Avg=0.39 tps | Hit=89.2% (LA:+13.0%) | NVMe=466.8 MB/s (272657.90 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 126/128 tok | Avg=0.39 tps | Hit=89.2% (LA:+13.0%) | NVMe=466.5 MB/s (274385.59 MB) | RSS=13488.2 MB
-[LIVE-DECODE] 128/128 tok | Avg=0.39 tps | Hit=89.2% (LA:+13.0%) | NVMe=466.4 MB/s (276203.84 MB) | RSS=13488.2 MB
+[LIVE-PREFILL] 256/512 tok | Chunk=3.25 tps | Avg=3.25 tps | Hit=95.5% | NVMe=912.9 MB/s (13596.60 MB, QD=64) | RSS=14257.9 MB
+[LIVE-PREFILL] 512/512 tok | Chunk=3.39 tps | Avg=3.32 tps | Hit=96.9% | NVMe=1027.8 MB/s (17151.58 MB, QD=64) | RSS=14255.2 MB
+[LIVE-DECODE] 8/128 tok | Avg=1.75 tps | Hit=96.9% (LA:+0.1%) | NVMe=1052.2 MB/s (18591.91 MB) | RSS=14209.3 MB
+[LIVE-DECODE] 16/128 tok | Avg=1.82 tps | Hit=97.0% (LA:+0.1%) | NVMe=1079.1 MB/s (19742.73 MB) | RSS=14179.8 MB
+[LIVE-DECODE] 24/128 tok | Avg=1.83 tps | Hit=97.0% (LA:+0.2%) | NVMe=1096.1 MB/s (20841.93 MB) | RSS=14164.8 MB
+[LIVE-DECODE] 32/128 tok | Avg=1.86 tps | Hit=97.1% (LA:+0.2%) | NVMe=1125.1 MB/s (21969.92 MB) | RSS=14163.1 MB
+[LIVE-DECODE] 40/128 tok | Avg=1.87 tps | Hit=97.1% (LA:+0.2%) | NVMe=1148.9 MB/s (23058.13 MB) | RSS=14152.8 MB
+[LIVE-DECODE] 48/128 tok | Avg=1.88 tps | Hit=97.2% (LA:+0.2%) | NVMe=1169.6 MB/s (24122.65 MB) | RSS=14154.4 MB
+[LIVE-DECODE] 56/128 tok | Avg=1.89 tps | Hit=97.2% (LA:+0.2%) | NVMe=1195.6 MB/s (25166.91 MB) | RSS=14152.4 MB
+[LIVE-DECODE] 64/128 tok | Avg=1.89 tps | Hit=97.2% (LA:+0.2%) | NVMe=1218.8 MB/s (26282.04 MB) | RSS=14152.4 MB
+[LIVE-DECODE] 72/128 tok | Avg=1.90 tps | Hit=97.3% (LA:+0.3%) | NVMe=1234.8 MB/s (27443.47 MB) | RSS=14151.1 MB
+[LIVE-DECODE] 80/128 tok | Avg=1.85 tps | Hit=97.3% (LA:+0.3%) | NVMe=1240.2 MB/s (28552.29 MB) | RSS=14149.0 MB
+[LIVE-DECODE] 88/128 tok | Avg=1.83 tps | Hit=97.3% (LA:+0.3%) | NVMe=1247.3 MB/s (29619.65 MB) | RSS=14151.1 MB
+[LIVE-DECODE] 96/128 tok | Avg=1.83 tps | Hit=97.4% (LA:+0.3%) | NVMe=1260.8 MB/s (30774.35 MB) | RSS=14150.7 MB
+[LIVE-DECODE] 104/128 tok | Avg=1.83 tps | Hit=97.4% (LA:+0.3%) | NVMe=1267.2 MB/s (31927.50 MB) | RSS=14163.5 MB
+[LIVE-DECODE] 112/128 tok | Avg=1.83 tps | Hit=97.4% (LA:+0.3%) | NVMe=1278.5 MB/s (32917.93 MB) | RSS=14151.1 MB
+[LIVE-DECODE] 120/128 tok | Avg=1.84 tps | Hit=97.5% (LA:+0.3%) | NVMe=1288.9 MB/s (34056.09 MB) | RSS=14151.1 MB
+[LIVE-DECODE] 127/128 tok | Avg=1.84 tps | Hit=97.5% (LA:+0.4%) | NVMe=1293.5 MB/s (35098.77 MB) | RSS=14156.5 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=OFF
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5606.25 MB (598/12384 exp = 4.83% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.79 MB | End=13488.16 MB | Peak=14184.51 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 8421.14 MB (4058/25088 exp = 16.18% pinned) | Staging=66.41 MB
+   Process RSS (Start/End/Peak) : Start=4.86 MB | End=14156.54 MB | Peak=14479.07 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (512 tok)   : "[512-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequenc..."
-   RESPONSE (128 tok) : " single coal LBA-sorting coalesced QED LBA-sorted QD32 NVMe read and pass and register-blocked-blocked-blocked multi-blocked multi-row Q8_K GE pass. Explain why elimination PCIe amplification derive asymptotic throughput decode throughput.</think>In high-throughput Mixt-of- (Mo) model inference with NVMe offloading achieving token generation requires overlapping Gen PCIe Gen DMA transfers AVX compute pinned attention state recurrent state trunk cache pinned RAM expert cache locked RAM horizon router co prefetching over activations directly decode prefill long context tokens inverted expert gro..."
+   RESPONSE (127 tok) : "2709
+7222221222277222202022222022202272222221222222222222222222222232232223222223332223922222222221
+27922722232331222322j222212p"
 --------------------------------------------------------------------------------
- [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 129 Steps)]
-   Logit Summary: AvgTop1Prob=48.0% | AvgMargin=1.558 | MinMargin=0.009
+ [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 128 Steps)]
+   Logit Summary: AvgTop1Prob=14.4% | AvgMargin=0.598 | MinMargin=0.006
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |    3175 |  single        |   26.48 | 100.0% |   15326 |   16.87 | 619707.82 |  0 |  0 |  0 |     0.0 |
-   |    2 |   11492 |  coal          |   24.96 | 100.0% |    1062 |   16.43 | 4516.12 | 35 |173 |128 | 1761920.0 |
-   |    3 |   39929 |  LB            |   17.75 |  78.0% |   33903 |   16.24 | 4516.12 |  0 |  0 |  0 | 1761920.0 |
-   |    4 |      32 | A              |   14.08 |  30.6% |    1911 |   13.59 | 3691.18 | 71 |173 | 92 | 1405024.0 |
-   |    5 |   46254 | -sort          |   18.02 |  42.5% |    1331 |   17.61 | 3691.18 |  0 |  0 |  0 | 1405024.0 |
-   |    6 |     287 | ing            |   14.36 |  38.6% |   11492 |   11.93 | 3182.19 |111 |152 | 73 | 1233312.0 |
-   |    7 |   11492 |  coal          |   16.09 |  54.1% |    1207 |   14.51 | 3182.19 |  0 |  0 |  0 | 1233312.0 |
-   |    8 |    3300 | esc            |   18.05 |  93.7% |     642 |   13.98 | 3006.86 |123 |138 | 75 | 1167808.0 |
-   |   56 |  154842 | </think>       |   14.32 |  56.1% |     641 |   13.02 | 3066.43 | 90 |167 | 79 | 1247136.0 |
-   |   57 |     641 | In             |   15.30 |  41.7% |     565 |   13.90 | 3066.43 |  0 |  0 |  0 | 1247136.0 |
-   |    9 |     291 | ed             |   20.63 |  75.1% |     287 |   19.27 | 3006.86 |  0 |  0 |  0 | 1167808.0 |
-   |   44 |    3170 |  why           |   17.45 |  85.5% |     419 |   13.32 | 2990.48 |114 |136 | 86 | 1227744.0 |
-   |  126 |     291 | ed             |   14.96 |  32.3% |    1207 |   14.08 | 2137.12 |190 | 85 | 61 | 884576.0 |
-   |  127 |    9421 | -block         |   17.23 |  54.2% |    7299 |   15.51 | 2137.12 |  0 |  0 |  0 | 884576.0 |
-   |  128 |    9421 | -block         |   14.61 |  29.9% |    1207 |   13.52 | 2146.75 |189 | 94 | 53 | 930944.0 |
-   |  129 |     291 | ed             |   20.50 |  98.5% |   29819 |   14.11 | 2146.75 |  0 |  0 |  0 | 930944.0 |
+   |    1 |      17 | 2              |   11.54 |   5.6% |      22 |   11.02 | 154166.66 |  0 |  0 |  0 |     0.0 |
+   |    2 |      22 | 7              |   12.22 |   9.7% |      17 |   11.35 |  627.11 |899 | 61 |  0 | 208239.0 |
+   |    3 |      15 | 0              |   12.04 |  16.2% |      18 |   11.66 |  627.11 |  0 |  0 |  0 | 208239.0 |
+   |    4 |      24 | 9              |    9.76 |   3.6% |      18 |    9.46 |  573.35 |440 | 40 |  0 | 217818.0 |
+   |    5 |     198 | \n             |   10.19 |  12.1% |      17 |    8.96 |  571.46 |466 | 14 |  0 | 150193.0 |
+   |    6 |      22 | 7              |    9.69 |   4.0% |      17 |    9.42 |  554.87 |440 | 40 |  0 | 177789.0 |
+   |    7 |      17 | 2              |    8.00 |   1.2% |      16 |    7.73 |  545.34 |444 | 36 |  0 | 193914.0 |
+   |    8 |      17 | 2              |   10.11 |   6.0% |      18 |    9.42 |  546.00 |468 | 12 |  0 | 153643.0 |
+   |   78 |      17 | 2              |   13.61 |  31.2% |      18 |   12.89 |  844.78 |478 |  2 |  0 | 122468.0 |
+   |   81 |      18 | 3              |   12.27 |  27.1% |      17 |   12.04 |  810.86 |477 |  3 |  0 | 145118.0 |
+   |   82 |      18 | 3              |   11.59 |  16.7% |      17 |   10.59 |  761.78 |474 |  6 |  0 | 139589.0 |
+   |   79 |      17 | 2              |   14.75 |  33.9% |      18 |   13.95 |  759.07 |476 |  4 |  0 | 139543.0 |
+   |  125 |      17 | 2              |    9.93 |   5.5% |      19 |    9.22 |  518.16 |477 |  3 |  0 | 141793.0 |
+   |  126 |      16 | 1              |   10.55 |  10.3% |      15 |   10.48 |  523.64 |474 |  6 |  0 | 122743.0 |
+   |  127 |      17 | 2              |   11.23 |   8.7% |      15 |   11.04 |  534.34 |467 | 13 |  0 | 143139.0 |
+   |  128 |      79 | p              |    8.80 |   1.3% |      18 |    8.34 |  609.13 |473 |  7 |  0 | 151293.0 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (512 tok, 619.708s, TTFT=619707.82ms): Avg=0.83 | Min=0.82 | Max=0.83 tps
-   Prefill Chunks (2): C1:256t/0.8tps/91% | C2:256t/0.8tps/90%
-   Decode  (128 tok, 324.324s): Avg=0.39 | Min=0.22 | Max=0.49 tps
-   Latency (ms) : Min=2042.43 | P10=2156.46 | P25=2314.79 | P50=2471.21 | P75=2683.51 | P90=2840.40 | P95=3066.43 | P99=4516.12 | Max=4516.12
-   Mean/SD/Jitt : Mean=2533.78ms | StdDev=380.77ms | Jitter=91.10ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/128
-   MTP Head     : 64/64 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
+   Prefill (512 tok, 154.167s, TTFT=154166.66ms): Avg=3.32 | Min=3.25 | Max=3.39 tps
+   Prefill Chunks (2): C1:256t/3.3tps/96% | C2:256t/3.4tps/97%
+   Decode  (127 tok, 69.085s): Avg=1.84 | Min=1.18 | Max=2.03 tps
+   Latency (ms) : Min=493.14 | P10=511.09 | P25=516.10 | P50=525.20 | P75=540.58 | P90=602.04 | P95=696.99 | P99=810.86 | Max=844.78
+   Mean/SD/Jitt : Mean=543.97ms | StdDev=58.91ms | Jitter=22.45ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/127
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (193536): RawRAM=147361 (76.14%) | Lookahead=25256 (+13.05%) | ColdMiss=20919 (10.81%) | EFF HIT=89.19%
-   Lookahead    : 15757 prefetched -> 9727 consumed (61.7% util) | Warmup >=75%:1t, >=85%:1t
-   Trajectory   : @16= 90.2% | @64= 89.7% | @128= 89.2% | @256=  N/A | @512=  N/A
+   Activations (306720): RawRAM=297949 (97.14%) | Lookahead=1117 (+0.36%) | ColdMiss=7654 (2.50%) | EFF HIT=97.50%
+   Lookahead    : 10918 prefetched -> 1127 consumed (10.3% util) | Warmup >=75%:1t, >=85%:1t
+   Trajectory   : @16= 97.0% | @64= 97.2% | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 | 4608 | 3154 | 741 | 713 | 84.5%|9228.75 | | L24 | 4608 | 3590 | 559 | 459 | 90.0%|5426.56 |
-   | L04 | 4608 | 3238 | 676 | 694 | 84.9%|8826.25 | | L25 | 4608 | 3654 | 484 | 470 | 89.8%|6087.81 |
-   | L05 | 4608 | 3184 | 797 | 627 | 86.4%|8244.06 | | L26 | 4608 | 3657 | 509 | 442 | 90.4%|5455.31 |
-   | L06 | 4608 | 3253 | 787 | 568 | 87.7%|7755.31 | | L27 | 4608 | 3534 | 530 | 544 | 88.2%|7086.88 |
-   | L07 | 4608 | 3369 | 755 | 484 | 89.5%|6504.69 | | L28 | 4608 | 3516 | 589 | 503 | 89.1%|6130.94 |
-   | L08 | 4608 | 3455 | 629 | 524 | 88.6%|6907.19 | | L29 | 4608 | 3425 | 704 | 479 | 89.6%|6066.25 |
-   | L09 | 4608 | 3308 | 724 | 576 | 87.5%|7065.31 | | L30 | 4608 | 3519 | 610 | 479 | 89.6%|5750.00 |
-   | L10 | 4608 | 3264 | 757 | 587 | 87.3%|7424.69 | | L31 | 4608 | 3371 | 644 | 593 | 87.1%|7288.12 |
-   | L11 | 4608 | 3486 | 596 | 526 | 88.6%|8568.75 | | L32 | 4608 | 3289 | 759 | 560 | 87.8%|6792.19 |
-   | L12 | 4608 | 3449 | 665 | 494 | 89.3%|7152.25 | | L33 | 4608 | 3375 | 736 | 497 | 89.2%|6619.69 |
-   | L13 | 4608 | 3596 | 543 | 469 | 89.8%|5764.38 | | L34 | 4608 | 3661 | 507 | 440 | 90.5%|5742.81 |
-   | L14 | 4608 | 3625 | 487 | 496 | 89.2%|6210.00 | | L35 | 4608 | 3465 | 668 | 475 | 89.7%|6066.25 |
-   | L15 | 4608 | 3618 | 500 | 490 | 89.4%|6008.75 | | L36 | 4608 | 3313 | 830 | 465 | 89.9%|6145.31 |
-   | L16 | 4608 | 3638 | 498 | 472 | 89.8%|5994.38 | | L37 | 4608 | 3609 | 534 | 465 | 89.9%|5750.00 |
-   | L17 | 4608 | 3739 | 394 | 475 | 89.7%|5771.56 | | L38 | 4608 | 3601 | 539 | 468 | 89.8%|5972.81 |
-   | L18 | 4608 | 3814 | 345 | 449 | 90.3%|5498.44 | | L39 | 4608 | 3586 | 538 | 484 | 89.5%|5764.38 |
-   | L19 | 4608 | 3742 | 455 | 411 | 91.1%|5124.69 | | L40 | 4608 | 3623 | 525 | 460 | 90.0%|5656.56 |
-   | L20 | 4608 | 3636 | 535 | 437 | 90.5%|5354.69 | | L41 | 4608 | 3518 | 623 | 467 | 89.9%|6087.81 |
-   | L21 | 4608 | 3727 | 438 | 443 | 90.4%|5383.44 | | L42 | 4608 | 3387 | 766 | 455 | 90.1%|5469.69 |
-   | L22 | 4608 | 3689 | 496 | 423 | 90.8%|5232.50 | | L43 | 4608 | 3575 | 614 | 419 | 90.9%|5354.69 |
-   | L23 | 4608 | 3589 | 585 | 434 | 90.6%|5282.81 | | L44 | 4608 | 3520 | 585 | 503 | 89.1%|7696.62 |
+   | L00 | 6390 | 5769 |  86 | 535 | 91.6%|1046.12 | | L24 | 6390 | 6294 |   3 |  93 | 98.5%| 250.02 |
+   | L01 | 6390 | 6167 |  42 | 181 | 97.2%|1451.81 | | L25 | 6390 | 6293 |  10 |  87 | 98.6%| 257.54 |
+   | L02 | 6390 | 6154 |  15 | 221 | 96.5%|1821.02 | | L26 | 6390 | 6199 |  26 | 165 | 97.4%| 511.33 |
+   | L03 | 6390 | 6315 |   2 |  73 | 98.9%|2372.41 | | L27 | 6390 | 6272 |  14 | 104 | 98.4%| 485.01 |
+   | L04 | 6390 | 6288 |   2 | 100 | 98.4%| 722.17 | | L28 | 6390 | 6161 |  32 | 197 | 96.9%| 618.48 |
+   | L05 | 6390 | 6252 |  12 | 126 | 98.0%|1107.25 | | L29 | 6390 | 6200 |  31 | 159 | 97.5%| 403.32 |
+   | L06 | 6390 | 6261 |  11 | 118 | 98.2%| 661.72 | | L30 | 6390 | 6112 |  58 | 220 | 96.6%| 577.61 |
+   | L07 | 6390 | 6256 |  10 | 124 | 98.1%| 560.96 | | L31 | 6390 | 6127 |  48 | 215 | 96.6%| 518.55 |
+   | L08 | 6390 | 6320 |   3 |  67 | 99.0%| 276.42 | | L32 | 6390 | 6203 |  28 | 159 | 97.5%| 678.64 |
+   | L09 | 6390 | 6320 |   2 |  68 | 98.9%|  95.87 | | L33 | 6390 | 6171 |  39 | 180 | 97.2%| 422.05 |
+   | L10 | 6390 | 6294 |   4 |  92 | 98.6%| 141.94 | | L34 | 6390 | 6083 |  67 | 240 | 96.2%| 579.05 |
+   | L11 | 6390 | 6319 |   3 |  68 | 98.9%| 179.30 | | L35 | 6390 | 6215 |  19 | 156 | 97.6%| 373.07 |
+   | L12 | 6390 | 6283 |   3 | 104 | 98.4%| 603.44 | | L36 | 6390 | 6197 |  23 | 170 | 97.3%| 458.06 |
+   | L13 | 6390 | 6261 |  14 | 115 | 98.2%| 282.32 | | L37 | 6390 | 6206 |  26 | 158 | 97.5%| 464.33 |
+   | L14 | 6390 | 6249 |  24 | 117 | 98.2%| 501.27 | | L38 | 6390 | 6266 |   9 | 115 | 98.2%| 761.35 |
+   | L15 | 6390 | 6211 |  18 | 161 | 97.5%| 428.61 | | L39 | 6390 | 6216 |  11 | 163 | 97.4%| 701.20 |
+   | L16 | 6390 | 6207 |   8 | 175 | 97.3%| 406.05 | | L40 | 6390 | 6218 |  33 | 139 | 97.8%| 729.39 |
+   | L17 | 6390 | 6187 |  11 | 192 | 97.0%| 479.37 | | L41 | 6390 | 6224 |  16 | 150 | 97.7%| 290.97 |
+   | L18 | 6390 | 6205 |  16 | 169 | 97.4%| 406.05 | | L42 | 6390 | 6106 |  56 | 228 | 96.4%| 737.50 |
+   | L19 | 6390 | 6248 |  10 | 132 | 97.9%| 344.26 | | L43 | 6390 | 6123 |  42 | 225 | 96.5%| 617.94 |
+   | L20 | 6390 | 6138 |  15 | 237 | 96.3%| 956.45 | | L44 | 6390 | 6121 |  51 | 218 | 96.6%| 600.66 |
+   | L21 | 6390 | 6168 |  17 | 205 | 96.8%|1158.01 | | L45 | 6390 | 6065 |  93 | 232 | 96.4%| 858.50 |
+   | L22 | 6390 | 6293 |   4 |  93 | 98.5%| 434.25 | | L46 | 6390 | 6267 |  22 | 101 | 98.4%| 962.21 |
+   | L23 | 6390 | 6212 |  19 | 159 | 97.5%| 604.98 | | L47 | 6390 | 6233 |   9 | 148 | 97.7%| 494.41 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 276203.84 MB (Load=6361.84 | Prefill=138933.69 | Warmup=0.00 | Decode=130908.31 MB)
-   SSD Data/Token (Decode)      : Avg=1022.721 MB/tok (Min=828.531 | P50=998.031 | P95=1204.406 | Max=1720.625 MB) | Prefill=271.355 MB/tok
-   NVMe Batches / Requests      : 5639 Batches | 112046 Raw -> 110485 Merged (1561 LBA Merges, Avg 2559.9 KB/io)
-   SSD I/O Size Histogram       : <64K=481 | 64K-512K=226 | 512K-2M=172 | >2M=109606
-   SSD Read Bandwidth (Active)  : Min=0.46 | Avg=466.38 | Peak=4145.40 MB/s | WallAmort=292.58 MB/s
-   OS Kernel I/O Verification   : Read=276212.87 MB | Write=0.01 MB | Syscalls=114570
-   Sync Stall vs Async DMA      : SyncStall=300755.51 ms | AsyncOverlapped=577350.17 ms (65.7% Overlapped)
-   RAM Traffic & Active BW      : 2783.29 GB moved | Active=5.72 GB/s | WallAmort=2.95 GB/s
-   Stage Breakdown (Pref/Dec)   : Prefill=619.71s (65.6%, 138933.69 MB SSD) | Decode=324.32s (34.4%, 130908.31 MB SSD)
-   CPU Time & Utilization       : User=1623.750s + Sys=28.141s (Wall=963.487s) | SysUtil=42.9% | ThrUtil=42.9% | 39.65 GFLOPS
+   Engine SSD Transfer Total    : 35098.77 MB (Load=4614.69 | Prefill=12536.88 | Warmup=0.00 | Decode=17947.19 MB)
+   SSD Data/Token (Decode)      : Avg=141.316 MB/tok (Min=99.188 | P50=138.222 | P95=175.014 | Max=212.713 MB) | Prefill=24.486 MB/tok
+   NVMe Batches / Requests      : 5059 Batches | 67048 Raw -> 65368 Merged (1680 LBA Merges, Avg 549.8 KB/io)
+   SSD I/O Size Histogram       : <64K=10481 | 64K-512K=15396 | 512K-2M=39049 | >2M=442
+   SSD Read Bandwidth (Active)  : Min=1.21 | Avg=1293.51 | Peak=9657.59 MB/s | WallAmort=157.22 MB/s
+   OS Kernel I/O Verification   : Read=35114.32 MB | Write=0.00 MB | Syscalls=74883
+   Sync Stall vs Async DMA      : SyncStall=5450.29 ms | AsyncOverlapped=16336.65 ms (75.0% Overlapped)
+   RAM Traffic & Active BW      : 2226.07 GB moved | Active=10.69 GB/s | WallAmort=9.97 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=154.17s (69.1%, 12536.88 MB SSD) | Decode=69.08s (30.9%, 17947.19 MB SSD)
+   CPU Time & Utilization       : User=696.781s + Sys=28.797s (Wall=239.205s) | SysUtil=75.8% | ThrUtil=75.8% | 70.14 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM : 213954.51 ms (334303.9 us/tok | 22.66%)
-   MoE AVX2 Q8 Expert Compute   : 268963.97 ms (420256.2 us/tok | 28.49%)
-   Router + Lookahead Dispatch  :   4316.26 ms ( 6744.2 us/tok |  0.46%)
-   LM Head Output Projection    :   3388.67 ms ( 5294.8 us/tok |  0.36%)
-   Foreground NVMe Sync Stall   : 300755.51 ms (469930.5 us/tok | 31.86%)
-   Unaccounted / OMP & Sampling : 152652.84 ms (238520.1 us/tok | 16.17%) | Total Wall=944031.75 ms
+   Dense + Attention/Linear SSM : 104440.44 ms (163443.6 us/tok | 46.78%)
+   MoE AVX2 Q8 Expert Compute   :  98796.51 ms (154611.1 us/tok | 44.25%)
+   Router + Lookahead Dispatch  :   5846.60 ms ( 9149.6 us/tok |  2.62%)
+   LM Head Output Projection    :   4964.00 ms ( 7768.4 us/tok |  2.22%)
+   Foreground NVMe Sync Stall   :   5450.29 ms ( 8529.4 us/tok |  2.44%)
+   Unaccounted / OMP & Sampling :   3753.50 ms ( 5874.0 us/tok |  1.68%) | Total Wall=223251.35 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    54.88%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |    17.50%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    16.55%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |     9.01%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     2.06%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    76.48%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     1.53%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     2.17%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    13.88%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     5.94%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -2364,172 +2258,152 @@ In a1-bit quantized 1-bit quantized 1-bitized 1-bit"
 ================================================================================
 ```
 
-### 📄 `07_glm53_stage3_openai_stress.log`
+### 📄 `07_qwen38_stage3_openai_stress.log`
 ```text
-[Stage 3] /v1/models: {"object": "list", "data": [{"id": "glm-5.3-flash-ud-iq2_xxs", "object": "model", "created": 1770000000, "owned_by": "apex-inference-v1", "architecture": "glm5-next (GLM-5.3-Flash)"}]}
-[Stage 3] /v1/chat/completions (stream=false) 138347.3ms | usage={'prompt_tokens': 19, 'completion_tokens': 16, 'total_tokens': 35} | text='\nSummarize LBACoalesce in one sentence.\nSummarize LB'
-[Stage 3] /v1/chat/completions (stream=true SSE) 56553.2ms | chunks=3 | DONE=True
+[Stage 3] /v1/models: {"object": "list", "data": [{"id": "qwen-3.8-flash-next-ud-iq2_xs", "object": "model", "created": 1770000000, "owned_by": "apex-inference-v1", "architecture": "qwen4exp (Qwen-3.8-Flash-Next)"}]}
+[Stage 3] /v1/chat/completions (stream=false) 17975.8ms | usage={'prompt_tokens': 18, 'completion_tokens': 16, 'total_tokens': 34} | text='\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n'
+[Stage 3] /v1/chat/completions (stream=true SSE) 6332.2ms | chunks=3 | DONE=True
 [Stage 3] Tool Call Response: finish_reason=tool_calls | fn=get_nvme_telemetry
 [Stage 3] Full OpenAI + llama.cpp API parity (/responses, /completions, /tokenize, /detokenize, /props) PASSED!
 ```
 
-### 📄 `08_glm53_stage4_2048_mtp_ab.log`
+### 📄 `08_qwen38_stage4_2048_mtp_ab.log`
 ```text
-[Apex-Init] Model Loaded: GLM 5.3 Flash | Layers=45 | Hidden=4096 | Experts=288 (Top-8) | Pinned Trunk=6460.98 MB | Expert Cache=5437.50 MB (580 slots)
+[Apex-Init] Model Loaded: Qwen3.8 Flash Next | Layers=48 | Hidden=2560 | Experts=512 (Top-10) | Pinned Trunk=4614.77 MB | Expert Cache=7458.25 MB (3594 slots)
 [Apex-Prompt] Input (2048 tokens): "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequency-aware expert cache in locked system RAM with dual-horizon router lookahead and empirical Markov co-activation prefetching, over 80% of expert activations are served directly from RAM without stalling the CPU execution pipeline. During prefill of long 2048-token contexts, layer-wise inverted expert routing tables group all tokens routed to each unique expert into a single coalesced LBA-sorted QD32 NVMe read and register-blocked multi-row AVX2 Q8_K GEMM pass. Explain why this architecture eliminates PCIe read amplification and derive the asymptotic decode throughput."
-[LIVE-PREFILL] 256/2048 tok | Chunk=0.84 tps | Avg=0.84 tps | Hit=90.6% | NVMe=505.1 MB/s (74277.59 MB, QD=64) | RSS=13925.4 MB
-[LIVE-PREFILL] 512/2048 tok | Chunk=0.82 tps | Avg=0.83 tps | Hit=90.4% | NVMe=511.1 MB/s (145295.52 MB, QD=64) | RSS=13924.9 MB
-[LIVE-PREFILL] 768/2048 tok | Chunk=0.82 tps | Avg=0.83 tps | Hit=90.4% | NVMe=513.1 MB/s (214799.34 MB, QD=64) | RSS=13925.0 MB
-[LIVE-PREFILL] 1024/2048 tok | Chunk=0.76 tps | Avg=0.81 tps | Hit=90.4% | NVMe=514.8 MB/s (283922.65 MB, QD=64) | RSS=13925.0 MB
-[LIVE-PREFILL] 1280/2048 tok | Chunk=0.82 tps | Avg=0.81 tps | Hit=90.5% | NVMe=516.4 MB/s (352711.65 MB, QD=64) | RSS=13925.0 MB
-[LIVE-PREFILL] 1536/2048 tok | Chunk=0.81 tps | Avg=0.81 tps | Hit=90.5% | NVMe=518.1 MB/s (420869.27 MB, QD=64) | RSS=13925.0 MB
-[LIVE-PREFILL] 1792/2048 tok | Chunk=0.81 tps | Avg=0.81 tps | Hit=90.5% | NVMe=518.5 MB/s (488245.34 MB, QD=64) | RSS=13925.0 MB
-[LIVE-PREFILL] 2048/2048 tok | Chunk=0.82 tps | Avg=0.81 tps | Hit=90.6% | NVMe=519.5 MB/s (554073.90 MB, QD=64) | RSS=13925.7 MB
-[LIVE-DECODE] 2/64 tok | Avg=0.33 tps | Hit=90.6% (LA:+10.0%) | NVMe=519.0 MB/s (556515.84 MB) | RSS=13927.3 MB
-[LIVE-DECODE] 4/64 tok | Avg=0.28 tps | Hit=90.6% (LA:+10.1%) | NVMe=518.1 MB/s (559451.09 MB) | RSS=13724.1 MB
-[LIVE-DECODE] 6/64 tok | Avg=0.29 tps | Hit=90.5% (LA:+10.1%) | NVMe=517.5 MB/s (561876.02 MB) | RSS=13611.9 MB
-[LIVE-DECODE] 8/64 tok | Avg=0.30 tps | Hit=90.5% (LA:+10.1%) | NVMe=516.8 MB/s (564281.71 MB) | RSS=13528.3 MB
-[LIVE-DECODE] 10/64 tok | Avg=0.31 tps | Hit=90.5% (LA:+10.1%) | NVMe=516.3 MB/s (566481.52 MB) | RSS=13457.6 MB
-[LIVE-DECODE] 12/64 tok | Avg=0.31 tps | Hit=90.5% (LA:+10.1%) | NVMe=515.8 MB/s (568721.90 MB) | RSS=13407.2 MB
-[LIVE-DECODE] 14/64 tok | Avg=0.32 tps | Hit=90.5% (LA:+10.1%) | NVMe=515.3 MB/s (570885.27 MB) | RSS=13371.5 MB
-[LIVE-DECODE] 16/64 tok | Avg=0.32 tps | Hit=90.5% (LA:+10.1%) | NVMe=514.9 MB/s (573146.27 MB) | RSS=13348.4 MB
-[LIVE-DECODE] 18/64 tok | Avg=0.33 tps | Hit=90.5% (LA:+10.2%) | NVMe=514.5 MB/s (575463.46 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 20/64 tok | Avg=0.33 tps | Hit=90.5% (LA:+10.2%) | NVMe=514.1 MB/s (577730.59 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 22/64 tok | Avg=0.34 tps | Hit=90.5% (LA:+10.2%) | NVMe=513.8 MB/s (579842.52 MB) | RSS=13339.0 MB
-[LIVE-DECODE] 24/64 tok | Avg=0.34 tps | Hit=90.5% (LA:+10.2%) | NVMe=513.4 MB/s (582107.34 MB) | RSS=13339.0 MB
-[LIVE-DECODE] 26/64 tok | Avg=0.34 tps | Hit=90.5% (LA:+10.2%) | NVMe=512.9 MB/s (584416.27 MB) | RSS=13339.0 MB
-[LIVE-DECODE] 28/64 tok | Avg=0.34 tps | Hit=90.5% (LA:+10.2%) | NVMe=512.6 MB/s (586716.15 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 30/64 tok | Avg=0.34 tps | Hit=90.5% (LA:+10.2%) | NVMe=512.2 MB/s (588846.90 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 32/64 tok | Avg=0.35 tps | Hit=90.5% (LA:+10.2%) | NVMe=511.8 MB/s (590979.15 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 34/64 tok | Avg=0.35 tps | Hit=90.5% (LA:+10.3%) | NVMe=511.5 MB/s (592939.77 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 36/64 tok | Avg=0.35 tps | Hit=90.5% (LA:+10.3%) | NVMe=511.2 MB/s (595126.65 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 38/64 tok | Avg=0.35 tps | Hit=90.5% (LA:+10.3%) | NVMe=510.9 MB/s (597077.15 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 40/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.3%) | NVMe=510.6 MB/s (599033.21 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 42/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.3%) | NVMe=510.3 MB/s (601050.59 MB) | RSS=13323.8 MB
-[LIVE-DECODE] 44/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.3%) | NVMe=510.1 MB/s (602953.52 MB) | RSS=13329.6 MB
-[LIVE-DECODE] 46/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.3%) | NVMe=509.8 MB/s (604945.96 MB) | RSS=13329.5 MB
-[LIVE-DECODE] 48/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.3%) | NVMe=509.4 MB/s (607197.40 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 50/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.3%) | NVMe=509.2 MB/s (609246.02 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 52/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.4%) | NVMe=508.8 MB/s (611688.52 MB) | RSS=13339.0 MB
-[LIVE-DECODE] 54/64 tok | Avg=0.36 tps | Hit=90.4% (LA:+10.4%) | NVMe=508.5 MB/s (613804.15 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 56/64 tok | Avg=0.37 tps | Hit=90.4% (LA:+10.4%) | NVMe=508.2 MB/s (615731.02 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 58/64 tok | Avg=0.37 tps | Hit=90.4% (LA:+10.4%) | NVMe=507.9 MB/s (617751.59 MB) | RSS=13338.9 MB
-[LIVE-DECODE] 60/64 tok | Avg=0.37 tps | Hit=90.4% (LA:+10.4%) | NVMe=507.6 MB/s (619804.09 MB) | RSS=13326.1 MB
-[LIVE-DECODE] 62/64 tok | Avg=0.37 tps | Hit=90.4% (LA:+10.4%) | NVMe=507.3 MB/s (621916.21 MB) | RSS=13326.1 MB
-[LIVE-DECODE] 64/64 tok | Avg=0.37 tps | Hit=90.4% (LA:+10.4%) | NVMe=507.0 MB/s (623873.90 MB) | RSS=13326.1 MB
+[LIVE-PREFILL] 256/2048 tok | Chunk=3.32 tps | Avg=3.32 tps | Hit=95.4% | NVMe=969.1 MB/s (13785.34 MB, QD=64) | RSS=13296.5 MB
+[LIVE-PREFILL] 512/2048 tok | Chunk=3.40 tps | Avg=3.36 tps | Hit=96.6% | NVMe=1123.3 MB/s (18190.57 MB, QD=64) | RSS=13296.5 MB
+[LIVE-PREFILL] 768/2048 tok | Chunk=3.38 tps | Avg=3.36 tps | Hit=97.1% | NVMe=1240.6 MB/s (22243.29 MB, QD=64) | RSS=13296.6 MB
+[LIVE-PREFILL] 1024/2048 tok | Chunk=3.35 tps | Avg=3.36 tps | Hit=97.3% | NVMe=1336.4 MB/s (26270.16 MB, QD=64) | RSS=13297.0 MB
+[LIVE-PREFILL] 1280/2048 tok | Chunk=3.33 tps | Avg=3.36 tps | Hit=97.5% | NVMe=1419.1 MB/s (30169.43 MB, QD=64) | RSS=13296.6 MB
+[LIVE-PREFILL] 1536/2048 tok | Chunk=3.31 tps | Avg=3.35 tps | Hit=97.6% | NVMe=1493.1 MB/s (34071.32 MB, QD=64) | RSS=13297.0 MB
+[LIVE-PREFILL] 1792/2048 tok | Chunk=3.29 tps | Avg=3.34 tps | Hit=97.6% | NVMe=1554.0 MB/s (37985.28 MB, QD=64) | RSS=13296.7 MB
+[LIVE-PREFILL] 2048/2048 tok | Chunk=3.26 tps | Avg=3.33 tps | Hit=97.7% | NVMe=1603.3 MB/s (41748.61 MB, QD=64) | RSS=13297.9 MB
+[LIVE-DECODE] 8/64 tok | Avg=1.65 tps | Hit=97.7% (LA:+0.0%) | NVMe=1603.4 MB/s (43411.55 MB) | RSS=13304.9 MB
+[LIVE-DECODE] 16/64 tok | Avg=1.70 tps | Hit=97.7% (LA:+0.0%) | NVMe=1606.9 MB/s (44820.37 MB) | RSS=13304.9 MB
+[LIVE-DECODE] 24/64 tok | Avg=1.73 tps | Hit=97.7% (LA:+0.1%) | NVMe=1612.4 MB/s (46139.48 MB) | RSS=13302.8 MB
+[LIVE-DECODE] 32/64 tok | Avg=1.74 tps | Hit=97.7% (LA:+0.1%) | NVMe=1617.0 MB/s (47382.70 MB) | RSS=13302.6 MB
+[LIVE-DECODE] 40/64 tok | Avg=1.75 tps | Hit=97.7% (LA:+0.1%) | NVMe=1621.2 MB/s (48669.10 MB) | RSS=13295.1 MB
+[LIVE-DECODE] 48/64 tok | Avg=1.75 tps | Hit=97.7% (LA:+0.1%) | NVMe=1628.1 MB/s (49922.31 MB) | RSS=13281.8 MB
+[LIVE-DECODE] 56/64 tok | Avg=1.76 tps | Hit=97.8% (LA:+0.1%) | NVMe=1631.1 MB/s (51276.47 MB) | RSS=13267.9 MB
+[LIVE-DECODE] 63/64 tok | Avg=1.76 tps | Hit=97.8% (LA:+0.1%) | NVMe=1632.6 MB/s (52637.35 MB) | RSS=13262.1 MB
 
 ================================================================================
    APEX INFERENCE v1 — COMPACT HIGH-DENSITY 10-SECTION TELEMETRY REPORT
 ================================================================================
  [1. Model, Shards, Quantization & Execution Topology]
-   Model / Arch / Quant         : GLM 5.3 Flash | glm5-next (GLM-5.3-Flash) | Unsloth UD-IQ2_XXS
-   Dimensions / Kernel Path     : 45L, H=4096, V=154880 | AVX2+FMA+F16C Q8_K=ACTIVE
-   MoE & Engine Topology        : 288 Exp/Lyr (Top-8, 12384 Total) | 4 Threads | QD=64 | Shards=4 | MTP=ON
+   Model / Arch / Quant         : Qwen3.8 Flash Next | qwen4exp (Qwen-3.8-Flash-Next) | Unsloth UD-IQ2_XS
+   Dimensions / Kernel Path     : 48L, H=2560, V=248320 | AVX2+FMA+F16C Q8_K=ACTIVE
+   MoE & Engine Topology        : 512 Exp/Lyr (Top-10, 25088 Total) | 4 Threads | QD=64 | Shards=4 | MTP=OFF
 --------------------------------------------------------------------------------
  [2. Memory Pinning, Window-LRFU Cache, Staging Ring & KV/Recurrent State]
-   GGUF Total / SSD Pool        : 94.85 GB GGUF | 88.63 GB Routed Experts on NVMe
-   Pinned Dense / KV+State RAM  : Dense=6460.98 MB | KV/State=753.25 MB (33792 B/tok)
-   LRFU Cache / Staging Ring    : 5437.50 MB (580/12384 exp = 4.68% pinned) | Staging=600.00 MB
-   Process RSS (Start/End/Peak) : Start=4.77 MB | End=13326.07 MB | Peak=14016.58 MB
+   GGUF Total / SSD Pool        : 73.22 GB GGUF | 68.69 GB Routed Experts on NVMe
+   Pinned Dense / KV+State RAM  : Dense=4614.77 MB | KV/State=1035.09 MB (55296 B/tok)
+   LRFU Cache / Staging Ring    : 7458.25 MB (3594/25088 exp = 14.33% pinned) | Staging=66.41 MB
+   Process RSS (Start/End/Peak) : Start=4.75 MB | End=13262.09 MB | Peak=13533.90 MB
 --------------------------------------------------------------------------------
  [3. Input Prompt & Model Response Transcript]
    PROMPT (2048 tok)   : "[2048-Token Technical Systems Prompt] In high-throughput Mixture-of-Experts (MoE) language model inference with NVMe SSD weight offloading, achieving low-latency token generation requires overlapping PCIe Gen3/Gen4 DMA transfers with AVX2+FMA matrix-vector compute on pinned dense attention and recurrent linear state trunks. By combining a Window-LRFU frequen..."
-   RESPONSE (64 tok) : " high-throughput Mixtures of Mixtures-of-Expert (MoE) language inference with NVMe offloading achieving low-lat token generation requires overlapping Genie DMAand compute DMA transfers AVX compute attention dense recurrent attention recurrent state trunking Window cachehoriz dual lookahead coactivation preching% of activations direct RAM without CPU execution"
+   RESPONSE (63 tok) : "
+221221121221
+2223722212221722120722212222272227121222272777d77a"
 --------------------------------------------------------------------------------
- [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 65 Steps)]
-   Logit Summary: AvgTop1Prob=43.9% | AvgMargin=1.572 | MinMargin=0.007
+ [4. Decode Token Trace (First 8 + Top-4 Slowest Outliers + Last 4 of 64 Steps)]
+   Logit Summary: AvgTop1Prob=11.7% | AvgMargin=0.454 | MinMargin=0.008
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
    | Step | Tok ID  | Piece          | Top1Lgt | Prob%  | Top2 ID | Top2Lgt | Lat(ms) |Raw | LA |Miss| SSD(KB) |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
-   |    1 |    1550 |  high          |   25.48 | 100.0% |     279 |   13.45 | 2525827.05 |  0 |  0 |  0 |     0.0 |
-   |    2 |   42503 | -through       |   27.04 | 100.0% |   63308 |   16.24 | 3074.62 |130 |110 | 96 | 1250272.0 |
-   |    3 |     628 | put            |   23.73 |  99.6% |   19183 |   17.58 | 3074.62 |  0 |  0 |  0 | 1250272.0 |
-   |    4 |   19183 |  Mix           |   17.39 |  84.5% |   19705 |   14.33 | 4061.76 | 39 |215 | 82 | 1502848.0 |
-   |    5 |   18482 | tures          |   16.37 |  54.3% |      68 |   15.04 | 4061.76 |  0 |  0 |  0 | 1502848.0 |
-   |    6 |     315 |  of            |   13.92 |  18.4% |    8667 |   13.83 | 3143.48 |107 |148 | 81 | 1241568.0 |
-   |    7 |   19183 |  Mix           |   18.45 |  89.7% |   57687 |   15.44 | 3143.48 |  0 |  0 |  0 | 1241568.0 |
-   |    8 |   18482 | tures          |   16.65 |  62.5% |    4974 |   14.96 | 3100.41 |119 |137 | 80 | 1231712.0 |
-   |    9 |    8667 | -of            |   17.27 |  47.5% |     315 |   17.04 | 3100.41 |  0 |  0 |  0 | 1231712.0 |
-   |   52 |   18547 |  dual          |   14.99 |  20.4% |   86025 |   14.43 | 2999.66 |106 |150 | 80 | 1250560.0 |
-   |   53 |   86025 |  lookahead     |   13.07 |   7.8% |    9270 |   12.69 | 2999.66 |  0 |  0 |  0 | 1250560.0 |
-   |   16 |    4128 |  language      |   16.00 |  39.8% |   81623 |   15.32 | 2906.31 |133 |135 | 68 | 1157632.0 |
-   |   62 |   21984 |  RAM           |   16.11 |  41.3% |   33742 |   15.25 | 2586.77 |142 |117 | 77 | 1081408.0 |
-   |   63 |    2041 |  without       |   15.58 |  48.8% |   28891 |   13.67 | 2586.77 |  0 |  0 |  0 | 1081408.0 |
-   |   64 |   13931 |  CPU           |   16.17 |  32.7% |   11315 |   14.94 | 2417.90 |141 |143 | 52 | 1002336.0 |
-   |   65 |   11315 |  execution     |   14.77 |  16.3% |   15289 |   14.61 | 2417.90 |  0 |  0 |  0 | 1002336.0 |
+   |    1 |     198 | \n             |    7.38 |   0.7% |      17 |    7.24 | 615230.27 |  0 |  0 |  0 |     0.0 |
+   |    2 |      17 | 2              |    8.65 |   1.9% |      22 |    8.24 |  666.44 |852 |108 |  0 | 263714.0 |
+   |    3 |      17 | 2              |   12.45 |  20.9% |      18 |   11.82 |  666.44 |  0 |  0 |  0 | 263714.0 |
+   |    4 |      16 | 1              |   10.53 |   8.3% |      17 |   10.14 |  615.14 |448 | 32 |  0 | 205068.0 |
+   |    5 |      17 | 2              |   11.00 |   7.6% |      15 |   10.61 |  590.20 |437 | 43 |  0 | 207814.0 |
+   |    6 |      17 | 2              |   10.56 |  11.0% |      16 |   10.50 |  592.28 |445 | 35 |  0 | 209668.0 |
+   |    7 |      16 | 1              |    8.55 |   2.2% |      15 |    8.11 |  580.67 |464 | 16 |  0 | 165718.0 |
+   |    8 |      16 | 1              |   10.85 |  16.6% |      17 |   10.31 |  575.24 |447 | 33 |  0 | 186664.0 |
+   |   10 |      16 | 1              |   10.43 |   9.8% |      17 |   10.35 |  612.18 |458 | 22 |  0 | 178089.0 |
+   |   15 |      17 | 2              |    9.13 |   5.3% |     198 |    8.72 |  586.01 |426 | 54 |  0 | 226664.0 |
+   |   44 |      22 | 7              |   10.66 |  11.5% |      17 |    9.77 |  585.12 |466 | 14 |  0 | 167593.0 |
+   |   60 |      22 | 7              |   13.90 |  27.1% |      18 |   13.41 |  584.93 |450 | 30 |  0 | 205764.0 |
+   |   61 |      67 | d              |   12.02 |   7.7% |      64 |   11.63 |  579.06 |448 | 32 |  0 | 221039.0 |
+   |   62 |      22 | 7              |   13.02 |  18.4% |      20 |   12.37 |  576.33 |462 | 18 |  0 | 174414.0 |
+   |   63 |      22 | 7              |   16.44 |  44.2% |      20 |   15.12 |  559.67 |463 | 17 |  0 | 173039.0 |
+   |   64 |      64 | a              |   10.35 |   4.4% |      77 |   10.10 |  573.64 |451 | 29 |  0 | 227139.0 |
    +------+---------+----------------+---------+--------+---------+---------+---------+----+----+----+---------+
 --------------------------------------------------------------------------------
  [5. Prefill & Decode Throughput (TPS), TTFT & 12-Point Latency Distribution]
-   Prefill (2048 tok, 2525.827s, TTFT=2525827.05ms): Avg=0.81 | Min=0.76 | Max=0.84 tps
-   Prefill Chunks (8): C1:256t/0.8tps/91% | C2:256t/0.8tps/90% | C3:256t/0.8tps/90% | C4:256t/0.8tps/90%
-                       C5:256t/0.8tps/90% | C6:256t/0.8tps/90% | C7:256t/0.8tps/91% | C8:256t/0.8tps/91%
-   Decode  (64 tok, 173.000s): Avg=0.37 | Min=0.25 | Max=0.43 tps
-   Latency (ms) : Min=2303.94 | P10=2364.77 | P25=2469.35 | P50=2660.03 | P75=2826.64 | P90=3074.62 | P95=3143.48 | P99=4061.76 | Max=4061.76
-   Mean/SD/Jitt : Mean=2703.13ms | StdDev=336.29ms | Jitter=110.87ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/64
-   MTP Head     : 32/32 draft tokens emitted (100.0% direct 2-tok head | Net 2.00x)
+   Prefill (2048 tok, 615.230s, TTFT=615230.27ms): Avg=3.33 | Min=3.26 | Max=3.40 tps
+   Prefill Chunks (8): C1:256t/3.3tps/95% | C2:256t/3.4tps/97% | C3:256t/3.4tps/97% | C4:256t/3.4tps/97%
+                       C5:256t/3.3tps/97% | C6:256t/3.3tps/98% | C7:256t/3.3tps/98% | C8:256t/3.3tps/98%
+   Decode  (63 tok, 35.836s): Avg=1.76 | Min=1.50 | Max=1.83 tps
+   Latency (ms) : Min=546.81 | P10=551.98 | P25=556.12 | P50=562.88 | P75=573.64 | P90=586.01 | P95=612.18 | P99=666.44 | Max=666.44
+   Mean/SD/Jitt : Mean=568.83ms | StdDev=22.40ms | Jitter=10.81ms | Hist(<25/50/100/200/>200ms): 0/0/0/0/63
 --------------------------------------------------------------------------------
  [6. Intelligent Window-LRFU Expert Cache, Warmup & Parallel Lookahead]
-   Activations (698880): RawRAM=558754 (79.95%) | Lookahead=72975 (+10.44%) | ColdMiss=67151 (9.61%) | EFF HIT=90.39%
-   Lookahead    : 17281 prefetched -> 14258 consumed (82.5% util) | Warmup >=75%:1t, >=85%:1t
-   Trajectory   : @16= 90.5% | @64= 90.4% | @128=  N/A | @256=  N/A | @512=  N/A
+   Activations (1013280): RawRAM=989335 (97.64%) | Lookahead=1245 (+0.12%) | ColdMiss=22700 (2.24%) | EFF HIT=97.76%
+   Lookahead    : 6593 prefetched -> 1255 consumed (19.0% util) | Warmup >=75%:1t, >=85%:1t
+   Trajectory   : @16= 97.7% | @64=  N/A | @128=  N/A | @256=  N/A | @512=  N/A
 --------------------------------------------------------------------------------
  [7. Complete Per-Layer MoE Expert Cache & NVMe Traffic (All Active Layers)]
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
    | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)| | Lyr |  Act |  Raw |  LA |Miss | Eff% | SSD(MB)|
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
-   | L03 |16640 |12360 |2282 |1998 | 88.0%|18723.44 | | L24 |16640 |13262 |1869 |1509 | 90.9%|13419.06 |
-   | L04 |16640 |12490 |2193 |1957 | 88.2%|18033.44 | | L25 |16640 |13525 |1616 |1499 | 91.0%|13735.31 |
-   | L05 |16640 |12598 |2103 |1939 | 88.3%|17882.50 | | L26 |16640 |13417 |1703 |1520 | 90.9%|13605.94 |
-   | L06 |16640 |12668 |2071 |1901 | 88.6%|17710.00 | | L27 |16640 |13394 |1640 |1606 | 90.3%|14633.75 |
-   | L07 |16640 |12979 |1926 |1735 | 89.6%|15755.00 | | L28 |16640 |13263 |1772 |1605 | 90.4%|14439.69 |
-   | L08 |16640 |13223 |1627 |1790 | 89.2%|16143.12 | | L29 |16640 |13165 |1969 |1506 | 90.9%|13685.00 |
-   | L09 |16640 |12982 |1874 |1784 | 89.3%|16121.56 | | L30 |16640 |13053 |1994 |1593 | 90.4%|14224.06 |
-   | L10 |16640 |12738 |2046 |1856 | 88.8%|16905.00 | | L31 |16640 |13512 |1518 |1610 | 90.3%|14583.44 |
-   | L11 |16640 |13148 |1915 |1577 | 90.5%|19031.25 | | L32 |16640 |13026 |1988 |1626 | 90.2%|14727.19 |
-   | L12 |16640 |13202 |1886 |1552 | 90.7%|16582.50 | | L33 |16640 |13444 |1736 |1460 | 91.2%|13591.56 |
-   | L13 |16640 |13535 |1667 |1438 | 91.4%|12908.75 | | L34 |16640 |13616 |1501 |1523 | 90.8%|13720.94 |
-   | L14 |16640 |14198 |1091 |1351 | 91.9%|12276.25 | | L35 |16640 |13671 |1391 |1578 | 90.5%|14245.62 |
-   | L15 |16640 |14341 |1049 |1250 | 92.5%|11500.00 | | L36 |16640 |13309 |1719 |1612 | 90.3%|14461.25 |
-   | L16 |16640 |13860 |1376 |1404 | 91.6%|12700.31 | | L37 |16640 |13515 |1517 |1608 | 90.3%|14195.31 |
-   | L17 |16640 |13570 |1526 |1544 | 90.7%|13792.81 | | L38 |16640 |13452 |1575 |1613 | 90.3%|14310.31 |
-   | L18 |16640 |13785 |1408 |1447 | 91.3%|13002.19 | | L39 |16640 |13182 |1777 |1681 | 89.9%|14856.56 |
-   | L19 |16640 |13542 |1609 |1489 | 91.1%|13059.69 | | L40 |16640 |13442 |1564 |1634 | 90.2%|14389.38 |
-   | L20 |16640 |13304 |1818 |1518 | 90.9%|13526.88 | | L41 |16640 |13193 |1802 |1645 | 90.1%|14763.12 |
-   | L21 |16640 |13667 |1546 |1427 | 91.4%|12880.00 | | L42 |16640 |13089 |1989 |1562 | 90.6%|13879.06 |
-   | L22 |16640 |13245 |1943 |1452 | 91.3%|13088.44 | | L43 |16640 |13288 |1817 |1535 | 90.8%|13814.38 |
-   | L23 |16640 |13377 |1738 |1525 | 90.8%|13656.25 | | L44 |16640 |13124 |1824 |1692 | 89.8%|17579.12 |
+   | L00 |21110 |19023 |  97 |1990 | 90.6%|3515.70 | | L24 |21110 |20928 |   6 | 176 | 99.2%| 396.66 |
+   | L01 |21110 |20546 |  38 | 526 | 97.5%|1257.57 | | L25 |21110 |20927 |   7 | 176 | 99.2%| 359.06 |
+   | L02 |21110 |20501 |  14 | 595 | 97.2%|1682.89 | | L26 |21110 |20575 |  24 | 511 | 97.6%|1221.92 |
+   | L03 |21110 |21032 |   1 |  77 | 99.6%|1035.82 | | L27 |21110 |20824 |  18 | 268 | 98.7%| 635.40 |
+   | L04 |21110 |20881 |   7 | 222 | 98.9%| 774.05 | | L28 |21110 |20473 |  25 | 612 | 97.1%|1355.40 |
+   | L05 |21110 |20801 |  19 | 290 | 98.6%|1017.02 | | L29 |21110 |20643 |  21 | 446 | 97.9%| 754.79 |
+   | L06 |21110 |20817 |  30 | 263 | 98.8%| 838.43 | | L30 |21110 |20239 |  51 | 820 | 96.1%|1342.48 |
+   | L07 |21110 |20818 |  22 | 270 | 98.7%| 534.01 | | L31 |21110 |20348 |  42 | 720 | 96.6%|1209.96 |
+   | L08 |21110 |21038 |   1 |  71 | 99.7%| 155.64 | | L32 |21110 |20569 |  21 | 520 | 97.5%|1205.00 |
+   | L09 |21110 |21035 |   0 |  75 | 99.6%|  95.87 | | L33 |21110 |20444 |  39 | 627 | 97.0%|1052.95 |
+   | L10 |21110 |20935 |   4 | 171 | 99.2%| 232.84 | | L34 |21110 |20190 |  55 | 865 | 95.9%|1414.50 |
+   | L11 |21110 |21036 |   1 |  73 | 99.7%| 120.78 | | L35 |21110 |20616 |  33 | 461 | 97.8%| 815.28 |
+   | L12 |21110 |20975 |   2 | 133 | 99.4%| 443.65 | | L36 |21110 |20556 |  41 | 513 | 97.6%| 917.55 |
+   | L13 |21110 |20877 |   6 | 227 | 98.9%| 394.68 | | L37 |21110 |20512 |  24 | 574 | 97.3%|1197.49 |
+   | L14 |21110 |20779 |  44 | 287 | 98.6%| 701.49 | | L38 |21110 |20750 |  13 | 347 | 98.4%| 894.82 |
+   | L15 |21110 |20631 |  43 | 436 | 97.9%|1009.50 | | L39 |21110 |20565 |  30 | 515 | 97.6%|1255.76 |
+   | L16 |21110 |20563 |  20 | 527 | 97.5%|1099.73 | | L40 |21110 |20673 |  29 | 408 | 98.1%|1035.82 |
+   | L17 |21110 |20407 |  22 | 681 | 96.8%|1479.47 | | L41 |21110 |20656 |  15 | 439 | 97.9%| 741.82 |
+   | L18 |21110 |20456 |  37 | 617 | 97.1%|1306.52 | | L42 |21110 |20358 |  38 | 714 | 96.6%|1271.90 |
+   | L19 |21110 |20661 |  36 | 413 | 98.0%| 711.57 | | L43 |21110 |20261 |  33 | 816 | 96.1%|1424.58 |
+   | L20 |21110 |20295 |  44 | 771 | 96.3%|1426.03 | | L44 |21110 |20264 |  40 | 806 | 96.2%|1325.20 |
+   | L21 |21110 |20427 |  37 | 646 | 96.9%|1812.21 | | L45 |21110 |20321 |  54 | 735 | 96.5%|1387.13 |
+   | L22 |21110 |20907 |  10 | 193 | 99.1%| 496.29 | | L46 |21110 |20882 |  10 | 218 | 99.0%| 620.83 |
+   | L23 |21110 |20550 |  28 | 532 | 97.5%|1070.24 | | L47 |21110 |20770 |  13 | 327 | 98.5%| 789.55 |
    +-----+------+------+-----+-----+------+--------+ +-----+------+------+-----+-----+------+--------+
 --------------------------------------------------------------------------------
  [8. NVMe SSD I/O, OS Kernel Verification, RAM Traffic & CPU Utilization]
    I/O Backend                  : Windows 11 Async Overlapped IOCP + Multi-Queue NVMe DMA (QD64)
-   Engine SSD Transfer Total    : 623873.90 MB (Load=6361.84 | Prefill=547712.06 | Warmup=0.00 | Decode=69800.00 MB)
-   SSD Data/Token (Decode)      : Avg=1090.625 MB/tok (Min=951.469 | P50=1081.688 | P95=1221.250 | Max=1467.625 MB) | Prefill=267.438 MB/tok
-   NVMe Batches / Requests      : 4908 Batches | 255053 Raw -> 251075 Merged (3978 LBA Merges, Avg 2544.4 KB/io)
-   SSD I/O Size Histogram       : <64K=481 | 64K-512K=226 | 512K-2M=172 | >2M=250196
-   SSD Read Bandwidth (Active)  : Min=0.46 | Avg=506.97 | Peak=3899.26 MB/s | WallAmort=231.16 MB/s
-   OS Kernel I/O Verification   : Read=623882.93 MB | Write=0.01 MB | Syscalls=255134
-   Sync Stall vs Async DMA      : SyncStall=894619.00 ms | AsyncOverlapped=1215680.46 ms (57.6% Overlapped)
-   RAM Traffic & Active BW      : 7358.13 GB moved | Active=4.33 GB/s | WallAmort=2.73 GB/s
-   Stage Breakdown (Pref/Dec)   : Prefill=2525.83s (93.6%, 547712.06 MB SSD) | Decode=173.00s (6.4%, 69800.00 MB SSD)
-   CPU Time & Utilization       : User=5863.281s + Sys=64.938s (Wall=2717.798s) | SysUtil=54.5% | ThrUtil=54.5% | 50.44 GFLOPS
+   Engine SSD Transfer Total    : 52637.35 MB (Load=4614.69 | Prefill=37133.91 | Warmup=0.00 | Decode=10888.75 MB)
+   SSD Data/Token (Decode)      : Avg=172.837 MB/tok (Min=130.336 | P50=168.983 | P95=216.347 | Max=257.533 MB) | Prefill=18.132 MB/tok
+   NVMe Batches / Requests      : 3779 Batches | 122763 Raw -> 118378 Merged (4385 LBA Merges, Avg 455.3 KB/io)
+   SSD I/O Size Histogram       : <64K=33825 | 64K-512K=21873 | 512K-2M=62189 | >2M=491
+   SSD Read Bandwidth (Active)  : Min=0.85 | Avg=1632.62 | Peak=9620.69 MB/s | WallAmort=80.85 MB/s
+   OS Kernel I/O Verification   : Read=52657.89 MB | Write=0.00 MB | Syscalls=127891
+   Sync Stall vs Async DMA      : SyncStall=14042.00 ms | AsyncOverlapped=21540.58 ms (60.5% Overlapped)
+   RAM Traffic & Active BW      : 5635.43 GB moved | Active=9.20 GB/s | WallAmort=8.66 GB/s
+   Stage Breakdown (Pref/Dec)   : Prefill=615.23s (94.5%, 37133.91 MB SSD) | Decode=35.84s (5.5%, 10888.75 MB SSD)
+   CPU Time & Utilization       : User=2244.953s + Sys=39.500s (Wall=666.329s) | SysUtil=85.7% | ThrUtil=85.7% | 79.28 GFLOPS
 --------------------------------------------------------------------------------
  [9. Kernel Wall-Time Audit (100% of Inference Wall Time Accounted)]
-   Dense + Attention/Linear SSM : 801347.95 ms (379426.1 us/tok | 29.69%)
-   MoE AVX2 Q8 Expert Compute   : 894387.40 ms (423478.9 us/tok | 33.14%)
-   Router + Lookahead Dispatch  :  15382.17 ms ( 7283.2 us/tok |  0.57%)
-   LM Head Output Projection    :   1716.59 ms (  812.8 us/tok |  0.06%)
-   Foreground NVMe Sync Stall   : 894619.00 ms (423588.5 us/tok | 33.15%)
-   Unaccounted / OMP & Sampling :  91374.14 ms (43264.3 us/tok |  3.39%) | Total Wall=2698827.26 ms
+   Dense + Attention/Linear SSM : 300570.55 ms (142383.0 us/tok | 46.17%)
+   MoE AVX2 Q8 Expert Compute   : 309593.00 ms (146657.0 us/tok | 47.55%)
+   Router + Lookahead Dispatch  :  18604.02 ms ( 8812.9 us/tok |  2.86%)
+   LM Head Output Projection    :   2412.17 ms ( 1142.7 us/tok |  0.37%)
+   Foreground NVMe Sync Stall   :  14042.00 ms ( 6651.8 us/tok |  2.16%)
+   Unaccounted / OMP & Sampling :   5844.87 ms ( 2768.8 us/tok |  0.90%) | Total Wall=651066.61 ms
 --------------------------------------------------------------------------------
  [10. Computer Resource Speed Contribution Breakdown (Sum = 100.00%)]
    +------------------------------------------------------+------------+
    | Subsystem / Architectural Contributor                | Share (%)  |
    +------------------------------------------------------+------------+
-   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    62.05%  |
-   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |    13.23%  |
-   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |    12.76%  |
-   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    10.19%  |
-   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     1.77%  |
+   | 1. Domain Expert RAM Cache & Prefill Bulk-Warmup     |    76.54%  |
+   | 2. Parallel Async SSD Lookahead (L+1/L+2) Overlap    |     1.04%  |
+   | 3. LBA-Coalesced 128KB-1MB Sequential NVMe DMA       |     1.17%  |
+   | 4. AVX2+FMA MR=4 IQ2xQ8_K & Single-Barrier OpenMP    |    15.53%  |
+   | 5. Pinned Dense Trunk & Zero-Malloc Arena Arch       |     5.72%  |
    +------------------------------------------------------+------------+
    | TOTAL RESOURCE CONTRIBUTION                          |   100.00%  |
    +------------------------------------------------------+------------+
@@ -2537,54 +2411,58 @@ In a1-bit quantized 1-bit quantized 1-bitized 1-bit"
 ================================================================================
 ```
 
-### 📄 `09_glm53_colibri_bench.log`
+### 📄 `09_qwen38_colibri_bench.log`
 ```text
-=== [Colibri-GLM53] CMD: ./baselines/colibri/c/glm53.exe --model D:/apex_d_drive/models/glm53 --ids 1,8,15,22,29,36,43,50,57,64,71,78,85,92,99,106,113,120,127,134,141,148,155,162,169,176,183,190,197,204,211,218,225,232,239,246,253,260,267,274,281,288,295,302,309,316,323,330,337,344,351,358,365,372,379,386,393,400,407,414,421,428,435,442 --greedy 64 32 (5x cutoff=1195.0s) ===
-[gguf] D:\apex_d_drive\models\glm53\GLM-5.3-Flash-UD-IQ2_XXS-00001-of-00004.gguf: glm5-next, 4 part(s), 38435 tensors under the checkpoint's names (1283 renamed, 129 fused expert tensors split per expert, 0 kept as named), read in place
-glm53: GGUF experts interleaved by 16 rows on 3 of 42 layers (G53_ILV16=0: the file's rows)
-  [COMP-LIVE] Colibri-GLM53: elapsed=15.0s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=30.1s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=45.1s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=60.1s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=75.2s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=90.4s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=105.5s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=120.6s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=135.7s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=150.8s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=165.8s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=181.0s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=196.1s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=211.2s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=226.2s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=241.3s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=256.8s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=271.9s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=287.0s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=302.1s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=317.6s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=333.1s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=348.2s / cutoff=1195.0s
-  [COMP-LIVE] Colibri-GLM53: elapsed=363.5s / cutoff=1195.0s
-[STATS] 43008 selections across 6945 distinct experts -> D:/apex_d_drive/models/glm53/.coli_usage
-teacher_forcing 5556 335 11 15 15 22 22 22 22 36 57 22 36 64 9 154850 154850 154850 123 121 127967 127501 243 104 253 237 154842 1986 197 220 220 0 220 154827 154827 154827 154827 220 83 220 274 220 220 274 295 83 279 8 220 1 1 2776 72 83 84 365 13 220 220 220 320 83 220 220
-greedy 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330 220 330
-decode 64 token in 246.0s = 0.260 tok/s (3.8 s/token)
-experts hits 15425 miss 11249 bytes 111319384064
-=== [Colibri-GLM53] Finished rc=0 elapsed=378.15s cancelled=False ===
+=== [Colibri-Qwen38] CMD: ./baselines/colibri/c/qwen38.exe 72 2 D:/apex_d_drive/models/qwen38\ref.json (5x cutoff=285.0s) ===
+[gguf] MTP head C:\apex_c_drive\models\qwen38\mtp-Qwen3.8-Flash-Next-shared-Q8_0.gguf: 32 tensors
+[gguf] D:\apex_d_drive\models\qwen38\Qwen3.8-Flash-Next-UD-IQ2_XS-00001-of-00003.gguf: 3 file(s), 1224 tensors, read in place (native ggml types, no conversion)
+== Qwen3.8-Flash-Next native text engine | cache=72/layer | CPU ==
+[tok] loaded 248320 base pieces + 33 added tokens (max id 248319) from D:/apex_d_drive/models/qwen38/tokenizer.json
+[qwen38] native text weights: prefix=model, 48 layers, PLE=1, cache=72/layer, FP8=native, BF16=native (resident matrices 4.40 GiB)
+[qwen38] MTP head mtp.*: wiring b (a norm per stream, fc_hidden per stream), RoPE base 1e+07, 96.86 MiB resident; routed experts Q8_0 from the snapshot (its own GGUF), cache 72 (Q38_MTP_CAP) x 4.98 MiB = 0.35 GiB full
+[qwen38] MTP norm weights, mean: embedding -0.7642, hidden -0.3284, mixer 3.7881 (q38_rms0 scales by 1+w; a plain norm's weights would sit near 1)
+[qwen38] trunk: 62 matrices int8 on the CPU (0.08 GiB, 0.28 GiB of BF16 released) in 0.3s; Q38_TRUNK_CPU_INT8=0 keeps BF16
+[qwen38 MTP] draft vocabulary: the lm_head has no int8 rows on the host, so the head scores the whole vocabulary (Q38_MTP_VOCAB=0 silences this)
+[qwen38] routed experts: GGUF IQ2_XXS/IQ2_XXS/IQ4_NL (layer 0), 1.68 MiB per expert; cache 72/layer
+[qwen38] trunk: 62 int8 matrices interleaved by 16 for the CPU in 0.02s (Q38_ILV16=0 keeps the rows)
+resident weights loaded in 11.4s | RSS after load: 4.60 GB
+[qwen38] decode rows' routed experts grouped by expert, one parallel region a layer (Q38_MOE_GROUPED=0: one expert at a time)
+  [COMP-LIVE] Colibri-Qwen38: elapsed=15.0s / cutoff=285.0s
+  [COMP-LIVE] Colibri-Qwen38: elapsed=30.1s / cutoff=285.0s
+  [COMP-LIVE] Colibri-Qwen38: elapsed=45.1s / cutoff=285.0s
+TTFT: 22.32 s (time to first token)
+[qwen38 MTP] run: 2.58 tokens/forward (12 forwards per 31 tokens) | acceptance 82.6% (19/23 drafts) | wiring b | fixed depth, by position: 1 91.7% (11/12) 2 72.7% (8/11) 3 0.0% (0/0)
+[qwen38 spec gate] run: T(1) 0.0 ms, rows 2:1.50 3:2.00, rho 0.50, acceptance by position 0.50 0.50 0.50 0.50 0.50
+[qwen38 lookup] run: 2.58 tokens/forward (12 forwards per 31 tokens) | acceptance 0.0% (0/0 drafts in 0 verifies) | gate on, 0 declined, 0 probes
+
+PEAK RSS: 10.72 GB
+Expert cache hit rate: 62.0% (hit=15849 miss=9733)
+Speed: 0.74 tok/s (43.2s for 32 tokens)
+[STATS] 48560 selections across 8462 distinct experts -> D:/apex_d_drive/models/qwen38/.coli_usage
+
+Reference: 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 
+C engine : 220 248046 198 248045 74455 198 248068 198 760 1156 682 3106 1092 7701 310 381 264 7132 36412 2805 269 82987 886 314 5587 13 6558 728 22903 411 25 271 Text      :  <|im_end|>
+<|im_start|>assistant
+<think>
+The user has sent what appears to be a garbled/corrupted string of characters. Let me analyze this:
+
+
+
+Matching tokens: 0/32
+=== [Colibri-Qwen38] Finished rc=1 elapsed=57.66s cancelled=False ===
 ```
 
-### 📄 `12_glm53_competitor_comparison.log`
+### 📄 `12_qwen38_competitor_comparison.log`
 ```text
 ================================================================================
- [Stage 5 Summary] GLM53 Fair Head-to-Head Comparison vs Colibri (4T)
+ [Stage 5 Summary] QWEN38 Fair Head-to-Head Comparison vs Colibri (4T)
 ================================================================================
 | Engine / Stage | Prefill (tps) | Decode (tps) | P50 (ms) | Eff Hit% | SSD Avg (MB/s) | Peak RSS | Notes |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Apex v1 (Fair 64p/32g)** | 0.49 | 0.37 | 2697.57 | 77.60% | 456.57 | 13844.00 MB | Native GGUF + MTP ON |
-| **Apex v1 (512p/128g)** | 0.83 | 0.39 | 2471.21 | 89.19% | 466.38 | 14184.51 MB | Native GGUF + MTP ON |
-| **Apex v1 (2048p/64g)** | 0.81 | 0.37 | 2660.03 | 90.39% | 506.97 | 14016.58 MB | Native GGUF + MTP ON |
-| **JustVugg/colibri (64p/32g)** | - | 0.260 | - | 57.8% | - | - | `Q38_MTP=1` / Native |
+| **Apex v1 (Fair 64p/32g)** | 2.75 | 1.85 | 521.68 | 92.00% | 942.82 | 14033.30 MB | Native GGUF + MTP ON |
+| **Apex v1 (512p/128g)** | 3.32 | 1.84 | 525.20 | 97.50% | 1293.51 | 14479.07 MB | Native GGUF + MTP ON |
+| **Apex v1 (2048p/64g)** | 3.33 | 1.76 | 562.88 | 97.76% | 1632.62 | 13533.90 MB | Native GGUF + MTP ON |
+| **JustVugg/colibri (64p/32g)** | - | 0.74 | - | 62.0% | - | - | `Q38_MTP=1` / Native |
 ================================================================================
 ```
 
